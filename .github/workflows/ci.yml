@@ -25,6 +25,7 @@ jobs:
           deno fmt
           git status -uno --porcelain --ignore-submodules
           gitChanged=$?
+          echo $gitChanged
           if [ $gitChanged -ne 0 ]
           then
             git config user.email "propelml@gmail.com"
