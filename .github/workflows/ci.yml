@@ -19,6 +19,15 @@ jobs:
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
 
-      - name: Check formatting
-        run: deno fmt --check
-
+      - name: Format
+        run: |
+          deno fmt
+          git status -uno --porcelain --ignore-submodules
+          gitChanged=$?
+          if [ $gitChanged != 0 ]
+          then
+            git config user.email "propelml@gmail.com"
+            git config user.name "denobot"
+            git add .
+            git commit --message "Format code"
+          fi
