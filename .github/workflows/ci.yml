@@ -20,11 +20,12 @@ jobs:
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
+        shell: bash
         run: |
           deno fmt
           git status -uno --porcelain --ignore-submodules
           gitChanged=$?
-          if [ $gitChanged != 0 ]
+          if [ $gitChanged -ne 0 ]
           then
             git config user.email "propelml@gmail.com"
             git config user.name "denobot"
