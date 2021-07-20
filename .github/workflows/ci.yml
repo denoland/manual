@@ -19,11 +19,4 @@ jobs:
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
-        run: deno fmt
-
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Format code
-          commit_user_name: denobot
-          commit_user_email: propelml@gmail.com
-
+        run: deno fmt --check
