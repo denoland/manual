@@ -33,4 +33,5 @@ jobs:
             git config user.name "denobot"
             git add .
             git commit --message "Format code"
+            git push
           fi
