@@ -7,18 +7,16 @@ on:
     branches: [main]
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          submodules: false
-          persist-credentials: false
+          ref: ${{ github.head_ref }}
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
 
-      - name: Check formatting
+      - name: Format
         run: deno fmt --check
-
