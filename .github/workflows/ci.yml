@@ -24,12 +24,13 @@ jobs:
 
       - name: Format
         shell: bash
+        working-directory: docs
         run: |
-          deno fmt docs/
+          deno fmt
           if [[ $(git status -uno --porcelain --ignore-submodules | wc -c) -ne 0 ]];
           then
             git config user.email "propelml@gmail.com"
             git config user.name "denobot"
-            git add docs/
+            git add .
             git commit --message "Format code"
           fi
