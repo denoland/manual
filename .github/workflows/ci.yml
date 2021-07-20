@@ -7,33 +7,24 @@ on:
     branches: [main]
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-              ref: ${{ github.head_ref }}
-
-      - name: Clone repository
-        uses: actions/checkout@v2
-        with:
-          repository: denoland/manual
-          path: docs/
+          ref: ${{ github.head_ref }}
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
         shell: bash
-        working-directory: docs
-        run: |
-          deno fmt
-          if [[ $(git status -uno --porcelain --ignore-submodules | wc -c) -ne 0 ]];
-          then
-            git config user.email "propelml@gmail.com"
-            git config user.name "denobot"
-            git add .
-            git commit --message "Format code"
-            git push
-          fi
+        run: deno fmt
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Format code
+          commit_user_name: denobot
+          commit_user_email: propelml@gmail.com
+
