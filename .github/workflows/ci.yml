@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: denoland/manual
+          path: docs/
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
@@ -24,11 +25,11 @@ jobs:
       - name: Format
         shell: bash
         run: |
-          deno fmt
+          deno fmt docs/
           if [[ $(git status -uno --porcelain --ignore-submodules | wc -c) -ne 0 ]];
           then
             git config user.email "propelml@gmail.com"
             git config user.name "denobot"
-            git add .
+            git add docs/
             git commit --message "Format code"
           fi
