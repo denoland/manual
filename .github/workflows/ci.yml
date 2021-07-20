@@ -23,9 +23,7 @@ jobs:
         shell: bash
         run: |
           deno fmt
-          git diff --exit-code
-          gitChanged=$?
-          if [ $gitChanged -ne 0 ]
+          if [ $(git status -uno --porcelain --ignore-submodules) ]
           then
             git config user.email "propelml@gmail.com"
             git config user.name "denobot"
