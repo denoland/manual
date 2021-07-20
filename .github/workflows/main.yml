@@ -8,13 +8,13 @@ on:
 
 jobs:
   post_status_check:
-    name: Post status check
+    name: Post PR preview status
     runs-on: ubuntu-20.04
     steps:
-      - uses: LouisBrunner/checks-action@v1.1.2
+      - uses: Sibz/github-status-action@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          authToken: ${{ secrets.GITHUB_TOKEN }}
           sha: ${{ github.event.workflow_run.head_sha }}
-          name: PR Preview
-          conclusion: success
-          details_url: https://deno.land/manual@${{ github.event.workflow_run.head_sha }}
+          context: PR Preview
+          state: success
+          target_url: https://deno.land/manual@${{ github.event.workflow_run.head_sha }}
