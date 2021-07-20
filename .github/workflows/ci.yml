@@ -19,7 +19,6 @@ jobs:
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
-        shell: bash
         run: deno fmt
 
       - uses: stefanzweifel/git-auto-commit-action@v4
