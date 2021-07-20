@@ -1,6 +1,6 @@
 # Introduction
 
-> This PR aims to demo the PR preview status check.
+> This PR aims to demo the PR preview status check & deployment.
 
 Deno is a JavaScript/TypeScript runtime with secure defaults and a great
 developer experience.
