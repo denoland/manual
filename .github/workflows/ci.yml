@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           deno fmt
-          if [ $(git status -uno --porcelain --ignore-submodules) ]
+          if [[ $(git status -uno --porcelain --ignore-submodules) ]];
           then
             git config user.email "propelml@gmail.com"
             git config user.name "denobot"
