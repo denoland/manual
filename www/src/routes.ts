@@ -1,7 +1,8 @@
 import { extname, join, RouteParams, Router } from "../deps.ts";
 import { normalizeURLPath } from "./filesystem.ts";
-import { decodeMarkdown, renderMarkdown } from "./render.ts";
+import { decodeMarkdown, renderMarkdown, sanitizeText } from "./render.ts";
 import { State } from "./state.ts";
+import { TableOfContents } from "./table_of_contents.ts";
 import { normalizeVersion } from "./versions.ts";
 
 const router = new Router<RouteParams, State>();
@@ -48,18 +49,30 @@ router.get("/:version/:path*", async (ctx) => {
   // want the raw file.
   const extension = extname(path ?? "");
   if (extension === "") {
-    const sourceData = await ctx.state.fs.readAll(version, `${path}.md`);
-    if (sourceData === null) return;
+    const [sourceData, toc] = await Promise.all([
+      ctx.state.fs.readAll(version, `${path}.md`),
+      TableOfContents.fromFs(ctx.state.fs, version),
+    ]);
+    if (sourceData === null || toc === null) return;
+
+    const pageName = toc.getName(path);
+    if (pageName === null) return;
 
     const text = decodeMarkdown(sourceData, version);
     const html = renderMarkdown(text);
 
+    const title = sanitizeText(`${pageName} | Deno Manual`);
+
+    // TODO(lucacasonato): add meta description and meta og:description
     ctx.response.body = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title}</title>
+    <meta property="og:title" content="${title}" />
+    <meta property="og:url" content="${ctx.request.url.href}" />
     <link rel="stylesheet" href="/static/normalize.css">
     <link rel="stylesheet" href="/static/main.css">
     <link rel="stylesheet" href="/static/markdown.css">

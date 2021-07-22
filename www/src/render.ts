@@ -31,3 +31,7 @@ export function renderMarkdown(markdown: string): string {
   });
   return ammonia.clean(html);
 }
+
+export function sanitizeText(html: string): string {
+  return ammonia.cleanText(html);
+}

@@ -16,6 +16,6 @@ export type { RouteParams } from "https://deno.land/x/oak@v8.0.0/mod.ts";
 export * as pulldown from "https://deno.land/x/rusty_markdown@v0.3.0/mod.ts";
 
 // x/ammonia
-import * as ammonia from "https://deno.land/x/ammonia@0.1.0/mod.ts";
+import * as ammonia from "https://deno.land/x/ammonia@0.2.0/mod.ts";
 await ammonia.init();
 export { ammonia };
