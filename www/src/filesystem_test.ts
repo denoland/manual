@@ -27,6 +27,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
       {
         type: VersionType.Preview,
         version: "b54017ffac827d1b6be1f33955c055aac75610a1",
+        stdVersion: "0.102.0",
       },
       "introduction.md",
       "https://raw.githubusercontent.com/denoland/manual/b54017ffac827d1b6be1f33955c055aac75610a1/introduction.md",
@@ -37,6 +38,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.0.0",
         inOldRepo: true,
+        stdVersion: "0.102.0",
       },
       "introduction.md",
       "https://deno.land/x/deno@v1.0.0/docs/introduction.md",
@@ -47,6 +49,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.0.0-rc2",
         inOldRepo: true,
+        stdVersion: "0.102.0",
       },
       "introduction.md",
       "https://deno.land/x/deno@v1.0.0-rc2/docs/introduction.md",
@@ -57,6 +60,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.12.1",
         inOldRepo: false,
+        stdVersion: "0.102.0",
       },
       "introduction.md",
       "https://deno.land/x/manual@v1.12.1/introduction.md",
@@ -67,6 +71,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.12.1",
         inOldRepo: false,
+        stdVersion: "0.102.0",
       },
       "../introduction.md",
       "https://deno.land/x/manual@v1.12.1/introduction.md",
@@ -77,6 +82,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.12.1",
         inOldRepo: false,
+        stdVersion: "0.102.0",
       },
       "/getting_started/installation.md",
       "https://deno.land/x/manual@v1.12.1/getting_started/installation.md",
@@ -87,6 +93,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
         type: VersionType.Release,
         version: "1.12.1",
         inOldRepo: false,
+        stdVersion: "0.102.0",
       },
       "/does_not_exist.md",
       "https://deno.land/x/manual@v1.12.1/does_not_exist.md",
@@ -96,6 +103,7 @@ const SOURCE_URL_CASES: [VersionInfo, string, string | null, number | null][] =
       {
         type: VersionType.Local,
         version: "local",
+        stdVersion: "0.102.0",
       },
       "introduction.md",
       null,
@@ -118,7 +126,11 @@ for (const [version, path, expectedUrl, expectedLength] of SOURCE_URL_CASES) {
 
 Deno.test("fs source url: 'introduction.md' @ 'local'", () => {
   const fs = new FileSystem({ localEnabled: true });
-  const version: VersionInfo = { type: VersionType.Local, version: "local" };
+  const version: VersionInfo = {
+    type: VersionType.Local,
+    version: "local",
+    stdVersion: "0.102.0",
+  };
   const actual = fs.sourceUrl(version, "introduction.md");
   assert(actual);
   assertEquals(actual.protocol, "file:");
@@ -127,7 +139,11 @@ Deno.test("fs source url: 'introduction.md' @ 'local'", () => {
 
 Deno.test("fs read all: 'introduction.md' @ 'local'", async () => {
   const fs = new FileSystem({ localEnabled: true });
-  const version: VersionInfo = { type: VersionType.Local, version: "local" };
+  const version: VersionInfo = {
+    type: VersionType.Local,
+    version: "local",
+    stdVersion: "0.102.0",
+  };
   const actual = await fs.readAll(version, "introduction.md");
   assert(actual!.byteLength > 0);
 });

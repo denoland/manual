@@ -1,0 +1,16 @@
+body {
+  background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #c9d1d9;
+    background-color: #0d1117;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 48rem;
+}
