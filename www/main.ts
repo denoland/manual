@@ -19,7 +19,7 @@ app.use(async (ctx, next) => {
 });
 
 const CONTENT_SECURITY_POLICY =
-  `default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; prefetch-src 'self'; base-uri 'none'; block-all-mixed-content; form-action 'none'`;
+  `default-src 'none'; script-src 'self'; style-src 'self'; img-src 'unsafe-inline' data: 'self'; connect-src 'self'; prefetch-src 'self'; base-uri 'none'; block-all-mixed-content; form-action 'none'`;
 
 // Content security policy
 app.use(async (ctx, next) => {

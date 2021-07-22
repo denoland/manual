@@ -19,8 +19,13 @@ export class FileSystem {
     if (url === null) return null;
     switch (url.protocol) {
       case "file:": {
-        const buf = await Deno.readFile(url);
-        return buf;
+        try {
+          const buf = await Deno.readFile(url);
+          return buf;
+        } catch (err) {
+          if (err instanceof Deno.errors.NotFound) return null;
+          throw err;
+        }
       }
       case "https:": {
         const resp = await fetch(url);
