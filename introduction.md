@@ -60,7 +60,7 @@ have been historically written with Bash or Python.
 - Deno uses "ES Modules" and does not support `require()`. Third party modules
   are imported via URLs:
 
-  ```javascript
+  ```js
   import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
   ```
 

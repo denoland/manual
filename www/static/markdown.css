@@ -1,4 +1,5 @@
 /* Copyright 2021 hyrious. MIT licensed. Original source https://github.com/hyrious/github-markdown-css */
+/* Copyright 2021 the Deno authors. MIT licensed */
 
 .markdown-body .octicon {
   display: inline-block;
@@ -194,7 +195,7 @@
   vertical-align: middle;
   background-color: #fafbfc;
   border: 1px solid #d1d5da;
-  border-radius: 3px;
+  border-radius: 6px;
   box-shadow: inset 0 -1px 0 #d1d5da;
 }
 
@@ -316,7 +317,7 @@
 }
 
 .markdown-body .rounded-1 {
-  border-radius: 3px !important;
+  border-radius: 6px !important;
 }
 
 .markdown-body .bg-white {
@@ -395,127 +396,43 @@
   font-weight: 600 !important;
 }
 
-.markdown-body .pl-c {
+.markdown-body .token.comment {
   color: #6a737d;
 }
 
-.markdown-body .pl-c1,
-.markdown-body .pl-s .pl-v {
+.markdown-body .token.operator,
+.markdown-body .token.number,
+.markdown-body .token.boolean,
+.markdown-body .token.constant,
+.markdown-body .token.attr-name,
+.markdown-body .token.selector,
+.markdown-body .token.doctype {
   color: #005cc5;
 }
 
-.markdown-body .pl-e,
-.markdown-body .pl-en {
+.markdown-body .token.function {
   color: #6f42c1;
 }
 
-.markdown-body .pl-s .pl-s1,
-.markdown-body .pl-smi {
+.markdown-body .token.builtin,
+.markdown-body .token.class-name,
+.markdown-body .token.variable {
   color: #24292e;
 }
 
-.markdown-body .pl-ent {
+.markdown-body .token.tag {
   color: #22863a;
 }
 
-.markdown-body .pl-k {
+.markdown-body .token.keyword,
+.markdown-body .token.important,
+.markdown-body .token.atrule .token.rule {
   color: #d73a49;
 }
 
-.markdown-body .pl-pds,
-.markdown-body .pl-s,
-.markdown-body .pl-s .pl-pse .pl-s1,
-.markdown-body .pl-sr,
-.markdown-body .pl-sr .pl-cce,
-.markdown-body .pl-sr .pl-sra,
-.markdown-body .pl-sr .pl-sre {
-  color: #032f62;
-}
-
-.markdown-body .pl-smw,
-.markdown-body .pl-v {
-  color: #e36209;
-}
-
-.markdown-body .pl-bu {
-  color: #b31d28;
-}
-
-.markdown-body .pl-ii {
-  color: #fafbfc;
-  background-color: #b31d28;
-}
-
-.markdown-body .pl-c2 {
-  color: #fafbfc;
-  background-color: #d73a49;
-}
-
-.markdown-body .pl-c2:before {
-  content: "^M";
-}
-
-.markdown-body .pl-sr .pl-cce {
-  font-weight: 700;
-  color: #22863a;
-}
-
-.markdown-body .pl-ml {
-  color: #735c0f;
-}
-
-.markdown-body .pl-mh,
-.markdown-body .pl-mh .pl-en,
-.markdown-body .pl-ms {
-  font-weight: 700;
-  color: #005cc5;
-}
-
-.markdown-body .pl-mi {
-  font-style: italic;
-  color: #24292e;
-}
-
-.markdown-body .pl-mb {
-  font-weight: 700;
-  color: #24292e;
-}
-
-.markdown-body .pl-md {
-  color: #b31d28;
-  background-color: #ffeef0;
-}
-
-.markdown-body .pl-mi1 {
-  color: #22863a;
-  background-color: #f0fff4;
-}
-
-.markdown-body .pl-mc {
-  color: #e36209;
-  background-color: #ffebda;
-}
-
-.markdown-body .pl-mi2 {
-  color: #f6f8fa;
-  background-color: #005cc5;
-}
-
-.markdown-body .pl-mdr {
-  font-weight: 700;
-  color: #6f42c1;
-}
-
-.markdown-body .pl-ba {
-  color: #586069;
-}
-
-.markdown-body .pl-sg {
-  color: #959da5;
-}
-
-.markdown-body .pl-corl {
-  text-decoration: underline;
+.markdown-body .token.string,
+.markdown-body .token.regex,
+.markdown-body .token.attr-value {
   color: #032f62;
 }
 
@@ -606,7 +523,7 @@
   vertical-align: middle;
   background-color: #fafbfc;
   border: 1px solid #d1d5da;
-  border-radius: 3px;
+  border-radius: 6px;
   box-shadow: inset 0 -1px 0 #d1d5da;
 }
 
@@ -796,7 +713,7 @@
   margin: 0;
   font-size: 85%;
   background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 .markdown-body pre {
@@ -829,7 +746,7 @@
   font-size: 85%;
   line-height: 1.45;
   background-color: #f6f8fa;
-  border-radius: 3px;
+  border-radius: 6px;
 }
 
 .markdown-body pre code {
@@ -989,6 +906,21 @@
   vertical-align: middle;
 }
 
+/** Debug styles */
+.token.prolog,
+.token.cdata,
+.token.namespace {
+  font-weight: bold;
+  color: red;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
 @media (prefers-color-scheme: dark) {
   .markdown-body h1 .octicon-link,
   .markdown-body h2 .octicon-link,
@@ -1035,96 +967,41 @@
   .markdown-body .text-gray-light {
     color: #8b949e !important;
   }
-  .markdown-body .pl-c {
+  .markdown-body .token.comment {
     color: #8b949e;
   }
-  .markdown-body .pl-c1,
-  .markdown-body .pl-s .pl-v {
+  .markdown-body .token.operator,
+  .markdown-body .token.number,
+  .markdown-body .token.boolean,
+  .markdown-body .token.constant,
+  .markdown-body .token.attr-name,
+  .markdown-body .token.selector,
+  .markdown-body .token.doctype {
     color: #79c0ff;
   }
-  .markdown-body .pl-e,
-  .markdown-body .pl-en {
+  .markdown-body .token.function {
     color: #d2a8ff;
   }
-  .markdown-body .pl-s .pl-s1,
-  .markdown-body .pl-smi {
+  .markdown-body .token.builtin,
+  .markdown-body .token.class-name,
+  .markdown-body .token.variable {
     color: #c9d1d9;
   }
-  .markdown-body .pl-ent {
+  .markdown-body .token.tag {
     color: #7ee787;
   }
-  .markdown-body .pl-k {
+  .markdown-body .token.keyword,
+  .markdown-body .token.important,
+  .markdown-body .token.atrule .token.rule {
     color: #ff7b72;
   }
-  .markdown-body .pl-pds,
-  .markdown-body .pl-s,
-  .markdown-body .pl-s .pl-pse .pl-s1,
-  .markdown-body .pl-sr,
-  .markdown-body .pl-sr .pl-cce,
-  .markdown-body .pl-sr .pl-sra,
-  .markdown-body .pl-sr .pl-sre {
+  .markdown-body .token.string,
+  .markdown-body .token.regex,
+  .markdown-body .token.property,
+  .markdown-body .token.attr-value {
     color: #a5d6ff;
   }
-  .markdown-body .pl-smw,
-  .markdown-body .pl-v {
-    color: #ffa657;
-  }
-  .markdown-body .pl-bu {
-    color: #f85149;
-  }
-  .markdown-body .pl-ii {
-    color: #f0f6fc;
-    background-color: #8e1519;
-  }
-  .markdown-body .pl-c2 {
-    color: #f0f6fc;
-    background-color: #b62324;
-  }
-  .markdown-body .pl-sr .pl-cce {
-    color: #7ee787;
-  }
-  .markdown-body .pl-ml {
-    color: #f2cc60;
-  }
-  .markdown-body .pl-mh,
-  .markdown-body .pl-mh .pl-en,
-  .markdown-body .pl-ms {
-    color: #1f6feb;
-  }
-  .markdown-body .pl-mi {
-    color: #c9d1d9;
-  }
-  .markdown-body .pl-mb {
-    color: #c9d1d9;
-  }
-  .markdown-body .pl-md {
-    color: #ffdcd7;
-    background-color: #67060c;
-  }
-  .markdown-body .pl-mi1 {
-    color: #aff5b4;
-    background-color: #033a16;
-  }
-  .markdown-body .pl-mc {
-    color: #ffdfb6;
-    background-color: #5a1e02;
-  }
-  .markdown-body .pl-mi2 {
-    color: #c9d1d9;
-    background-color: #1158c7;
-  }
-  .markdown-body .pl-mdr {
-    color: #d2a8ff;
-  }
-  .markdown-body .pl-ba {
-    color: #8b949e;
-  }
-  .markdown-body .pl-sg {
-    color: #484f58;
-  }
-  .markdown-body .pl-corl {
-    color: #a5d6ff;
-  }
+
   .markdown-body blockquote {
     color: #8b949e;
     border-left: 0.25em solid #3b434b;

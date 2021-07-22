@@ -76,6 +76,7 @@ router.get("/:version/:path*", async (ctx) => {
     <link rel="stylesheet" href="/static/normalize.css">
     <link rel="stylesheet" href="/static/main.css">
     <link rel="stylesheet" href="/static/markdown.css">
+    <script src="/static/prism.js" defer></script>
   </head>
   <body>
     <div class="content">

@@ -34,8 +34,35 @@ const COMRAK_OPTIONS: comrak.ComrakOptions = {
   },
 };
 
+const HIGHLIGHTER_LANGUAGES = [
+  // js
+  "javascript",
+  "js",
+  // ts
+  "typescript",
+  "ts",
+  // json
+  "json",
+  "jsonc",
+  // markup
+  "markup",
+  "mathml",
+  "html",
+  "xml",
+  "rss",
+  "ssml",
+  "ssml",
+  "ssml",
+  // wasm
+  "wasm",
+];
+
 const AMMONIA_BUILDER = new ammonia.AmmoniaBuilder();
 AMMONIA_BUILDER.allowedClasses.set("svg", new Set(["octicon", "octicon-link"]));
+AMMONIA_BUILDER.allowedClasses.set(
+  "code",
+  new Set(HIGHLIGHTER_LANGUAGES.map((lang) => `language-${lang}`)),
+);
 AMMONIA_BUILDER.allowedClasses.set("a", new Set(["anchor"]));
 AMMONIA_BUILDER.tagAttributes.get("a")!.add("aria-hidden");
 AMMONIA_BUILDER.tagAttributes.get("a")!.add("id");
