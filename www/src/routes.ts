@@ -79,6 +79,15 @@ router.get("/:version/:path*", async (ctx) => {
     <script src="/static/prism.js" defer></script>
   </head>
   <body>
+    <div class="header"><div class="inner">
+      <div class="title">
+        <img src="/static/logo.svg"> Manual
+      </div>
+      <div class="version">
+        <div class="label">Version</div>
+        <div class="id">${version.version}</div>
+      </div>
+    </div></div>
     <div class="content">
       <div class="markdown-body">${html}</div>
     </div>
