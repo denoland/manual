@@ -1,3 +1,6 @@
+TODO(@bartlomieju): this page is only about building `deno` from source, it
+should be pointed out
+
 ## Building from source
 
 Below are instructions on how to build Deno from source. If you just want to use

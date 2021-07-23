@@ -1,3 +1,6 @@
+TODO(@bartlomieju): this page only concerns `deno` repo; it could be moved to
+`deno` specific page
+
 ## Testing and Tools
 
 ### Tests

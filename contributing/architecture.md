@@ -1,3 +1,5 @@
+TODO(@bartlomieju): this page is very scarce and quite outdated
+
 ## Internal details
 
 ### Deno and Linux analogy

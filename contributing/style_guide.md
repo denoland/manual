@@ -1,3 +1,7 @@
+TODO(bartlomieju): this style guide should be re-organized around Rust and JS/TS
+code. TODO(bartlomieju): check if any of the info here is outdated or could be
+expanded.
+
 # Deno Style Guide
 
 ## Copyright Headers
