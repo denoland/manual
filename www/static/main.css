@@ -14,6 +14,7 @@ body {
   border-bottom: 1px solid #eaecef;
   background-color: #f6f8fa;
 }
+
 .header .inner {
   height: 100%;
   display: flex;
@@ -51,6 +52,21 @@ body {
   font-weight: bold;
   font-size: 1.25rem;
   padding-top: 2px;
+}
+
+.warning-banner {
+  position: sticky;
+  top: 0px;
+  background-color: #faca15;
+  color: #000;
+}
+
+.warning-banner .inner {
+  height: 100%;
+  max-width: 48rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  margin: 0 auto;
 }
 
 .content {

@@ -3,7 +3,7 @@ import { normalizeURLPath } from "./filesystem.ts";
 import { decodeMarkdown, renderMarkdown, sanitizeText } from "./render.ts";
 import { State } from "./state.ts";
 import { TableOfContents } from "./table_of_contents.ts";
-import { normalizeVersion } from "./versions.ts";
+import { normalizeVersion, VersionType } from "./versions.ts";
 
 const router = new Router<RouteParams, State>();
 
@@ -63,7 +63,27 @@ router.get("/:version/:path*", async (ctx) => {
 
     const title = sanitizeText(`${pageName} | Deno Manual`);
 
+    let versionLabel;
+    let versionIdentifier;
+
+    switch (version.type) {
+      case VersionType.Release:
+        versionLabel = "Release";
+        versionIdentifier = `v${version.version}`;
+        break;
+      case VersionType.Preview:
+        versionLabel = "Commit";
+        versionIdentifier = version.version.slice(0, 6);
+        break;
+      case VersionType.Local:
+        versionLabel = "Local";
+        versionIdentifier = "dev";
+        break;
+    }
+
     // TODO(lucacasonato): add meta description and meta og:description
+    // TODO(lucacasonato): version identifier should be link to commit / release notes
+    // TODO(lucacasonato): add "Go to latest" CTA for preview warning
     ctx.response.body = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,10 +104,15 @@ router.get("/:version/:path*", async (ctx) => {
         <img src="/static/logo.svg"> Manual
       </div>
       <div class="version">
-        <div class="label">Version</div>
-        <div class="id">${version.version}</div>
+        <div class="label">${versionLabel}</div>
+        <div class="id">${versionIdentifier}</div>
       </div>
     </div></div>
+    ${
+      version.type === VersionType.Preview
+        ? `<div class="warning-banner"><div class="inner">You are viewing documentation generated from a <b>user contribution</b> or an upcoming or past release. The contents of this document may not have been reviewed by the Deno team.</div></div>`
+        : ""
+    }
     <div class="content">
       <div class="markdown-body">${html}</div>
     </div>
