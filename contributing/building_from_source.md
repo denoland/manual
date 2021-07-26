@@ -1,4 +1,4 @@
-## Building from source
+## Building `deno` from source
 
 Below are instructions on how to build Deno from source. If you just want to use
 Deno you can download a prebuilt executable (more information in the

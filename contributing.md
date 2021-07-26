@@ -1,5 +1,80 @@
 # Contributing
 
+We welcome and appreciate all contributions to Deno.
+
+This page serves as a helper to get you started on contributing.
+
+## Projects
+
+There are numerous repositories in the [`denoland`](https://github.com/denoland)
+organization that are part of the Deno ecosystem.
+
+Repositories have different scopes, use different programming languages and have
+varying difficulty level when it comes to contributions.
+
+To help you decide which repository might be the best to start contributing
+(and/or falls into your interest), here's a short comparison (**languages in
+bold comprise most of the codebase**):
+
+### [`deno`](https://github.com/denoland/deno)
+
+This is the main repository that provides the `deno` CLI.
+
+If you want to fix a bug or add a new feature to `deno` this is the repository
+you want to contribute to.
+
+Languages: **Rust**, **JavaScript**
+
+### [`deno_std`](https://github.com/denoland/deno_std)
+
+The standard libarary for Deno.
+
+Languages: **TypeScript**, WebAssembly.
+
+### [`deno_website2`](https://github.com/denoland/deno_website2)
+
+Frontend for official Deno webpage: https://deno.land/
+
+Languages: **TypeScript**, TSX, CSS
+
+### [`deno_lint`](https://github.com/denoland/deno_lint)
+
+Linter that power `deno lint` subcommand.
+
+Languages: **Rust**
+
+### [`deno_doc`](https://github.com/denoland/deno_doc)
+
+Documentation generator that powers `deno doc` subcommand and
+https://doc.deno.land
+
+Languages: **Rust**
+
+### [`doc_website`](https://github.com/denoland/doc_website)
+
+Frontend for documentation generator: https://doc.deno.land
+
+Languages: **TypeScript**, TSX, CSS
+
+### [`rusty_v8`](https://github.com/denoland/rusty_v8)
+
+Rust bindings for the V8 JavaScript engine. Very technical and low-level.
+
+Languages: **Rust**
+
+### [`serde_v8`](https://github.com/denoland/serde_v8)
+
+Library that provides bijection layer between V8 and Rust objects. Based on
+[`serde`](https://crates.io/crates/serde) library. Very technical and low-level.
+
+Languages: **Rust**
+
+### [`deno_docker`](https://github.com/denoland/deno_docker)
+
+Official Docker images for Deno.
+
+## General remarks
+
 - Read the [style guide](./contributing/style_guide.md).
 
 - Please don't make [the benchmarks](https://deno.land/benchmarks) worse.
@@ -10,20 +85,18 @@
   _before_ you start working on the issue.
 
 - If you are going to work on a new feature, create an issue and discuss with
-  other contributors _before_ you start working on the feature.
+  other contributors _before_ you start working on the feature; we appreciate
+  all contributions, but not all proposed features are getting accepted. We
+  don't want you to spend hours working on a code that might not be accepted.
 
 - Please be professional in the forums. We follow
   [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
   (CoC). Have a problem? Email ry@tinyclouds.org.
 
-## Development
+## Submitting a pull request
 
-Instructions on how to build from source can be found
-[here](./contributing/building_from_source.md).
-
-## Submitting a Pull Request
-
-Before submitting, please make sure the following is done:
+Before submitting a PR to any of the repos, please make sure the following is
+done:
 
 1. Give the PR a descriptive title.
 
@@ -41,31 +114,42 @@ Examples of bad PR title:
 
 2. Ensure there is a related issue and it is referenced in the PR text.
 3. Ensure there are tests that cover the changes.
-4. Ensure `cargo test` passes.
-5. Ensure `./tools/format.js` passes without changing files.
-6. Ensure `./tools/lint.js` passes.
 
-## Adding Ops (aka bindings)
+### Submitting a PR to [`deno`](https://github.com/denoland/deno)
 
-We are very concerned about making mistakes when adding new APIs. When adding an
-Op to Deno, the counterpart interfaces on other platforms should be researched.
-Please list how this functionality is done in Go, Node, Rust, and Python.
+Additionally to the above make sure that:
 
-As an example, see how `Deno.rename()` was proposed and added in
-[PR #671](https://github.com/denoland/deno/pull/671).
+1. `cargo test` passes - this will run full test suite for `deno` including unit
+   tests, integration tests and Web Platform Tests
 
-## Releases
+1. Run `./tools/format.js` - this will format all of the code to adhere to the
+   consistent style in the repository
 
-Summary of the changes from previous releases can be found
-[here](https://github.com/denoland/deno/releases).
+1. Run `./tools/lint.js` - this will check Rust and JavaScript code for common
+   mistakes and errors using `clippy` (for Rust) and `dlint` (for JavaScript)
+
+## Submitting a PR to [`deno_std`](https://github.com/denoland/deno_std)
+
+Additionally to the above make sure that:
+
+1. All of the code you wrote is in `TypeScript` (ie. don't use `JavaScript`)
+
+1. `deno test --unstable --allow-all` passes - this will run full test suite for
+   the standard library
+
+1. Run `deno fmt` in the root of repository - this will format all of the code
+   to adhere to the consistent style in the repository.
+
+1. Run `deno lint` - this will check TypeScript code for common mistakes and
+   errors.
 
 ## Documenting APIs
 
-It is important to document public APIs and we want to do that inline with the
-code. This helps ensure that code and documentation are tightly coupled
+It is important to document all public APIs and we want to do that inline with
+the code. This helps ensure that code and documentation are tightly coupled
 together.
 
-### Utilize JSDoc
+### JavaScript and TypeScript
 
 All publicly exposed APIs and types, both via the `deno` module as well as the
 global/`window` namespace should have JSDoc documentation. This documentation is
@@ -79,3 +163,9 @@ export const FOO = "foo";
 ```
 
 Find more at: https://jsdoc.app/
+
+### Rust
+
+Use
+[this guide](https://doc.rust-lang.org/rustdoc/how-to-write-documentation.html)
+for writing documentation comments in Rust code.
