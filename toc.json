@@ -110,7 +110,6 @@
     "name": "Contributing",
     "children": {
       "building_from_source": "Building from source",
-      "development_tools": "Development tools",
       "web_platform_tests": "Web platform tests",
       "style_guide": "Style guide",
       "architecture": "Architecture",
