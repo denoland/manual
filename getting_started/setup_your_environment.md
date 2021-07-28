@@ -11,7 +11,7 @@ Outside of using Deno with your favorite IDE, this section also documents
 
 ### Using an editor/IDE
 
-This is broad support for Deno in editors/IDEs. The following sections provide
+There is broad support for Deno in editors/IDEs. The following sections provide
 information about how to use Deno with editors. Most editors integrate directly
 into Deno using the Language Server Protocol and the language server that is
 integrated into the Deno CLI.
