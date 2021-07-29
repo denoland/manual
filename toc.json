@@ -100,6 +100,9 @@
       "linter": "Linter"
     }
   },
+  "vscode_deno": {
+    "name": "Using Visual Studio Code"
+  },
   "embedding_deno": {
     "name": "Embedding Deno"
   },
