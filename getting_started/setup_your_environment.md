@@ -231,8 +231,6 @@ enable = true
 lint = true
 ```
 
-### Environment variables
-
 ### Shell completions
 
 Built into the Deno CLI is support to generate shell completion information for
