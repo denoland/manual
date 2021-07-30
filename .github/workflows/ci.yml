@@ -27,6 +27,8 @@ jobs:
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
+        with:
+          deno-version: canary
 
       - name: Type check
         run: deno test --doc --import-map=.github/import_map.json
