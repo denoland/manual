@@ -8,7 +8,7 @@ Example:
 
 **import_map.json**
 
-```js
+```json
 {
    "imports": {
       "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
@@ -34,7 +34,7 @@ To use your project root for absolute imports:
 
 **import_map.json**
 
-```jsonc
+```json
 {
   "imports": {
     "/": "./",
