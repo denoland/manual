@@ -240,7 +240,7 @@ there is always something specific to the project you can add. Creating
 `custom assertion function` can improve readability and reduce the amount of
 code.
 
-```js
+```ts
 function assertPowerOf(actual: number, expected: number, msg?: string): void {
   let received = actual;
   while (received % expected === 0) received = received / expected;
