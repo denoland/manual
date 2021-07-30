@@ -49,7 +49,7 @@ accessing npm packages as ES Module bundles. esm.sh uses
 ensure that it is consumable as an ES Module. In many cases you can just import
 the npm package into your Deno application:
 
-```ts
+```tsx
 import React from "https://esm.sh/react";
 
 export default class A extends React.Component {
@@ -109,7 +109,7 @@ way to load a package is to use the
 [lookup URL](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls) for
 the package:
 
-```ts
+```tsx
 import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
