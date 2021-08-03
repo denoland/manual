@@ -2,7 +2,8 @@
 
 Below are instructions on how to build Deno from source. If you just want to use
 Deno you can download a prebuilt executable (more information in the
-`Getting Started` chapter).
+[`Getting Started`](../getting_started/installation.md#download-and-install)
+chapter).
 
 ### Cloning the Repository
 
@@ -26,7 +27,7 @@ Extra steps for Windows users:
 ### Prerequisites
 
 > Deno requires the progressively latest stable release of Rust. Deno does not
-> support the Rust nightlies.
+> support the Rust Nightly Releases.
 
 [Update or Install Rust](https://www.rust-lang.org/tools/install). Check that
 Rust installed/updated correctly:
