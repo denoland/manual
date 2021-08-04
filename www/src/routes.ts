@@ -99,7 +99,7 @@ router.get("/:version/:path*", async (ctx) => {
     <script src="/static/prism.js" defer></script>
   </head>
   <body>
-    <div class="header"><div class="inner">
+    <header class="header"><div class="inner">
       <div class="title">
         <img src="/static/logo.svg"> Manual
       </div>
@@ -107,15 +107,19 @@ router.get("/:version/:path*", async (ctx) => {
         <div class="label">${versionLabel}</div>
         <div class="id">${versionIdentifier}</div>
       </div>
-    </div></div>
+    </div></header>
+    <main class="main">
     ${
       version.type === VersionType.Preview
         ? `<div class="warning-banner"><div class="inner">You are viewing documentation generated from a <b>user contribution</b> or an upcoming or past release. The contents of this document may not have been reviewed by the Deno team.</div></div>`
         : ""
     }
-    <div class="content">
-      <div class="markdown-body">${html}</div>
-    </div>
+      <div class="toc"></div>
+      <div class="content">
+        <div class="markdown-body">${html}</div>
+      </div>
+      <div class="toc-balancer"></div>
+    </main>
   </body>
 </html>`;
     ctx.response.type = "html";

@@ -69,10 +69,23 @@ body {
   margin: 0 auto;
 }
 
+.toc {
+  max-width: 16rem;
+  width: 100%;
+  padding: 1rem;
+}
+
 .content {
-  margin: 0 auto;
+  border-left: 1px solid #21262d;
   padding: 3rem 2rem;
   max-width: 48rem;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: start;
+
 }
 
 @media (prefers-color-scheme: dark) {
