@@ -6,9 +6,8 @@ users to create robust and performant web servers in Deno.
 The API tries to leverage as much of the web standards as is possible as well as
 tries to be simple and straight forward.
 
-> ℹ️ The APIs are currently unstable, meaning they can change in the future in
-> breaking ways and should be carefully considered before using in production
-> code. They require the `--unstable` flag to make them available.
+> ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
+> flag.
 
 ### Listening for a connection
 
