@@ -298,6 +298,6 @@ function handleReq(req: Request): Response {
 }
 ```
 
-WebSockets are only supprted on HTTP/1.1 for now. The connection the WebSocket
+WebSockets are only supported on HTTP/1.1 for now. The connection the WebSocket
 was created on can not be used for HTTP traffic after a WebSocket upgrade has
 been performed.
