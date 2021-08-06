@@ -900,8 +900,7 @@
 
 /** Debug styles */
 .token.prolog,
-.token.cdata,
-.token.namespace {
+.token.cdata {
   font-weight: bold;
   color: red;
 }
