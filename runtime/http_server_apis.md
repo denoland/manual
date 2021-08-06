@@ -266,7 +266,7 @@ To upgrade an incoming `Request` to a WebSocket you use the
 `Deno.upgradeWebSocket` function. This returns an object consisting of a
 `Response` and a web standard `WebSocket` object. The returned response should
 be used to respond to the incoming request using the `respondWith` method. Only
-once `respondWith` is called with the returned response, the the WebSocket is
+once `respondWith` is called with the returned response, the WebSocket is
 activated and can be used.
 
 Because the WebSocket protocol is symmetrical, the `WebSocket` object is
