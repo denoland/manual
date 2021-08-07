@@ -1,6 +1,11 @@
 import { extname, join, RouteParams, Router } from "../deps.ts";
 import { normalizeURLPath } from "./filesystem.ts";
-import { decodeMarkdown, renderMarkdown, sanitizeText } from "./render.ts";
+import {
+  decodeMarkdown,
+  renderMarkdown,
+  renderToC,
+  sanitizeText,
+} from "./render.ts";
 import { State } from "./state.ts";
 import { TableOfContents } from "./table_of_contents.ts";
 import { normalizeVersion, VersionType } from "./versions.ts";
@@ -63,6 +68,8 @@ router.get("/:version/:path*", async (ctx) => {
 
     const title = sanitizeText(`${pageName} | Deno Manual`);
 
+    const tocHtml = renderToC(toc, version, ctx.request.url.pathname);
+
     let versionLabel;
     let versionIdentifier;
 
@@ -101,24 +108,28 @@ router.get("/:version/:path*", async (ctx) => {
   <body>
     <header class="header"><div class="inner">
       <div class="title">
-        <img src="/static/logo.svg"> Manual
+        <img src="/static/logo.svg" alt="deno logo"> Manual
       </div>
       <div class="version">
         <div class="label">${versionLabel}</div>
         <div class="id">${versionIdentifier}</div>
       </div>
     </div></header>
-    <main class="main">
+    <main>
     ${
       version.type === VersionType.Preview
         ? `<div class="warning-banner"><div class="inner">You are viewing documentation generated from a <b>user contribution</b> or an upcoming or past release. The contents of this document may not have been reviewed by the Deno team.</div></div>`
         : ""
     }
-      <div class="toc"></div>
-      <div class="content">
-        <div class="markdown-body">${html}</div>
+      <div class="main">
+        <div class="toc">
+          ${tocHtml}
+        </div>
+        <div class="content">
+          <div class="markdown-body">${html}</div>
+        </div>
+        <div class="toc-balancer"></div>
       </div>
-      <div class="toc-balancer"></div>
     </main>
   </body>
 </html>`;

@@ -70,22 +70,79 @@ body {
 }
 
 .toc {
+  flex-shrink: 0;
   max-width: 16rem;
   width: 100%;
-  padding: 1rem;
+  padding: 3rem 2rem;
+  overflow: hidden;
 }
 
 .content {
-  border-left: 1px solid #21262d;
+  border-left: 1px solid #eaecef;
   padding: 3rem 2rem;
   max-width: 48rem;
   width: 100%;
+  overflow: hidden;
 }
 
 .main {
   display: flex;
-  justify-content: start;
+  justify-content: center;
+}
 
+.toc .list {
+  list-style: none;
+  list-style-position: inside;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+
+.toc > .list {
+  margin: -1.5rem 0;
+}
+
+.toc > .list {
+  font-weight: bold;
+}
+
+.toc .list li > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc .list li.active > a {
+  color: #0366d6;
+}
+
+.toc .list li > a:hover {
+  text-decoration: underline;
+}
+
+.toc .list .list li > a {
+  font-weight: normal;
+}
+
+.toc .list > li:before {
+  font-feature-settings: "kern" 1, "tnum" 1;
+  -webkit-font-feature-settings: "kern" 1, "tnum" 1;
+  -ms-font-feature-settings: "kern" 1, "tnum" 1;
+  -moz-font-feature-settings: "kern" 1, "tnum" 1;
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+}
+
+.toc .list .list {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.toc .list > li {
+  margin: 1rem 0;
+}
+
+.toc .list .list > li {
+  margin: 0.4rem 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -101,5 +158,13 @@ body {
 
   .header .version .label {
     color: #9fa7b6;
+  }
+
+  .content {
+    border-color: #21262d;
+  }
+
+  .toc .list li.active > a {
+    color: #58a6ff;
   }
 }

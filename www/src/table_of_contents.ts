@@ -34,4 +34,24 @@ export class TableOfContents {
     if (b === undefined) return this.#raw[a]?.name ?? null;
     return this.#raw[a]?.children[b] ?? null;
   }
+
+  listItems(): Array<{
+    name: string;
+    slug: string;
+    children: Array<{ name: string; slug: string }>;
+  }> {
+    return Object.entries(this.#raw).map(([slug, item]) => {
+      const children = Object.entries(item.children ?? {}).map((
+        [childSlug, childName],
+      ) => ({
+        name: childName,
+        slug: childSlug,
+      }));
+      return {
+        name: item.name,
+        slug: slug,
+        children,
+      };
+    });
+  }
 }
