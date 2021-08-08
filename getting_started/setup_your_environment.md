@@ -323,6 +323,18 @@ There are a couple environment variables which can impact the behavior of Deno:
   Deno to access remote private code. See the
   [Private modules and repositories](../linking_to_external_code/private.md)
   section for more details.
+- `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
+  establishing TLS connections. The available stores are `mozilla` and `system`.
+  You can specify one, both or none. The order you specify the store determines
+  the order in which certificate chains will be attempted to resolved. The
+  default value is `mozilla`. The `mozilla` store will use the bundled mozilla
+  certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
+  `system` store will use your platforms
+  [native certificate store](https://crates.io/crates/rustls-native-certs). The
+  exact set of mozilla certs will depend the version of Deno you are using. If
+  you specify no certificate stores, then no trust will be given to any TLS
+  connection without also specifying `DENO_CERT` or `--cert` or specifying a
+  specific certificate per TLS connection.
 - `DENO_CERT` - load a certificate authority from a PEM encoded file. This
   "overrides" the `--cert` option. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
