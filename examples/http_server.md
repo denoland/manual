@@ -9,11 +9,6 @@
 With just a few lines of code you can run your own HTTP web server with control
 over the response status, request headers and more.
 
-> ℹ️ The _native_ HTTP server is currently unstable, meaning the API is not
-> finalized and may change in breaking ways in future version of Deno. To have
-> the APIs discussed here available, you must run Deno with the `--unstable`
-> flag.
-
 ## Sample web server
 
 In this example, the user-agent of the client is returned to the client:
@@ -55,15 +50,15 @@ for await (const conn of server) {
 Then run this with:
 
 ```shell
-deno run --allow-net --unstable webserver.ts
+deno run --allow-net webserver.ts
 ```
 
 Then navigate to `http://localhost:8080/` in a browser.
 
 ### Using the `std/http` library
 
-If you do not want to use the unstable APIs, you can still use the standard
-library's HTTP server:
+> ℹ️ Since stabilization of _native_ HTTP server in 1.13, usage of `std/http` is
+> discouraged. The module is planned to be deprecated in the future releases.
 
 **webserver.ts**:
 

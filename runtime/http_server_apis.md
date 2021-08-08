@@ -6,9 +6,8 @@ users to create robust and performant web servers in Deno.
 The API tries to leverage as much of the web standards as is possible as well as
 tries to be simple and straight forward.
 
-> ℹ️ The APIs are currently unstable, meaning they can change in the future in
-> breaking ways and should be carefully considered before using in production
-> code. They require the `--unstable` flag to make them available.
+> ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
+> flag.
 
 ### Listening for a connection
 
@@ -258,6 +257,11 @@ HTTP/2 cleartext connection via the `Upgrade` header (see:
 support is only available via a TLS/HTTPS connection.
 
 ### Serving WebSockets
+
+> ℹ️ Serving WebSockets with the _native_ HTTP server is currently unstable,
+> meaning the API is not finalized and may change in breaking ways in future
+> version of Deno. To have the APIs discussed here available, you must run Deno
+> with the `--unstable` flag.
 
 Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to
 handle WebSocket endpoints on your HTTP servers.
