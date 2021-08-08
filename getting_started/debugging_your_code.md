@@ -1,7 +1,7 @@
 ## Debugging your code
 
 Deno supports the [V8 Inspector Protocol](https://v8.dev/docs/inspector) used by
-Chrome, Edge and Node.js. This makes it possible to to debug Deno programs using
+Chrome, Edge and Node.js. This makes it possible to debug Deno programs using
 Chrome DevTools or other clients that support the protocol (for example VSCode).
 
 To activate debugging capabilities run Deno with the `--inspect` or
