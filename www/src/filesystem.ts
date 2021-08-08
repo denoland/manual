@@ -54,7 +54,7 @@ export class FileSystem {
           // If local file access is not enabled, don't allow "local" versions.
           return null;
         }
-        const path = join(Deno.cwd(), normalizedPath);
+        const path = join(Deno.cwd?.() ?? "./", normalizedPath);
         return toFileUrl(path);
       }
       case VersionType.Preview: {
