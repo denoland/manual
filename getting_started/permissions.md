@@ -137,9 +137,9 @@ read files from disk even if the parent Deno process can not read the files
 directly. This is often reffered to as privledge escalation.
 
 Because of this, make sure you carefully consider if you want to grant a program
-`--allow-run` access: it essentially invalidates the Deno security sandbox. If you
-really need to spawn a specific executable, you can reduce the risk by limiting
-which programs a Deno process can start using an allow-list for the
+`--allow-run` access: it essentially invalidates the Deno security sandbox. If
+you really need to spawn a specific executable, you can reduce the risk by
+limiting which programs a Deno process can start using an allow-list for the
 `--allow-run` flag:
 
 ```js
