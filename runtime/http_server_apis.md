@@ -280,8 +280,13 @@ Documentation for it can be found
 > once it is stabilized and ready for use.
 
 ```ts
-// This function should be called with `event.request` as the first argument.
-// The return value should be passed to `event.respondWith`.
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    await requestEvent.respondWith(handleReq(requestEvent.request));
+  }
+}
+
 function handleReq(req: Request): Response {
   if (req.headers.get("upgrade") != "websocket") {
     return new Response("request isn't trying to upgrade to websocket.");
