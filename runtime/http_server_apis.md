@@ -256,3 +256,53 @@ Currently Deno does not support upgrading a plain-text HTTP/1.1 connection to an
 HTTP/2 cleartext connection via the `Upgrade` header (see:
 [#10275](https://github.com/denoland/deno/issues/10275)), so therefore HTTP/2
 support is only available via a TLS/HTTPS connection.
+
+### Serving WebSockets
+
+Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to
+handle WebSocket endpoints on your HTTP servers.
+
+To upgrade an incoming `Request` to a WebSocket you use the
+`Deno.upgradeWebSocket` function. This returns an object consisting of a
+`Response` and a web standard `WebSocket` object. The returned response should
+be used to respond to the incoming request using the `respondWith` method. Only
+once `respondWith` is called with the returned response, the WebSocket is
+activated and can be used.
+
+Because the WebSocket protocol is symmetrical, the `WebSocket` object is
+identical to the one that can be used for client side communication.
+Documentation for it can be found
+[on MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+
+> Note: We are aware that this API can be challenging to use, and are planning
+> to switch to
+> [`WebSocketStream`](https://github.com/ricea/websocketstream-explainer/blob/master/README.md)
+> once it is stabilized and ready for use.
+
+```ts
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    await requestEvent.respondWith(handleReq(requestEvent.request));
+  }
+}
+
+function handleReq(req: Request): Response {
+  if (req.headers.get("upgrade") != "websocket") {
+    return new Response("request isn't trying to upgrade to websocket.");
+  }
+  const { websocket, response } = Deno.upgradeWebSocket(req);
+  websocket.onopen = () => console.log("socket opened");
+  websocket.onmessage = (e) => {
+    console.log("socket message:", e.data);
+    websocket.send(new Date().toString());
+  };
+  websocket.onerror = (e) => console.log("socket errored:", e.message);
+  websocket.onclose = () => console.log("socket closed");
+  return response;
+}
+```
+
+WebSockets are only supported on HTTP/1.1 for now. The connection the WebSocket
+was created on can not be used for HTTP traffic after a WebSocket upgrade has
+been performed.
