@@ -21,7 +21,7 @@ router.get("/static/:path*", async (ctx) => {
   if (path === null) return;
 
   try {
-    const file = await Deno.readFile(join(Deno.cwd(), "www/static", path));
+    const file = await Deno.readFile(join(Deno.cwd?.() ?? "./", "www/static", path));
     ctx.response.body = file;
     ctx.response.type = extname(path);
   } catch (err) {
