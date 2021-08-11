@@ -54,9 +54,7 @@ import React from "https://esm.sh/react";
 
 export default class A extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
 }
 ```
@@ -114,9 +112,7 @@ import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
 }
 ```

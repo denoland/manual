@@ -3,6 +3,9 @@
 Deno works on macOS, Linux, and Windows. Deno is a single binary executable. It
 has no external dependencies.
 
+On macOS, both M1 (arm64) and Intel (x64) executables are provided. On Linux and
+Windows, only x64 is supported.
+
 ### Download and install
 
 [deno_install](https://github.com/denoland/deno_install) provides convenience
@@ -88,5 +91,5 @@ deno upgrade --version 1.0.1
 
 ### Building from source
 
-Information about how to build from source can be found in the `Contributing`
-chapter.
+Information about how to build from source can be found in the
+[`Contributing`](../contributing/building_from_source.md) chapter.

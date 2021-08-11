@@ -18,8 +18,8 @@ deno --help
 ```
 
 Deno's CLI is subcommand-based. The above commands should show you a list of
-those supported, such as `deno bundle`. To see subcommand-specific help for
-`bundle`, you can similarly run one of:
+subcommands supported, such as `deno bundle`. To see subcommand-specific help,
+for example for `bundle`, you can similarly run one of:
 
 ```shell
 deno help bundle
@@ -27,12 +27,12 @@ deno bundle -h
 deno bundle --help
 ```
 
-Detailed guides to each subcommand can be found [here](../tools.md).
+Detailed guides for each subcommand can be found [here](../tools.md).
 
 ### Script source
 
 Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
-read the file from stdin. The last is useful for integration with other
+read the file from stdin. The latter is useful for integration with other
 applications.
 
 ```shell
@@ -44,7 +44,7 @@ cat main.ts | deno run -
 ### Script arguments
 
 Separately from the Deno runtime flags, you can pass user-space arguments to the
-script you are running by specifying them after the script name:
+script you are running by specifying them **after** the script name:
 
 ```shell
 deno run main.ts a b -c --quiet
@@ -87,19 +87,29 @@ We discuss these below.
 
 ### Watch mode
 
-You can supply the `--watch` flag to `deno run` to enable the built in file
-watcher. When Deno starts up with this flag it watches the entrypoint, and all
-local files the entrypoint statically imports. Whenever one of these files is
-changed on disk, the program will automatically be restarted.
+You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
+`deno fmt` to enable the built in file watcher. The files that are watched
+depend on the subcommand used:
+
+- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+  files the entrypoint(s) statically import(s) will be watched.
+- for `deno fmt` all local files and directories specified as command line
+  arguments (or the working directory if no specific files/directories is
+  passed) are watched.
+
+Whenever one of the watched files is changed on disk, the program will
+automatically be restarted / formatted / tested / bundled.
 
 ```
 deno run --watch main.ts
+deno test --watch
+deno fmt --watch
 ```
 
-### Integrity flags
+### Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
-`deno run` and `deno test`.
+`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
 
 ```
 --lock <FILE>    Check the specified lock file
@@ -111,9 +121,10 @@ Find out more about these
 
 ### Cache and compilation flags
 
-Affect commands which can populate the cache: `deno cache`, `deno run` and
-`deno test`. As well as the flags above this includes those which affect module
-resolution, compilation configuration etc.
+Affect commands which can populate the cache: `deno cache`, `deno run`,
+`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
+above, this includes those which affect module resolution, compilation
+configuration etc.
 
 ```
 --config <FILE>               Load tsconfig.json configuration file
@@ -140,6 +151,8 @@ More flags which affect the execution environment.
 --cached-only                Require that remote dependencies are already cached
 --inspect=<HOST:PORT>        activate inspector on host:port ...
 --inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
+--location <HREF>            Value of 'globalThis.location' used by some web APIs
+--prompt                     Fallback to prompt if required permission wasn't passed
 --seed <NUMBER>              Seed Math.random()
 --v8-flags=<v8-flags>        Set V8 command line options. For help: ...
 ```

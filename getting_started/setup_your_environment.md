@@ -1,13 +1,13 @@
 ## Set up your environment
 
-The Deno CLI contains a lot of the "tools" that are needed for developing
+The Deno CLI contains a lot of the tools that are commonly needed for developing
 applications, including a full language server to help power your IDE of choice.
 [Installing](./installation.md) is all you need to do to make these
 [tools](./command_line_interface.md) available to you.
 
 Outside of using Deno with your favorite IDE, this section also documents
 [shell completions](#shell-completions) and
-[environment variables](#environment-variables)
+[environment variables](#environment-variables).
 
 ### Using an editor/IDE
 
@@ -32,8 +32,8 @@ When installed, it will connect to the language server built into the Deno CLI.
 Because most people work in mixed environments, the extension does not enable a
 workspace as _Deno enabled_ by default, and it requires that the
 `"deno.enabled"` flag to be set. You can change the settings yourself, or you
-can choose `Deno: Initialize Workspace Configuration` from the command pallet to
-enable your project.
+can choose `Deno: Initialize Workspace Configuration` from the command palette
+to enable your project.
 
 More information can be found in the
 [Using Visual Studio Code](../vscode_deno.md) section of the manual.
@@ -89,7 +89,7 @@ For more information on how to setup ALE (like key bindings) refer to the
 
 #### Emacs
 
-##### ls-mode
+##### lsp-mode
 
 Emacs supports Deno via the Deno language server using
 [lsp-mode](https://emacs-lsp.github.io/lsp-mode/). Once
@@ -245,7 +245,7 @@ stdout the completions. Current shells that are supported:
 
 #### bash example
 
-Output the completions and add them to tne environment:
+Output the completions and add them to the environment:
 
 ```
 > deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
@@ -315,6 +315,15 @@ antigen use oh-my-zsh
 antigen bundle deno
 ```
 
+#### fish example
+
+Output the completions to a `deno.fish` file into the completions directory in
+the fish config folder:
+
+```shell
+deno completions fish > ~/.config/fish/completions/deno.fish
+```
+
 ### Environment variables
 
 There are a couple environment variables which can impact the behavior of Deno:
@@ -323,6 +332,18 @@ There are a couple environment variables which can impact the behavior of Deno:
   Deno to access remote private code. See the
   [Private modules and repositories](../linking_to_external_code/private.md)
   section for more details.
+- `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
+  establishing TLS connections. The available stores are `mozilla` and `system`.
+  You can specify one, both or none. The order you specify the store determines
+  the order in which certificate chains will be attempted to resolved. The
+  default value is `mozilla`. The `mozilla` store will use the bundled mozilla
+  certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
+  `system` store will use your platforms
+  [native certificate store](https://crates.io/crates/rustls-native-certs). The
+  exact set of mozilla certs will depend the version of Deno you are using. If
+  you specify no certificate stores, then no trust will be given to any TLS
+  connection without also specifying `DENO_CERT` or `--cert` or specifying a
+  specific certificate per TLS connection.
 - `DENO_CERT` - load a certificate authority from a PEM encoded file. This
   "overrides" the `--cert` option. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
