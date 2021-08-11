@@ -26,10 +26,10 @@ The following permissions are available:
 - **--allow-net=\<allow-net\>** Allow network access. You can specify an
   optional, comma-separated list of IP addresses or hostnames (optionally with
   ports) to provide an allow-list of allowed network addresses.
-- **--allow-plugin** Allow loading of native plugins. Be aware that plugins are
-  not run in a sandbox and therefore do not have the same security restrictions
-  as the Deno process. Therefore, use with caution. Please note that
-  --allow-plugin is an unstable feature.
+- **--allow-fii** Allow loading of dynamic libraries. Be aware that dynamic
+  libraries are not run in a sandbox and therefore do not have the same security
+  restrictions as the Deno process. Therefore, use with caution. Please note
+  that --allow-ffi is an unstable feature.
 - **--allow-read=\<allow-read\>** Allow file system read access. You can specify
   an optional, comma-separated list of directories or files to provide an
   allow-list of allowed file system access.

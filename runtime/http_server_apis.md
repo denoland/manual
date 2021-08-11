@@ -295,14 +295,14 @@ function handleReq(req: Request): Response {
   if (req.headers.get("upgrade") != "websocket") {
     return new Response("request isn't trying to upgrade to websocket.");
   }
-  const { websocket, response } = Deno.upgradeWebSocket(req);
-  websocket.onopen = () => console.log("socket opened");
-  websocket.onmessage = (e) => {
+  const { socket, response } = Deno.upgradeWebSocket(req);
+  socket.onopen = () => console.log("socket opened");
+  socket.onmessage = (e) => {
     console.log("socket message:", e.data);
-    websocket.send(new Date().toString());
+    socket.send(new Date().toString());
   };
-  websocket.onerror = (e) => console.log("socket errored:", e.message);
-  websocket.onclose = () => console.log("socket closed");
+  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onclose = () => console.log("socket closed");
   return response;
 }
 ```
