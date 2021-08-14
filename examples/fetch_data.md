@@ -45,7 +45,7 @@ console.log(textData);
  * Output: Error Message
  */
 try {
-  fetch("https://does.not.exist/");
+  await fetch("https://does.not.exist/");
 } catch (error) {
   console.log(error);
 }
