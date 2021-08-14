@@ -26,7 +26,7 @@ The following permissions are available:
 - **--allow-net=\<allow-net\>** Allow network access. You can specify an
   optional, comma-separated list of IP addresses or hostnames (optionally with
   ports) to provide an allow-list of allowed network addresses.
-- **--allow-fii** Allow loading of dynamic libraries. Be aware that dynamic
+- **--allow-ffi** Allow loading of dynamic libraries. Be aware that dynamic
   libraries are not run in a sandbox and therefore do not have the same security
   restrictions as the Deno process. Therefore, use with caution. Please note
   that --allow-ffi is an unstable feature.
