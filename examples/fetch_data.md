@@ -30,29 +30,23 @@ command.
 /**
  * Output: JSON Data
  */
-const json = fetch("https://api.github.com/users/denoland");
-
-json.then((response) => {
-  return response.json();
-}).then((jsonData) => {
-  console.log(jsonData);
-});
+const jsonResponse = await fetch("https://api.github.com/users/denoland");
+const jsonData = await jsonResponse.json();
+console.log(jsonData);
 
 /**
  * Output: HTML Data
  */
-const text = fetch("https://deno.land/");
-
-text.then((response) => {
-  return response.text();
-}).then((textData) => {
-  console.log(textData);
-});
+const textResponse = fetch("https://deno.land/");
+const textData = await textResponse.text();
+console.log(textData);
 
 /**
  * Output: Error Message
  */
-const error = fetch("https://does.not.exist/");
-
-error.catch((error) => console.log(error.message));
+try {
+  await fetch("https://does.not.exist/");
+} catch (error) {
+  console.log(error);
+}
 ```
