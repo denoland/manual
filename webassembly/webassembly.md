@@ -17,8 +17,11 @@ const wasmCode = new Uint8Array([
   105, 110, 0, 0, 10, 138, 128, 128, 128, 0, 1, 132, 128, 128, 128, 0, 0,
   65, 42, 11
 ]);
+
 const wasmModule = new WebAssembly.Module(wasmCode);
+
 const wasmInstance = new WebAssembly.Instance(wasmModule);
+
 const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
@@ -27,8 +30,11 @@ Loading from files:
 
 ```ts
 const wasmCode = await Deno.readFile("main.wasm");
+
 const wasmModule = new WebAssembly.Module(wasmCode);
+
 const wasmInstance = new WebAssembly.Instance(wasmModule);
+
 const main = wasmInstance.exports.main as CallableFunction;
 console.log(main().toString());
 ```
