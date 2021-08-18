@@ -38,9 +38,8 @@ method returns a promise which provides access to the file's text data.
 /**
  * read.ts
  */
-const text = Deno.readTextFile("./people.json");
-
-text.then((response) => console.log(response));
+const text = await Deno.readTextFile("./people.json");
+console.log(text);
 
 /**
  * Output:
@@ -68,9 +67,8 @@ command.
 /**
  * write.ts
  */
-const write = Deno.writeTextFile("./hello.txt", "Hello World!");
-
-write.then(() => console.log("File written to ./hello.txt"));
+await Deno.writeTextFile("./hello.txt", "Hello World!");
+console.log("File written to ./hello.txt");
 
 /**
  * Output: File written to ./hello.txt
