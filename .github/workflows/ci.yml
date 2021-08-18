@@ -31,4 +31,4 @@ jobs:
           deno-version: canary
 
       - name: Type check
-        run: deno test --doc --unstable --import-map=.github/import_map.json getting_started/ examples/ linking_to_external_code/
+        run: deno test --doc --unstable --import-map=.github/import_map.json getting_started/ examples/ linking_to_external_code/ npm_nodejs/

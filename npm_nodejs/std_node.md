@@ -74,7 +74,7 @@ the same resolution logic that Node.js uses when trying to load a module.
 
 Example usage would look like this:
 
-```ts
+```ts ignore
 import { createRequire } from "https://deno.land/std@$STD_VERSION/node/module.ts";
 
 // import.meta.url will be the location of "this" module (like `__filename` in
