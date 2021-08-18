@@ -31,4 +31,4 @@ jobs:
           deno-version: canary
 
       - name: Type check
-        run: deno test --doc --import-map=.github/import_map.json
+        run: deno test --doc --import-map=.github/import_map.json getting_started/
