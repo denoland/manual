@@ -35,7 +35,7 @@ the `NodeJS.ProcessEnv` type in its type definitions. In one of the modules of
 your project that imports it as a dependency, you could put something like this
 in there which will solve the problem:
 
-```ts
+```ts ignore
 declare global {
   namespace NodeJS {
     type ProcessEnv = Record<string, string>;
