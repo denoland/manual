@@ -179,7 +179,7 @@ Whenever you are using interfaces that are included in the arguments of an
 exported member, you should export the interface that is used. Here is an
 example:
 
-```ts
+```ts ignore
 // my_file.ts
 export interface Person {
   name: string;
@@ -308,7 +308,7 @@ test myTestFunction ... ok
 
 Example of test:
 
-```ts
+```ts ignore
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo } from "./mod.ts";
 
