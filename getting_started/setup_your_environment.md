@@ -60,9 +60,11 @@ JetBrains prioritize support.
 
 Deno is well supported on both [Vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
+
 [coc.nvim](https://github.com/neoclide/coc.nvim), 
 [ALE](https://github.com/dense-analysis/ale) and [Native Lsp](https://github.com/neovim/nvim-lspconfig) _only for neovim_. coc.nvim offers plugins to
 integrate to the Deno language server, ALE supports it _out of the box_, and the Native Lsp support this via Deno Language Server with some tools.
+
 
 ##### coc.nvim
 

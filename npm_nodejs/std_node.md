@@ -52,7 +52,7 @@ If you want documentation for any of the modules, you can simply type `deno doc`
 and the URL of the module in your terminal:
 
 ```
-> deno doc https://deno.land/std/assert.ts
+> deno doc https://deno.land/std/fs/move.ts
 ```
 
 ### Loading CommonJS modules
