@@ -56,13 +56,13 @@ JetBrain's is considering migrating to the Deno language server (see:
 are a user of JetBrains and Deno, voicing your support can continue help
 JetBrains prioritize support.
 
-#### vim/Neovim
+#### Vim/Neovim
 
-Deno is well supported on both [vim](https://www.vim.org/) and
+Deno is well supported on both [Vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
-[coc.nvim](https://github.com/neoclide/coc.nvim) and
-[ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
-integrate to the Deno language server while ALE supports it _out of the box_.
+[coc.nvim](https://github.com/neoclide/coc.nvim), 
+[ALE](https://github.com/dense-analysis/ale) and [Native Lsp](https://github.com/neovim/nvim-lspconfig) _only for neovim_. coc.nvim offers plugins to
+integrate to the Deno language server, ALE supports it _out of the box_, and the Native Lsp support this via Deno Language Server with some tools.
 
 ##### coc.nvim
 
@@ -86,6 +86,19 @@ to get information on the configuration options available.
 
 For more information on how to setup ALE (like key bindings) refer to the
 [official documentation](https://github.com/dense-analysis/ale#usage).
+
+##### Native Lsp
+
+Once you have
+- Neovim 0.5+
+- nvim-lspconfig
+- Any completion engine like Compe, Coq, Completion.nvim, ddc.nvim etc.
+
+Write this code in lua:
+```lua
+require'lspconfig'.denols.setup{} -- And is ready deno
+```
+For more info and customization check [this](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
 
 #### Emacs
 
