@@ -1,14 +1,9 @@
 ## Running a WebAssembly module in Deno
 
-Deno can execute [WebAssembly](https://webassembly.org/) modules with the same
-interfaces that
-[browsers provide](https://developer.mozilla.org/en-US/docs/WebAssembly).
+At its simplest, all you need to run WebAssembly in Deno are some bytes. The following binary exports a `main` function that just returns `42` upon invocation:
 
 <!-- deno-fmt-ignore -->
-
 ```ts
-// This WASM binary exports a `main` function that just returns `42` upon
-// invocation.
 const wasmCode = new Uint8Array([
   0, 97, 115, 109, 1, 0, 0, 0, 1, 133, 128, 128, 128, 0, 1, 96, 0, 1, 127,
   3, 130, 128, 128, 128, 0, 1, 0, 4, 132, 128, 128, 128, 0, 1, 112, 0, 0,
@@ -26,35 +21,14 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
-A few different languages exist that compile down to WebAssembly. As an example, a Rust program that compiles to the aforementioned bytes would look something like:
+However, for real-world scenarios you will probably want to write in a programming language that compiles down to WebAssembly. A number of languages exist that can do this. For example, a Rust program that compiles to the aforementioned bytes would look something like:
+
 ```rust
 pub fn main() -> i32 {
   return 42;
 }
 ```
+
 Where the function return type `i32` stands for an `i`nteger using `32` bits of memory.
 
-
-Loading from files:
-
-```ts
-const wasmCode = await Deno.readFile("main.wasm");
-
-const wasmModule = new WebAssembly.Module(wasmCode);
-
-const wasmInstance = new WebAssembly.Instance(wasmModule);
-
-const main = wasmInstance.exports.main as CallableFunction;
-console.log(main().toString());
-```
-
-And for loading WebAssembly modules over the network (note that the file must be
-served with `application/wasm` MIME type):
-
-```ts
-const { instance, module } = await WebAssembly.instantiateStreaming(
-  fetch("https://wpt.live/wasm/incrementer.wasm"),
-);
-const increment = instance.exports.increment as (input: number) => number;
-console.log(increment(41));
-```
+The module above uses only numeric types and is simple enough that it just works in Deno, but in order to run more sophisticated modules using more complex types (strings, classes) you would need some tools that generate type bindings between JavaScript and the language that is used to compile to WebAssembly, which is discussed on the next page.
