@@ -1,20 +1,33 @@
-## Deno and WebAssembly
+## Loading and Compiling WebAssembly
 
-In general there are two scenarios where you'd want to consider utilizing a WebAssembly module:
+Loading WebAssembly generally consists of the following steps:
 
-- Server-side, to perform some computationally intensive task
-- Client-side, to run for example a game or some other service requiring a lot of horsepower
+1. Fetching the binary code
+2. Compiling the binary into a `WebAssembly.Module` object
+3. Instantiating the WebAssembly module
 
-In the second scenario the size of the WebAssembly binaries becomes quite important, because every byte has to be served over a network and modern applications like to serve their content fast. For these cases you can look into performing optimizations that reduce the size of WebAssembly binaries, such as compression. You can find a good guide on optimizing builds for size [here](https://rustwasm.github.io/docs/book/reference/code-size.html).
+It is recommended to use the streaming compilation and instantiation methods as they are the [most efficient](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming) way to achieve the above.
 
-## Non-Streaming Compilation
+```ts
+const { instance, module } = await WebAssembly.instantiateStreaming(
+  fetch("https://wpt.live/wasm/incrementer.wasm"),
+);
 
-```typescript
-
+const increment = instance.exports.increment as (input: number) => number;
+console.log(increment(41));
 ```
 
-## Streaming Compilation
+Note that the `.wasm` file must be served with the `application/wasm` MIME type. If you need to do some additional work on the binary before instantiation you can use `compileStreaming`:
 
-```typescript
-
+```ts
+WebAssembly.compileStreaming(fetch("https://wpt.live/wasm/incrementer.wasm"))
+    .then(module =>  {
+        /* do some more stuff */
+        WebAssembly.instantiate(module));
+    })
+    .then(instance => {
+        instance.exports.increment as (input: number) => number;
+    })
 ```
+
+If for some reason you cannot make use of the streaming methods you can fall back to the (somewhat less efficient) `compile` and `instantiate` methods. See for example the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate). For a more in-depth look on the streaming methods, see for example [this post](https://hacks.mozilla.org/2018/01/making-webassembly-even-faster-firefoxs-new-streaming-and-tiering-compiler/).
