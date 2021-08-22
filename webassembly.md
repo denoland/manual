@@ -1,3 +1,12 @@
 ## WebAssembly
 
-Designed to be used alongside JavaScript to power up the performance of key application components, WebAssembly has a much higher execution speed than JavaScript, comparable with C and C++. Deno has supported WebAssembly since v1.0.0, enabling developers to leverage this technology. This chapter focuses on making use of WebAssembly modules in Deno rather than going into the details of languages that compile to WebAssembly and tools that generate for example type bindings. There are many good tutorials on the latter already, which will be linked to.
+Designed to be used alongside JavaScript to speed up key application components, WebAssembly has a much higher execution speed than JavaScript, comparable with C and C++. Deno can execute [WebAssembly](https://webassembly.org/) modules with the same
+interfaces that
+[browsers provide](https://developer.mozilla.org/en-US/docs/WebAssembly).
+
+This chapter will discuss:
+
+1. [Running a WebAssembly module in Deno](webassembly/running_webassembly.md)
+2. [Installing the tools needed to create WebAssembly modules](webassembly/tooling.md)
+3. [Compiling and instantiating WebAssembly]()
+4. [Optimizing WebAssembly binaries for speed and/or size](webassembly/optimization.md)

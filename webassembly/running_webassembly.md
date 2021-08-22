@@ -1,4 +1,4 @@
-## WebAssembly support
+## Running a WebAssembly module in Deno
 
 Deno can execute [WebAssembly](https://webassembly.org/) modules with the same
 interfaces that
@@ -25,6 +25,15 @@ const wasmInstance = new WebAssembly.Instance(wasmModule);
 const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
+
+A few different languages exist that compile down to WebAssembly. As an example, a Rust program that compiles to the aforementioned bytes would look something like:
+```rust
+pub fn main() -> i32 {
+  return 42;
+}
+```
+Where the function return type `i32` stands for an `i`nteger using `32` bits of memory.
+
 
 Loading from files:
 
