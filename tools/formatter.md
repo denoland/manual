@@ -1,20 +1,23 @@
 ## Code formatter
 
-Deno ships with a built in code formatter that auto-formats TypeScript and
-JavaScript code.
+Deno ships with a built in code formatter that auto-formats TypeScript,
+JavaScript, Markdown, JSON, and JSONC code.
 
 ```shell
-# format all JS/TS files in the current directory and subdirectories
+# format all supported files in the current directory and subdirectories
 deno fmt
 # format specific files
 deno fmt myfile1.ts myfile2.ts
-# check if all the JS/TS files in the current directory and subdirectories are formatted
+# check if all the supported files in the current directory and subdirectories are formatted
 deno fmt --check
 # format stdin and write to stdout
 cat file.ts | deno fmt -
 ```
 
-Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment:
+### Ignoring Code
+
+Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
+TS/JS/JSONC:
 
 ```ts
 // deno-fmt-ignore
@@ -27,3 +30,8 @@ export const identity = [
 
 Or ignore an entire file by adding a `// deno-fmt-ignore-file` comment at the
 top of the file.
+
+In markdown you may use a `<!-- deno-fmt-ignore -->` comment or ignore a whole
+file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
+markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
+`<!-- deno-fmt-ignore-end -->` comments.
