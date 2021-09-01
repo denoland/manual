@@ -59,6 +59,11 @@ Then navigate to `http://localhost:8080/` in a browser.
 
 ### Using the `std/http` library
 
+> ℹ️ Since the stabilization of _native_ HTTP bindings in 1.13, `std/http` now
+> supports both a _native_ HTTP server and legacy JavaScript HTTP server. The
+> legacy server module is now deprecated, and is planned to be removed in a
+> future release.
+
 **webserver.ts**:
 
 ```ts
@@ -81,4 +86,25 @@ Then run this with:
 
 ```shell
 deno run --allow-net webserver.ts
+```
+
+**webserver_legacy.ts**
+
+```ts
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server_legacy.ts";
+
+const server = serve({ port: 8080 });
+console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
+
+for await (const request of server) {
+  let body = "Your user-agent is:\n\n";
+  body += request.headers.get("user-agent") || "Unknown";
+  request.respond({ status: 200, body });
+}
+```
+
+Then run this with:
+
+```shell
+deno run --allow-net webserver_legacy.ts
 ```
