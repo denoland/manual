@@ -2,9 +2,10 @@
 
 The
 [most efficient](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming)
-way to fetch, compile and instantiate a WebAssembly module is to use the streaming variants of the
-WebAssembly API. For example, you can use `instantiateStreaming` combined with
-`fetch` to perform all three steps in one go:
+way to fetch, compile and instantiate a WebAssembly module is to use the
+streaming variants of the WebAssembly API. For example, you can use
+`instantiateStreaming` combined with `fetch` to perform all three steps in one
+go:
 
 ```ts
 const { instance, module } = await WebAssembly.instantiateStreaming(
