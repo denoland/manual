@@ -1,6 +1,6 @@
 ## Using WebAssembly in Deno
 
-At its simplest, all you need to run WebAssembly in Deno are some bytes. The
+To run WebAssembly in Deno all you need are some bytes. The
 following binary exports a `main` function that just returns `42` upon
 invocation:
 
