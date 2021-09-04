@@ -35,6 +35,5 @@ back to the (somewhat less efficient) `compile` and `instantiate` methods. See
 for example the
 [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate).
 For a more in-depth look on what makes the streaming methods more performant,
-see
-[this post](https://hacks.mozilla.org/2018/01/making-webassembly-even-faster-firefoxs-new-streaming-and-tiering-compiler/),
-for example.
+see for example
+[this post](https://hacks.mozilla.org/2018/01/making-webassembly-even-faster-firefoxs-new-streaming-and-tiering-compiler/).
