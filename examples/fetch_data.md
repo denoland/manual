@@ -37,7 +37,7 @@ console.log(jsonData);
 /**
  * Output: HTML Data
  */
-const textResponse = fetch("https://deno.land/");
+const textResponse = await fetch("https://deno.land/");
 const textData = await textResponse.text();
 console.log(textData);
 
