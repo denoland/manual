@@ -19,7 +19,7 @@ An example on how to create type bindings between JavaScript and Rust, compiling
 it into a binary and calling it from a JavaScript program can be found on
 [MDN](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_wasm).
 
-If you plan to do a lot of work with Web APIs in Rust/WebAssembly, you may find
+If you plan to do a lot of work with Web APIs in Rust+WebAssembly, you may find
 the [web_sys](https://rustwasm.github.io/wasm-bindgen/web-sys/index.html) and
 [js_sys](https://rustwasm.github.io/wasm-bindgen/contributing/js-sys/index.html)
 Rust crates useful. `web_sys` contains bindings to most of the Web APIs that are

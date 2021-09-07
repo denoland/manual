@@ -18,20 +18,20 @@ const wasmModule = new WebAssembly.Module(wasmCode);
 
 const wasmInstance = new WebAssembly.Instance(wasmModule);
 
-const main = wasmInstance.exports.main as CallableFunction
+const main = wasmInstance.exports.main as CallableFunction;
 console.log(main().toString());
 ```
 
 As the code above shows, the following steps need to be performed in order to
 load WebAssembly in a JavaScript program:
 
-1. Fetching the bytecode (usually in the form of a `.wasm` file, though we are
+1. Fetching the binary (usually in the form of a `.wasm` file, though we are
    using a simple byte array for now)
-2. Compiling the bytecode into a `WebAssembly.Module` object
+2. Compiling the binary into a `WebAssembly.Module` object
 3. Instantiating the WebAssembly module
 
 For more complex scenarios you will probably want to write in a programming
-language that compiles down to WebAssembly instead of using raw bytes. A number
+language that compiles down to WebAssembly instead of hand writing instructions. A number
 of languages exist that can do this, such as [Rust](https://www.rust-lang.org/),
 [Go](https://golang.org/) or [AssemblyScript](https://www.assemblyscript.org/).
 As an example, a Rust program that compiles to the aforementioned bytes would

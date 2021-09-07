@@ -32,7 +32,7 @@ WebAssembly.compileStreaming(fetch("https://wpt.live/wasm/incrementer.wasm"))
 ```
 
 If for some reason you cannot make use of the streaming methods you can fall
-back to the (somewhat less efficient) `compile` and `instantiate` methods. See
+back to the less efficient `compile` and `instantiate` methods. See
 for example the
 [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate).
 For a more in-depth look on what makes the streaming methods more performant,
