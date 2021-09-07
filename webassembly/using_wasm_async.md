@@ -21,14 +21,13 @@ If you want to do additional work on the module before instantiation you can
 instead use `compileStreaming`:
 
 ```ts
-WebAssembly.compileStreaming(fetch("https://wpt.live/wasm/incrementer.wasm"))
-    .then(module =>  {
-        /* do some more stuff */
-        return WebAssembly.instantiate(module));
-    })
-    .then(instance => {
-        instance.exports.increment as (input: number) => number;
-    })
+const module = await WebAssembly.compileStreaming(fetch("https://wpt.live/wasm/incrementer.wasm"));
+
+/* do some more stuff */
+
+const instance = await WebAssembly.instantiate(module);
+instance.exports.increment as (input: number) => number;
+
 ```
 
 If for some reason you cannot make use of the streaming methods you can fall
