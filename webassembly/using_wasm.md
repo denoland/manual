@@ -43,6 +43,6 @@ pub fn main() -> u32 {  // u32 stands for an unsigned integer using 32 bits of m
 }
 ```
 
-While the preceding example loaded a WebAssembly module into Deno synchronously,
-it is also possible to use the asynchronous methods of the WebAssembly API, as
+Aside from the methods shown in the preceding example,
+it is also possible to use the streaming methods of the WebAssembly API, as
 will be shown on the next page.
