@@ -21,18 +21,19 @@ If you want to do additional work on the module before instantiation you can
 instead use `compileStreaming`:
 
 ```ts
-const module = await WebAssembly.compileStreaming(fetch("https://wpt.live/wasm/incrementer.wasm"));
+const module = await WebAssembly.compileStreaming(
+  fetch("https://wpt.live/wasm/incrementer.wasm"),
+);
 
 /* do some more stuff */
 
 const instance = await WebAssembly.instantiate(module);
 instance.exports.increment as (input: number) => number;
-
 ```
 
 If for some reason you cannot make use of the streaming methods you can fall
-back to the less efficient `compile` and `instantiate` methods. See
-for example the
+back to the less efficient `compile` and `instantiate` methods. See for example
+the
 [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiate).
 For a more in-depth look on what makes the streaming methods more performant,
 see for example
