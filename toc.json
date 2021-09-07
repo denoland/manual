@@ -57,6 +57,14 @@
       "faqs": "Frequently asked questions"
     }
   },
+  "webassembly": {
+    "name": "Using WebAssembly",
+    "children": {
+      "using_wasm": "Using WebAssembly in Deno",
+      "using_streaming_wasm": "Using the streaming WebAssembly APIs",
+      "wasm_resources.md": "Helpful resources"
+    }
+  },
   "standard_library": {
     "name": "Standard library"
   },
