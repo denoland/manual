@@ -1,6 +1,8 @@
 ## Using WebAssembly in Deno
 
-To run WebAssembly in Deno all you need are some bytes. The following binary
+To run WebAssembly in Deno, all you need is a binary to run. WebAssembly is a binary data format. This means that `.wasm` files are not directly human readable, and not intended to be written by hand. Instead a compiler for a language like Rust, C++, or Go _emits_ `.wasm` files.
+
+The following binary
 exports a `main` function that just returns `42` upon invocation:
 
 <!-- deno-fmt-ignore -->
@@ -43,6 +45,6 @@ pub fn main() -> u32 {  // u32 stands for an unsigned integer using 32 bits of m
 }
 ```
 
-Aside from the methods shown in the preceding example,
+Aside from the   methods shown in the preceding example,
 it is also possible to use the streaming methods of the WebAssembly API, as
 will be shown on the next page.
