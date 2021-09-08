@@ -10,7 +10,6 @@
       "first_steps": "First steps",
       "command_line_interface": "Command line interface",
       "permissions": "Permissions",
-      "webassembly": "Using WebAssembly",
       "debugging_your_code": "Debugging your code"
     }
   },
@@ -55,6 +54,14 @@
       "migration": "Migrating to/from JavaScript",
       "runtime": "Runtime compiler APIs",
       "faqs": "Frequently asked questions"
+    }
+  },
+  "webassembly": {
+    "name": "Using WebAssembly",
+    "children": {
+      "using_wasm": "Using WebAssembly in Deno",
+      "using_streaming_wasm": "Using the streaming WebAssembly APIs",
+      "wasm_resources": "Helpful resources"
     }
   },
   "standard_library": {
