@@ -6,6 +6,8 @@ Deno ships with a built in code formatter that will auto-format the following fi
 | ---------- | ------------------ |
 | JavaScript | `.js`              |
 | TypeScript | `.ts`              |
+| JSX        | `.jsx`             |
+| TSX        | `.tsx`             |
 | Markdown   | `.md`, `.markdown` |
 | JSON       | `.json`            |
 | JSONC      | `.jsonc`           |
