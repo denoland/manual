@@ -9,7 +9,7 @@ flag.
 Note that using a configuration file is not required now, and will not be
 required in the future. Deno still works best with the default options and no
 configuration file. All options specified in the configuration file can also be
-set using command line flags (for example --options-use-tabs for deno fmt).
+set using command line flags (for example `--options-use-tabs` for `deno fmt`).
 Using the configuration file should be considered an "as needed" feature, not
 something every user should be reaching to as the first thing when setting up a
 project.
