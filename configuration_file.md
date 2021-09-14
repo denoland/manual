@@ -1,17 +1,19 @@
 # Configuration file
 
-> ⚠️ With v1.14 Deno started supporting more general configuration than only
-> specifying TypeScript options.
-
 Deno supports configuration file that allows to customize built-in TypeScript
 compiler, formatter and linter.
 
 To tell Deno to use the configuration file pass `--config path/to/file.json`
 flag.
 
-Configuration file supports `.json` and `.jsonc` extensions. We recommend to use
-`deno.json` or `deno.jsonc` as a file name, as as automatic lookup of this file
-is planned for the upcoming releases.
+Adding the configuration file is not required to use Deno and we recommend users
+stick with the default options. Using the configuration file should be
+considered an "as needed" feature, not something every user should be reaching
+to as the first thing when setting up a project.
+
+The configuration file supports `.json` and `.jsonc` extensions. We recommend to
+use `deno.json` or `deno.jsonc` as a file name, as an automatic lookup of this
+file is planned for the upcoming releases.
 
 ## Example
 

@@ -38,6 +38,8 @@ markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 
 ### Configuration
 
+> ℹ️ It is recommended to stick with default options.
+
 Starting with Deno v1.14 a formatter can be customized using either
 [a configuration file](../configuration_file.md) or following CLI flags:
 
@@ -53,5 +55,5 @@ Starting with Deno v1.14 a formatter can be customized using either
 - `--options-single-quote` - Wheter to use single quote. Defaults to false
   (using double quote).
 
-- `--options-prose-wrap` - Define how prose should be wrapped in Markdown files.
-  Defaults to "always".
+- `--options-prose-wrap={always,never,preserve}` - Define how prose should be
+  wrapped in Markdown files. Defaults to "always".
