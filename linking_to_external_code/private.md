@@ -17,7 +17,7 @@ number of tokens deliminated by a semi-colon (`;`) where each token is either:
 
 - a Bearer token in the format of `{token}@{hostname[:port]}`
 
-- a Basic auth data in the format of `{username}:{passwork}@{hostname[:port]}`
+- a Basic auth data in the format of `{username}:{password}@{hostname[:port]}`
 
 For example a single token for would look something like this:
 
