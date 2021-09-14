@@ -22,7 +22,7 @@ a path on the command line. For example:
 > defaults and to think long and hard about using a configuration file.
 
 > ⚠️ Deno v1.14 started supporting a more general configuration file that is no
-> longer confined to specyfing TypeScript compiler settings. Using
+> longer confined to specifying TypeScript compiler settings. Using
 > `tsconfig.json` as a file name will still work, but we recommend to use
 > `deno.json` or `deno.jsonc`, as an automatic lookup of this file is planned
 > for an upcoming releases.
