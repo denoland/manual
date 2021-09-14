@@ -15,7 +15,7 @@ determine what authentication tokens it should consider using when requesting
 remote modules. The value of the environment variable is in the format of a _n_
 number of tokens deliminated by a semi-colon (`;`) where each token is either:
 
-- a Bearer token in the format of `{token}@{hostname[:port]}`
+- a bearer token in the format of `{token}@{hostname[:port]}`
 
 - a Basic auth data in the format of `{username}:{password}@{hostname[:port]}`
 
