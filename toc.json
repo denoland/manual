@@ -94,6 +94,9 @@
       "sanitizers": "Sanitizers"
     }
   },
+  "configuration_file": {
+    "name": "Configuration file"
+  },
   "tools": {
     "name": "Tools",
     "children": {
