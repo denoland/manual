@@ -71,10 +71,10 @@ in the editor. The option _Deno: Import Map_ (or `deno.importMap` if manually
 editing) should be set to the value of the import map file. If the path is a
 relative path, it will be resolved relative to the root of the workspace.
 
-### Using a tsconfig.json
+### Using a configuration file
 
-Typically a `tsconfig.json` is not required for a Deno project. There are a few
-scenarios though where it might be useful, and if you want to have the same
+Typically a configuration file is not required for a Deno project. There are a
+few scenarios though where it might be useful, and if you want to have the same
 settings applied as when specifying the `--config` option on the command line,
 the _Deno: Config_ option can be used (or `deno.config` if manually editing).
 

@@ -251,10 +251,11 @@ checking.
 
 `Deno.emit()` supports quite a few compiler options that can impact how code is
 type checked and emitted. They are similar to the options supported by a
-`tsconfig.json` in the `compilerOptions` section, but there are several options
-that are not supported. This is because they are either meaningless in Deno or
-would cause Deno to not be able to work properly. The defaults for `Deno.emit()`
-are the same defaults that are on the command line. The options are
+configuration file in the `compilerOptions` section, but there are several
+options that are not supported. This is because they are either meaningless in
+Deno or would cause Deno to not be able to work properly. The defaults for
+`Deno.emit()` are the same defaults that are on the command line. The options
+are
 [documented here](https://doc.deno.land/builtin/unstable#Deno.CompilerOptions)
 along with their default values and are built into the Deno types.
 

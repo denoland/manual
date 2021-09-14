@@ -148,3 +148,17 @@ function bar(a: any) {
   // ...
 }
 ```
+
+### Configuration
+
+Starting with Deno v1.14 a linter can be customized using either
+[a configuration file](../configuration_file.md) or following CLI flags:
+
+- `--rules-tags` - List of tag names that will be run. Empty list disables all
+  tags and will only use rules from `include`. Defaults to "recommended".
+
+- `--rules-exclude` - List of rule names that will be excluded from configured
+  tag sets. If the same rule is in `include` it be run.
+
+- `--rules-include` - List of rule names that will be run. Even if the same rule
+  is in `exclude` it will be run.

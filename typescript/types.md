@@ -140,11 +140,11 @@ can be a fully qualified URL as well:
 /// <reference types="https://deno.land/x/pkg@1.0.0/types.d.ts" />
 ```
 
-#### Using a `tsconfig.json` file
+#### Using a configuration file
 
-Another option is to use a `tsconfig.json` file that is configured to include
-the type definitions, by supplying a `"types"` value to the `"compilerOptions"`.
-For example:
+Another option is to use a configuration file that is configured to include the
+type definitions, by supplying a `"types"` value to the `"compilerOptions"`. For
+example:
 
 ```json
 {
@@ -160,7 +160,8 @@ For example:
 
 Like the triple-slash reference above, the specifier supplied in the `"types"`
 array will be resolved like other specifiers in Deno. In the case of relative
-specifiers, it will be resolved relative to the path to the `tsconfig.json`.
+specifiers, it will be resolved relative to the path to the config file. Make
+sure to tell Deno to use this file by specifying `--config=path/to/file` flag.
 
 ### Type Checking Web Workers
 
@@ -196,9 +197,9 @@ The one disadvantage of this, is that it makes the code less portable to other
 non-Deno platforms like `tsc`, as it is only Deno which has the `"deno.worker"`
 library built into it.
 
-#### Using a `tsconfig.json` file
+#### Using a configuration file
 
-Another option is to use a `tsconfig.json` file that is configured to apply the
+Another option is to use a configuration file that is configured to apply the
 library files. A minimal file that would work would look something like this:
 
 ```json
@@ -211,8 +212,8 @@ library files. A minimal file that would work would look something like this:
 ```
 
 Then when running a command on the command line, you would need to pass the
-`--config tsconfig.json` argument, or if you are using an IDE which leverages
-the Deno language server, set the `deno.config` setting.
+`--config path/to/file` argument, or if you are using an IDE which leverages the
+Deno language server, set the `deno.config` setting.
 
 If you also have non-worker scripts, you will either need to omit the `--config`
 argument, or have one that is configured to meet the needs of your non-worker

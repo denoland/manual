@@ -35,3 +35,25 @@ In markdown you may use a `<!-- deno-fmt-ignore -->` comment or ignore a whole
 file with a `<!-- deno-fmt-ignore-file -->` comment. To ignore a section of
 markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 `<!-- deno-fmt-ignore-end -->` comments.
+
+### Configuration
+
+> ℹ️ It is recommended to stick with default options.
+
+Starting with Deno v1.14 a formatter can be customized using either
+[a configuration file](../configuration_file.md) or following CLI flags:
+
+- `--options-use-tabs` - Whether to use tabs. Defaults to false (using spaces).
+
+- `--options-line-width` - The width of a line the printer will try to stay
+  under. Note that the printer may exceed this width in certain cases. Defaults
+  to 80.
+
+- `--options-indent-width` - The number of characters for an indent. Defaults
+  to 2.
+
+- `--options-single-quote` - Wheter to use single quote. Defaults to false
+  (using double quote).
+
+- `--options-prose-wrap={always,never,preserve}` - Define how prose should be
+  wrapped in Markdown files. Defaults to "always".

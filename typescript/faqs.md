@@ -54,9 +54,9 @@ change you want to bypass while waiting for it to be updated.
 
 ### How do I write code that works in Deno and a browser, but still type checks?
 
-You can do this by using a `tsconfig.json` file with the `--config` option on
-the command line and adjusting the `"lib"` option in the `"compilerOptions"` in
-the file. For more information see
+You can do this by using a configuration file with the `--config` option on the
+command line and adjusting the `"lib"` option in the `"compilerOptions"` in the
+file. For more information see
 [Targeting Deno and the Browser](./configuration#targeting-deno-and-the-browser).
 
 ### Why are you forcing me to use isolated modules, why can't I use const enums with Deno, why do I need to do export type?
