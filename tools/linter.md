@@ -111,7 +111,7 @@ Ignore directive must be placed before first statement or declaration:
 
 /**
  * Some JS doc
- **/
+ */
 
 // deno-lint-ignore-file
 

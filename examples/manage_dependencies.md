@@ -36,7 +36,7 @@ clean separation between dev only and production dependencies.
  * deps.ts
  *
  * This module re-exports the required methods from the dependant remote Ramda module.
- **/
+ */
 export {
   add,
   multiply,
