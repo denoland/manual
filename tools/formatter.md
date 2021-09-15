@@ -1,6 +1,7 @@
 ## Code formatter
 
-Deno ships with a built in code formatter that will auto-format the following files:
+Deno ships with a built in code formatter that will auto-format the following
+files:
 
 | File Type  | Extension          |
 | ---------- | ------------------ |
