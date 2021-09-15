@@ -11,7 +11,7 @@ automatic. To use a TypeScript configuration file with Deno, you have to provide
 a path on the command line. For example:
 
 ```
-> deno run --config ./tsconfig.json main.ts
+> deno run --config ./deno.json main.ts
 ```
 
 > ⚠️ Do consider though that if you are creating libraries that require a
@@ -20,6 +20,12 @@ a path on the command line. For example:
 > addition, there could be settings you do in the configuration file that make
 > other TypeScript modules incompatible. Honestly it is best to use the Deno
 > defaults and to think long and hard about using a configuration file.
+
+> ⚠️ Deno v1.14 started supporting a more general configuration file that is no
+> longer confined to specifying TypeScript compiler settings. Using
+> `tsconfig.json` as a file name will still work, but we recommend to use
+> `deno.json` or `deno.jsonc`, as an automatic lookup of this file is planned
+> for an upcoming releases.
 
 ### How Deno uses a configuration file
 
@@ -96,7 +102,7 @@ this:
 }
 ```
 
-You can't copy paste this into a `tsconfig.json` and get it to work,
+You can't copy paste this into a configuration file and get it to work,
 specifically because of the built in type libraries that are custom to Deno
 which are provided to the TypeScript compiler. This can somewhat be mocked by
 running `deno types` on the command line and piping the output to a file and
@@ -115,7 +121,7 @@ Deno has several libraries built into it that are not present in other
 platforms, like `tsc`. This is what enables Deno to properly check code written
 for Deno. In some situations though, this automatic behavior can cause
 challenges, for example like writing code that is intended to also run in a
-browser. In these situations the `"lib"` property of a `tsconfig.json` can be
+browser. In these situations the `"lib"` property of a `compilerOptions` can be
 used to modify the behavior of Deno when type checking code.
 
 The built-in libraries that are of interest to users:
@@ -157,7 +163,7 @@ code that is intended to also work in another runtime:
 
 A common use case is writing code that works in Deno and the browser, and have
 the code "sniff" to determine if it is running in the browser or in Deno. If
-that is the case a common configuration of a `tsconfig.json` would look like
+that is the case a common configuration of a `compilerOptions` would look like
 this:
 
 ```json

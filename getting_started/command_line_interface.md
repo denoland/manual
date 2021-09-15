@@ -127,7 +127,7 @@ above, this includes those which affect module resolution, compilation
 configuration etc.
 
 ```
---config <FILE>               Load tsconfig.json configuration file
+--config <FILE>               Load configuration file
 --import-map <FILE>           Load import map file
 --no-remote                   Do not resolve remote modules
 --reload=<CACHE_BLOCKLIST>    Reload source code cache (recompile TypeScript)

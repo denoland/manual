@@ -30,10 +30,10 @@ There is an official extension for
 When installed, it will connect to the language server built into the Deno CLI.
 
 Because most people work in mixed environments, the extension does not enable a
-workspace as _Deno enabled_ by default, and it requires that the
-`"deno.enabled"` flag to be set. You can change the settings yourself, or you
-can choose `Deno: Initialize Workspace Configuration` from the command palette
-to enable your project.
+workspace as _Deno enabled_ by default, and it requires that the `"deno.enable"`
+flag to be set. You can change the settings yourself, or you can choose
+`Deno: Initialize Workspace Configuration` from the command palette to enable
+your project.
 
 More information can be found in the
 [Using Visual Studio Code](../vscode_deno.md) section of the manual.

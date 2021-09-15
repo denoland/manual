@@ -59,10 +59,12 @@ Then navigate to `http://localhost:8080/` in a browser.
 
 ### Using the `std/http` library
 
-> ℹ️ Since the stabilization of _native_ HTTP bindings in `^1.13.x`, `std/http`
-> now supports both a _native_ HTTP server and legacy JavaScript HTTP server
-> from `^0.107.0`. The legacy server module is now deprecated, and is planned to
-> be removed in a future release.
+> ℹ️ Since
+> [the stabilization of _native_ HTTP bindings in
+`^1.13.x`](https://deno.com/blog/v1.13#stabilize-native-http-server-api),
+> `std/http` now supports both a _native_ HTTP server and legacy JavaScript HTTP
+> server from `^0.107.0`. The legacy server module is now deprecated, and is
+> planned to be removed in a future release.
 
 **webserver.ts**:
 

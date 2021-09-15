@@ -13,8 +13,11 @@ Cloudsmith, etc.).
 The Deno CLI will look for an environment variable named `DENO_AUTH_TOKENS` to
 determine what authentication tokens it should consider using when requesting
 remote modules. The value of the environment variable is in the format of a _n_
-number of tokens deliminated by a semi-colon (`;`) where each token is in the
-format of `{token}@{hostname[:port]}`.
+number of tokens deliminated by a semi-colon (`;`) where each token is either:
+
+- a bearer token in the format of `{token}@{hostname[:port]}`
+
+- basic auth data in the format of `{username}:{password}@{hostname[:port]}`
 
 For example a single token for would look something like this:
 
@@ -22,17 +25,24 @@ For example a single token for would look something like this:
 DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land
 ```
 
+or
+
+```sh
+DENO_AUTH_TOKENS=username:password@deno.land
+```
+
 And multiple tokens would look like this:
 
 ```sh
-DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land;f1e2d3c4b5a6@example.com:8080
+DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land;f1e2d3c4b5a6@example.com:8080,username:password@deno.land
 ```
 
 When Deno goes to fetch a remote module, where the hostname matches the hostname
 of the remote module, Deno will set the `Authorization` header of the request to
-the value of `Bearer {token}`. This allows the remote server to recognize that
-the request is an authorized request tied to a specific authenticated user, and
-provide access to the appropriate resources and modules on the server.
+the value of `Bearer {token}` or `Basic {base64EncodedData}`. This allows the
+remote server to recognize that the request is an authorized request tied to a
+specific authenticated user, and provide access to the appropriate resources and
+modules on the server.
 
 ### GitHub
 
