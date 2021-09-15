@@ -41,7 +41,8 @@ markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 > ℹ️ It is recommended to stick with default options.
 
 Starting with Deno v1.14 a formatter can be customized using either
-[a configuration file](../configuration_file.md) or following CLI flags:
+[a configuration file](../getting_started/configuration_file.md) or following
+CLI flags:
 
 - `--options-use-tabs` - Whether to use tabs. Defaults to false (using spaces).
 
