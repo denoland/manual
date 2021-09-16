@@ -158,7 +158,7 @@ Starting with Deno v1.14 a linter can be customized using either
   tags and will only use rules from `include`. Defaults to "recommended".
 
 - `--rules-exclude` - List of rule names that will be excluded from configured
-  tag sets. If the same rule is in `include` it be run.
+  tag sets. If the same rule is in `include` it will be run.
 
 - `--rules-include` - List of rule names that will be run. Even if the same rule
   is in `exclude` it will be run.
