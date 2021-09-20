@@ -18,7 +18,7 @@ deno run --allow-read mod.ts
 The following permissions are available:
 
 - **--allow-env=\<allow-env\>** Allow environment access for things like getting
-  and setting of environment variables. Since Deno 1.9, you can specify a
+  and setting of environment variables. Since Deno 1.9, you can specify an
   optional, comma-separated list of environment variables to provide an
   allow-list of allowed environment variables.
 - **--allow-hrtime** Allow high-resolution time measurement. High-resolution
@@ -34,14 +34,15 @@ The following permissions are available:
   an optional, comma-separated list of directories or files to provide an
   allow-list of allowed file system access.
 - **--allow-run=\<allow-run\>** Allow running subprocesses. Since Deno 1.9, You
-  can specify an options, comma-separated list of subprocesses to provide an
+  can specify an optional, comma-separated list of subprocesses to provide an
   allow-list of allowed subprocesses. Be aware that subprocesses are not run in
-  a sandbox and therefore do not have the same security restrictions as the deno
+  a sandbox and therefore do not have the same security restrictions as the Deno
   process. Therefore, use with caution.
 - **--allow-write=\<allow-write\>** Allow file system write access. You can
   specify an optional, comma-separated list of directories or files to provide
   an allow-list of allowed file system access.
-- **-A, --allow-all** Allow all permissions. This disables all security.
+- **-A, --allow-all** Allow all permissions. This enables all security sensitive
+  functions. Use with caution.
 
 ### Permissions allow-list
 
