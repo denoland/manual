@@ -14,7 +14,7 @@ TypeScript code.
 To define a test you need to register it with a call to `Deno.test` with a name
 and function to be tested. There are two styles you can use.
 
-```ts, ignore
+```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 
 // Simple name and function, compact form, but not configurable
