@@ -10,9 +10,9 @@ Example:
 
 ```json
 {
-   "imports": {
-      "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
-   }
+  "imports": {
+    "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
+  }
 }
 ```
 
