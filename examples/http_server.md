@@ -69,7 +69,7 @@ Then navigate to `http://localhost:8080/` in a browser.
 **webserver.ts**:
 
 ```ts
-import { listenAndServe } from "https://deno.land/std@0.107.0/http/server.ts";
+import { listenAndServe } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 const addr = ":8080";
 
@@ -93,7 +93,7 @@ deno run --allow-net webserver.ts
 **webserver_legacy.ts**
 
 ```ts
-import { serve } from "https://deno.land/std@0.107.0/http/server_legacy.ts";
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server_legacy.ts";
 
 const server = serve({ port: 8080 });
 console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);

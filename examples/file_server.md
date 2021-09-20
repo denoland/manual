@@ -3,7 +3,7 @@
 ## Concepts
 
 - Use the Deno standard library
-  [file_server.ts](https://deno.land/std@0.107.0/http/file_server.ts) to
+  [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) to
   run your own file server and access your files from your web browser.
 - Run [Deno install](../tools/script_installer.md) to install the file server
   locally.
@@ -15,14 +15,14 @@ file system. This will install the script to the Deno installation root's bin
 directory, e.g. `/home/alice/.deno/bin/file_server`.
 
 ```shell
-deno install --allow-net --allow-read https://deno.land/std@0.107.0/http/file_server.ts
+deno install --allow-net --allow-read https://deno.land/std@$STD_VERSION/http/file_server.ts
 ```
 
 You can now run the script with the simplified script name. Run it:
 
 ```shell
 $ file_server .
-Downloading https://deno.land/std@0.107.0/http/file_server.ts...
+Downloading https://deno.land/std@$STD_VERSION/http/file_server.ts...
 [...]
 HTTP server listening on http://0.0.0.0:4507/
 ```
