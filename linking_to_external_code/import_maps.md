@@ -8,17 +8,17 @@ Example:
 
 **import_map.json**
 
-```js
+```json
 {
    "imports": {
-      "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
+      "fmt/": "https://deno.land/std@0.107.0/fmt/"
    }
 }
 ```
 
 **color.ts**
 
-```ts
+```ts, ignore
 import { red } from "fmt/colors.ts";
 
 console.log(red("hello world"));
@@ -45,7 +45,7 @@ To use your project root for absolute imports:
 
 **main.ts**
 
-```ts
+```ts, ignore
 import { MyUtil } from "/util.ts";
 ```
 

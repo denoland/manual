@@ -23,7 +23,7 @@ console.log("Welcome to Deno!");
 Try the program:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
+deno run https://deno.land/std@0.107.0/examples/welcome.ts
 ```
 
 ### Making an HTTP request
@@ -59,7 +59,7 @@ Let's walk through what this application does:
 Try it out:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run https://deno.land/std@0.107.0/examples/curl.ts https://example.com
 ```
 
 You will see this program returns an error regarding network access, so what did
@@ -70,7 +70,7 @@ permission to do certain 'privileged' actions, such as access the network.
 Try it out again with the correct permission flag:
 
 ```shell
-deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run --allow-net=example.com https://deno.land/std@0.107.0/examples/curl.ts https://example.com
 ```
 
 ### Reading a file
@@ -86,7 +86,7 @@ In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@0.107.0/io/util.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
@@ -104,10 +104,10 @@ Try the program:
 
 ```shell
 # macOS / Linux
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/hosts
+deno run --allow-read https://deno.land/std@0.107.0/examples/cat.ts /etc/hosts
 
 # Windows
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
+deno run --allow-read https://deno.land/std@0.107.0/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
 ### TCP server
@@ -116,7 +116,7 @@ This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@0.107.0/io/util.ts";
 const hostname = "0.0.0.0";
 const port = 8080;
 const listener = Deno.listen({ hostname, port });
@@ -130,7 +130,7 @@ For security reasons, Deno does not allow programs to access the network without
 explicit permission. To allow accessing the network, use a command-line flag:
 
 ```shell
-deno run --allow-net https://deno.land/std@$STD_VERSION/examples/echo_server.ts
+deno run --allow-net https://deno.land/std@0.107.0/examples/echo_server.ts
 ```
 
 To test it, try sending data to it with `netcat` (or `telnet` on Windows):

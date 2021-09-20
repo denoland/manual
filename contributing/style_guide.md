@@ -308,8 +308,8 @@ test myTestFunction ... ok
 
 Example of test:
 
-```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+```ts, ignore
+import { assertEquals } from "https://deno.land/std@0.107.0/testing/asserts.ts";
 import { foo } from "./mod.ts";
 
 Deno.test("myTestFunction", function () {
