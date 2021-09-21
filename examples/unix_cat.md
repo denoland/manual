@@ -7,8 +7,8 @@
   command line arguments.
 - [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) is used to get a
   handle to a file.
-- [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/io/util.ts#copy) is
-  used to transfer data from the file to the output stream.
+- [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/io/util.ts#copy)
+  is used to transfer data from the file to the output stream.
 - Files should be closed when you are finished with them
 - Modules can be run directly from remote URLs.
 

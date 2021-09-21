@@ -4,7 +4,8 @@
 
 - Listening for TCP port connections with
   [Deno.listen](https://doc.deno.land/builtin/stable#Deno.listen).
-- Use [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/io/util.ts#copy)
+- Use
+  [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/io/util.ts#copy)
   to take inbound data and redirect it to be outbound data.
 
 ## Example
