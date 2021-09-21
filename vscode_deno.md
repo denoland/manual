@@ -163,9 +163,12 @@ default which provides the ability to run a test from within the editor.
 When you have a block of code that provides a test, like:
 
 ```ts
+import { assert } from "https://deno.land/std@0.107.0/testing/asserts.ts";
+
 Deno.test({
   name: "a test case",
   fn() {
+    let someCondition = true;
     assert(someCondition);
   },
 });
