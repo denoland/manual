@@ -161,7 +161,9 @@ export function pwrite(
   length: number,
   position: number,
 ) {}
+```
 
+```ts
 // BETTER.
 export interface PWrite {
   fd: number;
