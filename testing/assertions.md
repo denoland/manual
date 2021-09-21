@@ -1,11 +1,11 @@
 ## Assertions
 
 To help developers write tests the Deno standard library comes with a built in
-[assertions module](https://deno.land/std@0.107.0/testing/asserts.ts) which can
-be imported from `https://deno.land/std@0.107.0/testing/asserts.ts`.
+[assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which can
+be imported from `https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
 
 ```js
-import { assert } from "https://deno.land/std@0.107.0/testing/asserts.ts";
+import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 
 Deno.test("Hello Test", () => {
   assert("Hello");
@@ -235,13 +235,13 @@ Deno.test("Test Assert Equal Fail Custom Message", () => {
 ### Custom Tests
 
 While Deno comes with powerful
-[assertions modules](https://deno.land/std@0.107.0/testing/asserts.ts) but there
+[assertions modules](https://deno.land/std@$STD_VERSION/testing/asserts.ts) but there
 is always something specific to the project you can add. Creating
 `custom assertion function` can improve readability and reduce the amount of
 code.
 
 ```ts
-import { AssertionError } from "https://deno.land/std@0.107.0/testing/asserts.ts";
+import { AssertionError } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 
 function assertPowerOf(actual: number, expected: number, msg?: string): void {
   let received = actual;
