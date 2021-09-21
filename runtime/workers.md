@@ -88,7 +88,7 @@ new worker:
 
 **main.js**
 
-```js
+```ts
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
   deno: {
@@ -100,7 +100,7 @@ worker.postMessage({ filename: "./log.txt" });
 
 **worker.js**
 
-```js
+```ts
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);
@@ -138,7 +138,7 @@ the `deno.permissions` option in the worker API.
   desired resources the worker will have access to, and for those who only have
   the on/off option you can pass true/false respectively.
 
-  ```js
+  ```ts
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
@@ -162,7 +162,7 @@ the `deno.permissions` option in the worker API.
   relative to the file the worker is instantiated in, not the path the worker
   file is currently in
 
-  ```js
+  ```ts
   const worker = new Worker(
     new URL("./worker/worker.js", import.meta.url).href,
     {
@@ -183,7 +183,7 @@ the `deno.permissions` option in the worker API.
 - Both `deno.permissions` and its children support the option `"inherit"`, which
   implies it will borrow its parent permissions.
 
-  ```js
+  ```ts
   // This worker will inherit its parent permissions
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
@@ -194,7 +194,7 @@ the `deno.permissions` option in the worker API.
   });
   ```
 
-  ```js
+  ```ts
   // This worker will inherit only the net permissions of its parent
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
@@ -216,14 +216,14 @@ the `deno.permissions` option in the worker API.
 - Not specifying the `deno.permissions` option or one of its children will cause
   the worker to inherit by default.
 
-  ```js
+  ```ts
   // This worker will inherit its parent permissions
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
   });
   ```
 
-  ```js
+  ```ts
   // This worker will inherit all the permissions of its parent BUT net
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
@@ -239,7 +239,7 @@ the `deno.permissions` option in the worker API.
 - You can disable the permissions of the worker all together by passing `"none"`
   to the `deno.permissions` option.
 
-  ```js
+  ```ts
   // This worker will not have any permissions enabled
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
