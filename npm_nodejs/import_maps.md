@@ -97,7 +97,7 @@ that looked something like this:
 ```json
 {
   "imports": {
-    "fs": "https://deno.land/std@$STD_VERSION/node/fs.ts"
+    "fs": "https://deno.land/std@0.107.0/node/fs.ts"
   },
   "scopes": {
     "https://deno.land/x/example": {

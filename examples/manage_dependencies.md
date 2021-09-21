@@ -50,7 +50,7 @@ local `deps.ts` module.
 
 **Command:** `deno run example.ts`
 
-```ts
+```ts, ignore
 /**
  * example.ts
  */

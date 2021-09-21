@@ -63,7 +63,7 @@ have been historically written with Bash or Python.
   are imported via URLs:
 
   ```javascript
-  import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
+  import * as log from "https://deno.land/std@0.107.0/log/mod.ts";
   ```
 
 ## Other key behaviors

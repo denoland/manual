@@ -303,9 +303,9 @@ function handleReq(req: Request): Response {
     if (e instanceof ErrorEvent) {
       console.error("socket errored:", e.message);
     } else {
-      console.error(e)
+      console.error(e);
     }
-  }
+  };
   socket.onclose = () => console.log("socket closed");
   return response;
 }

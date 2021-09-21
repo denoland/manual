@@ -15,7 +15,7 @@ To define a test you need to register it with a call to `Deno.test` with a name
 and function to be tested. There are two styles you can use.
 
 ```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.107.0/testing/asserts.ts";
 
 // Simple name and function, compact form, but not configurable
 Deno.test("hello world #1", () => {
@@ -39,7 +39,7 @@ You can also test asynchronous code by passing a test function that returns a
 promise. For this you can use the `async` keyword when defining a function:
 
 ```ts
-import { delay } from "https://deno.land/std@$STD_VERSION/async/delay.ts";
+import { delay } from "https://deno.land/std@0.107.0/async/delay.ts";
 
 Deno.test("async hello world", async () => {
   const x = 1 + 2;
