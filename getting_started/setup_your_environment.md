@@ -71,10 +71,9 @@ in Neovim also supports Deno.
 
 Once you have
 [coc.nvim installed](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
-installed, you need to install the required plugins via
-`:CocInstall coc-tsserver coc-deno`.
+installed, you need to install the required plugin via `:CocInstall coc-deno`.
 
-Once the plugins are installed and you want to enable Deno for a workspace, run
+Once the plugin is installed and you want to enable Deno for a workspace, run
 the command `:CocCommand deno.initializeWorkspace` and you should be able to
 utilize commands like `gd` (goto definition) and `gr` (go/find references).
 
