@@ -8,8 +8,8 @@ Download https://deno.land/std@0.67.0/http/file_server.ts
 ...
 local: /home/deno/.cache/deno/deps/https/deno.land/f57792e36f2dbf28b14a75e2372a479c6392780d4712d76698d5031f943c0020
 type: TypeScript
-compiled: /home/deno/.cache/deno/gen/https/deno.land/f57792e36f2dbf28b14a75e2372a479c6392780d4712d76698d5031f943c0020.js
-deps: 23 unique (total 139.89KB)
+emit: /home/deno/.cache/deno/gen/https/deno.land/f57792e36f2dbf28b14a75e2372a479c6392780d4712d76698d5031f943c0020.js
+dependencies: 23 unique (total 139.89KB)
 https://deno.land/std@0.67.0/http/file_server.ts (10.49KB)
 ├─┬ https://deno.land/std@0.67.0/path/mod.ts (717B)
 │ ├── https://deno.land/std@0.67.0/path/_constants.ts (2.35KB)

@@ -1,7 +1,19 @@
 ## Code formatter
 
-Deno ships with a built in code formatter that auto-formats TypeScript,
-JavaScript, Markdown, JSON, and JSONC code.
+Deno ships with a built in code formatter that will auto-format the following
+files:
+
+| File Type  | Extension          |
+| ---------- | ------------------ |
+| JavaScript | `.js`              |
+| TypeScript | `.ts`              |
+| JSX        | `.jsx`             |
+| TSX        | `.tsx`             |
+| Markdown   | `.md`, `.markdown` |
+| JSON       | `.json`            |
+| JSONC      | `.jsonc`           |
+
+as well as code snippets within Markdown files.
 
 ```shell
 # format all supported files in the current directory and subdirectories
@@ -41,7 +53,8 @@ markdown, surround the code with `<!-- deno-fmt-ignore-start -->` and
 > ℹ️ It is recommended to stick with default options.
 
 Starting with Deno v1.14 a formatter can be customized using either
-[a configuration file](../configuration_file.md) or following CLI flags:
+[a configuration file](../getting_started/configuration_file.md) or following
+CLI flags:
 
 - `--options-use-tabs` - Whether to use tabs. Defaults to false (using spaces).
 
