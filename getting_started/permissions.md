@@ -51,8 +51,8 @@ Some permissions allow you to grant access to a specific list of entities
 
 #### File system access
 
-This example restricts file system access by allowing read-only access to
-the `/usr` directory. In consequence the execution fails as the process was
+This example restricts file system access by allowing read-only access to the
+`/usr` directory. In consequence the execution fails as the process was
 attempting to read a file in the `/etc` directory:
 
 ```shell
@@ -63,7 +63,8 @@ error: Uncaught PermissionDenied: read access to "/etc/passwd", run again with t
     ...
 ```
 
-Try it out again with the correct permissions by allowing access to `/etc` instead:
+Try it out again with the correct permissions by allowing access to `/etc`
+instead:
 
 ```shell
 deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
@@ -83,8 +84,8 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 const result = await fetch("https://deno.land/");
 ```
 
-This is an example of how to allow network access to specific hostnames or ip addresses, optionally
-locked to a specified port:
+This is an example of how to allow network access to specific hostnames or ip
+addresses, optionally locked to a specified port:
 
 ```shell
 # Multiple hostnames, all ports allowed
@@ -157,8 +158,8 @@ deno run --allow-run=whoami run.js
 deno run --allow-run run.js
 ```
 
-You can only limit the executables that are allowed; if permission is granted
-to execute it then any parameters can be passed. For example if you pass
+You can only limit the executables that are allowed; if permission is granted to
+execute it then any parameters can be passed. For example if you pass
 `--allow-run=cat` then the user can use `cat` to read any file.
 
 ### Conference
