@@ -228,13 +228,12 @@ example of configuring it up to connect to the Deno language server is by adding
 the following to your `kak-lsp.toml`:
 
 ```toml
-[language.deno]
+[language.typescript]
 filetypes = ["typescript", "javascript"]
 roots = [".git"]
 command = "deno"
 args = ["lsp"]
-
-[language.deno.initialization_options]
+[language.typescript.settings.deno]
 enable = true
 lint = true
 ```
