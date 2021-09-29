@@ -6,7 +6,7 @@
     "name": "Getting Started",
     "children": {
       "installation": "Installation",
-      "setup_your_environment": "Setup your environment",
+      "setup_your_environment": "Set up your environment",
       "first_steps": "First steps",
       "command_line_interface": "Command line interface",
       "configuration_file": "Configuration file",
