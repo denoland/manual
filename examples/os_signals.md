@@ -21,7 +21,7 @@ You can use `Deno.signal()` function for handling OS signals:
  * async-iterator-signal.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-for await (const _ of Deno.signal(Deno.Signal.SIGINT)) {
+for await (const _ of Deno.signal("SIGINT")) {
   console.log("interrupted!");
   Deno.exit();
 }
@@ -42,7 +42,7 @@ deno run --unstable async-iterator-signal.ts
  * promise-signal.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-await Deno.signal(Deno.Signal.SIGINT);
+await Deno.signal("SIGINT");
 console.log("interrupted!");
 Deno.exit();
 ```
@@ -62,7 +62,7 @@ signal object:
 /**
  * dispose-signal.ts
  */
-const sig = Deno.signal(Deno.Signal.SIGINT);
+const sig = Deno.signal("SIGINT");
 setTimeout(() => {
   sig.dispose();
   console.log("No longer watching SIGINT signal");
