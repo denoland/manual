@@ -53,33 +53,22 @@ You can find documentation about this API on
 - Events do not bubble, because Deno does not have a DOM hierarchy, so there is
   no tree for Events to bubble/capture through.
 
-## Web Worker API
-
-### Overview
-
-The WebWorker API can be used to executing code in a separate thread. It is
-implemented as specified in the
-[WHATWG HTML spec](https://html.spec.whatwg.org/multipage/workers.html#workers).
-
-You can find documentation about this API on
-[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Worker).
-
-### Spec deviations
-
-- Currently creating workers from blob URLs is not supported.
-- Currently posted data is serialized to JSON instead of structured cloning.
-- Currently object ownership cannot be transferred between workers.
-
 ## Other APIs
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+- [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
 - [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 - [Performance](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
 - [setTimeout, setInterval, clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 - [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
 - [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL)
+- [URLPattern](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
 - [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+- [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 ---
