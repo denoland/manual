@@ -100,8 +100,8 @@ are:
   construct.
 - `export =` and `import =` are legacy TypeScript syntax which we do not
   support.
-- Only `declare namespace` is support. Runtime `namespace` is legacy TypeScript
-  syntax that is not supported.
+- Only `declare namespace` is supported. Runtime `namespace` is legacy
+  TypeScript syntax that is not supported.
 
 ### Why don't you support language service plugins or transformer plugins?
 
