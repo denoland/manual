@@ -61,10 +61,9 @@ JetBrains prioritize support.
 Deno is well supported on both [Vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
 
-[coc.nvim](https://github.com/neoclide/coc.nvim), 
-[ALE](https://github.com/dense-analysis/ale) and [Native Lsp](https://github.com/neovim/nvim-lspconfig) _only for neovim_. coc.nvim offers plugins to
-integrate to the Deno language server, ALE supports it _out of the box_, and the Native Lsp support this via Deno Language Server with some tools.
-
+[coc.nvim](https://github.com/neoclide/coc.nvim),
+[ALE](https://github.com/dense-analysis/ale) and coc.nvim offers plugins to
+integrate to the Deno language server, ALE supports it _out of the box_.
 
 ##### coc.nvim
 
@@ -89,18 +88,35 @@ to get information on the configuration options available.
 For more information on how to setup ALE (like key bindings) refer to the
 [official documentation](https://github.com/dense-analysis/ale#usage).
 
-##### Native Lsp
+#### Neovim 0.5+
+
+You can use all other options but for the Neovim 0.5+ can you use the built-in
+Lsp with this:
 
 Once you have
-- Neovim 0.5+
-- nvim-lspconfig
+
+- [Neovim 0.5+](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+  _Necessary_
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) _Recommended_
 - Any completion engine like Compe, Coq, Completion.nvim, ddc.nvim etc.
+  _Optional_
 
 Write this code in lua:
+
 ```lua
-require'lspconfig'.denols.setup{} -- And is ready deno
+require'lspconfig'.denols.setup{}
 ```
-For more info and customization check [this](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
+
+Or in Vim Script:
+
+```
+lua <<< EOF
+require'lspconfig'.denols.setup{}
+EOF
+```
+
+For more info and customization check
+[this](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
 
 #### Emacs
 
