@@ -27,7 +27,7 @@ Languages: **Rust**, **JavaScript**
 
 ### [`deno_std`](https://github.com/denoland/deno_std)
 
-The standard libarary for Deno.
+The standard library for Deno.
 
 Languages: **TypeScript**, WebAssembly.
 
