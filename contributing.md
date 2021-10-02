@@ -39,7 +39,7 @@ Languages: **TypeScript**, TSX, CSS
 
 ### [`deno_lint`](https://github.com/denoland/deno_lint)
 
-Linter that power `deno lint` subcommand.
+Linter that powers `deno lint` subcommand.
 
 Languages: **Rust**
 
