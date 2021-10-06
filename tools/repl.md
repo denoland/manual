@@ -1,7 +1,115 @@
 # Read-eval-print-loop
 
 `deno repl` starts an read-eval-print-loop, which lets you interactively build
-up program state in the global context.
+up program state in the global context, it is especially useful for quick
+prototyping and checking snippets of code.
+
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
+> code is not type-checked, instead it is transpiled to JavaScript behind the
+> scenes.
+
+## Special variables
+
+REPL provides a couple special variables, that are always available
+
+| Identifier | Description                          |
+| ---------- | ------------------------------------ |
+| _          | Yields the last evaluated expression |
+| _error     | Yields the last thrown error         |
+
+```
+Deno 1.14.3
+exit using ctrl+d or close()
+> "hello world!"
+"hello world!"
+> _
+"hello world!"
+> > const foo = "bar";
+undefined
+> _
+undefined
+```
+
+## `--eval` flag
+
+`--eval` flag allows you to run some code in the runtime before you are dropped
+into the REPL. This is useful for importing some code you commonly use in the
+REPL, or modifying the runtime in some way:
+
+```
+$ deno repl --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
+Deno 1.14.3
+exit using ctrl+d or close()
+> assert(true)
+undefined
+> assert(false)
+Uncaught AssertionError
+    at assert (https://deno.land/std@0.110.0/testing/asserts.ts:224:11)
+    at <anonymous>:2:1
+```
+
+## Tranforms
+
+To make it easier to copy-paste code directly into the REPL a couple of
+transforms are performed:
+
+- Static import declarations
+
+REPL is run in a "script context" (instead of ES module context) which normally
+means that it is not possible to use `import ... from ...;` syntax there. We
+have added an automatic conversion of static import declarations into dynamic
+ones.
+
+```
+$ deno repl
+Deno 1.14.3
+exit using ctrl+d or close()
+> import { assert } from "https://deno.land/std@0.110.0/testing/asserts.ts"
+undefined
+> assert(true)
+undefined
+```
+
+The example above is equivalent to:
+
+```
+$ deno repl
+Deno 1.14.3
+exit using ctrl+d or close()
+> const { assert } = await import("https://deno.land/std@0.110.0/testing/asserts.ts")
+undefined
+> assert(true)
+undefined
+```
+
+- The export keyword before functions, classes or TypeScript types will be
+  ignored.
+
+```
+$ deno repl
+Deno 1.14.3
+exit using ctrl+d or close()
+> export class Foo { bar = "fizz" }
+undefined
+> const foo = new Foo();
+undefined
+> foo.bar
+"fizz"
+```
+
+## Tab completions
+
+Tab completions are crucial feature for quick navigation in REPL. After hitting
+`tab` key, Deno will now show a list of all possible completions.
+
+```
+$ deno repl
+Deno 1.14.3
+exit using ctrl+d or close()
+> Deno.read
+readTextFile      readFile          readDirSync       readLinkSync      readAll           read
+readTextFileSync  readFileSync      readDir           readLink          readAllSync       readSync
+```
 
 ## Keyboard shortcuts
 
@@ -43,10 +151,3 @@ up program state in the global context.
 | Meta-T                | Transpose words                                                                                  |
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
-
-## Special variables
-
-| Identifier | Description                          |
-| ---------- | ------------------------------------ |
-| _          | Yields the last evaluated expression |
-| _error     | Yields the last thrown error         |
