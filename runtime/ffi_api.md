@@ -139,3 +139,35 @@ Here's a list of types supported currently by the Deno FFI API.
 | `f32`    | `float`                  | `f32`   |
 | `f64`    | `double`                 | `f64`   |
 | `void`   | `void`                   | `()`    |
+
+### deno_bindgen
+
+[`deno_bindgen`](https://github.com/littledivy/deno_bindgen) is an external tool
+to simplify glue code generation of Deno FFI libraries written in Rust.
+
+It is similar to [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) in
+the Rust WASM ecosystem.
+
+Here's an example showing its usage:
+
+```rust
+// mul.rs
+use deno_bindgen::deno_bindgen;
+
+#[deno_bindgen]
+fn mul(a: i32, b: i32) -> i32 {
+  a * b
+}
+```
+
+Run `deno_bindgen` to generate bindings. You can now directly import them into
+Deno:
+
+```typescript
+// mul.ts
+import { mul } from "./bindings/bindings.ts";
+mul(2, 10); // 20
+```
+
+Any issues related to `deno_bindgen` should be reported at
+https://github.com/littledivy/deno_bindgen/issues
