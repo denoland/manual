@@ -1,4 +1,4 @@
-## Continuous Integration, Continuous Deno
+## Continuous Integration, continuous Deno
 
 Deno's built-in tools make it easy to set up Continuous Integration (CI)
 pipelines for your projects. Testing, linting and formatting code can all be
