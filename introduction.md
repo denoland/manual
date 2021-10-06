@@ -1,6 +1,6 @@
 # Introduction
 
-Deno ([/diˈ-no̩/](http://ipa-reader.xyz/?text=di%CB%88no%CC%A9&voice=Joey),
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
 pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
 a great developer experience.
 
