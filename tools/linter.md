@@ -7,6 +7,8 @@ Deno ships with a built in code linter for JavaScript and TypeScript.
 deno lint
 # lint specific files
 deno lint myfile1.ts myfile2.ts
+# lint all JS/TS files in specified directory and subdirectories
+deno lint src/
 # print result as JSON
 deno lint --json
 # read from stdin
