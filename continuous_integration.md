@@ -98,9 +98,9 @@ subset of permissions to run your tests, such as `--allow-read` or
 directory `cov` and finally, `--doc` is provided to typecheck any code blocks in
 the project's documentation.
 
-The final step creates a coverage report from the results of
-`deno test` in `.lcov` format, which you could then upload to one of the various
-code coverage platforms available on the Web:
+The final step creates a coverage report from the results of `deno test` in
+`.lcov` format, which you could then upload to one of the various code coverage
+platforms available on the Web:
 
 ```yaml
 - name: Generate coverage report
