@@ -4,6 +4,10 @@ To help developers write tests the Deno standard library comes with a built in
 [assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
 can be imported from `https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
 
+Some popular assertion libraries, like [Chai](https://www.chaijs.com/), can be
+used in Deno too, for example usage see
+https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
+
 ```js
 import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 

@@ -167,3 +167,13 @@ failure, you can specify the `--fail-fast` flag when running the suite.
 ```shell
 deno test --fail-fast
 ```
+
+## Integration with testing libraries
+
+Deno's test runner works with popular testing libraries like
+[Chai](https://www.chaijs.com/) or [Sinon.JS](https://sinonjs.org/).
+
+For example integration see:
+
+- https://deno.land/std@$STD_VERSION/testing/chai_example.ts
+- https://deno.land/std@$STD_VERSION/testing/sinon_example.ts
