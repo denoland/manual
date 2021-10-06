@@ -10,7 +10,7 @@ prototyping and checking snippets of code.
 
 ## Special variables
 
-REPL provides a couple special variables, that are always available
+The REPL provides a couple of special variables, that are always available:
 
 | Identifier | Description                          |
 | ---------- | ------------------------------------ |
