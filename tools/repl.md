@@ -1,12 +1,17 @@
 # Read-eval-print-loop
 
-`deno repl` starts a read-eval-print-loop, which lets you interactively build
-up program state in the global context, it is especially useful for quick
+`deno repl` starts a read-eval-print-loop, which lets you interactively build up
+program state in the global context, it is especially useful for quick
 prototyping and checking snippets of code.
 
 > ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
 > code is not type-checked, instead it is transpiled to JavaScript behind the
 > scenes.
+
+> ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
+> export declarations. It means that you can paste code containing
+> `import ... from ...;`, `export class ...` or `export function ...` and it
+> will work as if you were executing a regular ES module.
 
 ## Special variables
 
@@ -46,55 +51,6 @@ undefined
 Uncaught AssertionError
     at assert (https://deno.land/std@0.110.0/testing/asserts.ts:224:11)
     at <anonymous>:2:1
-```
-
-## Tranforms
-
-To make it easier to copy-paste code directly into the REPL a couple of
-transforms are performed:
-
-- Static import declarations
-
-REPL is run in a "script context" (instead of ES module context) which normally
-means that it is not possible to use `import ... from ...;` syntax there. We
-have added an automatic conversion of static import declarations into dynamic
-ones.
-
-```
-$ deno repl
-Deno 1.14.3
-exit using ctrl+d or close()
-> import { assert } from "https://deno.land/std@0.110.0/testing/asserts.ts"
-undefined
-> assert(true)
-undefined
-```
-
-The example above is equivalent to:
-
-```
-$ deno repl
-Deno 1.14.3
-exit using ctrl+d or close()
-> const { assert } = await import("https://deno.land/std@0.110.0/testing/asserts.ts")
-undefined
-> assert(true)
-undefined
-```
-
-- The export keyword before functions, classes or TypeScript types will be
-  ignored.
-
-```
-$ deno repl
-Deno 1.14.3
-exit using ctrl+d or close()
-> export class Foo { bar = "fizz" }
-undefined
-> const foo = new Foo();
-undefined
-> foo.bar
-"fizz"
 ```
 
 ## Tab completions
