@@ -109,7 +109,7 @@
     }
   },
   "continuous_integration": {
-    "name": "Continuous integration, continuous Deno"
+    "name": "Continuous integration"
   },
   "vscode_deno": {
     "name": "Using Visual Studio Code"

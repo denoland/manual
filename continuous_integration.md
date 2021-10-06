@@ -1,4 +1,4 @@
-## Continuous Integration, continuous Deno
+## Continuous Integration
 
 Deno's built-in tools make it easy to set up Continuous Integration (CI)
 pipelines for your projects. Testing, linting and formatting code can all be
@@ -98,7 +98,7 @@ subset of permissions to run your tests, such as `--allow-read` or
 directory `cov` and finally, `--doc` is provided to typecheck any code blocks in
 the project's documentation.
 
-The final step is run to create a coverage report from the results of
+The final step creates a coverage report from the results of
 `deno test` in `.lcov` format, which you could then upload to one of the various
 code coverage platforms available on the Web:
 
