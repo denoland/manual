@@ -12,6 +12,10 @@ Deno.test("Hello Test", () => {
 });
 ```
 
+> ⚠️ Some popular assertion libraries, like [Chai](https://www.chaijs.com/), can
+> be used in Deno too, for example usage see
+> https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
+
 The assertions module provides 10 assertions:
 
 - `assert(expr: unknown, msg = ""): asserts expr`
