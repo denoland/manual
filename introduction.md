@@ -1,7 +1,7 @@
 # Introduction
 
-Deno is a JavaScript/TypeScript runtime with secure defaults and a great
-developer experience.
+Deno (pronounced `dee-noh`) is a JavaScript/TypeScript runtime with secure
+defaults and a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 
