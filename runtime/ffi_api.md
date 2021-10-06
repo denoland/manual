@@ -1,7 +1,7 @@
 ## FFI API
 
-As of Deno 1.13 and later, the FFI (foreign function interface) API allows you
-call libraries written in native languages that support the C ABIs (Rust, C,
+As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
+to call libraries written in native languages that support the C ABIs (Rust, C,
 etc) using `Deno.dlopen`.
 
 Earlier Deno used to ship a native plugin system to allow calling "ops" written
@@ -50,7 +50,7 @@ switch (Deno.build.os) {
     break;
 }
 
-const libName = `libadd.${libSuffix}`;
+const libName = `./libadd.${libSuffix}`;
 // Open library and define exported symbols
 const dylib = Deno.dlopen(libName, {
   "add": { parameters: ["isize", "isize"], result: "isize" },
@@ -85,11 +85,14 @@ Example of executing expensive FFI calls with Deno:
 #include <time.h>
 #endif
 
-int sleep(unsigned int t) {
+int sleep(unsigned int ms) {
   #ifdef _WIN32
-  Sleep(t);
+  Sleep(ms);
   #else
-  nanosleep(t);
+  struct timespec ts;
+  ts.tv_sec = ms / 1000;
+  ts.tv_nsec = (ms % 1000) * 1000000;
+  nanosleep(&ts, NULL);
   #endif
 }
 ```
@@ -98,7 +101,7 @@ Calling it from Deno:
 
 ```typescript
 // nonblocking_ffi.ts
-const library = Deno.dlopen("sleep.so", {
+const library = Deno.dlopen("./sleep.so", {
   sleep: {
     parameters: ["usize"],
     result: "void",
@@ -106,7 +109,7 @@ const library = Deno.dlopen("sleep.so", {
   },
 });
 
-library.symbols.sleep(100).then(() => console.log("After"));
+library.symbols.sleep(500).then(() => console.log("After"));
 console.log("Before");
 ```
 
