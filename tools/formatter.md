@@ -13,18 +13,24 @@ files:
 | JSON       | `.json`            |
 | JSONC      | `.jsonc`           |
 
-as well as code snippets within Markdown files.
+In addition `deno fmt` can format code snippets in Markdown files. Snippets must
+be enclosed in triple backtics and have a language attribute.
 
 ```shell
 # format all supported files in the current directory and subdirectories
 deno fmt
 # format specific files
 deno fmt myfile1.ts myfile2.ts
+# format all supported files in specified directory and subdirectories
+deno fmt src/
 # check if all the supported files in the current directory and subdirectories are formatted
 deno fmt --check
 # format stdin and write to stdout
 cat file.ts | deno fmt -
 ```
+
+> ⚠️ If you want to redirect output of `deno fmt`, keep in mind that formatted
+> code is output to standard error.
 
 ### Ignoring Code
 
