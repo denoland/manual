@@ -30,7 +30,7 @@ cat file.ts | deno fmt -
 ```
 
 > ⚠️ If you want to redirect output of `deno fmt`, keep in mind that formatted
-> code is output to the standard error.
+> code is output to standard error.
 
 ### Ignoring Code
 
