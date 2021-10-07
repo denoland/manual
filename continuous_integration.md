@@ -140,3 +140,14 @@ reduce repetition:
   if: ${{ matrix.os == 'ubuntu-latest' }}
   run: deno coverage --lcov cov > cov.lcov
 ```
+
+The same applies to uploading coverage to a reporter like Coveralls, for example:
+
+```yaml
+- name: Upload coverage report
+  if: ${{ matrix.os == 'ubuntu-latest' }}
+  uses: coverallsapp/github-action@master
+  with:
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+    path-to-lcov: cov.lcov
+```
