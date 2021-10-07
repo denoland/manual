@@ -22,18 +22,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@v1.0.0
         with:
           deno-version: v1.x
 ```
 
-All this pipeline does at the moment is set up GitHub Actions and Deno, and it's
-configured to trigger a workflow run on push and pull request events. If you
-need additional stability for a production pipeline, for example, you can also
-specify exact versions of the operating system(s) and Deno, such as
-`ubuntu-20.04` and `deno-version: v1.14`. This way, if GitHub Actions tags a
-newer version of Ubuntu Linux as `latest` tomorrow, your pipeline runs will not
-break unexpectedly.
+All this pipeline does at the moment is set up GitHub Actions and Deno, and it
+is configured to trigger a workflow run on push and pull request events. Note
+that in the example the `latest` version of `ubuntu` image is used, but you
+could specify an exact version for added stability in a production pipeline,
+such as `ubuntu-20.04`.
 
 To expand the workflow you can add any of the `deno` CLI commands that you might
 need. The code below shows how to check the formatting, lint the code, run the
@@ -48,9 +46,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Deno
-        uses: denolib/setup-deno@v2
+        uses: denoland/setup-deno@v1.0.0
         with:
-          deno-version: v1.14
+          deno-version: v1.x
 
       - name: Check formatting
         run: deno fmt --check
