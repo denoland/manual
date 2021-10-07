@@ -141,7 +141,8 @@ reduce repetition:
   run: deno coverage --lcov cov > cov.lcov
 ```
 
-The same applies to uploading coverage to a reporter like Coveralls, for example:
+The same applies to uploading coverage to a reporter like Coveralls, for
+example:
 
 ```yaml
 - name: Upload coverage report
