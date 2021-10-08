@@ -25,7 +25,7 @@
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
-      "ffi_api": "FFI API"
+      "ffi_api": "Foreign Function Interface API"
     }
   },
   "linking_to_external_code": {
