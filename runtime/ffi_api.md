@@ -1,8 +1,8 @@
 ## Foreign Function Interface API
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
-to call libraries written in native languages that support the C ABIs (Rust, C/C++, C#, Zig, Nim, Kotlin, 
-etc) using `Deno.dlopen`.
+to call libraries written in native languages that support the C ABIs (Rust,
+C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
 
 ### Usage
 
@@ -23,6 +23,7 @@ rustc --crate-type cdylib add.rs
 ```
 
 In C you can write it as:
+
 ```c
 // add.c
 int add(int a, int b) {
