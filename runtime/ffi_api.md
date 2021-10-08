@@ -1,16 +1,8 @@
-## FFI API
+## Foreign Function Interface API
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
-to call libraries written in native languages that support the C ABIs (Rust, C,
+to call libraries written in native languages that support the C ABIs (Rust, C/C++, C#, Zig, Nim, Kotlin, 
 etc) using `Deno.dlopen`.
-
-Earlier Deno used to ship a native plugin system to allow calling "ops" written
-Rust using `Deno.openPlugin()`. Although the ideas behind that system were
-great, we faced many technical challenges arising mainly from lack of ABI
-stability in Rust.
-
-The FFI API replaces `Deno.openPlugin` with `Deno.dlopen` to open dynamic
-libraries.
 
 ### Usage
 
@@ -28,6 +20,24 @@ Compile it to a C dynamic library (`libadd.so` on Linux):
 
 ```sh
 rustc --crate-type cdylib add.rs
+```
+
+In C you can write it as:
+```c
+// add.c
+int add(int a, int b) {
+  return a + b;
+}
+```
+
+And compile it:
+
+```sh
+// unix
+cc -c -o add_numbers.o add_numbers.c
+cc -shared -Wl -o add_numbers.so add_numbers.o
+// Windows
+cl /LD add_numbers.c /link /EXPORT:add_numbers
 ```
 
 Calling the library from Deno:
@@ -125,20 +135,23 @@ After
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type | C                        | Rust    |
-| -------- | ------------------------ | ------- |
-| `i8`     | `char` / `signed char`   | `i8`    |
-| `u8`     | `unsigned char`          | `u8`    |
-| `i16`    | `short int`              | `i16`   |
-| `u16`    | `unsigned short int`     | `u16`   |
-| `i32`    | `int` / `signed int`     | `i32`   |
-| `u32`    | `unsigned int`           | `u32`   |
-| `i64`    | `long long int`          | `i64`   |
-| `u64`    | `unsigned long long int` | `u64`   |
-| `usize`  | `size_t`                 | `usize` |
-| `f32`    | `float`                  | `f32`   |
-| `f64`    | `double`                 | `f64`   |
-| `void`   | `void`                   | `()`    |
+| FFI Type    | C                        | Rust        |
+| ----------- | ------------------------ | ----------- |
+| `i8`        | `char` / `signed char`   | `i8`        |
+| `u8`        | `unsigned char`          | `u8`        |
+| `i16`       | `short int`              | `i16`       |
+| `u16`       | `unsigned short int`     | `u16`       |
+| `i32`       | `int` / `signed int`     | `i32`       |
+| `u32`       | `unsigned int`           | `u32`       |
+| `i64`       | `long long int`          | `i64`       |
+| `u64`       | `unsigned long long int` | `u64`       |
+| `usize`     | `size_t`                 | `usize`     |
+| `f32`       | `float`                  | `f32`       |
+| `f64`       | `double`                 | `f64`       |
+| `void`      | `void`                   | `()`        |
+| `buffer`[1] | `const uint8_t *`        | `*const u8` |
+
+- [1] `buffer` type is only accepted in symbol parameters.
 
 ### deno_bindgen
 
@@ -155,8 +168,14 @@ Here's an example showing its usage:
 use deno_bindgen::deno_bindgen;
 
 #[deno_bindgen]
-fn mul(a: i32, b: i32) -> i32 {
-  a * b
+struct Input {
+  a: i32,
+  b: i32,
+}
+
+#[deno_bindgen]
+fn mul(input: Input) -> i32 {
+  input.a * input.b
 }
 ```
 
@@ -166,7 +185,7 @@ Deno:
 ```typescript
 // mul.ts
 import { mul } from "./bindings/bindings.ts";
-mul(2, 10); // 20
+mul({ a: 10, b: 2 }); // 20
 ```
 
 Any issues related to `deno_bindgen` should be reported at
