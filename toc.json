@@ -108,6 +108,9 @@
       "linter": "Linter"
     }
   },
+  "continuous_integration": {
+    "name": "Continuous integration"
+  },
   "vscode_deno": {
     "name": "Using Visual Studio Code"
   },
