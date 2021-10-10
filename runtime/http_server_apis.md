@@ -290,7 +290,8 @@ async function handle(conn: Deno.Conn) {
 }
 
 function handleReq(req: Request): Response {
-  if (req.headers.get("upgrade") != "websocket") {
+  const upgrade = req.headers.get("upgrade") || "";
+  if (upgrade.toLowerCase() != "websocket") {
     return new Response("request isn't trying to upgrade to websocket.");
   }
   const { socket, response } = Deno.upgradeWebSocket(req);
