@@ -71,9 +71,7 @@ Let's go over the steps one by one.
 ```
 
 This simply checks if the project code is formatted according to Deno's default
-formatting conventions. Alternatively, you can also run `deno fmt` without
-`--check` to let the pipeline handle the formatting altogether, if you prefer
-the increased automation.
+formatting conventions.
 
 ```yaml
 - name: Analyze code
