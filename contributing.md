@@ -31,7 +31,7 @@ The standard library for Deno.
 
 Languages: **TypeScript**, WebAssembly.
 
-### [`deno_website2`](https://github.com/denoland/deno_website2)
+### [`dotland`](https://github.com/denoland/dotland)
 
 Frontend for official Deno webpage: https://deno.land/
 
