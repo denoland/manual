@@ -45,8 +45,8 @@ notification that Deno is setup for the project.
 
 These settings (and other settings) are available via the vscode
 [settings](https://code.visualstudio.com/docs/getstarted/userinterface#_settings)
-panel. In the panel the setting is _Deno: Enable_ and when manually editing the JSON,
-the setting is `deno.enable`.
+panel. In the panel the setting is _Deno: Enable_ and when manually editing the
+JSON, the setting is `deno.enable`.
 
 > ⚠️ vscode has user and workspace settings. You probably don't want to enable
 > Deno in the user settings, as then by default, every workspace will be Deno
@@ -91,10 +91,10 @@ use the formatter.
 
 ### Setting a path to the Deno CLI
 
-The extension looks for the Deno CLI executable in the host's `PATH`, but sometimes
-that isn't desirable and the _Deno: Path_ can be set (or `deno.path` if manually
-editing) to point to the Deno executable. If the path provided is relative, it will
-be resolved relative to the root of the workspace.
+The extension looks for the Deno CLI executable in the host's `PATH`, but
+sometimes that isn't desirable and the _Deno: Path_ can be set (or `deno.path`
+if manually editing) to point to the Deno executable. If the path provided is
+relative, it will be resolved relative to the root of the workspace.
 
 ## Import suggestions
 
@@ -179,9 +179,9 @@ You will see a code lens like the following just above the test:
 
 This is a link that if you click it, the extension will start up the Deno CLI to
 run the test for you and display the output. Based on your other settings, the
-extension will try to run your test with the same settings. If you need to adjust
-the arguments provided when doing `deno test`, you can do so by setting the
-`deno.codeLens.testArgs` setting.
+extension will try to run your test with the same settings. If you need to
+adjust the arguments provided when doing `deno test`, you can do so by setting
+the `deno.codeLens.testArgs` setting.
 
 The extension will also try to track if in the same module you destructure the
 `Deno.test` function or assign it to a variable. So you can do something like
@@ -331,8 +331,8 @@ CLI and the `vscode_deno` extension installed in it.
 
 ## Troubleshooting
 
-The following sections cover challenges you might face when using the
-extension and try to give likely causes.
+The following sections cover challenges you might face when using the extension
+and try to give likely causes.
 
 ### Errors/diagnostics like `An import path cannot end with a '.ts' extension.` or `Cannot find name 'Deno'.`
 
