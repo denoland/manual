@@ -95,8 +95,9 @@ export function renderMarkdown(markdown: string): string {
   html = html.replaceAll(
     /<a href="#[a-zA-Z\d-]*" aria-hidden="true" class="anchor" id="[a-zA-Z\d-]*" rel="noopener noreferrer"><\/a>/g,
     (match) =>
-      match.replace("</a>", OCTICON_SVG)
-        .replace(`aria-hidden="true"`, `aria-hidden="true" tabindex="-1"`),
+      match
+        .replace(`aria-hidden="true"`, `aria-hidden="true" tabindex="-1"`)
+        .replace("</a>", OCTICON_SVG),
   );
 
   return html;
