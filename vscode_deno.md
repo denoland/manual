@@ -11,7 +11,7 @@ The vscode extension integrates directly to the Deno CLI using the language
 server protocol. This helps ensure that the information you get about your code
 aligns to how that code will work when you try to run it under the Deno CLI.
 
-The Deno extension is installed like other extension in vscode, by browsing the
+The Deno extension is installed like other extensions in vscode, by browsing the
 extensions in vscode and choosing to install the _Deno_ extension. Or if you
 have vscode installed, you can view the extension
 [via this link](vscode:extension/denoland.vscode-deno) and install it if you
@@ -24,7 +24,7 @@ again, just use the _Deno: Welcome_ command from the command pallette.)
 ## Configuring the extension
 
 The following sections will detail out how to configure the extension to work
-best for you and will cover off most of the settings available.
+best for you and will cover most of the settings available.
 
 ### Deno enabling a workspace
 
@@ -45,15 +45,15 @@ notification that Deno is setup for the project.
 
 These settings (and other settings) are available via the vscode
 [settings](https://code.visualstudio.com/docs/getstarted/userinterface#_settings)
-panel. In the panel the setting is _Deno: Enable_ and manually editing the JSON,
-the setting is `deno.enable`.
+panel. In the panel the setting is _Deno: Enable_ and when manually editing the
+JSON, the setting is `deno.enable`.
 
 > ⚠️ vscode has user and workspace settings. You probably don't want to enable
 > Deno in the user settings, as then by default, every workspace will be Deno
 > enabled.
 
 When a project is enabled, the extension will get information directly from the
-installed Deno CLI. The extension will also _mute_ the built in
+installed Deno CLI. The extension will also _mute_ the built-in
 TypeScript/JavaScript extension.
 
 ### Using linting
@@ -80,7 +80,7 @@ the _Deno: Config_ option can be used (or `deno.config` if manually editing).
 
 ### Using formatting
 
-The Deno CLI comes with a built in formatter which can be access using
+The Deno CLI comes with a built-in formatter which can be accessed using
 `deno fmt` but can also be configured to be used by vscode. _Deno_ should be on
 the drop down list for the _Editor: Default formatter_ setting (or if you are
 editing settings manually, it would be
@@ -91,10 +91,10 @@ use the formatter.
 
 ### Setting a path to the Deno CLI
 
-The extension looks for the Deno CLI executable in hosts `PATH`, but sometimes
-that isn't desirable and the _Deno: Path_ can be set (or `deno.path` if manually
-editing) point to the Deno executable. If the path provided is relative, it will
-be resolved relative to the root of the workspace.
+The extension looks for the Deno CLI executable in the host's `PATH`, but
+sometimes that isn't desirable and the _Deno: Path_ can be set (or `deno.path`
+if manually editing) to point to the Deno executable. If the path provided is
+relative, it will be resolved relative to the root of the workspace.
 
 ## Import suggestions
 
@@ -123,13 +123,13 @@ fetch any remote modules and their dependencies and populate the cache.
 
 While developing code in the editor, if the module is not in the cache, you will
 get a diagnostic like _Uncached or missing remote URL:
-"`https://deno.land/example/mod.ts`"._ for any missing remote modules. Deno will
+"`https://deno.land/example/mod.ts`"_ for any missing remote modules. Deno will
 not automatically try to cache the module, unless it is a completion from a
 registry import suggestion (see above).
 
 In addition to running a command on a command line, the extension provides ways
 to cache dependencies within the editor. A missing dependency will have a _quick
-fix_ which is to have Deno try to cache the dependency. Fixes can be access by
+fix_ which is to have Deno try to cache the dependency. Fixes can be accessed by
 pressing <kbd>CTRL</kbd> <kbd>.</kbd> or <kbd>⌘</kbd> <kbd>.</kbd> when the
 editor is positioned in the import specifier, or hovering over the specifier and
 selecting _Quick Fix..._.
@@ -156,7 +156,7 @@ insight into the code. Most are disabled by default, but can easily be enabled:
 
 ## Testing code lens
 
-The Deno CLI includes a [built in testing API](./testing.md) available under
+The Deno CLI includes a [built-in testing API](./testing.md) available under
 `Deno.test`. The extension and language server have a code lens enabled by
 default which provides the ability to run a test from within the editor.
 
@@ -177,11 +177,11 @@ You will see a code lens like the following just above the test:
 ▶ Run Test
 ```
 
-This is a link that if you click it, the extension will startup the Deno CLI to
+This is a link that if you click it, the extension will start up the Deno CLI to
 run the test for you and display the output. Based on your other settings, the
-extension will try to run you test with the same settings. If you need to adjust
-the arguments provided when doing `deno test`, you can do so by setting the
-`deno.codeLens.testArgs` setting.
+extension will try to run your test with the same settings. If you need to
+adjust the arguments provided when doing `deno test`, you can do so by setting
+the `deno.codeLens.testArgs` setting.
 
 The extension will also try to track if in the same module you destructure the
 `Deno.test` function or assign it to a variable. So you can do something like
@@ -274,7 +274,7 @@ These are the settings that can be set on a workspace folder. The rest of the
 settings currently only apply to the workspace:
 
 - `deno.enable` - Controls if the Deno Language Server is enabled. When enabled,
-  the extension will disable the built-in VSCode JavaScript and TypeScript
+  the extension will disable the built-in vscode JavaScript and TypeScript
   language services, and will use the Deno language server instead. _boolean,
   default `false`_
 - `deno.codeLens.test` - Controls if the test code lens is enabled. _boolean,
@@ -294,7 +294,7 @@ In order to support this, you would create a new workspace (or add a folder to
 an existing workspace) and in the settings configure one of the folders to have
 `deno.enable` set to `true` and one set to `false`. Once you save the workspace
 configuration, you notice that the Deno language server only applies diagnostics
-to the enabled folders, while the other folder will use the built in TypeScript
+to the enabled folders, while the other folder will use the built-in TypeScript
 compiler of vscode to supply diagnostics for TypeScript and JavaScript files.
 
 ## Using a development container
@@ -305,7 +305,7 @@ with vscode is a great way to have an isolated development environment without
 having to worry about having to install the Deno CLI on your local system.
 
 To use development containers, you need to have a few
-[pre-requisites installed](https://code.visualstudio.com/docs/remote/containers#_installation):
+[prerequisites installed](https://code.visualstudio.com/docs/remote/containers#_installation):
 
 - Docker Desktop
 - Visual Studio Code or Visual Studio Code Insiders
@@ -331,14 +331,14 @@ CLI and the `vscode_deno` extension installed in it.
 
 ## Troubleshooting
 
-The following sections cover off challenges you might face when using the
-extension and try to give likely causes.
+The following sections cover challenges you might face when using the extension
+and try to give likely causes.
 
 ### Errors/diagnostics like `An import path cannot end with a '.ts' extension.` or `Cannot find name 'Deno'.`
 
 This is normally a situation where Deno is not enabled on a Deno project. If you
 look at the source of the diagnostic you are probably going to see a `ts(2691)`.
-The `ts` indicates that it is coming from the built in TypeScript/JavaScript
+The `ts` indicates that it is coming from the built-in TypeScript/JavaScript
 engine in vscode. You will want to check that your configuration is set properly
 and the _Deno: Enable_/`deno.enable` is true.
 
