@@ -9,7 +9,7 @@ minor release.
 
 The release dates for the upcoming minor releases are:
 
-- 1.16.0: November 16, 2021
+- 1.16.0: November 9, 2021
 - 1.17.0: December 14, 2021
 - 1.18.0: January 11, 2022
 
