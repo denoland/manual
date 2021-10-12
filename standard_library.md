@@ -22,7 +22,7 @@ compilation errors or unexpected behavior:
 import { copy } from "https://deno.land/std/fs/copy.ts";
 ```
 
-instead, used a version of the std library which is immutable and will not
+instead, use a version of the std library which is immutable and will not
 change:
 
 ```typescript
