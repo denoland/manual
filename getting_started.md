@@ -8,5 +8,4 @@ In this chapter we'll discuss:
 - [Writing our own script](./getting_started/first_steps.md)
 - [Command line interface](./getting_started/command_line_interface.md)
 - [Understanding permissions](./getting_started/permissions.md)
-- [Using WebAssembly](./getting_started/webassembly.md)
 - [Debugging your code](./getting_started/debugging_your_code.md)

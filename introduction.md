@@ -1,7 +1,8 @@
 # Introduction
 
-Deno is a JavaScript/TypeScript runtime with secure defaults and a great
-developer experience.
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
+pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
+a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 

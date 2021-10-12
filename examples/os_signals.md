@@ -21,7 +21,7 @@ You can use `Deno.signal()` function for handling OS signals:
  * async-iterator-signal.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-for await (const _ of Deno.signal(Deno.Signal.SIGINT)) {
+for await (const _ of Deno.signal("SIGINT")) {
   console.log("interrupted!");
   Deno.exit();
 }

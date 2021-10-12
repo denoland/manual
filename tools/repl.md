@@ -1,7 +1,71 @@
 # Read-eval-print-loop
 
-`deno repl` starts an read-eval-print-loop, which lets you interactively build
-up program state in the global context.
+`deno repl` starts a read-eval-print-loop, which lets you interactively build up
+program state in the global context, it is especially useful for quick
+prototyping and checking snippets of code.
+
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
+> code is not type-checked, instead it is transpiled to JavaScript behind the
+> scenes.
+
+> ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
+> export declarations. It means that you can paste code containing
+> `import ... from ...;`, `export class ...` or `export function ...` and it
+> will work as if you were executing a regular ES module.
+
+## Special variables
+
+The REPL provides a couple of special variables, that are always available:
+
+| Identifier | Description                          |
+| ---------- | ------------------------------------ |
+| _          | Yields the last evaluated expression |
+| _error     | Yields the last thrown error         |
+
+```
+Deno 1.14.3
+exit using ctrl+d or close()
+> "hello world!"
+"hello world!"
+> _
+"hello world!"
+> > const foo = "bar";
+undefined
+> _
+undefined
+```
+
+## `--eval` flag
+
+`--eval` flag allows you to run some code in the runtime before you are dropped
+into the REPL. This is useful for importing some code you commonly use in the
+REPL, or modifying the runtime in some way:
+
+```
+$ deno repl --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
+Deno 1.14.3
+exit using ctrl+d or close()
+> assert(true)
+undefined
+> assert(false)
+Uncaught AssertionError
+    at assert (https://deno.land/std@0.110.0/testing/asserts.ts:224:11)
+    at <anonymous>:2:1
+```
+
+## Tab completions
+
+Tab completions are crucial feature for quick navigation in REPL. After hitting
+`tab` key, Deno will now show a list of all possible completions.
+
+```
+$ deno repl
+Deno 1.14.3
+exit using ctrl+d or close()
+> Deno.read
+readTextFile      readFile          readDirSync       readLinkSync      readAll           read
+readTextFileSync  readFileSync      readDir           readLink          readAllSync       readSync
+```
 
 ## Keyboard shortcuts
 
@@ -43,10 +107,3 @@ up program state in the global context.
 | Meta-T                | Transpose words                                                                                  |
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
-
-## Special variables
-
-| Identifier | Description                          |
-| ---------- | ------------------------------------ |
-| _          | Yields the last evaluated expression |
-| _error     | Yields the last thrown error         |

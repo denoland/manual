@@ -25,7 +25,7 @@ a path on the command line. For example:
 > longer confined to specifying TypeScript compiler settings. Using
 > `tsconfig.json` as a file name will still work, but we recommend to use
 > `deno.json` or `deno.jsonc`, as an automatic lookup of this file is planned
-> for an upcoming releases.
+> for an upcoming release.
 
 ### How Deno uses a configuration file
 
@@ -207,6 +207,6 @@ could be trivial errors becoming runtime errors.
 ### Using the "types" property
 
 The `"types"` property in `"compilerOptions"` can be used to specify arbitrary
-type definitions to include when type checking a programme. For more information
+type definitions to include when type checking a program. For more information
 on this see
 [Using ambient or global types](./types#using-ambient-or-global-types).

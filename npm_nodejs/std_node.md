@@ -1,7 +1,7 @@
 ## The `std/node` library
 
 The `std/node` part of the Deno standard library is a Node.js compatibility
-layer. It's primary focus is providing "polyfills" for Node.js's
+layer. Its primary focus is providing "polyfills" for Node.js's
 [built-in modules](https://github.com/denoland/deno_std/tree/main/node#supported-builtins).
 It also provides a mechanism for loading CommonJS modules into Deno.
 
