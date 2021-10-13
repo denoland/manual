@@ -107,12 +107,12 @@ way to load a package is to use the
 [lookup URL](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls) for
 the package:
 
-```ts
+```tsx
 import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
   render() {
-    return "<div></div>";
+    return <div></div>;
   }
 }
 ```
