@@ -26,7 +26,8 @@ router.get("/", (ctx) => {
   console.log(version.substring(1));
   ctx.response.redirect(`/${version}/introduction`);
 });
-router.get(`/static-${BUILD_ID}/:path*`, (ctx) => {
+
+router.get(`/static-${BUILD_ID}/gfm.css`, (ctx) => {
   ctx.response.body = gfmCSS;
   ctx.response.type = "text/css";
   ctx.response.headers.set("Cache-Control", "public, max-age=31536000");
