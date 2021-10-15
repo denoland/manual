@@ -103,10 +103,8 @@ router.get("/:path*", async (ctx) => {
     const pageName = toc.getName(path);
     if (pageName === null) return;
 
-    const url = ctx.request.url;
-
     const text = decodeMarkdown(sourceData, version);
-    const body = renderMarkdown(text, url.href);
+    const body = renderMarkdown(text);
 
     const title = `${pageName} | Deno Manual`;
 
@@ -117,7 +115,7 @@ router.get("/:path*", async (ctx) => {
       summary,
       toc,
       version,
-      url,
+      url: ctx.request.url,
       mdBody: body,
       buildId: BUILD_ID,
     }));

@@ -1,4 +1,5 @@
 import { assertEquals } from "../test_deps.ts";
+import { std as stdVersions } from "../versions.ts";
 import { normalizeVersion, VersionInfo, VersionType } from "./versions.ts";
 
 const cases: [string, VersionInfo | null][] = [
@@ -36,7 +37,7 @@ const cases: [string, VersionInfo | null][] = [
   ["b54017ffac827d1b6be1f33955c055aac75610a1", {
     type: VersionType.Preview,
     version: "b54017ffac827d1b6be1f33955c055aac75610a1",
-    stdVersion: "0.102.0",
+    stdVersion: stdVersions[0],
   }],
   ["b54017ffac827d1b6be1f33955c055aac75610a1a", null],
   ["B54017ffac827d1b6be1f33955c055aac75610a1", null],

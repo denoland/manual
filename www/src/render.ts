@@ -21,7 +21,7 @@ export function decodeMarkdown(
 }
 
 /** Render a markdown file to HTML. */
-export function renderMarkdown(markdown: string, baseUrl: string): string {
+export function renderMarkdown(markdown: string): string {
   // Replace any relative links that end in `.md` with the same link without the
   // `.md`. This ensures that links to other markdown go to HTML pages, not the
   // raw markdown pages.
@@ -32,7 +32,7 @@ export function renderMarkdown(markdown: string, baseUrl: string): string {
     },
   );
 
-  return render(markdown, baseUrl);
+  return render(markdown, undefined);
 }
 
 class SummaryRenderer extends marked.Renderer {
