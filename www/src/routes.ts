@@ -1,14 +1,18 @@
-import { extname, join, RouteParams, Router } from "../deps.ts";
-import { normalizeURLPath } from "./filesystem.ts";
 import {
-  decodeMarkdown,
-  renderMarkdown,
-  renderToC,
-  sanitizeText,
-} from "./render.ts";
+  extname,
+  gfmCSS,
+  h,
+  join,
+  renderToString,
+  RouteParams,
+  Router,
+} from "../deps.ts";
+import { normalizeURLPath } from "./filesystem.ts";
+import { decodeMarkdown, renderMarkdown } from "./render.ts";
 import { State } from "./state.ts";
 import { TableOfContents } from "./table_of_contents.ts";
-import { normalizeVersion, VersionType } from "./versions.ts";
+import { normalizeVersion } from "./versions.ts";
+import { Page } from "./components/Page.tsx";
 
 const router = new Router<RouteParams, State>();
 
@@ -16,12 +20,19 @@ router.get("/", (ctx) => {
   ctx.response.body = "Hello World";
 });
 
+router.get("/static/gfm.css", (ctx) => {
+  ctx.response.body = gfmCSS;
+  ctx.response.type = "text/css";
+});
+
 router.get("/static/:path*", async (ctx) => {
   const path = normalizeURLPath(ctx.params.path ?? "");
   if (path === null) return;
 
   try {
-    const file = await Deno.readFile(join(Deno.cwd?.() ?? "./", "www/static", path));
+    const file = await Deno.readFile(
+      join(Deno.cwd?.() ?? "./", "www/static", path),
+    );
     ctx.response.body = file;
     ctx.response.type = extname(path);
   } catch (err) {
@@ -63,76 +74,22 @@ router.get("/:version/:path*", async (ctx) => {
     const pageName = toc.getName(path);
     if (pageName === null) return;
 
+    const url = ctx.request.url;
+
     const text = decodeMarkdown(sourceData, version);
-    const html = renderMarkdown(text);
+    const body = renderMarkdown(text, url.href);
 
-    const title = sanitizeText(`${pageName} | Deno Manual`);
+    const title = `${pageName} | Deno Manual`;
 
-    const tocHtml = renderToC(toc, version, ctx.request.url.pathname);
+    const html = "<!DOCTYPE html>" + renderToString(h(Page, {
+      title,
+      toc,
+      version,
+      url,
+      mdBody: body,
+    }));
 
-    let versionLabel;
-    let versionIdentifier;
-
-    switch (version.type) {
-      case VersionType.Release:
-        versionLabel = "Release";
-        versionIdentifier = `v${version.version}`;
-        break;
-      case VersionType.Preview:
-        versionLabel = "Commit";
-        versionIdentifier = version.version.slice(0, 6);
-        break;
-      case VersionType.Local:
-        versionLabel = "Local";
-        versionIdentifier = "dev";
-        break;
-    }
-
-    // TODO(lucacasonato): add meta description and meta og:description
-    // TODO(lucacasonato): version identifier should be link to commit / release notes
-    // TODO(lucacasonato): add "Go to latest" CTA for preview warning
-    ctx.response.body = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title}</title>
-    <meta property="og:title" content="${title}" />
-    <meta property="og:url" content="${ctx.request.url.href}" />
-    <link rel="stylesheet" href="/static/normalize.css">
-    <link rel="stylesheet" href="/static/main.css">
-    <link rel="stylesheet" href="/static/markdown.css">
-    <script src="/static/prism.js" defer></script>
-  </head>
-  <body>
-    <header class="header"><div class="inner">
-      <div class="title">
-        <img src="/static/logo.svg" alt="deno logo"> Manual
-      </div>
-      <div class="version">
-        <div class="label">${versionLabel}</div>
-        <div class="id">${versionIdentifier}</div>
-      </div>
-    </div></header>
-    <main>
-    ${
-      version.type === VersionType.Preview
-        ? `<div class="warning-banner"><div class="inner">You are viewing documentation generated from a <b>user contribution</b> or an upcoming or past release. The contents of this document may not have been reviewed by the Deno team.</div></div>`
-        : ""
-    }
-      <div class="main">
-        <div class="toc">
-          ${tocHtml}
-        </div>
-        <div class="content">
-          <div class="markdown-body">${html}</div>
-        </div>
-        <div class="toc-balancer"></div>
-      </div>
-    </main>
-  </body>
-</html>`;
+    ctx.response.body = html;
     ctx.response.type = "html";
   } else {
     // Get the source of the file.

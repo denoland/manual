@@ -28,7 +28,7 @@ export class FileSystem {
         }
       }
       case "https:": {
-        const resp = await fetch(url);
+        const resp = await fetch(url.href);
         if (resp.status !== 200) {
           await resp.body?.cancel();
           if (resp.status === 404) return null;

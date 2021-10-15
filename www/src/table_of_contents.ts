@@ -8,6 +8,12 @@ interface RawTableOfContentsItem {
   children: Record<string, string>;
 }
 
+export interface TableOfContentsItem {
+  name: string;
+  slug: string;
+  children: Array<{ name: string; slug: string }>;
+}
+
 export class TableOfContents {
   #raw: RawTableOfContents;
 
@@ -35,11 +41,7 @@ export class TableOfContents {
     return this.#raw[a]?.children[b] ?? null;
   }
 
-  listItems(): Array<{
-    name: string;
-    slug: string;
-    children: Array<{ name: string; slug: string }>;
-  }> {
+  listItems(): TableOfContentsItem[] {
     return Object.entries(this.#raw).map(([slug, item]) => {
       const children = Object.entries(item.children ?? {}).map((
         [childSlug, childName],

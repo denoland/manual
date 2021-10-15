@@ -1,8 +1,6 @@
 body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #24292e;
-  background-color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif, Apple Color Emoji, Segoe UI Emoji;
   font-size: 16px;
@@ -20,7 +18,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 48rem;
+  max-width: 66rem;
   padding: 0rem 2rem;
   margin: 0 auto;
 }
@@ -71,7 +69,7 @@ body {
 
 .toc {
   flex-shrink: 0;
-  max-width: 16rem;
+  max-width: 18rem;
   width: 100%;
   padding: 3rem 2rem;
   overflow: hidden;
@@ -146,11 +144,6 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    color: #c9d1d9;
-    background-color: #0d1117;
-  }
-
   .header {
     border-bottom-color: #21262d;
     background-color: #161a22;
