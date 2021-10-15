@@ -6,6 +6,7 @@ import { ToC } from "./ToC.tsx";
 
 export interface PageProps {
   title: string;
+  summary: string;
   url: URL;
   version: VersionInfo;
   toc: TableOfContents;
@@ -43,8 +44,10 @@ export function Page(props: PageProps) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{props.title}</title>
+        <meta name="description" content={props.summary} />
         <meta property="og:title" content={props.title} />
         <meta property="og:url" content={props.url.href} />
+        <meta property="og:description" content={props.summary} />
         <link rel="stylesheet" href={`/static-${props.buildId}/gfm.css`} />
         <link rel="stylesheet" href={`/static-${props.buildId}/main.css`} />
       </head>

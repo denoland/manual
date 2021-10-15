@@ -8,7 +8,7 @@ import {
   Router,
 } from "../deps.ts";
 import { normalizeURLPath } from "./filesystem.ts";
-import { decodeMarkdown, renderMarkdown } from "./render.ts";
+import { decodeMarkdown, renderMarkdown, summarizeMarkdown } from "./render.ts";
 import { State } from "./state.ts";
 import { TableOfContents } from "./table_of_contents.ts";
 import { normalizeVersion } from "./versions.ts";
@@ -110,8 +110,11 @@ router.get("/:path*", async (ctx) => {
 
     const title = `${pageName} | Deno Manual`;
 
+    const summary = summarizeMarkdown(text);
+
     const html = "<!DOCTYPE html>" + renderToString(h(Page, {
       title,
+      summary,
       toc,
       version,
       url,
