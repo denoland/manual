@@ -10,6 +10,7 @@ export interface PageProps {
   version: VersionInfo;
   toc: TableOfContents;
   mdBody: string;
+  buildId: string;
 }
 
 // TODO(lucacasonato): add meta description and meta og:description
@@ -44,8 +45,8 @@ export function Page(props: PageProps) {
         <title>{props.title}</title>
         <meta property="og:title" content={props.title} />
         <meta property="og:url" content={props.url.href} />
-        <link rel="stylesheet" href="/static/gfm.css" />
-        <link rel="stylesheet" href="/static/main.css" />
+        <link rel="stylesheet" href={`/static-${props.buildId}/gfm.css`} />
+        <link rel="stylesheet" href={`/static-${props.buildId}/main.css`} />
       </head>
       <body
         data-color-mode="auto"
@@ -55,7 +56,9 @@ export function Page(props: PageProps) {
         <header class="header">
           <div class="inner">
             <div class="title">
-              <img src="/static/logo.svg" alt="deno logo" /> Manual
+              <img src={`/static-${props.buildId}/logo.svg`} alt="deno logo" />
+              {" "}
+              Manual
             </div>
             <div class="version">
               <div class="label">{versionLabel}</div>

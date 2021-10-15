@@ -15,6 +15,10 @@ import { normalizeVersion } from "./versions.ts";
 import { Page } from "./components/Page.tsx";
 import { cliToStd } from "../versions.ts";
 
+const BUILD_ID = Deno.env.get("DENO_DEPLOYMENT_ID") ||
+  // @ts-ignore lib.dom does not support crypto.randomUUID
+  crypto.randomUUID().slice(0, 8);
+
 const router = new Router<RouteParams, State>();
 
 router.get("/", (ctx) => {
@@ -22,12 +26,13 @@ router.get("/", (ctx) => {
   console.log(version.substring(1));
   ctx.response.redirect(`/${version}/introduction`);
 });
-router.get("/static/gfm.css", (ctx) => {
+router.get(`/static-${BUILD_ID}/:path*`, (ctx) => {
   ctx.response.body = gfmCSS;
   ctx.response.type = "text/css";
+  ctx.response.headers.set("Cache-Control", "public, max-age=31536000");
 });
 
-router.get("/static/:path*", async (ctx) => {
+router.get(`/static-${BUILD_ID}/:path*`, async (ctx) => {
   const path = normalizeURLPath(ctx.params.path ?? "");
   if (path === null) return;
 
@@ -45,6 +50,7 @@ router.get("/static/:path*", async (ctx) => {
     }
     throw err;
   }
+  ctx.response.headers.set("Cache-Control", "public, max-age=31536000");
 });
 
 router.get("/:path*", async (ctx) => {
@@ -109,6 +115,7 @@ router.get("/:path*", async (ctx) => {
       version,
       url,
       mdBody: body,
+      buildId: BUILD_ID,
     }));
 
     ctx.response.body = html;
