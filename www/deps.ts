@@ -27,4 +27,5 @@ export { CSS as gfmCSS, render } from "https://deno.land/x/gfm@0.1.1/mod.ts";
 import "https://esm.sh/prismjs@1.25.0/components/prism-typescript?no-check";
 import "https://esm.sh/prismjs@1.25.0/components/prism-bash?no-check";
 import "https://esm.sh/prismjs@1.25.0/components/prism-rust?no-check";
+import "https://esm.sh/prismjs@1.25.0/components/prism-yaml?no-check";
 import "https://esm.sh/prismjs@1.25.0/components/prism-wasm?no-check";

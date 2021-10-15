@@ -13,13 +13,15 @@ import { State } from "./state.ts";
 import { TableOfContents } from "./table_of_contents.ts";
 import { normalizeVersion } from "./versions.ts";
 import { Page } from "./components/Page.tsx";
+import { cliToStd } from "../versions.ts";
 
 const router = new Router<RouteParams, State>();
 
 router.get("/", (ctx) => {
-  ctx.response.body = "Hello World";
+  const version = Object.keys(cliToStd)[0];
+  console.log(version.substring(1));
+  ctx.response.redirect(`/${version}/introduction`);
 });
-
 router.get("/static/gfm.css", (ctx) => {
   ctx.response.body = gfmCSS;
   ctx.response.type = "text/css";
@@ -45,17 +47,37 @@ router.get("/static/:path*", async (ctx) => {
   }
 });
 
-router.get("/:version/:path*", async (ctx) => {
-  const path = ctx.params.path ?? "";
+router.get("/:path*", async (ctx) => {
+  const fullPath = normalizeURLPath(ctx.params.path ?? "");
+  if (fullPath === null) return;
 
-  // Parse the passed version. If it needed to be normalized, redirect to the
-  // normalized version. If the version is unparsable, return a 404.
-  const orignalVersion = ctx.params.version!;
-  const version = normalizeVersion(orignalVersion);
-  if (version === null) return;
-  if (version.version !== orignalVersion) {
+  // Try to parse the first segment as a version.
+  const maybeVersion = fullPath.split("/")[1] || "";
+  const version = normalizeVersion(maybeVersion);
+
+  // Everything after that is the `path`
+  const path = fullPath.split("/").slice(2).join("/");
+
+  // If the first item is not a version, we redirect to ${latest}/${fullPath}
+  if (version === null) {
+    const version = Object.keys(cliToStd)[0].slice(1);
     ctx.response.redirect(
-      `/${version.version}${path ? `/${path}` : ""}`,
+      `/${version}${fullPath}`,
+    );
+    return;
+  }
+
+  // If the path is empty, we redirect to `/introduction`
+  if (path === "") {
+    ctx.response.redirect(`/${version.version}/introduction`);
+    return;
+  }
+
+  // If the parsed version does not match the version in the URL, it was
+  // normalized, and we redirect to the normalized version.
+  if (version.version !== maybeVersion) {
+    ctx.response.redirect(
+      `/${version.version}/${path}`,
     );
     return;
   }
