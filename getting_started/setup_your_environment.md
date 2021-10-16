@@ -5,7 +5,7 @@ applications, including a full language server to help power your IDE of choice.
 [Installing](./installation.md) is all you need to do to make these
 [tools](./command_line_interface.md) available to you.
 
-Outside of using Deno with your favorite IDE, this section also documents
+Outside using Deno with your favorite IDE, this section also documents
 [shell completions](#shell-completions) and
 [environment variables](#environment-variables).
 
@@ -68,8 +68,8 @@ The built-in language server protocol in Neovim also supports Deno.
 ##### Neovim 0.6+ and nvim-lspconfig
 
 Neovim's built-in LSP has supported Deno since 0.5, but recent changes to Deno
-mean that now 0.6 or newer is needed. Until the release of 0.6 stable that means
-installing the nightly. Please see the
+mean that now Neovim 0.6 or newer is needed. Until the release of 0.6 stable you
+must install the nightly. Please see the
 [instructions on how to download the nightly release](https://github.com/neovim/neovim/issues/15709).
 
 To use the Deno language server install
@@ -77,10 +77,10 @@ To use the Deno language server install
 instructions to enable the
 [supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
 
-Deno's linting is not supported out of the box, but the default can be
-overridden as follows:
+Deno's linting is not supported out of the box, but the default of
+`lint = false` can be overridden as follows:
 
-```
+```lua
 nvim_lsp.denols.setup {
   on_attach = on_attach,
   init_options = {
