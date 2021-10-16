@@ -99,11 +99,5 @@ deleted /Users/deno/.deno/bin/file_server
 ✅ Successfully uninstalled file_server
 ```
 
-The command determines the root of the installed scripts with the following
-order:
-
-- `--root` option
-- `DENO_INSTALL_ROOT` environment variable
-- `$HOME/.deno`
 
 See `deno uninstall -h` for more details.
