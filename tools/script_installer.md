@@ -99,5 +99,4 @@ deleted /Users/deno/.deno/bin/file_server
 ✅ Successfully uninstalled file_server
 ```
 
-
 See `deno uninstall -h` for more details.
