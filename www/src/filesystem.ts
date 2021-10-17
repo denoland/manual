@@ -75,6 +75,34 @@ export class FileSystem {
       }
     }
   }
+
+  githubUrl(version: VersionInfo, path: string): URL | null {
+    // Normalize the provided path
+    const normalizedPath = normalizeURLPath(path);
+    if (normalizedPath === null) return null;
+
+    switch (version.type) {
+      case VersionType.Local: {
+        return null;
+      }
+      case VersionType.Preview: {
+        return new URL(
+          `https://github.com/denoland/manual/blob/${version.version}${normalizedPath}`,
+        );
+      }
+      case VersionType.Release: {
+        if (version.inOldRepo) {
+          return new URL(
+            `https://github.com/denoland/deno/blob/v${version.version}/docs${normalizedPath}`,
+          );
+        } else {
+          return new URL(
+            `https://github.com/denoland/manual/blob/v${version.version}${normalizedPath}`,
+          );
+        }
+      }
+    }
+  }
 }
 
 // Normalize a path for use in a URL. Returns null if the path is unparsable.

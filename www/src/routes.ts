@@ -100,6 +100,8 @@ router.get("/:path*", async (ctx) => {
     ]);
     if (sourceData === null || toc === null) return;
 
+    const githubUrl = ctx.state.fs.githubUrl(version, `${path}.md`);
+
     const pageName = toc.getName(path);
     if (pageName === null) return;
 
@@ -116,6 +118,7 @@ router.get("/:path*", async (ctx) => {
       toc,
       version,
       url: ctx.request.url,
+      githubUrl,
       mdBody: body,
       buildId: BUILD_ID,
     }));
