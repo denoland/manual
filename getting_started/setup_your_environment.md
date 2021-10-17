@@ -77,8 +77,10 @@ To use the Deno language server install
 instructions to enable the
 [supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
 
-Deno's linting is not supported out of the box, but the default of
-`lint = false` can be overridden as follows:
+Deno's linting is not supported out of the box, but assuming you are using the
+`on_attach` helper function from the
+[basic setup example](https://github.com/neovim/nvim-lspconfig#keybindings-and-completion),
+the default of `lint = false` can be overridden as follows:
 
 ```lua
 nvim_lsp.denols.setup {
