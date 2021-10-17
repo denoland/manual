@@ -131,7 +131,7 @@ class SummaryRenderer extends marked.Renderer {
 
 export function summarizeMarkdown(markdown: string) {
   const summaryRenderer = new SummaryRenderer();
-  let full = marked(markdown, { renderer: summaryRenderer });
+  const full = marked(markdown, { renderer: summaryRenderer });
 
   // Logic taken from https://github.com/fiatjaf/extract-summary/blob/master/index.js.
   // MIT license: https://github.com/fiatjaf/extract-summary/blob/master/package.json#L20
