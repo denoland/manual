@@ -36,7 +36,7 @@ And compile it:
 ```sh
 // unix
 cc -c -o add_numbers.o add_numbers.c
-cc -shared -Wl -o add_numbers.so add_numbers.o
+cc -shared -o add_numbers.so add_numbers.o
 // Windows
 cl /LD add_numbers.c /link /EXPORT:add_numbers
 ```
