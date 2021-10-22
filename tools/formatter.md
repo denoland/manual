@@ -29,13 +29,6 @@ deno fmt --check
 cat file.ts | deno fmt -
 ```
 
-> ⚠️ If you want to redirect output of `deno fmt`, keep in mind that formatted
-> code is output to standard output.
-
-```shell
-cat file.ts | deno fmt - > formatted_file.ts
-```
-
 ### Ignoring Code
 
 Ignore formatting code by preceding it with a `// deno-fmt-ignore` comment in
