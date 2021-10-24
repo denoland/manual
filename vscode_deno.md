@@ -53,7 +53,7 @@ the setting is `deno.enable`.
 > enabled.
 
 When a project is enabled, the extension will get information directly from the
-installed Deno CLI. The extension will also _mute_ the built in
+installed Deno CLI. The extension will also _mute_ the built-in
 TypeScript/JavaScript extension.
 
 ### Using linting
@@ -80,7 +80,7 @@ the _Deno: Config_ option can be used (or `deno.config` if manually editing).
 
 ### Using formatting
 
-The Deno CLI comes with a built in formatter which can be access using
+The Deno CLI comes with a built-in formatter which can be access using
 `deno fmt` but can also be configured to be used by vscode. _Deno_ should be on
 the drop down list for the _Editor: Default formatter_ setting (or if you are
 editing settings manually, it would be
@@ -156,7 +156,7 @@ insight into the code. Most are disabled by default, but can easily be enabled:
 
 ## Testing code lens
 
-The Deno CLI includes a [built in testing API](./testing.md) available under
+The Deno CLI includes a [built-in testing API](./testing.md) available under
 `Deno.test`. The extension and language server have a code lens enabled by
 default which provides the ability to run a test from within the editor.
 
@@ -294,7 +294,7 @@ In order to support this, you would create a new workspace (or add a folder to
 an existing workspace) and in the settings configure one of the folders to have
 `deno.enable` set to `true` and one set to `false`. Once you save the workspace
 configuration, you notice that the Deno language server only applies diagnostics
-to the enabled folders, while the other folder will use the built in TypeScript
+to the enabled folders, while the other folder will use the built-in TypeScript
 compiler of vscode to supply diagnostics for TypeScript and JavaScript files.
 
 ## Using a development container
@@ -338,7 +338,7 @@ extension and try to give likely causes.
 
 This is normally a situation where Deno is not enabled on a Deno project. If you
 look at the source of the diagnostic you are probably going to see a `ts(2691)`.
-The `ts` indicates that it is coming from the built in TypeScript/JavaScript
+The `ts` indicates that it is coming from the built-in TypeScript/JavaScript
 engine in vscode. You will want to check that your configuration is set properly
 and the _Deno: Enable_/`deno.enable` is true.
 

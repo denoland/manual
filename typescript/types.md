@@ -186,7 +186,7 @@ of how the module is analyzed:
 The first directive ensures that no other default libraries are used. If this is
 omitted, you will get some conflicting type definitions, because Deno will try
 to apply the standard Deno library as well. The second instructs Deno to apply
-the built in Deno worker type definitions plus dependent libraries (like
+the built-in Deno worker type definitions plus dependent libraries (like
 `"esnext"`).
 
 When you run a `deno cache` or `deno bundle` command or use an IDE which uses

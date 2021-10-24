@@ -1,6 +1,6 @@
 # Built-in tooling
 
-Deno provides some built in tooling that is useful when working with JavaScript
+Deno provides some built-in tooling that is useful when working with JavaScript
 and TypeScript:
 
 - [bundler (`deno bundle`)](./tools/bundler.md)

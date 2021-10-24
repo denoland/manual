@@ -64,7 +64,7 @@ Deno is well supported on both [vim](https://www.vim.org/) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
 The
-[built in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
+[built-in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
 in Neovim also supports Deno.
 
 ##### coc.nvim

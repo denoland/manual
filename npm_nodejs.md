@@ -54,6 +54,6 @@ That being said, there are some differences that cannot be overcome:
 - Node.js has a plugin system that is incompatible with Deno, and Deno will
   never support Node.js plugins. If the Node.js code you want to use requires a
   "native" Node.js plugin, it won't work under Deno.
-- Node.js has some built in modules (e.g. like `vm`) that are effectively
+- Node.js has some built-in modules (e.g. like `vm`) that are effectively
   incompatible with the scope of Deno and therefore there aren't easy ways to
   provide a _polyfill_ of the functionality in Deno.
