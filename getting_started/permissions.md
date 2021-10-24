@@ -137,7 +137,7 @@ resources irregardless of the permissions you granted to the Deno process that
 spawns them. The `cat` program on unix systems can be used to read files from
 disk. If you start this program through the `Deno.run` API it will be able to
 read files from disk even if the parent Deno process can not read the files
-directly. This is often reffered to as privledge escalation.
+directly. This is often referred to as privilege escalation.
 
 Because of this, make sure you carefully consider if you want to grant a program
 `--allow-run` access: it essentially invalidates the Deno security sandbox. If
@@ -164,6 +164,6 @@ execute it then any parameters can be passed. For example if you pass
 
 ### Conference
 
-Permission flags where explained by Ryan Dahl in his 2020 talk about the Deno
+Permission flags were explained by Ryan Dahl in his 2020 talk about the Deno
 security model at Speakeasy JS:
 https://www.youtube.com/watch?v=r5F6dekUmdE#t=34m57

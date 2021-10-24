@@ -258,7 +258,7 @@ support is only available via a TLS/HTTPS connection.
 
 ### Serving WebSockets
 
-> ℹ️ This APIs was stabilized in Deno 1.14 and no longer requires the
+> ℹ️ These APIs were stabilized in Deno 1.14 and no longer requires the
 > `--unstable` flag.
 
 Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to

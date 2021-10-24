@@ -88,3 +88,15 @@ example installation command to your repository:
 
 $ deno install -n awesome_cli https://example.com/awesome/cli.ts
 ```
+
+### Uninstall
+
+You can uninstall the script with `deno uninstall` command.
+
+```shell
+$ deno uninstall file_server
+deleted /Users/deno/.deno/bin/file_server
+✅ Successfully uninstalled file_server
+```
+
+See `deno uninstall -h` for more details.
