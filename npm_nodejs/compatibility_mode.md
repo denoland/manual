@@ -3,7 +3,7 @@
 Starting with v1.15 Deno provides Node compatiblity mode that can be activated
 by passing `--compat` flag in CLI.
 
-> ⚠️ Current using compatiblity mode requires `--unstable` flag, and if you are
+> ⚠️ Currently using compatiblity mode requires `--unstable` flag, and if you are
 > loading CJS modules `--allow-read` flag is needed too.
 
 When using compatibility mode there are a few things happening behind the
