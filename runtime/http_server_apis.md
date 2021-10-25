@@ -4,7 +4,7 @@ As of Deno 1.9 and later, _native_ HTTP server APIs were introduced which allow
 users to create robust and performant web servers in Deno.
 
 The API tries to leverage as much of the web standards as is possible as well as
-tries to be simple and straight forward.
+tries to be simple and straightforward.
 
 > ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
 > flag.
@@ -64,7 +64,7 @@ for await (const conn of server) {
 }
 ```
 
-Every connection made would yielded up a `Deno.Conn` assigned to `conn`. Then
+Every connection made would yield up a `Deno.Conn` assigned to `conn`. Then
 further processing can be applied to the connection.
 
 There is also the `.accept()` method on the listener which can be used:

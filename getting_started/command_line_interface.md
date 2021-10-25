@@ -88,7 +88,7 @@ We discuss these below.
 ### Watch mode
 
 You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
-`deno fmt` to enable the built in file watcher. The files that are watched
+`deno fmt` to enable the built-in file watcher. The files that are watched
 depend on the subcommand used:
 
 - for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local

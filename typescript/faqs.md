@@ -106,7 +106,7 @@ are:
 ### Why don't you support language service plugins or transformer plugins?
 
 While `tsc` supports language service plugins, Deno does not. Deno does not
-always use the built in TypeScript compiler to do what it does, and the
+always use the built-in TypeScript compiler to do what it does, and the
 complexity of adding support for a language service plugin is not feasible.
 TypeScript does not support emitter plugins, but there are a few community
 projects which _hack_ emitter plugins into TypeScript. First, we wouldn't want
