@@ -3,13 +3,13 @@
 Starting with v1.15 Deno provides Node compatiblity mode that can be activated
 by passing `--compat` flag in CLI.
 
-> ⚠️ Currently using compatiblity mode requires `--unstable` flag, and if you
-> are loading CJS modules `--allow-read` flag is needed too.
+> ⚠️ Currently using compatiblity mode requires the `--unstable` flag, and if
+> you are loading CJS modules, the `--allow-read` flag is needed too.
 
 When using compatibility mode there are a few things happening behind the
 scenes:
 
-- Node globals are available in global scope, so you can access `process`,
+- Node globals are available in the global scope, so you can access `process`,
   `global`, `Buffer`, `setImmediate`, `clearImmediate`. This is done by
   executing
   [`std/node/global.ts`](https://doc.deno.land/https/deno.land/std/node/global.ts)
@@ -71,15 +71,15 @@ Following modules are not yet implemented:
 - `vm`
 - `zlib`
 
-If you try to run a Node code that requires any of the not implemented modules,
+If you try to run Node code that requires any of the not implemented modules,
 please open an issue in https://github.com/denoland/deno_std/issues with example
 code.
 
 ### TypeScript support
 
-Currently, the compability code does not support TypeScript.
+Currently, the compability mode does not support TypeScript.
 
-In the upcoming releases we plan to add support for `types` field in
+In the upcoming releases we plan to add support for a `types` field in
 `package.json`, to automatically lookup types and use them during type checking.
 
 In the long term, we'd like to provide ability to consume TypeScript code
