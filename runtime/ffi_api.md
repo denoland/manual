@@ -70,7 +70,7 @@ const dylib = Deno.dlopen(libName, {
 // Call the symbol `add`
 const result = dylib.symbols.add(35, 34); // 69
 
-console.log(`Result from external addition of 35 and 34: ${ result }`);
+console.log(`Result from external addition of 35 and 34: ${result}`);
 ```
 
 Run with `--allow-ffi` and `--unstable` flag:
