@@ -48,16 +48,16 @@ Calling the library from Deno:
 
 // Determine library extension based on
 // your OS.
-let ext = "";
+let libSuffix = "";
 switch (Deno.build.os) {
   case "windows":
-    ext = "dll";
+    libSuffix = "dll";
     break;
   case "darwin":
-    ext = "dylib";
+    libSuffix = "dylib";
     break;
   case "linux":
-    ext = "so";
+    libSuffix = "so";
     break;
 }
 
@@ -69,6 +69,8 @@ const dylib = Deno.dlopen(libName, {
 
 // Call the symbol `add`
 const result = dylib.symbols.add(35, 34); // 69
+
+console.log(`Result from external addition of 35 and 34: ${result}`);
 ```
 
 Run with `--allow-ffi` and `--unstable` flag:
