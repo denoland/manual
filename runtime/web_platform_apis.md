@@ -36,6 +36,44 @@ You can find documentation about this API on
   - The `opaqueredirect` response type.
 - A `fetch` with a `redirect` mode of `manual` will return a `basic` response
   rather than an `opaqueredirect` response.
+- The specification is vague on how
+  [`file:` URLs are to be handled](https://fetch.spec.whatwg.org/#scheme-fetch).
+  Firefox is the only mainstream browser that implements fetching `file:` URLs,
+  and even then it doesn't work by default. As of Deno 1.16, Deno supports
+  fetching local files. See the next section for details.
+
+### Fetching local files
+
+As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
+write code that uses the same code path on a server as local, as well as easier
+to author code that work both under the Deno CLI and Deno Deploy.
+
+Deno only supports absolute file URLs, this means that `fetch("./some.json")`
+will not work. It should be noted though that if `--location` is specified,
+relative URLs use the `--location` as the base, but a `file:` URL cannot be
+passed as the `--location`.
+
+To be able to fetch some resource, relative to the current module, which would
+work if the module is local or remote, you would want to use `import.meta.url`
+as the base. For example, something like:
+
+```js
+const response = await fetch(new URL("./config.json", import.meta.url));
+const config = await response.json();
+```
+
+Notes on fetching local files:
+
+- Permissions are applied to reading resources, so an appropriate `--allow-read`
+  permission is needed to be able to read a local file.
+- Fetching locally only supports the `GET` method, and will reject the promise
+  with any other method.
+- A file that does not exists simply rejects the promise with a vague
+  `TypeError`. This is to avoid the potential of fingerprinting attacks.
+- No headers are set on the response. Therefore it is up to the consumer to
+  determine things like the content type or content length.
+- Response bodies are streamed from the Rust side, so large files are available
+  in chunks, and can be cancelled.
 
 ## `CustomEvent`, `EventTarget` and `EventListener`
 
