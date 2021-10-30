@@ -1,6 +1,6 @@
 ## Dependency Inspector
 
-`deno info [URL]` will inspect ES module and all of its dependencies.
+`deno info [URL]` will inspect an ES module and all of its dependencies.
 
 ```shell
 deno info https://deno.land/std@0.67.0/http/file_server.ts
