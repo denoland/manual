@@ -70,10 +70,10 @@ also supports Deno.
 
 ##### Neovim 0.6+ and nvim-lspconfig
 
-Neovim's built-in LSP has supported Deno since 0.5, but recent changes to Deno
-mean that now Neovim 0.6 or newer is needed. Until the release of 0.6 stable you
-must install the nightly. Please see the
-[instructions on how to download the nightly release](https://github.com/neovim/neovim/issues/15709).
+Neovim has supported Deno's language server since version 0.5, but recent
+changes to Deno mean that now Neovim 0.6 or newer is needed. Until the release
+of 0.6 stable you must
+[install the pre-release version](https://github.com/neovim/neovim/releases).
 
 To use the Deno language server install
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
