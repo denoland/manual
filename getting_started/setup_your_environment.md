@@ -396,10 +396,10 @@ There are a couple environment variables which can impact the behavior of Deno:
 - `HTTPS_PROXY` - The proxy address to use for HTTPS requests. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
   information.
-- `NO_COLOR` - If set, this will cause the Deno CLI to not send ASCII color
-  codes when writing to stdout and stderr. See the website https://no-color.org/
-  for more information on this _de facto_ standard. The value of this flag can
-  be accessed at runtime without permission to read the environment variables by
+- `NO_COLOR` - If set, this will cause the Deno CLI to not send ANSI color codes
+  when writing to stdout and stderr. See the website https://no-color.org/ for
+  more information on this _de facto_ standard. The value of this flag can be
+  accessed at runtime without permission to read the environment variables by
   checking the value of `Deno.noColor`.
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
   environment variables. See the
