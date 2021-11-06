@@ -42,10 +42,10 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - name: Setup Actions
+      - name: Set up Actions
         uses: actions/checkout@v2
 
-      - name: Setup Deno
+      - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
         with:
           deno-version: v1.x
