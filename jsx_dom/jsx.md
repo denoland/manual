@@ -53,7 +53,7 @@ the specifier easily.
 
 For example, if you wanted to use [Preact](https://preactjs.com/) from the
 [esm.sh](https://esm.sh/) CDN, you would use `https://esm.sh/preact` as the JSX
-import source, and esm.sh will resolves `https://esm.sh/preact/jsx-runtime` as a
+import source, and esm.sh will resolve `https://esm.sh/preact/jsx-runtime` as a
 module, including providing a header in the response that tells Deno where to
 find the type definitions for Preact.
 
