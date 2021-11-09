@@ -60,7 +60,7 @@ find the type definitions for Preact.
 #### Using the JSX import source pragma
 
 Whether you have a JSX import source configured for your project, or if you are
-using the default "legacy" configuration, you can added the JSX import source
+using the default "legacy" configuration, you can add the JSX import source
 pragma to a `.jsx` or `.tsx` module, and Deno will respect it.
 
 The `@jsxImportSource` pragma needs to be in the leading comments of the module.
