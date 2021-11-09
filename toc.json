@@ -59,6 +59,12 @@
       "faqs": "Frequently asked questions"
     }
   },
+  "jsx_dom": {
+    "name": "Using JSX",
+    "children": {
+      "jsx": "Configuring"
+    }
+  },
   "webassembly": {
     "name": "Using WebAssembly",
     "children": {
