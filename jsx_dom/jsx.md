@@ -1,4 +1,4 @@
-## Configuring TypeScript in Deno
+## Configuring JSX in Deno
 
 Deno has built in support for JSX in both `.jsx` files and `.tsx` files. JSX in
 Deno can be handy for server side rendering or generating code for consumption
