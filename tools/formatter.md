@@ -13,8 +13,8 @@ files:
 | JSON       | `.json`            |
 | JSONC      | `.jsonc`           |
 
-In addition `deno fmt` can format code snippets in Markdown files. Snippets must
-be enclosed in triple backtics and have a language attribute.
+In addition, `deno fmt` can format code snippets in Markdown files. Snippets
+must be enclosed in triple backticks and have a language attribute.
 
 ```shell
 # format all supported files in the current directory and subdirectories
