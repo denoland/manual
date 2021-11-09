@@ -29,7 +29,7 @@ exit using ctrl+d or close()
 "hello world!"
 > _
 "hello world!"
-> > const foo = "bar";
+> const foo = "bar";
 undefined
 > _
 undefined
