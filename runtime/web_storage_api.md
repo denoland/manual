@@ -3,9 +3,9 @@
 Deno 1.10 introduced the
 [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 which provides an API for storing string keys and values. Persisting data works
-similar to a browser. The global `sessionStorage` object only persists data for
-the current execution context, while `localStorage` persists data from execution
-to execution.
+similar to a browser, and has a 10MB storage limit. The global `sessionStorage`
+object only persists data for the current execution context, while
+`localStorage` persists data from execution to execution.
 
 In a browser, `localStorage` persists data uniquely per origin (effectively the
 protocol plus hostname plus port). As of Deno 1.16, Deno has a set of rules to
