@@ -58,9 +58,9 @@ Like in browsers, sending and receiving large files is possible thanks to the
 standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
 can be used to convert a Deno file into a writable or readable stream.
 
-**Command:** `deno run --allow-read --allow-write --allow-net fetch-file.ts`
+**Command:** `deno run --allow-read --allow-write --allow-net fetch_file.ts`
 
-```tsx
+```ts
 /**
  * Receiving a file
  */

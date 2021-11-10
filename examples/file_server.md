@@ -4,7 +4,7 @@
 
 - Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
   file's content in chunks.
-- Use the standard library's
+- Use the Deno standard library
   [streams module](https://deno.land/std@$STD_VERSION/streams/) to transform a
   Deno file into a
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
@@ -19,7 +19,7 @@ memory.
 
 ## Example
 
-**Command:** `deno run --allow-read --allow-net file-server.ts`
+**Command:** `deno run --allow-read --allow-net file_server.ts`
 
 ```ts
 import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
@@ -59,4 +59,56 @@ async function serveFile(requestEvent: Deno.RequestEvent) {
   const response = new Response(readableStream);
   await requestEvent.respondWith(response);
 }
+```
+
+## Using the `std/http` file server
+
+The Deno standard library provides you with a
+[file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
+you don't have to write your own.
+
+To use it, first install the remote script to your local file system. This will
+install the script to the Deno installation root's bin directory, e.g.
+`/home/alice/.deno/bin/file_server`.
+
+```shell
+deno install --allow-net --allow-read https://deno.land/std@$STD_VERSION/http/file_server.ts
+```
+
+You can now run the script with the simplified script name. Run it:
+
+```shell
+$ file_server .
+Downloading https://deno.land/std@$STD_VERSION/http/file_server.ts...
+[...]
+HTTP server listening on http://0.0.0.0:4507/
+```
+
+Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
+see your local directory contents.
+
+The complete list of options are available via:
+
+```shell
+file_server --help
+```
+
+Example output:
+
+```
+Deno File Server
+    Serves a local directory in HTTP.
+  INSTALL:
+    deno install --allow-net --allow-read https://deno.land/std/http/file_server.ts
+  USAGE:
+    file_server [path] [options]
+  OPTIONS:
+    -h, --help          Prints help information
+    -p, --port <PORT>   Set port
+    --cors              Enable CORS via the "Access-Control-Allow-Origin" header
+    --host     <HOST>   Hostname (default is 0.0.0.0)
+    -c, --cert <FILE>   TLS certificate file (enables TLS)
+    -k, --key  <FILE>   TLS key file (enables TLS)
+    --no-dir-listing    Disable directory listing
+    All TLS options are required when one is provided.
 ```
