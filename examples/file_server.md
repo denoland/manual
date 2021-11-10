@@ -4,8 +4,10 @@
 
 - Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
   file's content in chunks.
-- Use the standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
-  to transform a Deno file into a [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+- Use the standard library's
+  [streams module](https://deno.land/std@$STD_VERSION/streams/) to transform a
+  Deno file into a
+  [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 - Use Deno's integrated HTTP server to run your own file server.
 
 ## Overview
