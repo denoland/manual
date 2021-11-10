@@ -2,62 +2,59 @@
 
 ## Concepts
 
-- Use the Deno standard library
-  [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) to
-  run your own file server and access your files from your web browser.
-- Run [Deno install](../tools/script_installer.md) to install the file server
-  locally.
+- Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
+  file's content in chunks.
+- Use the standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
+  to transform a Deno file into a [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
+- Use Deno's integrated HTTP server to run your own file server.
+
+## Overview
+
+Sending files over the network is a common requirement. As seen in the
+[Fetch Data example](./fetch_data), because files can be of any size, it is
+important to use streams in order to prevent having to load entire files into
+memory.
 
 ## Example
 
-Serve a local directory via HTTP. First install the remote script to your local
-file system. This will install the script to the Deno installation root's bin
-directory, e.g. `/home/alice/.deno/bin/file_server`.
+**Command:** `deno run --allow-read --allow-net file-server.ts`
 
-```shell
-deno install --allow-net --allow-read https://deno.land/std@$STD_VERSION/http/file_server.ts
-```
+```ts
+import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
 
-You can now run the script with the simplified script name. Run it:
+// Start listening on port 8080 of localhost.
+const server = await Deno.listen({ port: 8080 });
+console.log("File server running on http://localhost:8080/");
 
-```shell
-$ file_server .
-Downloading https://deno.land/std@$STD_VERSION/http/file_server.ts...
-[...]
-HTTP server listening on http://0.0.0.0:4507/
-```
+for await (const conn of server) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    serveFile(requestEvent);
+  }
+}
 
-Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
-see your local directory contents.
+async function serveFile(requestEvent: Deno.RequestEvent) {
+  // Use the request pathname as filepath
+  const url = new URL(requestEvent.request.url);
+  const filepath = decodeURIComponent(url.pathname);
 
-## Help
+  // Try opening the file
+  let file;
+  try {
+    file = await Deno.open("." + filepath, { read: true });
+  } catch {
+    // If the file cannot be opened, return a "404 Not Found" response
+    const notFoundResponse = new Response("404 Not Found", { status: 404 });
+    await requestEvent.respondWith(notFoundResponse);
+    return;
+  }
 
-Help and a complete list of options are available via:
+  // Build a readable stream so the file doesn't have to be fully loaded into
+  // memory while we send it
+  const readableStream = readableStreamFromReader(file);
 
-```shell
-file_server --help
-```
-
-Example output:
-
-```
-Deno File Server
-    Serves a local directory in HTTP.
-
-  INSTALL:
-    deno install --allow-net --allow-read https://deno.land/std/http/file_server.ts
-
-  USAGE:
-    file_server [path] [options]
-
-  OPTIONS:
-    -h, --help          Prints help information
-    -p, --port <PORT>   Set port
-    --cors              Enable CORS via the "Access-Control-Allow-Origin" header
-    --host     <HOST>   Hostname (default is 0.0.0.0)
-    -c, --cert <FILE>   TLS certificate file (enables TLS)
-    -k, --key  <FILE>   TLS key file (enables TLS)
-    --no-dir-listing    Disable directory listing
-
-    All TLS options are required when one is provided.
+  // Build and send the response
+  const response = new Response(readableStream);
+  await requestEvent.respondWith(response);
+}
 ```
