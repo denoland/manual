@@ -71,7 +71,7 @@ Then navigate to `http://localhost:8080/` in a browser.
 **webserver.ts**:
 
 ```ts
-import { listenAndServe } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 const addr = ":8080";
 
@@ -83,7 +83,7 @@ const handler = (request: Request): Response => {
 };
 
 console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
-await listenAndServe(addr, handler);
+await serve(handler, { addr });
 ```
 
 Then run this with:
