@@ -83,7 +83,7 @@ const handler = (request: Request): Response => {
 };
 
 console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
-await serve(handler, { addr } );
+await serve(handler, { addr });
 ```
 
 Then run this with:
