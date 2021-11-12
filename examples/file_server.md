@@ -22,7 +22,7 @@ memory.
 **Command:** `deno run --allow-read --allow-net file_server.ts`
 
 ```ts
-import * as Path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
+import * as path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
 import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
 
 // Start listening on port 8080 of localhost.
@@ -49,7 +49,7 @@ async function handleHttp(conn: Deno.Conn) {
       // If File instance is a directory, lookup for an index.html
       if (stat.isDirectory) {
         file.close();
-        const filePath = Path.join("./", filepath, "index.html");
+        const filePath = path.join("./", filepath, "index.html");
         file = await Deno.open(filePath, { read: true });
       }
     } catch {
