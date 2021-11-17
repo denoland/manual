@@ -27,12 +27,12 @@ scenes:
   [ES](https://nodejs.org/api/esm.html) modules.
 
 - Deno respects
-  ["Conditional exports"](https://nodejs.org/api/packages.html#conditional-exports);
-  in addition to condition recognized by Node.js, `"deno"` condition can be
-  used. This is useful for the package authors who want to provide separate
-  entrypoint for use in Deno, eg. if your package uses `node-fetch` you might
-  want to provide a conditional `"deno"` export that doesn't use `node-fetch`
-  and instead uses built-in `fetch` API in Deno.
+  ["Conditional exports"](https://nodejs.org/api/packages.html#conditional-exports)
+  field in `package.json`; in addition to conditions recognized by Node.js,
+  `"deno"` condition can be used. This is useful for the package authors who
+  want to provide separate entrypoint for use in Deno, eg. if your package uses
+  `node-fetch` you might want to provide a conditional `"deno"` export that
+  doesn't use `node-fetch` and instead uses built-in `fetch` API in Deno.
 
 - In ESM resolution, in addition to `file:` and `data:` URL schemes recognized
   in Node.js, Deno also supports `http:`, `https:` and `blog:` URLs, ie. regular
