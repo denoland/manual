@@ -94,6 +94,32 @@ nvim_lsp.denols.setup {
 }
 ```
 
+Note that if you also have `tsserver` as an LSP client, you may run into having
+issues where both `tsserver` and `denols` are attached to your current buffer.
+To resolve this, make sure to set some unique `root_dir` for both `tsserver` and
+`denols`. Here is an example of such a configuration:
+
+```lua
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("deno.json"),
+  init_options = {
+    lint = true,
+  },
+}
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  init_options = {
+    lint = true,
+  },
+}
+```
+
+Also note here that for a Deno project, the example above assumes that there
+exists a `deno.json` file at the root of the project.
+
 ##### coc.nvim
 
 Once you have
