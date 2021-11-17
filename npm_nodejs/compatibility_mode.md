@@ -26,6 +26,23 @@ scenes:
   documentation on [CJS](https://nodejs.org/api/modules.html) and
   [ES](https://nodejs.org/api/esm.html) modules.
 
+- Deno respects
+  ["Conditional exports"](https://nodejs.org/api/packages.html#conditional-exports);
+  in addition to condition recognized by Node.js, `"deno"` condition can be
+  used. This is useful for the package authors who want to provide separate
+  entrypoint for use in Deno, eg. if your package uses `node-fetch` you might
+  want to provide a conditional `"deno"` export that doesn't use `node-fetch`
+  and instead uses built-in `fetch` API in Deno.
+
+- In ESM resolution, in addition to `file:` and `data:` URL schemes recognized
+  in Node.js, Deno also supports `http:`, `https:` and `blog:` URLs, ie. regular
+  module specifier resolution still works.
+
+- In ESM resolution, import maps are supported. When resolving "bare" specifiers
+  Deno will first try to resolve them using import map (if one is provided using
+  `--import-map` flag). Bare specifiers starting with `node:` prefix are extempt
+  from this rule.
+
 ### Node.js built-in modules
 
 Following built-in Node modules are currently supported:
