@@ -40,7 +40,7 @@ vscode
 This will activate a helper which will ask if you want to also enable linting
 and the Deno unstable APIs for the project. This command will instruct vscode to
 store these settings in the workspace configuration (your workspace root
-`.vscode/setting.json`). Once the helper is finished, you will get a
+`.vscode/settings.json`). Once the helper is finished, you will get a
 notification that Deno is setup for the project.
 
 These settings (and other settings) are available via the vscode
