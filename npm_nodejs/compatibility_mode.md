@@ -7,6 +7,9 @@ mode can be activated by passing `--compat` flag in CLI.
 > ⚠️ Using compatiblity mode currently requires the `--unstable` flag. If you
 > intend to use CJS modules, the `--allow-read` flag is needed as well.
 
+> ⚠️ Package management is currently out of scope for Node.js compatiblity mode.
+> For the time being we suggest to keep using your current solution.
+
 ### Example
 
 [`eslint`](https://eslint.org/) is a very popular tool used by most of Node.js
@@ -45,9 +48,6 @@ $ deno run \
 ```
 
 ### How does it work?
-
-> ⚠️ Package management is currently out of scope for Node.js compatiblity mode.
-> For the time being we suggest to keep using your current solution.
 
 When using compatibility mode there Deno does a few things behind the scenes:
 
