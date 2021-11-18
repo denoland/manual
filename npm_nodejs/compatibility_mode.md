@@ -8,7 +8,8 @@ mode can be activated by passing `--compat` flag in CLI.
 > intend to use CJS modules, the `--allow-read` flag is needed as well.
 
 > ⚠️ Package management is currently out of scope for Node.js compatiblity mode.
-> For the time being we suggest to keep using your current solution.
+> For the time being we suggest to keep using your current solution (`npm`,
+> `yarn`, `pnpm`).
 
 ### Example
 
@@ -17,7 +18,7 @@ projects. Let's run `eslint` using Deno in Node.js compatiblity mode. Assuming
 that `eslint` is already installed locally (either using `npm install eslint` or
 `yarn install eslint`) we can do so like:
 
-```
+```sh
 $ ls
 .eslintrc.json
 node_modules
@@ -32,7 +33,7 @@ function bar(): any {}
 
 $ deno run \
   --compat --unstable \
-  --allow-read --allow-env --allow-write \
+  --allow-read --allow-write=./ --allow-env \
   node_modules/eslint/bin/eslint.js test.js test.ts
 
 /dev/test.js
@@ -46,6 +47,11 @@ $ deno run \
 
 ✖ 5 problems (2 errors, 3 warnings)
 ```
+
+> ⚠️ Notice that ESLint is run with limited set of permissions. We only give it
+> access to the read from the file system, write to current directory and access
+> environmental variables. Programs run in compatility mode are subject to
+> Deno's permission model.
 
 ### How does it work?
 
