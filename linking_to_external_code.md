@@ -67,7 +67,7 @@ create a `deps.ts` file that exports the third-party code:
 export {
   assert,
   assertEquals,
-  assertStrContains,
+  assertStringIncludes,
 } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 ```
 
