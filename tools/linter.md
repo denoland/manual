@@ -39,7 +39,7 @@ function foo(): any {
 
 Ignore directive must be placed before first statement or declaration:
 
-```ts, ignore
+```ts ignore
 // Copyright 2020 the Deno authors. All rights reserved. MIT license.
 
 /**

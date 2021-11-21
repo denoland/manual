@@ -34,7 +34,7 @@ export function outputB() {
 }
 ```
 
-```ts, ignore
+```ts ignore
 /**
  * module_a.ts
  */

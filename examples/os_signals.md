@@ -16,7 +16,7 @@
 
 You can use `Deno.signal()` function for handling OS signals:
 
-```ts, ignore
+```ts ignore
 /**
  * async-iterator-signal.ts
  */

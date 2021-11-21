@@ -19,7 +19,7 @@ It adopts browser-like module resolution, meaning that file names must be
 specified in full. You may not omit the file extension and there is no special
 handling of `index.js`.
 
-```js, ignore
+```js ignore
 import { add, multiply } from "./arithmetic.ts";
 ```
 
@@ -35,7 +35,7 @@ In this example the `add` and `multiply` functions are imported from a local
 
 **Command:** `deno run local.ts`
 
-```ts, ignore
+```ts ignore
 /**
  * local.ts
  */

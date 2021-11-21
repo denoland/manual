@@ -18,7 +18,7 @@ Example:
 
 **color.ts**
 
-```ts, ignore
+```ts ignore
 import { red } from "fmt/colors.ts";
 
 console.log(red("hello world"));
@@ -45,7 +45,7 @@ To use your project root for absolute imports:
 
 **main.ts**
 
-```ts, ignore
+```ts ignore
 import { MyUtil } from "/util.ts";
 ```
 

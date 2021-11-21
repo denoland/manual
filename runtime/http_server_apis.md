@@ -29,7 +29,7 @@ block in order to handle exceptions, like the port already being in use.
 
 You can also listen for a TLS connection (e.g. HTTPS) using `Deno.listenTls()`:
 
-```ts
+```ts ignore
 const server = Deno.listenTls({
   port: 8443,
   certFile: "localhost.crt",
@@ -238,7 +238,7 @@ enable this, you need to provide the protocols you want to support when you
 start listening via the `alpnProtocols` property. This will enable the
 negotiation to occur when the connection is made. For example:
 
-```ts
+```ts ignore
 const server = Deno.listenTls({
   port: 8443,
   certFile: "localhost.crt",

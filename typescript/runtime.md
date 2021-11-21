@@ -11,7 +11,7 @@ several disparate APIs we consolidated into a single API, `Deno.emit()`.
 
 The API is defined in the `Deno` namespace as:
 
-```ts, ignore
+```ts ignore
 function emit(
   rootSpecifier: string | URL,
   options?: EmitOptions,
@@ -20,7 +20,7 @@ function emit(
 
 The emit options are defined in the `Deno` namespace as:
 
-```ts, ignore
+```ts
 interface EmitOptions {
   /** Indicate that the source code should be emitted to a single file
    * JavaScript bundle that is a single ES module (`"module"`) or a single
@@ -57,7 +57,7 @@ interface EmitOptions {
 
 The emit result is defined in the `Deno` namespace as:
 
-```ts, ignore
+```ts
 interface EmitResult {
   /** Diagnostic messages returned from the type checker (`tsc`). */
   diagnostics: Diagnostic[];
@@ -94,7 +94,7 @@ For example if you did:
 
 You could do something similar with `Deno.emit()`:
 
-```ts
+```ts ignore
 try {
   const { files } = await Deno.emit("mod.ts");
   for (const [fileName, text] of Object.entries(files)) {

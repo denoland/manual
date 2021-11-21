@@ -10,7 +10,7 @@ Example:
 
 **main.ts**
 
-```ts, ignore
+```ts ignore
 import "./imported.ts";
 
 const handler = (e: Event): void => {
