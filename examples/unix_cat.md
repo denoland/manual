@@ -7,7 +7,7 @@
   command line arguments.
 - [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) is used to get a
   handle to a file.
-- [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/io/util.ts#copy)
+- [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/streams/conversion.ts#copy)
   is used to transfer data from the file to the output stream.
 - Files should be closed when you are finished with them
 - Modules can be run directly from remote URLs.
@@ -21,7 +21,7 @@ is opened, and printed to stdout (e.g. the console).
 /**
  * cat.ts
  */
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 for (const filename of Deno.args) {
   const file = await Deno.open(filename);
   await copy(file, Deno.stdout);

@@ -5,7 +5,7 @@ applications, including a full language server to help power your IDE of choice.
 [Installing](./installation.md) is all you need to do to make these
 [tools](./command_line_interface.md) available to you.
 
-Outside of using Deno with your favorite IDE, this section also documents
+Outside using Deno with your favorite IDE, this section also documents
 [shell completions](#shell-completions) and
 [environment variables](#environment-variables).
 
@@ -64,8 +64,61 @@ Deno is well supported on both [vim](https://www.vim.org/) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
 The
-[built in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
-in Neovim also supports Deno.
+[built-in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
+in Neovim also supports Deno. The built-in language server protocol in Neovim
+also supports Deno.
+
+##### Neovim 0.6+ and nvim-lspconfig
+
+Neovim has supported Deno's language server since version 0.5, but recent
+changes to Deno mean that now Neovim 0.6 or newer is needed. Until the release
+of 0.6 stable you must
+[install the pre-release version](https://github.com/neovim/neovim/releases).
+
+To use the Deno language server install
+[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
+instructions to enable the
+[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
+
+Deno's linting is not supported out of the box, but assuming you are using the
+`on_attach` helper function from the
+[basic setup example](https://github.com/neovim/nvim-lspconfig#keybindings-and-completion),
+the default of `lint = false` can be overridden as follows:
+
+```lua
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  init_options = {
+    lint = true,
+  },
+}
+```
+
+Note that if you also have `tsserver` as an LSP client, you may run into having
+issues where both `tsserver` and `denols` are attached to your current buffer.
+To resolve this, make sure to set some unique `root_dir` for both `tsserver` and
+`denols`. Here is an example of such a configuration:
+
+```lua
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("deno.json"),
+  init_options = {
+    lint = true,
+  },
+}
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  init_options = {
+    lint = true,
+  },
+}
+```
+
+Also note here that for a Deno project, the example above assumes that there
+exists a `deno.json` file at the root of the project.
 
 ##### coc.nvim
 
@@ -369,10 +422,10 @@ There are a couple environment variables which can impact the behavior of Deno:
 - `HTTPS_PROXY` - The proxy address to use for HTTPS requests. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
   information.
-- `NO_COLOR` - If set, this will cause the Deno CLI to not send ASCII color
-  codes when writing to stdout and stderr. See the website https://no-color.org/
-  for more information on this _de facto_ standard. The value of this flag can
-  be accessed at runtime without permission to read the environment variables by
+- `NO_COLOR` - If set, this will cause the Deno CLI to not send ANSI color codes
+  when writing to stdout and stderr. See the website https://no-color.org/ for
+  more information on this _de facto_ standard. The value of this flag can be
+  accessed at runtime without permission to read the environment variables by
   checking the value of `Deno.noColor`.
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
   environment variables. See the

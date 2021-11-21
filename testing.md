@@ -161,7 +161,7 @@ Deno.test({
 
 ## Failing fast
 
-If you have a long running test suite and wish for it to stop on the first
+If you have a long-running test suite and wish for it to stop on the first
 failure, you can specify the `--fail-fast` flag when running the suite.
 
 ```shell
@@ -171,9 +171,11 @@ deno test --fail-fast
 ## Integration with testing libraries
 
 Deno's test runner works with popular testing libraries like
-[Chai](https://www.chaijs.com/) or [Sinon.JS](https://sinonjs.org/).
+[Chai](https://www.chaijs.com/), [Sinon.JS](https://sinonjs.org/) or
+[fast-check](https://dubzzz.github.io/fast-check.github.com/).
 
 For example integration see:
 
 - https://deno.land/std@$STD_VERSION/testing/chai_example.ts
 - https://deno.land/std@$STD_VERSION/testing/sinon_example.ts
+- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts

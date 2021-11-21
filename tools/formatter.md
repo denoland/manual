@@ -1,6 +1,6 @@
 ## Code formatter
 
-Deno ships with a built in code formatter that will auto-format the following
+Deno ships with a built-in code formatter that will auto-format the following
 files:
 
 | File Type  | Extension          |
@@ -13,8 +13,8 @@ files:
 | JSON       | `.json`            |
 | JSONC      | `.jsonc`           |
 
-In addition `deno fmt` can format code snippets in Markdown files. Snippets must
-be enclosed in triple backtics and have a language attribute.
+In addition, `deno fmt` can format code snippets in Markdown files. Snippets
+must be enclosed in triple backticks and have a language attribute.
 
 ```shell
 # format all supported files in the current directory and subdirectories
@@ -28,9 +28,6 @@ deno fmt --check
 # format stdin and write to stdout
 cat file.ts | deno fmt -
 ```
-
-> ⚠️ If you want to redirect output of `deno fmt`, keep in mind that formatted
-> code is output to standard error.
 
 ### Ignoring Code
 

@@ -41,6 +41,7 @@
   "npm_nodejs": {
     "name": "Using npm/Node.js code",
     "children": {
+      "compatibility_mode": "Node.js compatibility mode",
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
@@ -56,6 +57,12 @@
       "migration": "Migrating to/from JavaScript",
       "runtime": "Runtime compiler APIs",
       "faqs": "Frequently asked questions"
+    }
+  },
+  "jsx_dom": {
+    "name": "Using JSX",
+    "children": {
+      "jsx": "Configuring"
     }
   },
   "webassembly": {

@@ -88,7 +88,7 @@ you are using an npm package which has a dependency on some code that just
 doesn't work under Deno, and you want to substitute another module that
 "polyfills" the incompatible APIs.
 
-For example, let's say we have a package that is using a version of the built in
+For example, let's say we have a package that is using a version of the built-in
 `"fs"` module that we have a local module we want to replace it with when it
 tries to import it, but we want other code we are loading to use the standard
 library replacement module for `"fs"`. We would want to create an import map

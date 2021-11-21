@@ -1,6 +1,6 @@
 ## Assertions
 
-To help developers write tests the Deno standard library comes with a built in
+To help developers write tests the Deno standard library comes with a built-in
 [assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
 can be imported from `https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
 
@@ -226,7 +226,7 @@ Deno.test("Test Assert Throws Async", () => {
 
 ### Custom Messages
 
-Each of Deno's built in assertions allow you to overwrite the standard CLI error
+Each of Deno's built-in assertions allow you to overwrite the standard CLI error
 message if you wish. For instance this example will output "Values Don't Match!"
 rather than the standard CLI error message.
 

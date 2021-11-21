@@ -103,7 +103,7 @@ this:
 ```
 
 You can't copy paste this into a configuration file and get it to work,
-specifically because of the built in type libraries that are custom to Deno
+specifically because of the built-in type libraries that are custom to Deno
 which are provided to the TypeScript compiler. This can somewhat be mocked by
 running `deno types` on the command line and piping the output to a file and
 including that in the files as part of the program, removing the `"lib"` option,
