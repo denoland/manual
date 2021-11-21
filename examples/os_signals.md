@@ -19,9 +19,11 @@ APIs for handling OS signals are modelled after already familiar
 [`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
 and
 [`removeEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
-APIs. Note that listening for OS signals doesn't prevent event loop from
-finishing, ie. if there are no more pending async operations the process will
-exit.
+APIs.
+
+> ⚠️ Note that listening for OS signals doesn't prevent event loop from
+> finishing, ie. if there are no more pending async operations the process will
+> exit.
 
 You can use `Deno.addSignalListener()` function for handling OS signals:
 
