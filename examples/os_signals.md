@@ -6,25 +6,25 @@
 ## Concepts
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
-- [Deno.signal](https://doc.deno.land/builtin/unstable#Deno.signal) can be used
-  to capture and monitor OS signals.
-- Use the `dispose()` function of the Deno.signal
-  [SignalStream](https://doc.deno.land/builtin/unstable#Deno.SignalStream) to
-  stop watching the signal.
+- [Deno.addSignalListener()](https://doc.deno.land/builtin/unstable#Deno.addSignalListener)
+  can be used to capture and monitor OS signals.
+- [Deno.removeSignalListener()](https://doc.deno.land/builtin/unstable#Deno.removeSignalListener)
+  can be used to stop watching the signal.
 
 ## Async iterator example
 
-You can use `Deno.signal()` function for handling OS signals:
+You can use `Deno.addSignalListener()` function for handling OS signals:
 
 ```ts
 /**
  * async-iterator-signal.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-for await (const _ of Deno.signal("SIGINT")) {
+const sigIntHandler = (_) => {
   console.log("interrupted!");
   Deno.exit();
 }
+Deno.addSignalListener("SIGINT", sigIntHandler);
 ```
 
 Run with:
