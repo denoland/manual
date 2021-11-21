@@ -3,6 +3,8 @@
 > This program makes use of an unstable Deno feature. Learn more about
 > [unstable features](../runtime/stability.md).
 
+> ⚠️ Handling OS signals is currently not available on Windows.
+
 ## Concepts
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
