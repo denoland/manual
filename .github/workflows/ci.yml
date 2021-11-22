@@ -19,5 +19,8 @@ jobs:
       - name: Format
         run: deno fmt --check
 
-      - name: Type-check
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Type-check Deno manual
         run: deno test --doc --unstable --import-map=.github/import_map.json
