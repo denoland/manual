@@ -3,81 +3,104 @@
 > This program makes use of an unstable Deno feature. Learn more about
 > [unstable features](../runtime/stability.md).
 
+> ⚠️ Handling OS signals is currently not available on Windows.
+
 ## Concepts
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
-- [Deno.signal](https://doc.deno.land/builtin/unstable#Deno.signal) can be used
-  to capture and monitor OS signals.
-- Use the `dispose()` function of the Deno.signal
-  [SignalStream](https://doc.deno.land/builtin/unstable#Deno.SignalStream) to
-  stop watching the signal.
+- [Deno.addSignalListener()](https://doc.deno.land/builtin/unstable#Deno.addSignalListener)
+  can be used to capture and monitor OS signals.
+- [Deno.removeSignalListener()](https://doc.deno.land/builtin/unstable#Deno.removeSignalListener)
+  can be used to stop watching the signal.
 
-## Async iterator example
+## Set up an OS signal listener
 
-You can use `Deno.signal()` function for handling OS signals:
+APIs for handling OS signals are modelled after already familiar
+[`addEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+and
+[`removeEventListener`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener)
+APIs.
+
+> ⚠️ Note that listening for OS signals doesn't prevent event loop from
+> finishing, ie. if there are no more pending async operations the process will
+> exit.
+
+You can use `Deno.addSignalListener()` function for handling OS signals:
 
 ```ts ignore
 /**
- * async-iterator-signal.ts
+ * add_signal_listener.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-for await (const _ of Deno.signal("SIGINT")) {
+
+Deno.addSignalListener("SIGINT", (_) => {
   console.log("interrupted!");
   Deno.exit();
-}
+});
+
+// Add a timeout to prevent process existing immediately.
+setTimeout(() => {}, 5000);
 ```
 
 Run with:
 
 ```shell
-deno run --unstable async-iterator-signal.ts
+deno run --unstable add_signal_listener.ts
 ```
 
-## Promise based example
-
-`Deno.signal()` also works as a promise:
+You can use `Deno.removeSignalListener()` function to unregister previously
+added signal handler.
 
 ```ts
 /**
- * promise-signal.ts
+ * signal_listeners.ts
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
-await Deno.signal("SIGINT");
-console.log("interrupted!");
-Deno.exit();
+
+const sigIntHandler = (_) => {
+  console.log("interrupted!");
+  Deno.exit();
+};
+Deno.addSignalListener("SIGINT", sigIntHandler);
+
+// Add a timeout to prevent process existing immediately.
+setTimeout(() => {}, 5000);
+
+// Stop listening for a signal after 1s.
+setTimeout(() => {
+  Deno.removeSignalListener("SIGINT", sigIntHandler);
+}, 1000);
 ```
 
 Run with:
 
 ```shell
-deno run --unstable promise-signal.ts
+deno run --unstable signal_listeners.ts
 ```
 
-## Stop watching signals
+## Async iterator example
 
-If you want to stop watching the signal, you can use `dispose()` method of the
-signal object:
+If you prefer to handle signals using an async iterator, you can use
+[`signal()`](https://deno.land/std/signal/mod.ts) API available in `deno_std`:
 
 ```ts
 /**
- * dispose-signal.ts
+ * async_iterator_signal.ts
  */
-const sig = Deno.signal("SIGINT");
-setTimeout(() => {
-  sig.dispose();
-  console.log("No longer watching SIGINT signal");
-}, 5000);
+import { signal } from "https://deno.land/std@$STD_VERSION/signal/mod.ts";
 
-console.log("Watching SIGINT signals");
+const sig = signal("SIGUSR1", "SIGINT");
+
+// Add a timeout to prevent process existing immediately.
+setTimeout(() => {}, 5000);
+
 for await (const _ of sig) {
-  console.log("interrupted");
+  console.log("interrupt or usr1 signal received");
 }
 ```
 
 Run with:
 
 ```shell
-deno run --unstable dispose-signal.ts
+deno run --unstable async_iterator_signal.ts
 ```
-
-The above for-await loop exits after 5 seconds when `sig.dispose()` is called.
