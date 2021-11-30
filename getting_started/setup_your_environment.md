@@ -78,7 +78,7 @@ of 0.6 stable you must
 To use the Deno language server install
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
 instructions to enable the
-[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
+[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
 Deno's linting is not supported out of the box, but assuming you are using the
 `on_attach` helper function from the
