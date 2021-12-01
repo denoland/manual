@@ -86,7 +86,7 @@ In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
@@ -116,7 +116,7 @@ This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const hostname = "0.0.0.0";
 const port = 8080;
 const listener = Deno.listen({ hostname, port });
