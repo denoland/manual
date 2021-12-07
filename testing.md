@@ -229,7 +229,7 @@ can also use `sinon` to wrap a method on an object instead. In other JavaScript
 environments `bar` might have been accessible via a global such as `window` and
 callable via `sinon.spy(window, "bar")`, but in Deno this will not work and
 instead you can `export` an object with the functions to be tested. This means
-rewriting `my_file.js` something like this:
+rewriting `my_file.js` to something like this:
 
 ```js
 // my_file.js
