@@ -254,7 +254,7 @@ And then `import` it in a test file:
 
 ```js
 import sinon from "https://cdn.skypack.dev/sinon";
-import { assertEquals } from "https://deno.land/std@0.117.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo, funcs } from "./my_file.js";
 
 Deno.test("calls bar during execution of foo", () => {
