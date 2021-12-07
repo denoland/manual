@@ -191,28 +191,21 @@ such as Skypack:
 import sinon from "https://cdn.skypack.dev/sinon";
 ```
 
-Consider the following functions `foo` and `bar`, where `foo` makes a call to
-`bar`:
+Say we have two functions, `foo` and `bar` and want to assert that `bar` is
+called during execution of `foo`. There are a few ways to achieve this with
+Sinon, one is to have function `foo` take another function as a parameter:
 
 ```js
-function bar() {/*...*/}
+// my_file.js
+export function bar() {/*...*/}
 
-function foo() {
-  bar();
+export function foo(fn) {
+  fn();
 }
 ```
 
-Say we want to assert that `bar` is called during execution of `foo`. There are
-a few ways to achieve this with Sinon, one is to have function `foo` take a
-parameter and pass `bar`:
-
-```js
-function foo(bar) {
-  bar();
-}
-```
-
-This way, we can create a wrapper around `bar` with sinon to create a test spy:
+This way, we can call `foo(bar)` in the application code or wrap a spy function
+around `bar` and call `foo(spy)` in the testing code:
 
 ```js
 import sinon from "https://cdn.skypack.dev/sinon";
@@ -231,26 +224,28 @@ Deno.test("calls bar during execution of foo", () => {
 });
 ```
 
-If you prefer not to add additional parameters to functions for testing purposes
-only, you can use `sinon` to wrap a method on an object instead. In other
-JavaScript environments you might have been able to access `bar` via a global
-such as `window` and call `sinon.spy(window, "bar")`, but in Deno this will not
-work and you can instead `export` an object with the functions to be tested:
+If you prefer not to add additional parameters for testing purposes only, you
+can also use `sinon` to wrap a method on an object instead. In other JavaScript
+environments `bar` might have been accessible via a global such as `window` and
+callable via `sinon.spy(window, "bar")`, but in Deno this will not work and
+instead you can `export` an object with the functions to be tested. This means
+rewriting `my_file.js` something like this:
 
 ```js
+// my_file.js
 function bar() {/*...*/}
 
 export const funcs = {
   bar,
 };
 
-// call 'bar' from the 'funcs' object
+// 'foo' no longer takes a parameter, but calls 'bar' from an object
 export function foo() {
   funcs.bar();
 }
 ```
 
-And then `import` it in a test file:
+And then `import` in a test file:
 
 ```js
 import sinon from "https://cdn.skypack.dev/sinon";
@@ -261,7 +256,7 @@ Deno.test("calls bar during execution of foo", () => {
   // create a test spy that wraps 'bar' on the 'funcs' object
   const spy = sinon.spy(funcs, "bar");
 
-  // call function 'foo'
+  // call function 'foo' without an argument
   foo();
 
   assertEquals(spy.called, true);
