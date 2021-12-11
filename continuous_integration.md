@@ -6,9 +6,18 @@ done with the corresponding commands `deno test`, `deno lint` and `deno fmt`. In
 addition, you can generate code coverage reports from test results with
 `deno coverage` in pipelines.
 
+On this page we will discuss:
+
+- [Building a basic pipeline](#building-a-basic-pipeline)
+- [Testing Deno across platforms](#testing-deno-across-platforms)
+- [Optimizing pipelines](#optimizing-pipelines)
+- [Caching dependencies](#caching-dependencies)
+
+### Building a basic pipeline
+
 This page will show you how to set up basic pipelines for Deno projects in
 GitHub Actions. The concepts explained on this page largely apply to other CI
-providers as well, such as GitLab, CircleCI or Azure Pipelines.
+providers as well, such as Azure Pipelines, CircleCI or GitLab.
 
 Building a pipeline for Deno generally starts with checking out the repository
 and installing Deno:
@@ -32,26 +41,21 @@ To expand the workflow just add any of the `deno` subcommands that you might
 need:
 
 ```yaml
-# This simply checks if the project code is formatted according to Deno's default
+# Check if the code is formatted according to Deno's default
 # formatting conventions.
 - run: deno fmt --check
 
-# This checks the code for syntax errors and style issues. If
-# needed, you can pass a `deno.json` configuration file with custom linter
-# rules.
+# Scan the code for syntax errors and style issues. If
+# you want to use a custom linter configuration you can add a configuration file with --config <myconfig>
 - run: deno lint
 
-# This runs any .test files in the repository and collects code coverage. The
-# example runs with all permissions but granting the minimal permissions needed 
-# (e.g. --allow-read) can help identify unexpected changes in permission requirements.
-- name: Run tests and collect code coverage
-  run: deno test --allow-all --coverage cov
+# Run all test files in the repository and collect code coverage. The example
+# runs with all permissions, but it is recommended to run with the minimal permissions your program needs (for example --allow-read).
+- run: deno test --allow-all --coverage cov
 
 # This generates a report from the collected coverage in `deno test --coverage`. It is
-# saved in .lcov format, which can be uploaded to one of the various code coverage
-# services that can track your coverage over time and provide more detailed analytics.
-- name: Generate coverage report
-  run: deno coverage --lcov cov > cov.lcov
+# stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
+- run: deno coverage --lcov cov > cov.lcov
 ```
 
 ### Testing Deno across platforms
@@ -72,41 +76,46 @@ jobs:
       # Build goes here.
 ```
 
-> Note: GitHub Actions has a known issue with handling Windows-style line
-> endings (CRLF). This may cause issues when running `deno fmt` in a pipeline
-> with jobs that run on `windows`. To fix this, configure the Actions runner to
-> use Linux-style line endings with `git config --system core.autocrlf false`
-> and `git config --system core.eol lf` before using `actions/checkout@v2`.
+> Note: GitHub Actions has a known
+> [issue](https://github.com/actions/checkout/issues/135) with handling
+> Windows-style line endings (CRLF). This may cause issues when running
+> `deno fmt` in a pipeline with jobs that run on `windows`. To prevent this,
+> configure the Actions runner to use Linux-style line endings before running
+> the `actions/checkout@v2` step:
+>
+> ```
+> git config --system core.autocrlf false
+> git config --system core.eol lf
+> ```
 
-If you should happen to work with experimental or unstable Deno APIs, you could
-also include a run with the canary version of Deno to spot potential breaking
+If you are working with experimental or unstable Deno APIs, you can include a
+matrix job running the canary version of Deno. This can help to spot breaking
 changes early on:
 
 ```yaml
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }} # Continue the workflow if the canary run should fail.
+    continue-on-error: ${{ matrix.experimental }} # Continue in case the canary run does not succeed
     strategy:
       matrix:
         os: [ ubuntu-20.04, macos-11, windows-2019 ]
-        deno-version: [ v1.x ] # Run the regular workflows on the latest stable.
+        deno-version: [ v1.x ]
         experimental: [ false ]
-        # Add the canary version as an experimental run.
         include: 
           - deno-version: canary
             os: ubuntu-20.04
             experimental: true
 ```
 
-### Reducing redundancies
+### Optimizing pipelines
 
 While testing your code on all different platforms is important in
 cross-platform testing, there are certain steps in a pipeline that don't need to
-run for each OS. For example, generating the same coverage report on Linux,
+run for each OS. For example, generating the same test coverage report on Linux,
 MacOS and Windows is a bit redundant. You can use the `if` conditional keyword
-of GitHub Actions in these cases. The following example shows how to run the
-coverage generation and upload steps only on the Ubuntu (Linux) runner:
+of GitHub Actions in these cases. The following example shows how to run code
+coverage generation and upload steps only on the `ubuntu` (Linux) runner:
 
 ```yaml
 - name: Generate coverage report
@@ -129,13 +138,13 @@ times a day this can become a time-consuming process. A common solution to speed
 things up in this case is to cache dependencies so that they do not need to be
 downloaded anew.
 
-As you may have read elsewhere in this manual, Deno stores dependencies locally
-in a cache directory. In a pipeline this cache can be preserved between
+As you might have read elsewhere in this manual, Deno stores dependencies
+locally in a cache directory. In a pipeline this cache can be preserved between
 workflows by setting the `DENO_DIR` environment variable and adding a caching
 step to the workflow:
 
 ```yaml
-# Set DENO_DIR to an absolute or relative path.
+# Set DENO_DIR to an absolute or relative path on the runner.
 env:
   DENO_DIR: my_cache_directory
 
@@ -147,19 +156,21 @@ steps:
       key: ${{ runner.os }}-deno-cache-key
 ```
 
-At first, when this workflow runs the cache is empty and commands like
-`deno test` will still have to download dependencies, but after the job succeeds
-the `DENO_DIR` will be saved and then can be restored in subsequent runs.
+At first, when this workflow runs the cache is still empty and commands like
+`deno test` will still have to download dependencies, but when the job succeeds
+the contents of `DENO_DIR` are saved and any subsequent runs can restore them
+from cache instead of re-downloading.
 
-There is still an issue with the above approach: hardcoding the cache key means
-that if a dependency is updated, the pipeline will restore a cache containing
-the previous version of that dependency. The solution is to use a lockfile and
-to generate a different key each time the cache need to be updated. You can find
-more information on using lockfiles in Deno
+There is still one issue with the above approach: The same cache key name is
+used on each OS. If this stays hardcoded the same cache will be restored
+everytime, even if one or more dependencies are updated. The solution is to use
+a lockfile and to generate a different key each time the cache need to be
+refreshed. You can find more information on using lockfiles in Deno
 [here](./linking_to_external_code/integrity_checking.md).
 
-Once your project includes a lockfile, use GitHub Action's built-in `hashFiles`
-function to make a new key every time the lockfile is changed:
+Once your project contains a lockfile, use GitHub Action's built-in `hashFiles`
+function to generate a new cache key, pointing to the updated cache, every time
+the lockfile changes:
 
 ```yaml
 key: ${{ runner.os }}-${{ hashFiles('lock.json') }}
