@@ -42,21 +42,21 @@ To expand the workflow just add any of the `deno` subcommands that you might
 need:
 
 ```yaml
-# Check if the code is formatted according to Deno's default
-# formatting conventions.
-- run: deno fmt --check
+      # Check if the code is formatted according to Deno's default
+      # formatting conventions.
+      - run: deno fmt --check
 
-# Scan the code for syntax errors and style issues. If
-# you want to use a custom linter configuration you can add a configuration file with --config <myconfig>
-- run: deno lint
+      # Scan the code for syntax errors and style issues. If
+      # you want to use a custom linter configuration you can add a configuration file with --config <myconfig>
+      - run: deno lint
 
-# Run all test files in the repository and collect code coverage. The example
-# runs with all permissions, but it is recommended to run with the minimal permissions your program needs (for example --allow-read).
-- run: deno test --allow-all --coverage cov
+      # Run all test files in the repository and collect code coverage. The example
+      # runs with all permissions, but it is recommended to run with the minimal permissions your program needs (for example --allow-read).
+      - run: deno test --allow-all --coverage cov
 
-# This generates a report from the collected coverage in `deno test --coverage`. It is
-# stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
-- run: deno coverage --lcov cov > cov.lcov
+      # This generates a report from the collected coverage in `deno test --coverage`. It is
+      # stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
+      - run: deno coverage --lcov cov > cov.lcov
 ```
 
 ### Cross-platform workflows
