@@ -164,10 +164,10 @@ the contents of `DENO_DIR` are saved and any subsequent runs can restore them
 from cache instead of re-downloading.
 
 There is still one issue with the above approach: the cache key name is
-hardcoded on each OS, meaning the same cache will be restored everytime, even if
-one or more dependencies are updated. The solution is to use a lockfile and to
-generate a different key each time the cache need to be refreshed. You can find
-more information on using lockfiles in Deno
+hardcoded on each OS, meaning the same cache will be restored every time, even
+if one or more dependencies are updated. The solution is to use a lockfile and
+to generate a different key each time the cache need to be refreshed. You can
+find more information on using lockfiles in Deno
 [here](./linking_to_external_code/integrity_checking.md).
 
 Once your project contains a lockfile, use GitHub Action's built-in `hashFiles`
