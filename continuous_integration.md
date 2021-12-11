@@ -8,12 +8,12 @@ addition, you can generate code coverage reports from test results with
 
 On this page we will discuss:
 
-- [Building a basic pipeline](#building-a-basic-pipeline)
+- [Setting up a basic pipeline](#setting-up-a-basic-pipeline)
 - [Testing Deno across platforms](#testing-deno-across-platforms)
 - [Optimizing pipelines](#optimizing-pipelines)
 - [Caching dependencies](#caching-dependencies)
 
-### Building a basic pipeline
+### Setting up a basic pipeline
 
 This page will show you how to set up basic pipelines for Deno projects in
 GitHub Actions. The concepts explained on this page largely apply to other CI
