@@ -256,7 +256,7 @@ options that are not supported. This is because they are either meaningless in
 Deno or would cause Deno to not be able to work properly. The defaults for
 `Deno.emit()` are the same defaults that are on the command line. The options
 are
-[documented here](https://doc.deno.land/builtin/unstable#Deno.CompilerOptions)
+[documented here](https://doc.deno.land/deno/unstable/~/Deno.CompilerOptions)
 along with their default values and are built into the Deno types.
 
 If you are type checking your code, the compiler options will be type checked

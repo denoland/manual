@@ -1,7 +1,7 @@
 # Runtime
 
 Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on [`doc.deno.land`](https://doc.deno.land/builtin/stable).
+on [`doc.deno.land`](https://doc.deno.land/deno/stable).
 
 ## Web Platform APIs
 
@@ -22,4 +22,4 @@ The TypeScript definitions for the Deno namespaces can be found in the
 file.
 
 The documentation for all of the Deno specific APIs can be found on
-[doc.deno.land](https://doc.deno.land/https/raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts).
+[doc.deno.land](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts).

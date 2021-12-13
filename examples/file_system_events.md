@@ -2,7 +2,7 @@
 
 ## Concepts
 
-- Use [Deno.watchFs](https://doc.deno.land/builtin/stable#Deno.watchFs) to watch
+- Use [Deno.watchFs](https://doc.deno.land/deno/stable/~/Deno.watchFs) to watch
   for file system events.
 - Results may vary between operating systems.
 

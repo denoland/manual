@@ -60,7 +60,7 @@ When using compatibility mode there Deno does a few things behind the scenes:
 - Node globals are set up and made available in the global scope. That means
   that APIs like `process`, `global`, `Buffer`, `setImmediate` or
   `clearImmediate` are available just like in Node.js. This is done by executing
-  [`std/node/global.ts`](https://doc.deno.land/https/deno.land/std/node/global.ts)
+  [`std/node/global.ts`](https://doc.deno.land/https://deno.land/std/node/global.ts)
   on startup.
 
 - Node built-in modules are set up and made available to import statements and
