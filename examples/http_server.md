@@ -64,16 +64,15 @@ Then navigate to `http://localhost:8080/` in a browser.
 > ℹ️ Since
 > [the stabilization of _native_ HTTP bindings in
 `^1.13.x`](https://deno.com/blog/v1.13#stabilize-native-http-server-api),
-> `std/http` now supports both a _native_ HTTP server and legacy JavaScript HTTP
-> server from `^0.107.0`. The legacy server module is now deprecated, and is
-> planned to be removed in a future release.
+> std/http now supports a _native_ HTTP server from ^0.107.0. The legacy server
+> module was removed in 0.117.0.
 
 **webserver.ts**:
 
 ```ts
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
-const addr = ":8080";
+const port = 8080;
 
 const handler = (request: Request): Response => {
   let body = "Your user-agent is:\n\n";
@@ -83,32 +82,11 @@ const handler = (request: Request): Response => {
 };
 
 console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
-await serve(handler, { addr });
+await serve(handler, { port });
 ```
 
 Then run this with:
 
 ```shell
 deno run --allow-net webserver.ts
-```
-
-**webserver_legacy.ts**
-
-```ts
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server_legacy.ts";
-
-const server = serve({ port: 8080 });
-console.log(`HTTP webserver running. Access it at: http://localhost:8080/`);
-
-for await (const request of server) {
-  let body = "Your user-agent is:\n\n";
-  body += request.headers.get("user-agent") || "Unknown";
-  request.respond({ status: 200, body });
-}
-```
-
-Then run this with:
-
-```shell
-deno run --allow-net webserver_legacy.ts
 ```
