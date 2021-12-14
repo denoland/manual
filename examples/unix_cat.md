@@ -3,11 +3,11 @@
 ## Concepts
 
 - Use the Deno runtime API to output the contents of a file to the console.
-- [Deno.args](https://doc.deno.land/builtin/stable#Deno.args) accesses the
+- [Deno.args](https://doc.deno.land/deno/stable/~/Deno.args) accesses the
   command line arguments.
-- [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) is used to get a
+- [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) is used to get a
   handle to a file.
-- [copy](https://doc.deno.land/https/deno.land/std@$STD_VERSION/streams/conversion.ts#copy)
+- [copy](https://doc.deno.land/https://deno.land/std@$STD_VERSION/streams/conversion.ts/~/copy)
   is used to transfer data from the file to the output stream.
 - Files should be closed when you are finished with them
 - Modules can be run directly from remote URLs.
