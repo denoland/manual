@@ -122,6 +122,13 @@
   "vscode_deno": {
     "name": "Using Visual Studio Code"
   },
+  "language_server": {
+    "name": "Language Server",
+    "children": {
+      "overview": "Overview of the language server",
+      "imports": "Import suggestions and intelligent registries"
+    }
+  },
   "embedding_deno": {
     "name": "Embedding Deno"
   },
