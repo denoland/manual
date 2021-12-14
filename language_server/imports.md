@@ -337,6 +337,3 @@ to do is add the domain to `deno.suggest.imports.hosts` and set the value to
 - `https://nest.land/` - a module registry for Deno on the blockweave.
 - `https://crux.land/` - a free open-source registry for permanently hosting
   small scripts.
-
-```
-```
