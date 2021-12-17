@@ -50,7 +50,7 @@ https://doc.deno.land
 
 Languages: **Rust**
 
-### [`doc_website`](https://github.com/denoland/doc_website)
+### [`docland`](https://github.com/denoland/docland)
 
 Frontend for documentation generator: https://doc.deno.land
 

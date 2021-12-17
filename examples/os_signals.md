@@ -8,9 +8,9 @@
 ## Concepts
 
 - Use the `--unstable` flag to access new or unstable features in Deno.
-- [Deno.addSignalListener()](https://doc.deno.land/builtin/unstable#Deno.addSignalListener)
+- [Deno.addSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.addSignalListener)
   can be used to capture and monitor OS signals.
-- [Deno.removeSignalListener()](https://doc.deno.land/builtin/unstable#Deno.removeSignalListener)
+- [Deno.removeSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.removeSignalListener)
   can be used to stop watching the signal.
 
 ## Set up an OS signal listener

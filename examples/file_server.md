@@ -2,7 +2,7 @@
 
 ## Concepts
 
-- Use [Deno.open](https://doc.deno.land/builtin/stable#Deno.open) to read a
+- Use [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) to read a
   file's content in chunks.
 - Use the Deno standard library
   [streams module](https://deno.land/std@$STD_VERSION/streams/) to transform a

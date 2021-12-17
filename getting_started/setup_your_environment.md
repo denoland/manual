@@ -38,23 +38,10 @@ your project.
 More information can be found in the
 [Using Visual Studio Code](../vscode_deno.md) section of the manual.
 
-#### JetBrains' IntelliJ IDEA and WebStorm
+#### JetBrains IDEs
 
 Currently support for [JetBrains](https://www.jetbrains.com/) IDEs is available
 through [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
-
-Once installed, replace the content of
-`External Libraries > Deno Library > lib > lib.deno.d.ts` with the output of
-`deno types`. This will ensure the typings for the extension match the current
-version. You will have to do this every time you update the version of Deno. For
-more information on how to set-up your JetBrains IDE for Deno, read
-[this comment](https://youtrack.jetbrains.com/issue/WEB-41607#focus=streamItem-27-4160152.0-0)
-on YouTrack.
-
-JetBrain's is considering migrating to the Deno language server (see:
-[YouTrack WEB-48625](https://youtrack.jetbrains.com/issue/WEB-48625)). If you
-are a user of JetBrains and Deno, voicing your support can continue help
-JetBrains prioritize support.
 
 #### vim/Neovim
 
@@ -71,14 +58,13 @@ also supports Deno.
 ##### Neovim 0.6+ and nvim-lspconfig
 
 Neovim has supported Deno's language server since version 0.5, but recent
-changes to Deno mean that now Neovim 0.6 or newer is needed. Until the release
-of 0.6 stable you must
-[install the pre-release version](https://github.com/neovim/neovim/releases).
+changes to Deno mean that now [Neovim](https://neovim.io/) 0.6 or newer is
+needed.
 
 To use the Deno language server install
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
 instructions to enable the
-[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols).
+[supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
 Deno's linting is not supported out of the box, but assuming you are using the
 `on_attach` helper function from the

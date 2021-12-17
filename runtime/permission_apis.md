@@ -168,7 +168,7 @@ to:
 
 Deno's permission revocation algorithm works by removing every element from this
 set which the argument permission descriptor is _stronger than_. So to ensure
-`desc` is not longer granted, pass an argument descriptor _stronger than_
+`desc` is no longer granted, pass an argument descriptor _stronger than_
 whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
 
 ```ts

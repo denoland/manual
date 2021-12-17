@@ -17,7 +17,7 @@ Deno will only load a fully qualified module, including the extension. The
 import specifier needs to either be relative or absolute. Specifiers that are
 neither relative or absolute are often called "bare" specifiers. For example
 `"./lodash/index.js"` is a relative specifier and
-`https://cdn.skypack.dev/lodash` is an absolute specifier. Where is `"lodash"`
+`https://cdn.skypack.dev/lodash` is an absolute specifier. Whereas `"lodash"`
 would be a bare specifier.
 
 Also Deno requires that for local modules, the module to load is fully
