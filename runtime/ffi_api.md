@@ -138,23 +138,24 @@ After
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type    | C                        | Rust        |
-| ----------- | ------------------------ | ----------- |
-| `i8`        | `char` / `signed char`   | `i8`        |
-| `u8`        | `unsigned char`          | `u8`        |
-| `i16`       | `short int`              | `i16`       |
-| `u16`       | `unsigned short int`     | `u16`       |
-| `i32`       | `int` / `signed int`     | `i32`       |
-| `u32`       | `unsigned int`           | `u32`       |
-| `i64`       | `long long int`          | `i64`       |
-| `u64`       | `unsigned long long int` | `u64`       |
-| `usize`     | `size_t`                 | `usize`     |
-| `f32`       | `float`                  | `f32`       |
-| `f64`       | `double`                 | `f64`       |
-| `void`      | `void`                   | `()`        |
-| `buffer`[1] | `const uint8_t *`        | `*const u8` |
+| FFI Type     | C                        | Rust        |
+| ------------ | ------------------------ | ----------- |
+| `i8`         | `char` / `signed char`   | `i8`        |
+| `u8`         | `unsigned char`          | `u8`        |
+| `i16`        | `short int`              | `i16`       |
+| `u16`        | `unsigned short int`     | `u16`       |
+| `i32`        | `int` / `signed int`     | `i32`       |
+| `u32`        | `unsigned int`           | `u32`       |
+| `i64`        | `long long int`          | `i64`       |
+| `u64`        | `unsigned long long int` | `u64`       |
+| `usize`      | `size_t`                 | `usize`     |
+| `f32`        | `float`                  | `f32`       |
+| `f64`        | `double`                 | `f64`       |
+| `void`       | `void`                   | `()`        |
+| `pointer`[1] | `const uint8_t *`        | `*const u8` |
 
-- [1] `buffer` type is only accepted in symbol parameters.
+- [1] `pointer` type accepts both Typed Arrays and `Deno.UnsafePointer` as
+  parameter, while it always returns the latter when used as result type.
 
 ### deno_bindgen
 
