@@ -10,7 +10,7 @@ On this page we will discuss:
 
 - [Setting up a basic pipeline](#setting-up-a-basic-pipeline)
 - [Cross-platform workflows](#cross-platform-workflows)
-- [Speeding up Deno pipelines](#improving-pipeline-efficiency)
+- [Speeding up Deno pipelines](#speeding-up-deno-pipelines)
   - [Reducing repetition](#reducing-repetition)
   - [Caching dependencies](#caching-dependencies)
 
