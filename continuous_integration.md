@@ -56,7 +56,7 @@ need:
 
       # This generates a report from the collected coverage in `deno test --coverage`. It is
       # stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
-      - run: deno coverage --lcov cov > cov.lcov
+      - run: deno coverage --lcov cov/ > cov.lcov
 ```
 
 ### Cross-platform workflows
