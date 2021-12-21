@@ -164,17 +164,20 @@ At first, when this workflow runs the cache is still empty and commands like
 the contents of `DENO_DIR` are saved and any subsequent runs can restore them
 from cache instead of re-downloading.
 
-There is still one issue with the above approach: the cache key name is
-hardcoded on each OS, meaning the same cache will be restored every time, even
-if one or more dependencies are updated. The solution is to use a lockfile and
-to generate a different key each time the cache need to be refreshed. You can
-find more information on using lockfiles in Deno
-[here](./linking_to_external_code/integrity_checking.md).
-
-Once your project contains a lockfile, use GitHub Action's built-in `hashFiles`
-function to generate a new cache key, pointing to the updated cache, every time
-the lockfile changes:
+There is still an issue in the workflow above: at the moment the name of the
+cache key is hardcoded to `my_cache-key`, which is going to restore the same
+cache every time, even if one or more dependencies are updated. This can lead to
+older versions being used in the pipeline even though you have updated some
+dependencies. The solution is to generate a different key each time the cache
+needs to be updated, which can be achieved by using a lockfile and by using the
+`hashFiles` function provided by GitHub Actions:
 
 ```yaml
-key: ${{ runner.os }}-${{ hashFiles('lock.json') }}
+key: ${{ hashFiles('lock.json') }}
 ```
+
+To make this work you will also need a have a lockfile for you Deno project,
+which is discussed in detail
+[here](./linking_to_external_code/integrity_checking.md). Now, If the contents
+of `lock.json` are changed, a new cache will be made and used in subsequent
+pipeline runs thereafter.
