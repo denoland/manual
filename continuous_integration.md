@@ -140,10 +140,11 @@ times a day, this can become a time-consuming process. A common solution to
 speed things up is to cache dependencies so that they do not need to be
 downloaded anew.
 
-As you might have read elsewhere in this manual, Deno stores dependencies
-locally in a cache directory. In a pipeline the cache can be preserved between
-workflows by setting the `DENO_DIR` environment variable and adding a caching
-step to the workflow:
+As you might have read in
+[chapter four](https://deno.land/manual@$STD_VERSION/linking_to_external_code),
+Deno stores dependencies locally in a cache directory. In a pipeline the cache
+can be preserved between workflows by setting the `DENO_DIR` environment
+variable and adding a caching step to the workflow:
 
 ```yaml
 # Set DENO_DIR to an absolute or relative path on the runner.
