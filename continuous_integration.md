@@ -204,10 +204,10 @@ function saving a new cache and using it in any runs that follow.
 
 Occasionally you may run into a cache that has been corrupted or malformed,
 which can happen for various reasons. There is no option in GitHub Actions UI to
-clear a cache yet, but to renew a cache you can simply change the name of the
-cache key. A practical way of doing so without having to forcefully change your
-lockfile is to add a variable to the cache key name, which can be stored as a
-GitHub secret and which can be changed if a new cache is needed:
+clear a cache yet, but to create a new cache you can simply change the name of
+the cache key. A practical way of doing so without having to forcefully change
+your lockfile is to add a variable to the cache key name, which can be stored as
+a GitHub secret and which can be changed if a new cache is needed:
 
 ```yaml
 key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('lock.json') }}
