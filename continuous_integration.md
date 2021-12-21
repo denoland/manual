@@ -106,7 +106,7 @@ jobs:
         include: 
           - deno-version: canary
             os: ubuntu-20.04
-            experimental: true
+            canary: true
 ```
 
 ### Speeding up Deno pipelines
