@@ -97,7 +97,7 @@ changes early on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.experimental }} # Continue in case the canary run does not succeed
+    continue-on-error: ${{ matrix.canary }} # Continue in case the canary run does not succeed
     strategy:
       matrix:
         os: [ ubuntu-20.04, macos-11, windows-2019 ]
