@@ -183,24 +183,22 @@ of `lock.json` are changed, a new cache will be made and used in subsequent
 pipeline runs thereafter.
 
 To demonstrate, let's say you have a project that uses the logger from
-`std@0.99.0`:
+`deno.land/std`:
 
 ```ts
-import * as log from "https://deno.land/std@0.99.0/log/mod.ts";
+import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
 ```
 
-In order to change this to version `0.100.0`, you can update the `import`
-statement to `https://deno.land/std@0.100.0/log/mod.ts`, and then reload the
-cache and update the lockfile locally:
+In order to increment this version, you can update the `import` statement and
+then reload the cache and update the lockfile locally:
 
 ```
 deno cache --reload --lock=lock.json --lock-write
 ```
 
-This will change the lockfile's contents to contain `std@0.100.0` instead of
-`std@0.99.0`. If this is committed and run through the pipeline, you should see
-the `hashFiles` function saving a new cache and using it in any runs that
-follow.
+You should see changes in the lockfile's contents after running this. When this
+is committed and run through the pipeline, you should then see the `hashFiles`
+function saving a new cache and using it in any runs that follow.
 
 ##### Clearing the cache
 
