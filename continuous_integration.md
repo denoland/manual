@@ -6,109 +6,65 @@ done with the corresponding commands `deno test`, `deno lint` and `deno fmt`. In
 addition, you can generate code coverage reports from test results with
 `deno coverage` in pipelines.
 
-The example below shows how to set up a basic pipeline for Deno projects in
-GitHub Actions:
+On this page we will discuss:
+
+- [Setting up a basic pipeline](#setting-up-a-basic-pipeline)
+- [Cross-platform workflows](#cross-platform-workflows)
+- [Speeding up Deno pipelines](#speeding-up-deno-pipelines)
+  - [Reducing repetition](#reducing-repetition)
+  - [Caching dependencies](#caching-dependencies)
+
+### Setting up a basic pipeline
+
+This page will show you how to set up basic pipelines for Deno projects in
+GitHub Actions. The concepts explained on this page largely apply to other CI
+providers as well, such as Azure Pipelines, CircleCI or GitLab.
+
+Building a pipeline for Deno generally starts with checking out the repository
+and installing Deno:
 
 ```yaml
 name: Build
 
-on: [ push, pull_request ]
+on: push
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Actions
-        uses: actions/checkout@v2
-
-      - name: Set up Deno
-        uses: denoland/setup-deno@v1.0.0
-        with:
-          deno-version: v1.x
-```
-
-All this pipeline does at the moment is set up GitHub Actions and Deno, and it
-is configured to trigger a workflow run on push and pull request events. Note
-that in the example the `latest` version of `ubuntu` image is used, but you
-could specify an exact version for added stability in a production pipeline,
-such as `ubuntu-20.04`.
-
-To expand the workflow you can add any of the `deno` CLI commands that you might
-need. The code below shows how to check the formatting, lint the code, run the
-tests and generate a test coverage report, all as part of a `build` job:
-
-```yaml
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-      - name: Set up Actions
-        uses: actions/checkout@v2
-
-      - name: Set up Deno
-        uses: denoland/setup-deno@v1.0.0
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1.0.0
         with:
-          deno-version: v1.x
-
-      - name: Check formatting
-        run: deno fmt --check
-
-      - name: Analyze code
-        run: deno lint
-
-      - name: Run unit and integration tests
-        run: deno test -A --coverage=cov --doc
-
-      - name: Generate coverage report
-        run: deno coverage --lcov cov > cov.lcov
+          deno-version: v1.x # Run with latest stable Deno.
 ```
 
-Let's go over the steps one by one.
+To expand the workflow just add any of the `deno` subcommands that you might
+need:
 
 ```yaml
-- name: Check formatting
-  run: deno fmt --check
-```
+      # Check if the code is formatted according to Deno's default
+      # formatting conventions.
+      - run: deno fmt --check
 
-This simply checks if the project code is formatted according to Deno's default
-formatting conventions.
+      # Scan the code for syntax errors and style issues. If
+      # you want to use a custom linter configuration you can add a configuration file with --config <myconfig>
+      - run: deno lint
 
-```yaml
-- name: Analyze code
-  run: deno lint
-```
+      # Run all test files in the repository and collect code coverage. The example
+      # runs with all permissions, but it is recommended to run with the minimal permissions your program needs (for example --allow-read).
+      - run: deno test --allow-all --coverage cov/
 
-In this step the `deno lint` command checks for syntax and style errors. If
-necessary, you can pass a `deno.json` configuration file with custom linter
-rules.
-
-```yaml
-- name: Run unit and integration tests
-  run: deno test -A --coverage=cov --doc
-```
-
-Here, Deno runs some tests with a lot of options being passed along! This
-example runs with all permissions (`-A`) but in reality you may only need a
-subset of permissions to run your tests, such as `--allow-read` or
-`--allow-env`. Test coverage is generated with `--coverage` into an output
-directory `cov` and finally, `--doc` is provided to typecheck any code blocks in
-the project's documentation.
-
-The final step creates a coverage report from the results of `deno test` in
-`.lcov` format, which you could then upload to one of the various code coverage
-platforms available on the Web:
-
-```yaml
-- name: Generate coverage report
-  run: deno coverage --lcov cov > cov.lcov
+      # This generates a report from the collected coverage in `deno test --coverage`. It is
+      # stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
+      - run: deno coverage --lcov cov/ > cov.lcov
 ```
 
 ### Cross-platform workflows
 
 As a Deno module maintainer, you probably want to know that your code works on
 all of the major operating systems in use today: Linux, MacOS and Windows. A
-Cross-platform workflow can be achieved by running a matrix of parallel jobs in
-GitHub Actions, each one running your build on a different operating system:
+cross-platform workflow can be achieved by running a matrix of parallel jobs,
+each one running the build on a different OS:
 
 ```yaml
 jobs:
@@ -116,37 +72,142 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ ubuntu-20.04, macos-11, windows-2019 ]
     steps:
-      # build goes here
+      - run: deno test --allow-all --coverage cov/
 ```
 
-> Note: GitHub Actions has a known issue with handling Windows-style line
-> endings (CRLF). This may cause issues when running `deno fmt` in a pipeline
-> with jobs that run on `windows`. To solve this, configure the Actions runner
-> to use Linux-style line-endings with `git config --system core.autocrlf false`
-> and `git config --system core.eol lf` before running
-> `uses: actions/checkout@v2` in the pipeline.
+> Note: GitHub Actions has a known
+> [issue](https://github.com/actions/checkout/issues/135) with handling
+> Windows-style line endings (CRLF). This may cause issues when running
+> `deno fmt` in a pipeline with jobs that run on `windows`. To prevent this,
+> configure the Actions runner to use Linux-style line endings before running
+> the `actions/checkout@v2` step:
+>
+> ```
+> git config --system core.autocrlf false
+> git config --system core.eol lf
+> ```
 
-There can be parts of the pipeline that don't make sense to run for every OS.
-For example, generating the same coverage report on Linux, MacOS and Windows is
-a bit redundant. You can use the conditional `if` keyword in these cases to
-reduce repetition:
+If you are working with experimental or unstable Deno APIs, you can include a
+matrix job running the canary version of Deno. This can help to spot breaking
+changes early on:
+
+```yaml
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.canary }} # Continue in case the canary run does not succeed
+    strategy:
+      matrix:
+        os: [ ubuntu-20.04, macos-11, windows-2019 ]
+        deno-version: [ v1.x ]
+        experimental: [ false ]
+        include: 
+          - deno-version: canary
+            os: ubuntu-20.04
+            canary: true
+```
+
+### Speeding up Deno pipelines
+
+#### Reducing repetition
+
+In cross-platform runs, certain steps of a pipeline do not need to run for each
+OS necessarily. For example, generating the same test coverage report on Linux,
+MacOS and Windows is a bit redundant. You can use the `if` conditional keyword
+of GitHub Actions in these cases. The example below shows how to run code
+coverage generation and upload steps only on the `ubuntu` (Linux) runner:
 
 ```yaml
 - name: Generate coverage report
-  if: ${{ matrix.os == 'ubuntu-latest' }}
+  if: matrix.os == 'ubuntu-20.04'
   run: deno coverage --lcov cov > cov.lcov
-```
 
-The same applies to uploading coverage to a reporter like Coveralls, for
-example:
-
-```yaml
-- name: Upload coverage report
-  if: ${{ matrix.os == 'ubuntu-latest' }}
+- name: Upload coverage to Coveralls.io
+  if: matrix.os == 'ubuntu-20.04'
+  # Any code coverage service can be used, Coveralls.io is used here as an example.
   uses: coverallsapp/github-action@master
   with:
-    github-token: ${{ secrets.GITHUB_TOKEN }}
+    github-token: ${{ secrets.GITHUB_TOKEN }} # Generated by GitHub.
     path-to-lcov: cov.lcov
+```
+
+#### Caching dependencies
+
+As a project grows in size, more and more dependencies tend to be included. Deno
+will download these dependencies during testing and if a workflow is run many
+times a day, this can become a time-consuming process. A common solution to
+speed things up is to cache dependencies so that they do not need to be
+downloaded anew.
+
+[Deno stores dependencies locally in a cache directory](https://deno.land/manual/linking_to_external_code).
+In a pipeline the cache can be preserved between workflows by setting the
+`DENO_DIR` environment variable and adding a caching step to the workflow:
+
+```yaml
+# Set DENO_DIR to an absolute or relative path on the runner.
+env:
+  DENO_DIR: my_cache_directory
+
+steps:
+  - name: Cache Deno dependencies 
+    uses: actions/cache@v2
+    with:
+      path: ${{ env.DENO_DIR }}
+      key: my_cache_key
+```
+
+At first, when this workflow runs the cache is still empty and commands like
+`deno test` will still have to download dependencies, but when the job succeeds
+the contents of `DENO_DIR` are saved and any subsequent runs can restore them
+from cache instead of re-downloading.
+
+There is still an issue in the workflow above: at the moment the name of the
+cache key is hardcoded to `my_cache_key`, which is going to restore the same
+cache every time, even if one or more dependencies are updated. This can lead to
+older versions being used in the pipeline even though you have updated some
+dependencies. The solution is to generate a different key each time the cache
+needs to be updated, which can be achieved by using a lockfile and by using the
+`hashFiles` function provided by GitHub Actions:
+
+```yaml
+key: ${{ hashFiles('lock.json') }}
+```
+
+To make this work you will also need a have a lockfile in your Deno project,
+which is discussed in detail
+[here](./linking_to_external_code/integrity_checking.md). Now, if the contents
+of `lock.json` are changed, a new cache will be made and used in subsequent
+pipeline runs thereafter.
+
+To demonstrate, let's say you have a project that uses the logger from
+`deno.land/std`:
+
+```ts
+import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
+```
+
+In order to increment this version, you can update the `import` statement and
+then reload the cache and update the lockfile locally:
+
+```
+deno cache --reload --lock=lock.json --lock-write
+```
+
+You should see changes in the lockfile's contents after running this. When this
+is committed and run through the pipeline, you should then see the `hashFiles`
+function saving a new cache and using it in any runs that follow.
+
+##### Clearing the cache
+
+Occasionally you may run into a cache that has been corrupted or malformed,
+which can happen for various reasons. There is no option in GitHub Actions UI to
+clear a cache yet, but to create a new cache you can simply change the name of
+the cache key. A practical way of doing so without having to forcefully change
+your lockfile is to add a variable to the cache key name, which can be stored as
+a GitHub secret and which can be changed if a new cache is needed:
+
+```yaml
+key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('lock.json') }}
 ```
