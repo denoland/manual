@@ -74,7 +74,7 @@ jobs:
       matrix:
         os: [ ubuntu-20.04, macos-11, windows-2019 ]
     steps:
-      # Build goes here.
+      - run: deno test --allow-all --coverage cov/
 ```
 
 > Note: GitHub Actions has a known
