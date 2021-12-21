@@ -165,7 +165,7 @@ the contents of `DENO_DIR` are saved and any subsequent runs can restore them
 from cache instead of re-downloading.
 
 There is still an issue in the workflow above: at the moment the name of the
-cache key is hardcoded to `my_cache-key`, which is going to restore the same
+cache key is hardcoded to `my_cache_key`, which is going to restore the same
 cache every time, even if one or more dependencies are updated. This can lead to
 older versions being used in the pipeline even though you have updated some
 dependencies. The solution is to generate a different key each time the cache
@@ -176,8 +176,41 @@ needs to be updated, which can be achieved by using a lockfile and by using the
 key: ${{ hashFiles('lock.json') }}
 ```
 
-To make this work you will also need a have a lockfile for you Deno project,
+To make this work you will also need a have a lockfile in your Deno project,
 which is discussed in detail
-[here](./linking_to_external_code/integrity_checking.md). Now, If the contents
+[here](./linking_to_external_code/integrity_checking.md). Now, if the contents
 of `lock.json` are changed, a new cache will be made and used in subsequent
 pipeline runs thereafter.
+
+To demonstrate, let's say you have a project that uses the logger from
+`std@0.99.0`:
+
+```ts
+import * as log from "https://deno.land/std@0.99.0/log/mod.ts";
+```
+
+In order to change this to version `0.100.0`, you can update the `import`
+statement to `https://deno.land/std@0.100.0/log/mod.ts`, and then reload the
+cache and update the lockfile locally:
+
+```
+deno cache --reload --lock=lock.json --lock-write
+```
+
+This will change the lockfile's contents to contain `std@0.100.0` instead of
+`std@0.99.0`. If this is committed and run through the pipeline, you should see
+the `hashFiles` function saving a new cache and using it in any runs that
+follow.
+
+#### Clearing the cache
+
+Occasionally you may run into a cache that has been corrupted or malformed,
+which can happen for various reasons. There is no option in GitHub Actions UI to
+clear a cache yet, but to renew a cache you can simply change the name of the
+cache key. A practical way of doing so without having to forcefully change your
+lockfile is to add a variable to the cache key name, which can be stored as a
+GitHub secret, for example:
+
+```yaml
+key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('lock.json') }}
+```
