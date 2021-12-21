@@ -155,8 +155,8 @@ steps:
   - name: Cache Deno dependencies 
     uses: actions/cache@v2
     with:
-      path: my_cache_directory
-      key: ${{ runner.os }}-deno-cache-key
+      path: ${{ env.DENO_DIR }}
+      key: my_cache_key
 ```
 
 At first, when this workflow runs the cache is still empty and commands like
