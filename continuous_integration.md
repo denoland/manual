@@ -102,7 +102,7 @@ jobs:
       matrix:
         os: [ ubuntu-20.04, macos-11, windows-2019 ]
         deno-version: [ v1.x ]
-        experimental: [ false ]
+        canary: [ false ]
         include: 
           - deno-version: canary
             os: ubuntu-20.04
@@ -192,7 +192,7 @@ In order to increment this version, you can update the `import` statement and
 then reload the cache and update the lockfile locally:
 
 ```
-deno cache --reload --lock=lock.json --lock-write
+deno cache --reload --lock=lock.json --lock-write deps.ts
 ```
 
 You should see changes in the lockfile's contents after running this. When this
