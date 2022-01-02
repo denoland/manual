@@ -116,7 +116,6 @@ function handler(req: Request): Response {
         controller.enqueue("Hello, World!\n");
       }, 1000);
     },
-    },
     cancel() {
       clearInterval(timer);
     },
