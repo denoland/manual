@@ -109,13 +109,12 @@ returns a stream of "Hello, World!" repeated every second:
 
 ```ts
 function handler(req: Request): Response {
-  const timer;
+  let timer;
   const body = new ReadableStream({
     async start(controller) {
       timer = setInterval(() => {
         controller.enqueue("Hello, World!\n");
       }, 1000);
-    },
     },
     cancel() {
       clearInterval(timer);
