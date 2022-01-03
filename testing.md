@@ -84,7 +84,66 @@ Deno.test("async hello world", async () => {
 
 ### Test steps
 
-TODO
+If you are accustomed to `describe`/`it` syntax or `beforeAll`/`afterAll` hooks
+you can use test steps API.
+
+> ⚠️ This API was introduced in Deno 1.15 and requires `--unstable` flag to use.
+
+```ts
+Deno.test("database test", async (t) => {
+  const db = await Database.connect("postgres://localhost/test");
+
+  await t.step("insert user", async () => {
+    const users = await db.query(
+      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
+    );
+    assertEquals(users.length, 1);
+    assertEquals(users[0].name, "Deno");
+  });
+
+  await t.step("insert book", async () => {
+    const books = await db.query(
+      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
+    );
+    assertEquals(books.length, 1);
+    assertEquals(books[0].name, "The Deno Manual");
+  });
+
+  db.close();
+});
+```
+
+The same test written using `describe`/`it` would look like:
+
+```ts
+describe("database test", () => {
+  let db: Database;
+
+  beforeAll(async () => {
+    db = await Database.connect("postgres://localhost/test");
+  });
+
+  it("insert user", async () => {
+    const users = await db!.query(
+      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
+    );
+    assertEquals(users.length, 1);
+    assertEquals(users[0].name, "Deno");
+  });
+
+  it("insert book", async () => {
+    const books = await db!.query(
+      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
+    );
+    assertEquals(books.length, 1);
+    assertEquals(books[0].name, "The Deno Manual");
+  });
+
+  afterAll(() => {
+    db!.close();
+  });
+});
+```
 
 ## Running tests
 
