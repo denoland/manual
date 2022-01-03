@@ -11,25 +11,54 @@ TypeScript code.
 
 ## Writing tests
 
-To define a test you need to register it with a call to `Deno.test` with a name
-and function to be tested. There are two styles you can use.
+To define a test you need to register it with a call to `Deno.test` API. There
+are multiple overloads of this API to allow for greatest flexibility and easy
+switching between the forms (eg. when you need to quickly focus a single test
+for debugging, using `only: true` option):
 
 ```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 
-// Simple name and function, compact form, but not configurable
+// Compact form: name and function
 Deno.test("hello world #1", () => {
   const x = 1 + 2;
   assertEquals(x, 3);
 });
 
-// Fully fledged test definition, longer form, but configurable (see below)
+// Compact form: named function.
+Deno.test(function helloWorld3() {
+  const x = 1 + 2;
+  assertEquals(x, 3);
+});
+
+// Longer form: test definition.
 Deno.test({
   name: "hello world #2",
   fn: () => {
     const x = 1 + 2;
     assertEquals(x, 3);
   },
+});
+
+// Similar to compat form, with additional configuration as a second argument.
+Deno.test("hello world #4", { permissions: { read: true } }, () => {
+  const x = 1 + 2;
+  assertEquals(x, 3);
+});
+
+// Similar to longer form, with test function as a second argument.
+Deno.test(
+  { name: "hello world #5", permissions: { read: true } },
+  () => {
+    const x = 1 + 2;
+    assertEquals(x, 3);
+  },
+);
+
+// Similar to longer form, with a named test function as a second argument.
+Deno.test({ permissions: { read: true } }, function helloWorld6() {
+  const x = 1 + 2;
+  assertEquals(x, 3);
 });
 ```
 
@@ -52,6 +81,10 @@ Deno.test("async hello world", async () => {
   }
 });
 ```
+
+### Test steps
+
+TODO
 
 ## Running tests
 
