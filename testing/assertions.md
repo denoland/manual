@@ -205,7 +205,7 @@ This can be used similar to `assertThrows` but with async functions.
 
 ```js
 Deno.test("Test Assert Throws Async", () => {
-  assertRejects(
+  await assertRejects(
     () => {
       return new Promise(() => {
         throw new Error("Panic! Threw Error");
@@ -215,7 +215,7 @@ Deno.test("Test Assert Throws Async", () => {
     "Panic! Threw Error",
   );
 
-  assertRejects(
+  await assertRejects(
     () => {
       return Promise.reject(new Error("Panic! Reject Error"));
     },
