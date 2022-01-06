@@ -11,25 +11,54 @@ TypeScript code.
 
 ## Writing tests
 
-To define a test you need to register it with a call to `Deno.test` with a name
-and function to be tested. There are two styles you can use.
+To define a test you need to register it with a call to `Deno.test` API. There
+are multiple overloads of this API to allow for greatest flexibility and easy
+switching between the forms (eg. when you need to quickly focus a single test
+for debugging, using `only: true` option):
 
 ```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 
-// Simple name and function, compact form, but not configurable
+// Compact form: name and function
 Deno.test("hello world #1", () => {
   const x = 1 + 2;
   assertEquals(x, 3);
 });
 
-// Fully fledged test definition, longer form, but configurable (see below)
+// Compact form: named function.
+Deno.test(function helloWorld3() {
+  const x = 1 + 2;
+  assertEquals(x, 3);
+});
+
+// Longer form: test definition.
 Deno.test({
   name: "hello world #2",
   fn: () => {
     const x = 1 + 2;
     assertEquals(x, 3);
   },
+});
+
+// Similar to compat form, with additional configuration as a second argument.
+Deno.test("hello world #4", { permissions: { read: true } }, () => {
+  const x = 1 + 2;
+  assertEquals(x, 3);
+});
+
+// Similar to longer form, with test function as a second argument.
+Deno.test(
+  { name: "hello world #5", permissions: { read: true } },
+  () => {
+    const x = 1 + 2;
+    assertEquals(x, 3);
+  },
+);
+
+// Similar to longer form, with a named test function as a second argument.
+Deno.test({ permissions: { read: true } }, function helloWorld6() {
+  const x = 1 + 2;
+  assertEquals(x, 3);
 });
 ```
 
@@ -50,6 +79,69 @@ Deno.test("async hello world", async () => {
   if (x !== 3) {
     throw Error("x should be equal to 3");
   }
+});
+```
+
+### Test steps
+
+If you are accustomed to `describe`/`it` syntax or `beforeAll`/`afterAll` hooks
+you can use test steps API.
+
+> ⚠️ This API was introduced in Deno 1.15 and requires `--unstable` flag to use.
+
+```ts
+Deno.test("database test", async (t) => {
+  const db = await Database.connect("postgres://localhost/test");
+
+  await t.step("insert user", async () => {
+    const users = await db.query(
+      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
+    );
+    assertEquals(users.length, 1);
+    assertEquals(users[0].name, "Deno");
+  });
+
+  await t.step("insert book", async () => {
+    const books = await db.query(
+      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
+    );
+    assertEquals(books.length, 1);
+    assertEquals(books[0].name, "The Deno Manual");
+  });
+
+  db.close();
+});
+```
+
+The same test written using `describe`/`it` would look like:
+
+```ts
+describe("database test", () => {
+  let db: Database;
+
+  beforeAll(async () => {
+    db = await Database.connect("postgres://localhost/test");
+  });
+
+  it("insert user", async () => {
+    const users = await db!.query(
+      "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
+    );
+    assertEquals(users.length, 1);
+    assertEquals(users[0].name, "Deno");
+  });
+
+  it("insert book", async () => {
+    const books = await db!.query(
+      "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
+    );
+    assertEquals(books.length, 1);
+    assertEquals(books[0].name, "The Deno Manual");
+  });
+
+  afterAll(() => {
+    db!.close();
+  });
 });
 ```
 
