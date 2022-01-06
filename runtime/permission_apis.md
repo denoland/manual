@@ -35,9 +35,9 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-Permission descriptors should be compatible with
-[PermissionDescriptor](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
-type.
+> ⚠️ See
+> [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
+> in API reference for more details.
 
 ### Query permissions
 
