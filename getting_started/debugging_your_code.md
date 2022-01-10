@@ -11,6 +11,11 @@ The `--inspect` flag allows attaching the debugger at any point in time, while
 `--inspect-brk` will wait for the debugger to attach and will pause execution on
 the first line of code.
 
+> ⚠️ If you use `--inspect` flag, the code will start executing immediately. If
+> your program is short, you might not have enough time to connect the debugger
+> before the program finishes execution. In such cases, try running with
+> `--inspect-brk` flag instead, or add a timeout at the end of your code.
+
 ### Chrome Devtools
 
 Let's try debugging a program using Chrome Devtools. For this, we'll use
