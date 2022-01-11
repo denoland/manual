@@ -54,9 +54,9 @@ change you want to bypass while waiting for it to be updated.
 
 ### How do I write code that works in Deno and a browser, but still type checks?
 
-You can do this by using a `tsconfig.json` file with the `--config` option on
-the command line and adjusting the `"lib"` option in the `"compilerOptions"` in
-the file. For more information see
+You can do this by using a configuration file with the `--config` option on the
+command line and adjusting the `"lib"` option in the `"compilerOptions"` in the
+file. For more information see
 [Targeting Deno and the Browser](./configuration#targeting-deno-and-the-browser).
 
 ### Why are you forcing me to use isolated modules, why can't I use const enums with Deno, why do I need to do export type?
@@ -100,13 +100,13 @@ are:
   construct.
 - `export =` and `import =` are legacy TypeScript syntax which we do not
   support.
-- Only `declare namespace` is support. Runtime `namespace` is legacy TypeScript
-  syntax that is not supported.
+- Only `declare namespace` is supported. Runtime `namespace` is legacy
+  TypeScript syntax that is not supported.
 
 ### Why don't you support language service plugins or transformer plugins?
 
 While `tsc` supports language service plugins, Deno does not. Deno does not
-always use the built in TypeScript compiler to do what it does, and the
+always use the built-in TypeScript compiler to do what it does, and the
 complexity of adding support for a language service plugin is not feasible.
 TypeScript does not support emitter plugins, but there are a few community
 projects which _hack_ emitter plugins into TypeScript. First, we wouldn't want

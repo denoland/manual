@@ -19,7 +19,7 @@ const BUILD_ID = Deno.env.get("DENO_DEPLOYMENT_ID") ||
   // @ts-ignore lib.dom does not support crypto.randomUUID
   crypto.randomUUID().slice(0, 8);
 
-const router = new Router<RouteParams, State>();
+const router = new Router<State>();
 
 router.get("/", (ctx) => {
   const version = Object.keys(cliToStd)[0];

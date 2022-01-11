@@ -6,7 +6,7 @@ reasonable and expected way.
 ### Resource sanitizer
 
 Certain actions in Deno create resources in the resource table
-([learn more here](./contributing/architecture.md)).
+([learn more here](../contributing/architecture.md)).
 
 These resources should be closed after you are done using them.
 

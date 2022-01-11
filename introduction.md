@@ -1,21 +1,24 @@
 # Introduction
 
-Deno is a JavaScript/TypeScript runtime with secure defaults and a great
-developer experience.
+Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
+pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
+a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 
 ## Feature highlights
 
+- Web compatible where possible, for example through usage of ES modules, and
+  support for `fetch`.
 - Secure by default. No file, network, or environment access (unless explicitly
   enabled).
 - Supports TypeScript out of the box.
 - Ships a single executable (`deno`).
-- Has built-in utilities like a dependency inspector (`deno info`) and a code
-  formatter (`deno fmt`).
+- Has built-in utilities like a code formatter (`deno fmt`), a linter
+  (`deno lint`), and a test runner (`deno test`).
 - Has
   [a set of reviewed (audited) standard
-  modules](https://github.com/denoland/deno_std) that are guaranteed to work
+  library](https://github.com/denoland/deno_std) that are guaranteed to work
   with Deno.
 - Can bundle scripts into a single JavaScript file.
 

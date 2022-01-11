@@ -35,6 +35,10 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
+> ⚠️ See
+> [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
+> in API reference for more details.
+
 ### Query permissions
 
 Check, by descriptor, if a permission is granted or not.
@@ -97,13 +101,13 @@ Request an ungranted permission from the user via CLI prompt.
 
 const desc1 = { name: "read", path: "/foo" } as const;
 const status1 = await Deno.permissions.request(desc1);
-// ⚠️ Deno requests read access to "/foo". Grant? [g/d (g = grant, d = deny)] g
+// ⚠️ Deno requests read access to "/foo". Grant? [y/n (y = yes allow, n = no deny)] y
 console.log(status1);
 // PermissionStatus { state: "granted" }
 
 const desc2 = { name: "read", path: "/bar" } as const;
 const status2 = await Deno.permissions.request(desc2);
-// ⚠️ Deno requests read access to "/bar". Grant? [g/d (g = grant, d = deny)] d
+// ⚠️ Deno requests read access to "/bar". Grant? [y/n (y = yes allow, n = no deny)] n
 console.log(status2);
 // PermissionStatus { state: "denied" }
 ```
@@ -168,7 +172,7 @@ to:
 
 Deno's permission revocation algorithm works by removing every element from this
 set which the argument permission descriptor is _stronger than_. So to ensure
-`desc` is not longer granted, pass an argument descriptor _stronger than_
+`desc` is no longer granted, pass an argument descriptor _stronger than_
 whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
 
 ```ts

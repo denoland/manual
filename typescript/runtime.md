@@ -23,34 +23,34 @@ The emit options are defined in the `Deno` namespace as:
 ```ts
 interface EmitOptions {
   /** Indicate that the source code should be emitted to a single file
-    * JavaScript bundle that is a single ES module (`"module"`) or a single
-    * file self contained script we executes in an immediately invoked function
-    * when loaded (`"classic"`). */
+   * JavaScript bundle that is a single ES module (`"module"`) or a single
+   * file self contained script we executes in an immediately invoked function
+   * when loaded (`"classic"`). */
   bundle?: "module" | "classic";
   /** If `true` then the sources will be typed checked, returning any
-    * diagnostic errors in the result.  If `false` type checking will be
-    * skipped.  Defaults to `true`.
-    *
-    * *Note* by default, only TypeScript will be type checked, just like on
-    * the command line.  Use the `compilerOptions` options of `checkJs` to
-    * enable type checking of JavaScript. */
+   * diagnostic errors in the result.  If `false` type checking will be
+   * skipped.  Defaults to `true`.
+   *
+   * *Note* by default, only TypeScript will be type checked, just like on
+   * the command line.  Use the `compilerOptions` options of `checkJs` to
+   * enable type checking of JavaScript. */
   check?: boolean;
   /** A set of options that are aligned to TypeScript compiler options that
-    * are supported by Deno. */
+   * are supported by Deno. */
   compilerOptions?: CompilerOptions;
   /** An [import-map](https://deno.land/manual/linking_to_external_code/import_maps#import-maps)
-    * which will be applied to the imports. */
+   * which will be applied to the imports. */
   importMap?: ImportMap;
   /** An absolute path to an [import-map](https://deno.land/manual/linking_to_external_code/import_maps#import-maps).
-    * Required to be specified if an `importMap` is specified to be able to
-    * determine resolution of relative paths. If a `importMap` is not
-    * specified, then it will assumed the file path points to an import map on
-    * disk and will be attempted to be loaded based on current runtime
-    * permissions.
-    */
+   * Required to be specified if an `importMap` is specified to be able to
+   * determine resolution of relative paths. If a `importMap` is not
+   * specified, then it will assumed the file path points to an import map on
+   * disk and will be attempted to be loaded based on current runtime
+   * permissions.
+   */
   importMapPath?: string;
   /** A record of sources to use when doing the emit.  If provided, Deno will
-    * use these sources instead of trying to resolve the modules externally. */
+   * use these sources instead of trying to resolve the modules externally. */
   sources?: Record<string, string>;
 }
 ```
@@ -251,11 +251,12 @@ checking.
 
 `Deno.emit()` supports quite a few compiler options that can impact how code is
 type checked and emitted. They are similar to the options supported by a
-`tsconfig.json` in the `compilerOptions` section, but there are several options
-that are not supported. This is because they are either meaningless in Deno or
-would cause Deno to not be able to work properly. The defaults for `Deno.emit()`
-are the same defaults that are on the command line. The options are
-[documented here](https://doc.deno.land/builtin/unstable#Deno.CompilerOptions)
+configuration file in the `compilerOptions` section, but there are several
+options that are not supported. This is because they are either meaningless in
+Deno or would cause Deno to not be able to work properly. The defaults for
+`Deno.emit()` are the same defaults that are on the command line. The options
+are
+[documented here](https://doc.deno.land/deno/unstable/~/Deno.CompilerOptions)
 along with their default values and are built into the Deno types.
 
 If you are type checking your code, the compiler options will be type checked

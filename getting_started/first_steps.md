@@ -77,7 +77,7 @@ deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/cur
 
 Deno also provides APIs which do not come from the web. These are all contained
 in the `Deno` global. You can find documentation for these APIs on
-[doc.deno.land](https://doc.deno.land/builtin/stable#Deno).
+[doc.deno.land](https://doc.deno.land/deno/stable/~/Deno).
 
 Filesystem APIs for example do not have a web standard form, so Deno provides
 its own API.
@@ -86,7 +86,7 @@ In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
@@ -103,7 +103,11 @@ I/O streams in Deno.
 Try the program:
 
 ```shell
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
+# macOS / Linux
+deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/hosts
+
+# Windows
+deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
 ### TCP server
@@ -112,7 +116,7 @@ This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/io/util.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const hostname = "0.0.0.0";
 const port = 8080;
 const listener = Deno.listen({ hostname, port });
@@ -129,9 +133,15 @@ explicit permission. To allow accessing the network, use a command-line flag:
 deno run --allow-net https://deno.land/std@$STD_VERSION/examples/echo_server.ts
 ```
 
-To test it, try sending data to it with netcat:
+To test it, try sending data to it with `netcat` (or `telnet` on Windows):
+
+> Note for Windows users: netcat is not available on Windows. Instead you can
+> use the built-in telnet client. The telnet client is disabled in Windows by
+> default. It is easy to enable however: just follow the instructions
+> [on Microsoft TechNet](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx)
 
 ```shell
+# Note for Windows users: replace the `nc` below with `telnet`
 $ nc localhost 8080
 hello world
 hello world

@@ -40,7 +40,7 @@ console.log(hello("kai"));
  * Hello John
  * Hello Sarah
  * Hello Kai
-**/
+ */
 ```
 
 ## TypeScript
@@ -75,5 +75,5 @@ console.log(hello("kai"));
  * Hello John
  * Hello Sarah
  * Hello Kai
-**/
+ */
 ```

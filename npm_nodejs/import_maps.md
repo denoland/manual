@@ -17,7 +17,7 @@ Deno will only load a fully qualified module, including the extension. The
 import specifier needs to either be relative or absolute. Specifiers that are
 neither relative or absolute are often called "bare" specifiers. For example
 `"./lodash/index.js"` is a relative specifier and
-`https://cdn.skypack.dev/lodash` is an absolute specifier. Where is `"lodash"`
+`https://cdn.skypack.dev/lodash` is an absolute specifier. Whereas `"lodash"`
 would be a bare specifier.
 
 Also Deno requires that for local modules, the module to load is fully
@@ -88,7 +88,7 @@ you are using an npm package which has a dependency on some code that just
 doesn't work under Deno, and you want to substitute another module that
 "polyfills" the incompatible APIs.
 
-For example, let's say we have a package that is using a version of the built in
+For example, let's say we have a package that is using a version of the built-in
 `"fs"` module that we have a local module we want to replace it with when it
 tries to import it, but we want other code we are loading to use the standard
 library replacement module for `"fs"`. We would want to create an import map

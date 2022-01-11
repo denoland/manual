@@ -1,6 +1,6 @@
 ## Assertions
 
-To help developers write tests the Deno standard library comes with a built in
+To help developers write tests the Deno standard library comes with a built-in
 [assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
 can be imported from `https://deno.land/std@$STD_VERSION/testing/asserts.ts`.
 
@@ -11,6 +11,10 @@ Deno.test("Hello Test", () => {
   assert("Hello");
 });
 ```
+
+> ⚠️ Some popular assertion libraries, like [Chai](https://www.chaijs.com/), can
+> be used in Deno too, for example usage see
+> https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
 
 The assertions module provides 10 assertions:
 
@@ -24,8 +28,8 @@ The assertions module provides 10 assertions:
 - `assertMatch(actual: string, expected: RegExp, msg?: string): void`
 - `assertNotMatch(actual: string, expected: RegExp, msg?: string): void`
 - `assertObjectMatch( actual: Record<PropertyKey, unknown>, expected: Record<PropertyKey, unknown>): void`
-- `assertThrows(fn: () => void, ErrorClass?: Constructor, msgIncludes = "", msg?: string): Error`
-- `assertThrowsAsync(fn: () => Promise<void>, ErrorClass?: Constructor, msgIncludes = "", msg?: string): Promise<Error>`
+- `assertThrows(fn: () => void, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Error`
+- `assertRejects(fn: () => Promise<unknown>, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Promise<void>`
 
 ### Assert
 
@@ -169,13 +173,12 @@ assertObjectMatch(
 ### Throws
 
 There are two ways to assert whether something throws an error in Deno,
-`assertThrows()` and `assertThrowsAsync()`. Both assertions allow you to check
-an
+`assertThrows()` and `assertRejects()`. Both assertions allow you to check an
 [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 has been thrown, the type of error thrown and what the message was.
 
 The difference between the two assertions is `assertThrows()` accepts a standard
-function and `assertThrowsAsync()` accepts a function which returns a
+function and `assertRejects()` accepts a function which returns a
 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 The `assertThrows()` assertion will check an error has been thrown, and
@@ -194,13 +197,14 @@ Deno.test("Test Assert Throws", () => {
 });
 ```
 
-The `assertThrowsAsync()` assertion is a little more complicated, mainly because
-it deals with Promises. But basically it will catch thrown errors or rejections
-in Promises. You can also optionally check for the error type and error message.
+The `assertRejects()` assertion is a little more complicated, mainly because it
+deals with Promises. But basically it will catch thrown errors or rejections in
+Promises. You can also optionally check for the error type and error message.
+This can be used similar to `assertThrows()` but with async functions.
 
 ```js
 Deno.test("Test Assert Throws Async", () => {
-  assertThrowsAsync(
+  await assertRejects(
     () => {
       return new Promise(() => {
         throw new Error("Panic! Threw Error");
@@ -210,7 +214,7 @@ Deno.test("Test Assert Throws Async", () => {
     "Panic! Threw Error",
   );
 
-  assertThrowsAsync(
+  await assertRejects(
     () => {
       return Promise.reject(new Error("Panic! Reject Error"));
     },
@@ -222,7 +226,7 @@ Deno.test("Test Assert Throws Async", () => {
 
 ### Custom Messages
 
-Each of Deno's built in assertions allow you to overwrite the standard CLI error
+Each of Deno's built-in assertions allow you to overwrite the standard CLI error
 message if you wish. For instance this example will output "Values Don't Match!"
 rather than the standard CLI error message.
 

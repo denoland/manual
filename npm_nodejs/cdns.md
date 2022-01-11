@@ -26,7 +26,7 @@ Deno friendly content delivery networks (CDNs) not only host packages from npm,
 they provide them in a way that maximizes their integration to Deno. They
 directly address some of the challenges in consuming code written for Node.js:
 
-- The provide packages and modules in the ES Module format, irrespective of how
+- They provide packages and modules in the ES Module format, irrespective of how
   they are published on npm.
 - They resolve all the dependencies as the modules are served, meaning that all
   the Node.js specific module resolution logic is handled by the CDN.
@@ -54,9 +54,7 @@ import React from "https://esm.sh/react";
 
 export default class A extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
 }
 ```
@@ -114,9 +112,7 @@ import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
   render() {
-    return (
-      <div></div>
-    );
+    return <div></div>;
   }
 }
 ```

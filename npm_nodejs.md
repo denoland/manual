@@ -5,6 +5,11 @@ While Deno is pretty powerful itself, there is a large eco-system of code in the
 tools, code and libraries that are built for [Node.js](https://nodejs.org/). In
 this chapter we will explore how to use it.
 
+> ⚠️ Starting with v1.15 Deno provides a compatiblity mode, that allows to
+> emulate Node.js environment and consume code authored for Node.js directly.
+> See [Node.js compability mode](./npm_nodejs/compatibility_mode.md) chapter for
+> details.
+
 The good news, is that in many cases, it _just works_.
 
 There are some foundational things to understand about differences between
@@ -54,6 +59,6 @@ That being said, there are some differences that cannot be overcome:
 - Node.js has a plugin system that is incompatible with Deno, and Deno will
   never support Node.js plugins. If the Node.js code you want to use requires a
   "native" Node.js plugin, it won't work under Deno.
-- Node.js has some built in modules (e.g. like `vm`) that are effectively
+- Node.js has some built-in modules (e.g. like `vm`) that are effectively
   incompatible with the scope of Deno and therefore there aren't easy ways to
   provide a _polyfill_ of the functionality in Deno.
