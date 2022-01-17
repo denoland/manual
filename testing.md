@@ -5,9 +5,9 @@ TypeScript code.
 
 `deno test` will search in `./*` and `./**/*` recursively, for test files:
 
-- named `test.{ts, tsx, js, mjs, jsx}`,
-- or ending with `.test.{ts, tsx, js, mjs, jsx}`,
-- or ending with `_test.{ts, tsx, js, mjs, jsx}`
+- named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
 
 ## Writing tests
 
@@ -150,8 +150,8 @@ describe("database test", () => {
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
 current directory (recursively) that match the glob
-`{*_,*.,}test.{js,mjs,ts,jsx,tsx}` will be run. If you pass a directory, all
-files in the directory that match this glob will be run.
+`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass a
+directory, all files in the directory that match this glob will be run.
 
 ```shell
 # Run all tests in the current directory and all sub-directories
@@ -162,6 +162,14 @@ deno test util/
 
 # Run just my_test.ts
 deno test my_test.ts
+```
+
+> ⚠️ If you want to pass additional CLI arguments to the test files use `--` to
+> inform Deno that remaining arguments are scripts arguments.
+
+```shell
+# Pass additional arguments to the test file
+deno test my_test.ts -- -e --foo --bar
 ```
 
 `deno test` uses the same permission model as `deno run` and therefore will

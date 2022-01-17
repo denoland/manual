@@ -9,6 +9,10 @@ which is very accurate.
 This can then be further processed from the internal format into well known
 formats by the `deno coverage` tool.
 
+> ⚠️ To ensure consistent coverage results, make sure to process coverage data
+> immediately after running tests. Otherwise source code and collected coverage
+> data might get out of sync and unexpectedly show uncovered lines.
+
 ```bash
 # Go into your project's working directory
 git clone https://github.com/oakserver/oak && cd oak
@@ -27,9 +31,9 @@ genhtml -o cov_profile/html cov_profile.lcov
 ```
 
 By default, `deno coverage` will exclude any files matching the regular
-expression `test\.(js|mjs|ts|jsx|tsx)` and only consider including specifiers
-matching the regular expression `^file:` - ie. remote files will be excluded
-from coverage report.
+expression `test\.(ts|tsx|mts|js|mjs|jsx|cjs|cts)` and only consider including
+specifiers matching the regular expression `^file:` - ie. remote files will be
+excluded from coverage report.
 
 These filters can be overridden using the `--exclude` and `--include` flags. A
 module specifier must _match_ the include_regular expression and _not match_ the
