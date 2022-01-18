@@ -176,12 +176,22 @@ test database ...
 FAILED (111ms)
 ```
 
-Restrictions:
+Notes:
 
 1. Test steps **must be awaited** before the parent test/step function resolves
    or you will get a runtime error.
 2. Test steps cannot be run concurrently unless sanitizers on a sibling step or
    parent test are disabled.
+3. If nesting steps, ensure you specify a parameter for the parent step.
+   ```ts
+   Deno.test("my test", (t) => {
+     await t.step("step", async (t) => {
+       // note the `t` used here is for the parent step and not the outer `Deno.test`
+       await t.step("sub-step", () => {
+       });
+     });
+   });
+   ```
 
 #### Nested test steps
 
