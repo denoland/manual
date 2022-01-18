@@ -84,7 +84,8 @@ Deno.test("async hello world", async () => {
 
 ### Test steps
 
-The test steps API provides a way to report distinct steps within a test and do setup and teardown code within that test.
+The test steps API provides a way to report distinct steps within a test and do
+setup and teardown code within that test.
 
 ```ts
 Deno.test("database", async (t) => {
@@ -140,15 +141,17 @@ Deno.test("database", async (t) => {
 
   // steps can be run concurrently if sanitizers are disabled on sibling steps
   const testCases = [1, 2, 3];
-  await Promise.all(testCases.map(testCase => t.step({
-    name: `case ${testCase}`,
-    fn: async () => {
-      // ...etc...
-    },
-    sanitizeOps: false,
-    sanitizeResources: false,
-    sanitizeExit: false,
-  })));
+  await Promise.all(testCases.map((testCase) =>
+    t.step({
+      name: `case ${testCase}`,
+      fn: async () => {
+        // ...etc...
+      },
+      sanitizeOps: false,
+      sanitizeResources: false,
+      sanitizeExit: false,
+    })
+  ));
 
   db.close();
 });
@@ -175,8 +178,10 @@ FAILED (111ms)
 
 Restrictions:
 
-1. Test steps **must be awaited** before the parent test/step function resolves or you will get a runtime error.
-2. Test steps cannot be run concurrently unless sanitizers on a sibling step or parent test are disabled.
+1. Test steps **must be awaited** before the parent test/step function resolves
+   or you will get a runtime error.
+2. Test steps cannot be run concurrently unless sanitizers on a sibling step or
+   parent test are disabled.
 
 #### Nested test steps
 
