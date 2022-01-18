@@ -46,7 +46,8 @@
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
-      "faqs": "Frequently asked questions"
+      "faqs": "Frequently asked questions",
+      "cheatsheet": "Node->Deno cheatsheet"
     }
   },
   "typescript": {
