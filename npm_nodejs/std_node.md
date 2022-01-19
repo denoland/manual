@@ -1,8 +1,8 @@
 ## The `std/node` library
 
-> ⚠️ Starting with v1.15 Deno provides a compatiblity mode, that allows to
+> ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node.js environment and consume code authored for Node.js directly.
-> See [Node.js compability mode](./compatibility_mode.md) chapter for details.
+> See [Node.js compatibility mode](./compatibility_mode.md) chapter for details.
 
 The `std/node` part of the Deno standard library is a Node.js compatibility
 layer. Its primary focus is providing "polyfills" for Node.js's

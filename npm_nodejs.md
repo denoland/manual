@@ -5,10 +5,10 @@ While Deno is pretty powerful itself, there is a large eco-system of code in the
 tools, code and libraries that are built for [Node.js](https://nodejs.org/). In
 this chapter we will explore how to use it.
 
-> ⚠️ Starting with v1.15 Deno provides a compatiblity mode, that allows to
+> ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node.js environment and consume code authored for Node.js directly.
-> See [Node.js compability mode](./npm_nodejs/compatibility_mode.md) chapter for
-> details.
+> See [Node.js compatibility mode](./npm_nodejs/compatibility_mode.md) chapter
+> for details.
 
 The good news, is that in many cases, it _just works_.
 
