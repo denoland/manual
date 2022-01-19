@@ -1,20 +1,20 @@
-## Node.js compability mode
+## Node.js compatibility mode
 
-Starting with v1.15 Deno provides Node compatiblity mode that makes it possible
-to run a subset of programs authored for Node.js directly in Deno. Compatiblity
+Starting with v1.15 Deno provides Node compatibility mode that makes it possible
+to run a subset of programs authored for Node.js directly in Deno. Compatibility
 mode can be activated by passing `--compat` flag in CLI.
 
-> ⚠️ Using compatiblity mode currently requires the `--unstable` flag. If you
+> ⚠️ Using compatibility mode currently requires the `--unstable` flag. If you
 > intend to use CJS modules, the `--allow-read` flag is needed as well.
 
-> ⚠️ Package management is currently out of scope for Node.js compatiblity mode.
-> For the time being we suggest to keep using your current solution (`npm`,
-> `yarn`, `pnpm`).
+> ⚠️ Package management is currently out of scope for Node.js compatibility
+> mode. For the time being we suggest to keep using your current solution
+> (`npm`, `yarn`, `pnpm`).
 
 ### Example
 
 [`eslint`](https://eslint.org/) is a very popular tool used by most of Node.js
-projects. Let's run `eslint` using Deno in Node.js compatiblity mode. Assuming
+projects. Let's run `eslint` using Deno in Node.js compatibility mode. Assuming
 that `eslint` is already installed locally (either using `npm install eslint` or
 `yarn install eslint`) we can do so like:
 
@@ -87,10 +87,10 @@ to Node.js:
 
 - In addition to `file:` and `data:` URL schemes supported in Node.js; `http:`,
   `https:` and `blob:` URL schemes will work in the same way if you used Deno
-  without compatiblity mode.
+  without compatibility mode.
 
 - Import maps are supported in the same way if you used Deno without
-  compatiblity mode. When resolving "bare" specifiers Deno will first try to
+  compatibility mode. When resolving "bare" specifiers Deno will first try to
   resolve them using import map (if one is provided using `--import-map` flag).
   Bare specifiers starting with `node:` prefix are extempt from this rule.
 
@@ -154,7 +154,7 @@ code.
 
 ### TypeScript support
 
-Currently, the compability mode does not support TypeScript.
+Currently, the compatibility mode does not support TypeScript.
 
 In the upcoming releases we plan to add support for a `types` field in
 `package.json`, to automatically lookup types and use them during type checking.
