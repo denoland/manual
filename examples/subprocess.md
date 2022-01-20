@@ -110,8 +110,8 @@ This example is the equivalent of running `yes &> ./process_output` in bash.
 import {
   readableStreamFromReader,
   writableStreamFromWriter,
-} from "https://deno.land/std@0.121.0/streams/conversion.ts";
-import { mergeReadableStreams } from "https://deno.land/std@0.121.0/streams/merge.ts";
+} from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
+import { mergeReadableStreams } from "https://deno.land/std@$STD_VERSION/streams/merge.ts";
 
 // create the file to attach the process to
 const file = await Deno.open("./process_output.txt", {
