@@ -40,8 +40,15 @@ More information can be found in the
 
 #### JetBrains IDEs
 
-Currently support for [JetBrains](https://www.jetbrains.com/) IDEs is available
-through [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
+You can get support for Deno in WebStorm and other
+[JetBrains IDEs](https://www.jetbrains.com/products/#type=ide), including
+PhpStorm, IntelliJ IDEA Ultimate, and PyCharm Professional. For this, install
+the [official Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) from
+_Preferences / Settings | Plugins - Marketplace_.
+
+Check out
+[this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/)
+to learn more about how to get started with Deno.
 
 #### vim/Neovim
 

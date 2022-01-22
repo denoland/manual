@@ -88,11 +88,19 @@ Deno can be debugged using VSCode. This is best done with help from the official
 
 ### JetBrains IDEs
 
+_**Note**: make sure you have
+[this Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) installed
+and enabled in Preferences / Settings | Plugins. For more information, see
+[this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/)._
+
 You can debug Deno using your JetBrains IDE by right-clicking the file you want
-to debug and selecting the `Debug 'Deno: <file name>'` option. This will create
-a run/debug configuration with no permission flags set. To configure these flags
-edit the run/debug configuration and modify the `Arguments` field with the
-required flags.
+to debug and selecting the `Debug 'Deno: <file name>'` option.
+
+![Debug file](../images/jb-ide-debug.png)
+
+This will create a run/debug configuration with no permission flags set. If you
+want to configure them, open your run/debug configuration and add the required
+flags to the `Command` field.
 
 ### Other
 
