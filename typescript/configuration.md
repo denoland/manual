@@ -69,6 +69,7 @@ and any other notes about that option:
 | `strictNullChecks`               | `true`                  |                                                                                                                                                                                                                                                                                  |
 | `suppressExcessPropertyErrors`   | `false`                 |                                                                                                                                                                                                                                                                                  |
 | `suppressImplicitAnyIndexErrors` | `false`                 |                                                                                                                                                                                                                                                                                  |
+| `useUnknownInCatchVariables`     | `false`                 |                                                                                                                                                                                                                                                                                  |
 
 For a full list of compiler options and how they affect TypeScript, please refer
 to the
