@@ -19,7 +19,7 @@ The standard library provides several "replacement" modules for Node.js built-in
 modules. These either replicate the functionality of the built-in or they call
 the Deno native APIs, returning an interface that is compatible with Node.js.
 
-The standard library provides modules for the the following built-ins:
+The standard library provides modules for the following built-ins:
 
 - [`assert`](https://doc.deno.land/https://deno.land/std/node/assert.ts)
   (_partly_)
