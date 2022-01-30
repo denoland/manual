@@ -41,6 +41,17 @@ You can find documentation about this API on
   Firefox is the only mainstream browser that implements fetching `file:` URLs,
   and even then it doesn't work by default. As of Deno 1.16, Deno supports
   fetching local files. See the next section for details.
+- The `request` and `response` header guards are implemented, but unlike
+  browsers do not have any constraints on which header names are allowed.
+- The `referrer`, `referrerPolicy`, `mode`, `credentials`, `cache`, `integrity`,
+  `keepalive`, and `window` properties and their relevant behaviours in
+  `RequestInit` are not implemented. The relevant fields are not present on the
+  `Request` object.
+- Request body upload streaming is supported (on HTTP/1.1 and HTTP/2). Unlike
+  the current fetch proposal, the implementation supports duplex streaming.
+- The `set-cookie` header is not concatenated when iterated over in the
+  `headers` iterator. This behaviour is in the
+  [process of being specified](https://github.com/whatwg/fetch/pull/1346).
 
 ### Fetching local files
 
