@@ -3,7 +3,7 @@
 | Node                                   | Deno                                           |
 | -------------------------------------- | ---------------------------------------------- |
 | `npm i -g`                             | `deno install`                                 |
-| `npm i` / `npm install`                | _n/a_¹                                         |
+| `npm i` / `npm install`                | _n/a_ ¹                                        |
 | `npm run`                              | `deno run`                                     |
 | `eslint`                               | `deno lint`                                    |
 | `prettier`                             | `deno fmt`                                     |
