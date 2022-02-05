@@ -38,7 +38,7 @@ Deno.addSignalListener("SIGINT", (_) => {
   Deno.exit();
 });
 
-// Add a timeout to prevent process existing immediately.
+// Add a timeout to prevent process exiting immediately.
 setTimeout(() => {}, 5000);
 ```
 
@@ -91,7 +91,7 @@ import { signal } from "https://deno.land/std@$STD_VERSION/signal/mod.ts";
 
 const sig = signal("SIGUSR1", "SIGINT");
 
-// Add a timeout to prevent process existing immediately.
+// Add a timeout to prevent process exiting immediately.
 setTimeout(() => {}, 5000);
 
 for await (const _ of sig) {
