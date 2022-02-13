@@ -111,12 +111,13 @@ precise check against two primitive types.
 
 #### Equality for numbers
 
-When testing equality between numbers, it is important to keep in mind that 
-some of them cannot be accurately depicted by IEEE-754 double-precision 
+When testing equality between numbers, it is important to keep in mind that some
+of them cannot be accurately depicted by IEEE-754 double-precision
 floating-point representation.
 
-That's especially true when working with decimal numbers, where 
+That's especially true when working with decimal numbers, where
 `assertStrictEquals()` may work in some cases but not in others:
+
 ```js
 Deno.test("Test Assert Strict Equals with float numbers", () => {
   assertStrictEquals(0.25 + 0.25, 0.25);
@@ -124,15 +125,15 @@ Deno.test("Test Assert Strict Equals with float numbers", () => {
 });
 ```
 
-Instead, `assertAlmostEquals()` provides a way to test that given numbers 
-are close enough to be considered equals. Default tolerance is set to `1e-7` 
-though it is possible to change it by passing a third optional parameter.
+Instead, `assertAlmostEquals()` provides a way to test that given numbers are
+close enough to be considered equals. Default tolerance is set to `1e-7` though
+it is possible to change it by passing a third optional parameter.
 
 ```js
 Deno.test("Test Assert Strict Equals", () => {
-    assertAlmostEquals(0.1 + 0.2, 0.3);
-    assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
-    assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3, 1e-17));
+  assertAlmostEquals(0.1 + 0.2, 0.3);
+  assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
+  assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3, 1e-17));
 });
 ```
 
