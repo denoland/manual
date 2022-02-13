@@ -118,10 +118,11 @@ floating-point representation.
 That's especially true when working with decimal numbers, where
 `assertStrictEquals()` may work in some cases but not in others:
 
-```js
+```ts
 Deno.test("Test Assert Strict Equals with float numbers", () => {
   assertStrictEquals(0.25 + 0.25, 0.25);
   assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3));
+  //0.1 + 0.2 will be stored as 0.30000000000000004 instead of 0.3
 });
 ```
 
@@ -129,7 +130,7 @@ Instead, `assertAlmostEquals()` provides a way to test that given numbers are
 close enough to be considered equals. Default tolerance is set to `1e-7` though
 it is possible to change it by passing a third optional parameter.
 
-```js
+```ts
 Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
