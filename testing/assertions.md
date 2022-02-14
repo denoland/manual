@@ -134,7 +134,7 @@ it is possible to change it by passing a third optional parameter.
 Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
-  assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3, 1e-17));
+  assertThrows(() => assertAlmostEquals(0.1 + 0.2, 0.3, 1e-17));
 });
 ```
 
