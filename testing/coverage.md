@@ -24,7 +24,7 @@ deno test --coverage=cov_profile
 deno coverage cov_profile
 
 # Or generate an lcov report
-deno coverage cov_profile --lcov > cov_profile.lcov
+deno coverage cov_profile --lcov --output=cov_profile.lcov
 
 # Which can then be further processed by tools like genhtml
 genhtml -o cov_profile/html cov_profile.lcov
