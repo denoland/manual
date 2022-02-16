@@ -40,7 +40,7 @@ Deno.test({
   },
 });
 
-// Similar to compat form, with additional configuration as a second argument.
+// Similar to compact form, with additional configuration as a second argument.
 Deno.test("hello world #4", { permissions: { read: true } }, () => {
   const x = 1 + 2;
   assertEquals(x, 3);
