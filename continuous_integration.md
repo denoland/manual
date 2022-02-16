@@ -52,7 +52,7 @@ need:
 
       # Run all test files in the repository and collect code coverage. The example
       # runs with all permissions, but it is recommended to run with the minimal permissions your program needs (for example --allow-read).
-      - run: deno test --allow-all --coverage cov/
+      - run: deno test --allow-all --coverage=cov/
 
       # This generates a report from the collected coverage in `deno test --coverage`. It is
       # stored as a .lcov file which integrates well with services such as Codecov, Coveralls and Travis CI.
