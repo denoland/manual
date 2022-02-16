@@ -76,7 +76,7 @@ got unload event in onunload function (main)
 All listeners added using `addEventListener` were run, but `onload` and
 `onunload` defined in `main.ts` overrode handlers defined in `imported.ts`.
 
-In other words, you can register multiple `addEventListener` `"load"` or
+In other words, you can use `addEventListener` to register multiple `"load"` or
 `"unload"` event handlers, but only the last loaded `onload` or `onunload` event
 handlers will be executed. It is preferable to use `addEventListener` when
 possible for this reason.
