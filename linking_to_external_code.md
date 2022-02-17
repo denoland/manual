@@ -94,39 +94,4 @@ This, like the above, is a problem faced by _any_ remote dependency system.
 Relying on external servers is convenient for development but brittle in
 production. Production software should always vendor its dependencies. In Node
 this is done by checking `node_modules` into source control. In Deno this is
-done by using the `deno vendor` subcommand:
-
-```shell
-# Vendor the dependencies
-$ deno vendor main.ts
-
-# Example file system tree
-$ tree
-.
-├── main.ts
-└── vendor
-    ├── deno.land
-    ├── import_map.json
-    └── raw.githubusercontent.com
-
-# Check the directory into source control
-$ git add -u vendor
-$ git commit
-```
-
-To then use the vendored dependencies in your program, just add
-`import-map=vendor/import_map.json` to your Deno invocations. You can also add
---no-remote to your invocation to completely disable fetching of remote modules
-to be sure it's using the modules in the vendor directory.
-
-```shell
-deno run --no-remote --import-map=vendor/import_map.json main.ts
-```
-
-Note that remote modules and multiple modules may be specified when vendoring:
-
-```shell
-deno vendor main.ts test.deps.ts https://deno.land/std/path/mod.ts
-```
-
-Run `deno vendor --help` for more details.
+done by using the [`deno vendor`](./tools/vendor.md) subcommand.
