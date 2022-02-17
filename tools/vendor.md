@@ -1,7 +1,7 @@
 # Vendoring Dependencies
 
 `deno vendor <specifiers>...` will download all the remote dependencies of the
-specified inputs into a local `vendor` folder. For example:
+specified modules into a local `vendor` folder. For example:
 
 ```shell
 # Vendor the remote dependencies of main.ts
@@ -30,7 +30,7 @@ to ensure it's using the modules in the vendor directory.
 deno run --no-remote --import-map=vendor/import_map.json main.ts
 ```
 
-Note that you may specify multiple modules and remote modules when vendoring:
+Note that you may specify multiple modules and remote modules when vendoring.
 
 ```shell
 deno vendor main.ts test.deps.ts https://deno.land/std/path/mod.ts
