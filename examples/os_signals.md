@@ -1,16 +1,12 @@
 # Handle OS Signals
 
-> This program makes use of an unstable Deno feature. Learn more about
-> [unstable features](../runtime/stability.md).
-
 > ⚠️ Handling OS signals is currently not available on Windows.
 
 ## Concepts
 
-- Use the `--unstable` flag to access new or unstable features in Deno.
-- [Deno.addSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.addSignalListener)
+- [Deno.addSignalListener()](https://doc.deno.land/deno/stable/~/Deno.addSignalListener)
   can be used to capture and monitor OS signals.
-- [Deno.removeSignalListener()](https://doc.deno.land/deno/unstable/~/Deno.removeSignalListener)
+- [Deno.removeSignalListener()](https://doc.deno.land/deno/stable/~/Deno.removeSignalListener)
   can be used to stop watching the signal.
 
 ## Set up an OS signal listener
@@ -33,7 +29,7 @@ You can use `Deno.addSignalListener()` function for handling OS signals:
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
 
-Deno.addSignalListener("SIGINT", (_) => {
+Deno.addSignalListener("SIGINT", () => {
   console.log("interrupted!");
   Deno.exit();
 });
@@ -45,7 +41,7 @@ setTimeout(() => {}, 5000);
 Run with:
 
 ```shell
-deno run --unstable add_signal_listener.ts
+deno run add_signal_listener.ts
 ```
 
 You can use `Deno.removeSignalListener()` function to unregister previously
@@ -57,7 +53,7 @@ added signal handler.
  */
 console.log("Press Ctrl-C to trigger a SIGINT signal");
 
-const sigIntHandler = (_) => {
+const sigIntHandler = () => {
   console.log("interrupted!");
   Deno.exit();
 };
@@ -75,7 +71,7 @@ setTimeout(() => {
 Run with:
 
 ```shell
-deno run --unstable signal_listeners.ts
+deno run signal_listeners.ts
 ```
 
 ## Async iterator example
@@ -102,5 +98,5 @@ for await (const _ of sig) {
 Run with:
 
 ```shell
-deno run --unstable async_iterator_signal.ts
+deno run async_iterator_signal.ts
 ```
