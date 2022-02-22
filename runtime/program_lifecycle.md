@@ -17,15 +17,15 @@ const handler = (e: Event): void => {
   console.log(`got ${e.type} event in event handler (main)`);
 };
 
-window.addEventListener("load", handler);
+globalThis.addEventListener("load", handler);
 
-window.addEventListener("unload", handler);
+globalThis.addEventListener("unload", handler);
 
-window.onload = (e: Event): void => {
+globalThis.onload = (e: Event): void => {
   console.log(`got ${e.type} event in onload function (main)`);
 };
 
-window.onunload = (e: Event): void => {
+globalThis.onunload = (e: Event): void => {
   console.log(`got ${e.type} event in onunload function (main)`);
 };
 
@@ -39,23 +39,27 @@ const handler = (e: Event): void => {
   console.log(`got ${e.type} event in event handler (imported)`);
 };
 
-window.addEventListener("load", handler);
-window.addEventListener("unload", handler);
+globalThis.addEventListener("load", handler);
+globalThis.addEventListener("unload", handler);
 
-window.onload = (e: Event): void => {
+globalThis.onload = (e: Event): void => {
   console.log(`got ${e.type} event in onload function (imported)`);
 };
 
-window.onunload = (e: Event): void => {
+globalThis.onunload = (e: Event): void => {
   console.log(`got ${e.type} event in onunload function (imported)`);
 };
 
 console.log("log from imported script");
 ```
 
-Note that you can use both `window.addEventListener` and
-`window.onload`/`window.onunload` to define handlers for events. There is a
-major difference between them, let's run the example:
+A couple notes on this example:
+
+- `addEventListener` and `onload`/`onunload` are prefixed with `globalThis`, but
+  you could also use `self` or no prefix at all.
+  [It is not recommended to use `window` as a prefix](https://lint.deno.land/#no-window-prefix).
+- You can use `addEventListener` and/or `onload`/`onunload` to define handlers
+  for events. There is a major difference between them, let's run the example:
 
 ```shell
 $ deno run main.ts
@@ -69,11 +73,10 @@ got unload event in event handler (main)
 got unload event in onunload function (main)
 ```
 
-All listeners added using `window.addEventListener` were run, but
-`window.onload` and `window.onunload` defined in `main.ts` overrode handlers
-defined in `imported.ts`.
+All listeners added using `addEventListener` were run, but `onload` and
+`onunload` defined in `main.ts` overrode handlers defined in `imported.ts`.
 
-In other words, you can register multiple `window.addEventListener` `"load"` or
-`"unload"` events, but only the last loaded `window.onload` or `window.onunload`
-event handlers will be executed. It is preferable to use `addEventListener` when
+In other words, you can use `addEventListener` to register multiple `"load"` or
+`"unload"` event handlers, but only the last loaded `onload` or `onunload` event
+handlers will be executed. It is preferable to use `addEventListener` when
 possible for this reason.
