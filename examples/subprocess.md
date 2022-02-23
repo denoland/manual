@@ -97,3 +97,52 @@ Uncaught NotFound: No such file or directory (os error 2)
     at maybeError (deno/js/errors.ts:41:12)
     at handleAsyncMsgFromRust (deno/js/dispatch.ts:27:17)
 ```
+
+## Piping to files
+
+This example is the equivalent of running `yes &> ./process_output` in bash.
+
+```ts
+/**
+ * subprocess_piping_to_file.ts
+ */
+
+import {
+  readableStreamFromReader,
+  writableStreamFromWriter,
+} from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
+import { mergeReadableStreams } from "https://deno.land/std@$STD_VERSION/streams/merge.ts";
+
+// create the file to attach the process to
+const file = await Deno.open("./process_output.txt", {
+  read: true,
+  write: true,
+  create: true,
+});
+const fileWriter = await writableStreamFromWriter(file);
+
+// start the process
+const process = Deno.run({
+  cmd: ["yes"],
+  stdout: "piped",
+  stderr: "piped",
+});
+
+// example of combining stdout and stderr while sending to a file
+const stdout = readableStreamFromReader(process.stdout);
+const stderr = readableStreamFromReader(process.stderr);
+const joined = mergeReadableStreams(stdout, stderr);
+// returns a promise that resolves when the process is killed/closed
+joined.pipeTo(fileWriter).then(() => console.log("pipe join done"));
+
+// manually stop process "yes" will never end on its own
+setTimeout(async () => {
+  process.kill("SIGINT");
+}, 100);
+```
+
+Run it:
+
+```shell
+$ deno run --allow-run ./subprocess_piping_to_file.ts
+```
