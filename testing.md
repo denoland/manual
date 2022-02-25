@@ -186,7 +186,7 @@ Notes:
    parent test are disabled.
 3. If nesting steps, ensure you specify a parameter for the parent step.
    ```ts
-   Deno.test("my test", (t) => {
+   Deno.test("my test", async (t) => {
      await t.step("step", async (t) => {
        // note the `t` used here is for the parent step and not the outer `Deno.test`
        await t.step("sub-step", () => {
