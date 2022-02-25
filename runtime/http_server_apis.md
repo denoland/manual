@@ -163,9 +163,9 @@ Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let socket, response;
+  let socket: WebSocket, response;
   try {
-    res = Deno.upgradeWebSocket(req);
+    const res = Deno.upgradeWebSocket(req);
     socket = res.socket;
     response = res.response;
   } catch {
