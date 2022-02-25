@@ -40,14 +40,22 @@ More information can be found in the
 
 #### JetBrains IDEs
 
-Currently support for [JetBrains](https://www.jetbrains.com/) IDEs is available
-through [the Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno).
+You can get support for Deno in WebStorm and other
+[JetBrains IDEs](https://www.jetbrains.com/products/#type=ide), including
+PhpStorm, IntelliJ IDEA Ultimate, and PyCharm Professional. For this, install
+the [official Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) from
+_Preferences / Settings | Plugins - Marketplace_.
+
+Check out
+[this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/)
+to learn more about how to get started with Deno.
 
 #### vim/Neovim
 
 Deno is well supported on both [vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
-[coc.nvim](https://github.com/neoclide/coc.nvim) and
+[coc.nvim](https://github.com/neoclide/coc.nvim),
+[vim-easycomplete](https://github.com/jayli/vim-easycomplete) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
 The
@@ -127,6 +135,14 @@ to get information on the configuration options available.
 
 For more information on how to setup ALE (like key bindings) refer to the
 [official documentation](https://github.com/dense-analysis/ale#usage).
+
+##### Vim-EasyComplete
+
+Vim-EasyComplete supports Deno without any other configuration. Once you have
+[vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation),
+you need install deno via `:InstallLspServer deno` if you havn't installed deno.
+You can get more information from
+[official documentation](https://github.com/jayli/vim-easycomplete).
 
 #### Emacs
 

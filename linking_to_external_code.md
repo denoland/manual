@@ -94,17 +94,4 @@ This, like the above, is a problem faced by _any_ remote dependency system.
 Relying on external servers is convenient for development but brittle in
 production. Production software should always vendor its dependencies. In Node
 this is done by checking `node_modules` into source control. In Deno this is
-done by pointing `$DENO_DIR` to some project-local directory at runtime, and
-similarly checking that into source control:
-
-```shell
-# Download the dependencies.
-DENO_DIR=./deno_dir deno cache src/deps.ts
-
-# Make sure the variable is set for any command which invokes the cache.
-DENO_DIR=./deno_dir deno test src
-
-# Check the directory into source control.
-git add -u deno_dir
-git commit
-```
+done by using the [`deno vendor`](./tools/vendor.md) subcommand.

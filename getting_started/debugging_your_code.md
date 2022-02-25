@@ -11,6 +11,11 @@ The `--inspect` flag allows attaching the debugger at any point in time, while
 `--inspect-brk` will wait for the debugger to attach and will pause execution on
 the first line of code.
 
+> ⚠️ If you use `--inspect` flag, the code will start executing immediately. If
+> your program is short, you might not have enough time to connect the debugger
+> before the program finishes execution. In such cases, try running with
+> `--inspect-brk` flag instead, or add a timeout at the end of your code.
+
 ### Chrome Devtools
 
 Let's try debugging a program using Chrome Devtools. For this, we'll use
@@ -83,11 +88,19 @@ Deno can be debugged using VSCode. This is best done with help from the official
 
 ### JetBrains IDEs
 
+_**Note**: make sure you have
+[this Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) installed
+and enabled in Preferences / Settings | Plugins. For more information, see
+[this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/)._
+
 You can debug Deno using your JetBrains IDE by right-clicking the file you want
-to debug and selecting the `Debug 'Deno: <file name>'` option. This will create
-a run/debug configuration with no permission flags set. To configure these flags
-edit the run/debug configuration and modify the `Arguments` field with the
-required flags.
+to debug and selecting the `Debug 'Deno: <file name>'` option.
+
+![Debug file](../images/jb-ide-debug.png)
+
+This will create a run/debug configuration with no permission flags set. If you
+want to configure them, open your run/debug configuration and add the required
+flags to the `Command` field.
 
 ### Other
 

@@ -133,7 +133,7 @@ deno run --allow-env=HOME env.js
 #### Subprocess permissions
 
 Subprocesses are very powerful, and can be a little scary: they access system
-resources irregardless of the permissions you granted to the Deno process that
+resources regardless of the permissions you granted to the Deno process that
 spawns them. The `cat` program on unix systems can be used to read files from
 disk. If you start this program through the `Deno.run` API it will be able to
 read files from disk even if the parent Deno process can not read the files

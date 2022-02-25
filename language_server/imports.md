@@ -287,6 +287,58 @@ Or:
 }
 ```
 
+##### Multi-part variables and folders
+
+Navigating large file listings can be a challenge for the user. With the
+registry V2, the language server has some special handling of returned items to
+make it easier to complete a path to file in sub-folders easier.
+
+When an item is returned that ends in `/`, the language server will present it
+to the client as a "folder" which will be represented in the client. So a
+registry wishing to provide sub-navigation to a folder structure like this:
+
+```
+examples/
+└─┬─ first.ts
+  └─ second.ts
+sub-mod/
+└─┬─ mod.ts
+  └─ tests.ts
+mod.ts
+```
+
+And had a schema like `/:package([a-z0-9_]*)@:version?/:path*` and an API
+endpoint for `path` like
+`https://api.example.com/packages/${package}/${{version}}/${path}` would want to
+respond to the path of `/packages/pkg/1.0.0/` with:
+
+```json
+{
+  "items": [
+    "examples/",
+    "sub-mod/",
+    "mod.ts"
+  ],
+  "isIncomplete": true
+}
+```
+
+And to a path of `/packages/pkg/1.0.0/examples/` with:
+
+```json
+{
+  "items": [
+    "examples/first.ts",
+    "examples/second.ts"
+  ],
+  "isIncomplete": true
+}
+```
+
+This would allow the user to select the folder `examples` in the IDE before
+getting the listing of what was in the folder, making it easier to navigate the
+file structure.
+
 ##### Documentation endpoints
 
 Documentation endpoints should return a documentation object with any

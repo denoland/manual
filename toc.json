@@ -22,6 +22,7 @@
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
+      "http_server_apis_low_level": "HTTP Server APIs (low level)",
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
@@ -45,7 +46,8 @@
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
-      "faqs": "Frequently asked questions"
+      "faqs": "Frequently asked questions",
+      "cheatsheet": "Node->Deno cheatsheet"
     }
   },
   "typescript": {
@@ -113,7 +115,8 @@
       "compiler": "Compiling executables",
       "documentation_generator": "Documentation generator",
       "dependency_inspector": "Dependency inspector",
-      "linter": "Linter"
+      "linter": "Linter",
+      "vendor": "Vendoring dependencies"
     }
   },
   "continuous_integration": {
