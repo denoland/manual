@@ -131,6 +131,8 @@ close enough to be considered equals. Default tolerance is set to `1e-7` though
 it is possible to change it by passing a third optional parameter.
 
 ```ts
+import { assertAlmostEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";;
+
 Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
