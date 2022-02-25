@@ -111,7 +111,7 @@ returns a stream of "Hello, World!" repeated every second:
 
 ```ts
 function handler(req: Request): Response {
-  let timer;
+  let timer: number;
   const body = new ReadableStream({
     async start(controller) {
       timer = setInterval(() => {
