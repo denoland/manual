@@ -88,6 +88,8 @@ The test steps API provides a way to report distinct steps within a test and do
 setup and teardown code within that test.
 
 ```ts
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("database", async (t) => {
   const db = await Database.connect("postgres://localhost/test");
 
