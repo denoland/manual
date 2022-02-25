@@ -119,6 +119,8 @@ That's especially true when working with decimal numbers, where
 `assertStrictEquals()` may work in some cases but not in others:
 
 ```ts
+import { assertThrows, assertStrictEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Strict Equals with float numbers", () => {
   assertStrictEquals(0.25 + 0.25, 0.25);
   assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3));
