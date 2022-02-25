@@ -42,6 +42,8 @@ By default `serve` will listen on port `8000`, but this can be changed by
 passing in a port number in the second argument options bag:
 
 ```ts
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+
 // To listen on port 4242.
 serve(handler, { port: 4242 });
 ```
