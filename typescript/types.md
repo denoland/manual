@@ -178,7 +178,7 @@ following triple-slash directives near the top of the entry point file for the
 worker script, Deno will now type check it as a Deno worker script, irrespective
 of how the module is analyzed:
 
-```ts
+```ts ignore
 /// <reference no-default-lib="true" />
 /// <reference lib="deno.worker" />
 ```
