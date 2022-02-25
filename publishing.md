@@ -35,4 +35,4 @@ script to build, type check, and test an npm package in an output directory.
 Once built, you only need to `npm publish` the output directory to distribute it
 to Node.js users.
 
-See https://github.com/denoland/dnt for more details.
+For more details, see https://github.com/denoland/dnt
