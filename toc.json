@@ -132,6 +132,9 @@
       "imports": "Import suggestions and intelligent registries"
     }
   },
+  "publishing": {
+    "name": "Publishing Modules"
+  },
   "embedding_deno": {
     "name": "Embedding Deno"
   },
