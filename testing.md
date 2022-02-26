@@ -89,28 +89,45 @@ setup and teardown code within that test.
 
 ```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { Client } from "https://deno.land/x/postgres/mod.ts";
+
+interface User {
+  id: number;
+  name: string;
+}
+
+interface Book {
+  id: number;
+  title: string;
+}
 
 Deno.test("database", async (t) => {
-  const db = await Database.connect("postgres://localhost/test");
+  const client = new Client({
+    user: "user",
+    database: "test",
+    hostname: "localhost",
+    port: 5432,
+  });
+  await client.connect();
 
   // provide a step name and function
   await t.step("insert user", async () => {
-    const users = await db.query(
+    const users = await client.queryObject<User>(
       "INSERT INTO users (name) VALUES ('Deno') RETURNING *",
     );
-    assertEquals(users.length, 1);
-    assertEquals(users[0].name, "Deno");
+    assertEquals(users.rows.length, 1);
+    assertEquals(users.rows[0].name, "Deno");
   });
 
   // or provide a test definition
   await t.step({
     name: "insert book",
     fn: async () => {
-      const books = await db.query(
+      const books = await client.queryObject<Book>(
         "INSERT INTO books (name) VALUES ('The Deno Manual') RETURNING *",
       );
-      assertEquals(books.length, 1);
-      assertEquals(books[0].name, "The Deno Manual");
+      assertEquals(books.rows.length, 1);
+      assertEquals(books.rows[0].title, "The Deno Manual");
     },
     ignore: false,
     // these default to the parent test or step's value
@@ -155,7 +172,7 @@ Deno.test("database", async (t) => {
     })
   ));
 
-  db.close();
+  client.end();
 });
 ```
 
