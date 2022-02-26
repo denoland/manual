@@ -35,10 +35,10 @@ And compile it:
 
 ```sh
 // unix
-cc -c -o add_numbers.o add_numbers.c
-cc -shared -Wl -o add_numbers.so add_numbers.o
+cc -c -o add.o add.c
+cc -shared -W -o libadd.so add.o
 // Windows
-cl /LD add_numbers.c /link /EXPORT:add_numbers
+cl /LD add.c /link /EXPORT:libadd
 ```
 
 Calling the library from Deno:
