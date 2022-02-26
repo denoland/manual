@@ -23,7 +23,7 @@ APIs.
 
 You can use `Deno.addSignalListener()` function for handling OS signals:
 
-```ts ignore
+```ts
 /**
  * add_signal_listener.ts
  */

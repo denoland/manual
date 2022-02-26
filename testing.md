@@ -298,12 +298,12 @@ Sometimes you want to ignore tests based on some sort of condition (for example
 you only want a test to run on Windows). For this you can use the `ignore`
 boolean in the test definition. If it is set to true the test will be skipped.
 
-```ts ignore
+```ts
 Deno.test({
   name: "do macOS feature",
   ignore: Deno.build.os !== "darwin",
   fn() {
-    doMacOSFeature();
+    // do MacOS feature here
   },
 });
 ```
@@ -318,12 +318,12 @@ report on the success or failure of each test, the overall test run will always
 fail if any test is flagged with `only`, as this is a temporary measure only
 which disables nearly all of your tests.
 
-```ts ignore
+```ts
 Deno.test({
   name: "Focus on this test only",
   only: true,
   fn() {
-    testComplicatedStuff();
+    // test complicated stuff here
   },
 });
 ```

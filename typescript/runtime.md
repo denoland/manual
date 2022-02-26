@@ -94,7 +94,7 @@ For example if you did:
 
 You could do something similar with `Deno.emit()`:
 
-```ts ignore
+```ts
 try {
   const { files } = await Deno.emit("mod.ts");
   for (const [fileName, text] of Object.entries(files)) {
