@@ -32,7 +32,7 @@ To then listen on a port and handle requests you need to call the `serve`
 function from the `https://deno.land/std@$STD_VERSION/http/server.ts` module,
 passing in the handler as the first argument:
 
-```ts
+```js
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serve(handler);
@@ -41,7 +41,7 @@ serve(handler);
 By default `serve` will listen on port `8000`, but this can be changed by
 passing in a port number in the second argument options bag:
 
-```ts
+```js
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 // To listen on port 4242.
@@ -198,7 +198,7 @@ To use HTTPS, use `serveTls` from the
 This takes two extra arguments in the options bag: `certFile` and `keyFile`.
 These are paths to the certificate and key files, respectively.
 
-```ts
+```js
 import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serveTls(handler, {
