@@ -107,7 +107,7 @@ way to load a package is to use the
 [lookup URL](https://docs.skypack.dev/skypack-cdn/api-reference/lookup-urls) for
 the package:
 
-```tsx ignore
+```tsx
 import React from "https://cdn.skypack.dev/react";
 
 export default class A extends React.Component {
@@ -120,7 +120,7 @@ export default class A extends React.Component {
 Lookup URLs can also contain the [semver](https://semver.npmjs.com/) version in
 the URL:
 
-```tsx ignore
+```tsx
 import React from "https://cdn.skypack.dev/react@~16.13.0";
 ```
 
