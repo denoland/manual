@@ -39,10 +39,10 @@
       "import_maps": "Import maps"
     }
   },
-  "npm_nodejs": {
-    "name": "Using npm/Node.js code",
+  "node": {
+    "name": "Interoperating with Node and NPM",
     "children": {
-      "compatibility_mode": "Node.js compatibility mode",
+      "compatibility_mode": "Node compatibility mode",
       "std_node": "The std/node library",
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
