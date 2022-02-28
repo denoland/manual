@@ -25,6 +25,6 @@ copyright infringement).
 
 For more details, see [Adding a Module](https://deno.land/add_module).
 
-## dnt - Publishing Deno modules for Node.js
+## Publishing Deno modules for Node.js
 
 See [dnt](./npm_nodejs/dnt.md).
