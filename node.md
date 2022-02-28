@@ -1,9 +1,9 @@
 # Interoperating with Node and NPM
 
-While Deno is pretty powerful itself, there is a large ecosystem of code in the
-[npm](https://npmjs.com/) registry, and many people will want to re-leverage
-tools, code and libraries that are built for [Node](https://nodejs.org/). In
-this chapter we will explore how to use it.
+While Deno is pretty powerful itself, many people will want to leverage code and
+libraries that are built for [Node](https://nodejs.org/), in particular the
+large set of package available on the [NPM](https://npmjs.com/) registry. This
+chapter we will explore how.
 
 > ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node environment and consume code authored for Node directly. See
