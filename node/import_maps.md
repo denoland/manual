@@ -4,7 +4,7 @@ Deno supports [import maps](../linking_to_external_code/import_maps.md) which
 allow you to supply Deno with information about how to resolve modules that
 overrides the default behavior. Import maps are a web platform standard that is
 increasingly being included natively in browsers. They are specifically useful
-with adapting Node.js code to work well with Deno, as you can use import maps to
+with adapting Node code to work well with Deno, as you can use import maps to
 map "bare" specifiers to a specific module.
 
 When coupled with Deno friendly [CDNs](./cdns.md) import maps can be a powerful
@@ -36,9 +36,9 @@ handles modules can be found in the
 [Determining the type of file](../typescript/overview.md#determining-the-type-of-file)
 section of the manual.
 
-Node.js does have defined semantics for resolving specifiers, but they are
-complex, assume unfettered access to the local file system to query it. Deno has
-chosen not to go down that path.
+Node does have defined semantics for resolving specifiers, but they are complex,
+assume unfettered access to the local file system to query it. Deno has chosen
+not to go down that path.
 
 But, import maps can be used to provide some of the ease of the developer
 experience if you wish to use bare specifiers. For example, if we want to do the

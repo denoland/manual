@@ -10,8 +10,7 @@ The quickest fix is to skip type checking. You can do this by using the
 `--no-check` flag.
 
 Skipping type checking might not be acceptable though. You could try to load the
-Node.js types yourself. For example from UNPKG it would look something like
-this:
+Node types yourself. For example from UNPKG it would look something like this:
 
 ```ts
 import type {} from "https://unpkg.com/@types/node/index.d.ts";

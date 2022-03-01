@@ -1,20 +1,20 @@
-## Node.js compatibility mode
+## Node compatibility mode
 
 Starting with v1.15 Deno provides Node compatibility mode that makes it possible
-to run a subset of programs authored for Node.js directly in Deno. Compatibility
+to run a subset of programs authored for Node directly in Deno. Compatibility
 mode can be activated by passing `--compat` flag in CLI.
 
 > ⚠️ Using compatibility mode currently requires the `--unstable` flag. If you
 > intend to use CJS modules, the `--allow-read` flag is needed as well.
 
-> ⚠️ Package management is currently out of scope for Node.js compatibility
-> mode. For the time being we suggest to keep using your current solution
-> (`npm`, `yarn`, `pnpm`).
+> ⚠️ Package management is currently out of scope for Node compatibility mode.
+> For the time being we suggest to keep using your current solution (`npm`,
+> `yarn`, `pnpm`).
 
 ### Example
 
-[`eslint`](https://eslint.org/) is a very popular tool used by most of Node.js
-projects. Let's run `eslint` using Deno in Node.js compatibility mode. Assuming
+[`eslint`](https://eslint.org/) is a very popular tool used by most of Node
+projects. Let's run `eslint` using Deno in Node compatibility mode. Assuming
 that `eslint` is already installed locally (either using `npm install eslint` or
 `yarn install eslint`) we can do so like:
 
@@ -59,7 +59,7 @@ When using compatibility mode there Deno does a few things behind the scenes:
 
 - Node globals are set up and made available in the global scope. That means
   that APIs like `process`, `global`, `Buffer`, `setImmediate` or
-  `clearImmediate` are available just like in Node.js. This is done by executing
+  `clearImmediate` are available just like in Node. This is done by executing
   [`std/node/global.ts`](https://doc.deno.land/https://deno.land/std/node/global.ts)
   on startup.
 
@@ -79,13 +79,13 @@ When using compatibility mode there Deno does a few things behind the scenes:
 ### Module resolution
 
 [CommonJS resolution](https://nodejs.org/api/modules.html) is implemented as in
-Node.js and there should be no observable differences.
+Node and there should be no observable differences.
 
 [ES module resolution](https://nodejs.org/api/esm.html) is implemented on top of
 Deno's regular ESM resolution, leading to a few additional properties compared
-to Node.js:
+to Node:
 
-- In addition to `file:` and `data:` URL schemes supported in Node.js; `http:`,
+- In addition to `file:` and `data:` URL schemes supported in Node; `http:`,
   `https:` and `blob:` URL schemes will work in the same way if you used Deno
   without compatibility mode.
 
@@ -96,14 +96,14 @@ to Node.js:
 
 - Deno respects
   ["Conditional exports"](https://nodejs.org/api/packages.html#conditional-exports)
-  field in `package.json`; in addition to conditions recognized by Node.js,
+  field in `package.json`; in addition to conditions recognized by Node,
   `"deno"` condition can be used. This property is useful to the package authors
   who want to provide separate entrypoint optimized for use with Deno. As an
   example, imagine that your package uses `node-fetch`. By providing a
   conditional `"deno"` export, you can add an entrypoint that doesn't depend on
   `node-fetch` and instead uses built-in `fetch` API in Deno.
 
-### Node.js built-in modules
+### Node built-in modules
 
 Following built-in Node modules are currently supported:
 
@@ -160,4 +160,4 @@ In the upcoming releases we plan to add support for a `types` field in
 `package.json`, to automatically lookup types and use them during type checking.
 
 In the long term, we'd like to provide ability to consume TypeScript code
-authored for the Node.js runtime.
+authored for the Node runtime.
