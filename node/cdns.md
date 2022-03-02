@@ -49,7 +49,7 @@ accessing npm packages as ES Module bundles. esm.sh uses
 ensure that it is consumable as an ES Module. In many cases you can just import
 the npm package into your Deno application:
 
-```tsx ignore
+```tsx
 import React from "https://esm.sh/react";
 
 export default class A extends React.Component {
@@ -64,13 +64,13 @@ esm.sh supports the use of both specific versions of packages, as well as
 your dependency in a similar way you would in a `package.json` file when you
 import it. For example, to get a specific version of a package:
 
-```tsx ignore
+```tsx
 import React from "https://esm.sh/react@17.0.2";
 ```
 
 Or to get the latest patch release of a minor release:
 
-```tsx ignore
+```tsx
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
