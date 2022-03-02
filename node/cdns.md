@@ -24,19 +24,19 @@ authored.
 
 Deno friendly content delivery networks (CDNs) not only host packages from npm,
 they provide them in a way that maximizes their integration to Deno. They
-directly address some of the challenges in consuming code written for Node.js:
+directly address some of the challenges in consuming code written for Node:
 
 - They provide packages and modules in the ES Module format, irrespective of how
   they are published on npm.
 - They resolve all the dependencies as the modules are served, meaning that all
-  the Node.js specific module resolution logic is handled by the CDN.
+  the Node specific module resolution logic is handled by the CDN.
 - Often, they inform Deno of type definitions for a package, meaning that Deno
   can use them to type check your code and provide a better development
   experience.
-- The CDNs also "polyfill" the built-in Node.js modules, making a lot of code
-  that leverages the built-in Node.js modules _just work_.
+- The CDNs also "polyfill" the built-in Node modules, making a lot of code that
+  leverages the built-in Node modules _just work_.
 - The CDNs deal with all the semver matching for packages that a package manager
-  like `npm` would be required for a Node.js application, meaning you as a
+  like `npm` would be required for a Node application, meaning you as a
   developer can express your 3rd party dependency versioning as part of the URL
   you use to import the package.
 
@@ -74,7 +74,7 @@ Or to get the latest patch release of a minor release:
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
-esm.sh uses the `std/node` polyfills to replace the built-in modules in Node.js,
+esm.sh uses the `std/node` polyfills to replace the built-in modules in Node,
 meaning that code that uses those built-in modules will have the same
 limitations and caveats as those modules in `std/node`.
 
@@ -93,7 +93,7 @@ on how the CDN can be used and what features it has.
 #### Skypack
 
 [Skypack.dev](https://www.skypack.dev/) is designed to make development overall
-easier by not requiring packages to be installed locally, even for Node.js
+easier by not requiring packages to be installed locally, even for Node
 development, and to make it easy to create web and Deno applications that
 leverage code from the npm registry.
 
@@ -167,8 +167,8 @@ up from the CDN.
 While CDNs can make it easy to allow Deno to consume packages and modules from
 the npm registry, there can still be some things to consider:
 
-- Deno does not (and will not) support Node.js plugins. If the package requires
-  a native plugin, it won't work under Deno.
+- Deno does not (and will not) support Node plugins. If the package requires a
+  native plugin, it won't work under Deno.
 - Dependency management can always be a bit of a challenge and a CDN can make it
   a bit more obfuscated what dependencies are there. You can always use
   `deno info` with the module or URL to get a full breakdown of how Deno
