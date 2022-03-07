@@ -19,7 +19,7 @@ boolean to false in the test definition.
 Deno.test({
   name: "leaky resource test",
   async fn() {
-    setTimeout(function () {}, 1000);
+    await Deno.open("hello.txt");
   },
   sanitizeResources: false,
 });
@@ -36,7 +36,7 @@ disabled by setting the `sanitizeOps` boolean to false in the test definition.
 Deno.test({
   name: "leaky operation test",
   fn() {
-    await Deno.open("hello.txt");
+    setTimeout(function () {}, 1000);
   },
   sanitizeOps: false,
 });
