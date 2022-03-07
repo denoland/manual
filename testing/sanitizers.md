@@ -36,8 +36,11 @@ disabled by setting the `sanitizeOps` boolean to false in the test definition.
 Deno.test({
   name: "leaky operation test",
   fn() {
-    crypto.subtle.digest('SHA-256', new TextEncoder().encode("a".repeat(100000000)));
-  },  
+    crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode("a".repeat(100000000)),
+    );
+  },
   sanitizeOps: false,
 });
 ```
