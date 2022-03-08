@@ -89,7 +89,7 @@ setup and teardown code within that test.
 
 ```ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
-import { Client } from "https://deno.land/x/postgres/mod.ts";
+import { Client } from "https://deno.land/x/postgres@v0.15.0/mod.ts";
 
 interface User {
   id: number;
