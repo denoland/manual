@@ -66,7 +66,7 @@ pragma to a `.jsx` or `.tsx` module, and Deno will respect it.
 The `@jsxImportSource` pragma needs to be in the leading comments of the module.
 For example to use Preact from esm.sh, you would do something like this:
 
-```javascript
+```jsx ignore
 /** @jsxImportSource https://esm.sh/preact */
 
 export function App() {
