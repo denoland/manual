@@ -41,7 +41,7 @@ module that is expected to conform to the _new_ JSX API and is located at either
 `jsx-runtime` or `jsx-dev-runtime`. For example if a JSX import source is
 configured to `react`, then the emitted code will add this to the emitted file:
 
-```js ignore
+```jsx ignore
 import { jsx as jsx_ } from "react/jsx-runtime";
 ```
 
@@ -115,7 +115,7 @@ like this:
 
 And then you could use the following pragma:
 
-```javascript
+```jsx ignore
 /** @jsxImportSource preact */
 ```
 
