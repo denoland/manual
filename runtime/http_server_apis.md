@@ -259,7 +259,7 @@ won't be compressed automatically:
 - The response body is a stream. Currently only _static_ response bodies are
   supported. We will add streaming support in the future.
 - The response contains a `Content-Encoding` header. This indicates your server
-  has done some form of encoding.
+  has done some form of encoding already.
 - The response contains a
   [`Content-Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
   header. This indicates that your server is responding to a range request,
