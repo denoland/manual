@@ -281,13 +281,6 @@ validator (`W/`). This is to ensure the proper behavior of clients and
 downstream proxy services when validating the "freshness" of the content of the
 response body.
 
-#### What happens to a `Content-Length` header?
-
-If the response contains a
-[`Content-Length`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length)
-header, it will be unset if the body is compressed, as the content length will
-have changed.
-
 ### Lower level HTTP server APIs
 
 This chapter focuses only on the high level HTTP server APIs. You should
