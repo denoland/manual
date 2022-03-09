@@ -275,7 +275,7 @@ won't be compressed automatically:
 #### What happens to an `ETag` header?
 
 When you set an
-[`ETag`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) what is
+[`ETag`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) that is
 not a weak validator and the body is compressed, Deno will change this to a weak
 validator (`W/`). This is to ensure the proper behavior of clients and
 downstream proxy services when validating the "freshness" of the content of the
