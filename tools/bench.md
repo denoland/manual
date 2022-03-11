@@ -8,12 +8,17 @@ of JavaScript or TypeScript code.
 
 ## Quickstart
 
+Firstly, let's create a file `url_bench.ts` and register a bench using
+`Deno.bench()` function.
+
 ```ts
 // url_bench.ts
 Deno.bench("URL parsing", () => {
   new URL("https://deno.land");
 });
 ```
+
+Secondly, run the benchmark using `deno bench` subcommand.
 
 ```sh
 deno bench --unstable url_bench.ts
