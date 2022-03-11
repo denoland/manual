@@ -103,6 +103,12 @@ current directory (recursively) that match the glob
 `{*_,*.,}bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass
 a directory, all files in the directory that match this glob will be run.
 
+The glob expands to:
+
+- files named `bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or files ending with `.bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or files ending with `_bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+
 ```shell
 # Run all benches in the current directory and all sub-directories
 deno bench
