@@ -30,7 +30,7 @@ bench result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (1s)
 
 ## Writing benchmarks
 
-To define a benchmark you need to register it with a call to `Deno.bench` API.
+To define a benchmark you need to register it with a call to the `Deno.bench` API.
 There are multiple overloads of this API to allow for greatest flexibility and
 easy switching between the forms (eg. when you need to quickly focus a single
 bench for debugging, using `only: true` option):
