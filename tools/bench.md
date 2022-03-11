@@ -1,13 +1,27 @@
 ## Benchmarking tool
 
+> ⚠️ `deno bench` was introduced in Deno v1.20 and currently requires
+> `--unstable` flag.
+
 Deno has a built-in benchmark runner that you can use for checking performance
 of JavaScript or TypeScript code.
 
-`deno bench` will search in `./*` and `./**/*` recursively, for test files:
+## Quickstart
 
-- named `bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or ending with `.bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or ending with `_bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+```ts
+// url_bench.ts
+Deno.bench("URL parsing", () => {
+  new URL("https://deno.land");
+});
+```
+
+```sh
+deno bench --unstable url_bench.ts
+running 1 bench from file:///dev/url_bench.ts
+bench URL parsing ... 1000 iterations 23,063 ns/iter (208..356,041 ns/iter) ok (1s)
+
+bench result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (1s)
+```
 
 ## Writing benchmarks
 
