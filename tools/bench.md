@@ -9,7 +9,7 @@ of JavaScript or TypeScript code.
 ## Quickstart
 
 Firstly, let's create a file `url_bench.ts` and register a bench using
-`Deno.bench()` function.
+the `Deno.bench()` function.
 
 ```ts
 // url_bench.ts
