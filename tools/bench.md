@@ -18,7 +18,7 @@ Deno.bench("URL parsing", () => {
 });
 ```
 
-Secondly, run the benchmark using `deno bench` subcommand.
+Secondly, run the benchmark using the `deno bench` subcommand.
 
 ```sh
 deno bench --unstable url_bench.ts
