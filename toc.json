@@ -117,7 +117,7 @@
       "dependency_inspector": "Dependency inspector",
       "linter": "Linter",
       "vendor": "Vendoring dependencies",
-      "bench": "Benchmark"
+      "bench": "Benchmarking"
     }
   },
   "continuous_integration": {
