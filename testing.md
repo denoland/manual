@@ -5,6 +5,9 @@ TypeScript code.
 
 ## Quickstart
 
+Firstly, let's create a file `url_test.ts` and register a test case using
+`Deno.test()` function.
+
 ```ts
 // url_test.ts
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
@@ -14,6 +17,8 @@ Deno.test("url test", () => {
   assertEquals(url.href, "https://deno.land/foo.js");
 });
 ```
+
+Secondly, run the test using `deno test` subcommand.
 
 ```sh
 $ deno test url_test.ts
