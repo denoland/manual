@@ -38,6 +38,7 @@ cargo -V
 ```
 
 For Apple aarch64 users `lld` must be installed.
+
 ```
 brew install llvm
 # Add /opt/homebrew/opt/llvm/bin/ to $PATH
