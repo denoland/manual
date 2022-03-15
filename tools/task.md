@@ -1,7 +1,7 @@
 # Task runner
 
 > ⚠️ `deno task` was introduced in Deno v1.20 and is unstable. It may
-> drastically change or even be removed in the future.
+> drastically change in the future.
 
 `deno task` provides a cross platform way to define and execute custom commands
 specific to a codebase.
@@ -22,17 +22,17 @@ For example:
 }
 ```
 
-## Listing commands
+## Listing tasks
 
-To get an output showing all the defined commands, run:
+To get an output showing all the defined tasks, run:
 
 ```sh
 deno task
 ```
 
-## Executing a command
+## Executing a task
 
-To execute a specific command, run:
+To execute a specific task, run:
 
 ```shell
 deno task task-name [additional args]...
@@ -47,7 +47,7 @@ deno task data
 ## Syntax
 
 `deno task` uses a cross platform shell that's a subset of sh/bash to execute
-defined commands.
+defined tasks.
 
 ### Boolean lists
 
