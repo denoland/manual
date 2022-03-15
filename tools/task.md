@@ -212,6 +212,8 @@ box on Windows, Mac, and Linux.
     second
 - [`echo`](https://man7.org/linux/man-pages/man1/echo.1.html) - Displays a line
   of text.
+- [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the
+  shell to exit.
 
 If you find a useful flag missing on a command or have any suggestions for
 additional commands that should be supported out of the box, then please
