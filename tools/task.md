@@ -15,9 +15,9 @@ For example:
 ```jsonc
 {
   "tasks": {
-    "data": "deno task data:collect && deno task data:analyze",
-    "data:collect": "deno run --allow-read=. --allow-write=. scripts/collect_data.js",
-    "data:analyze": "deno run --allow-read=. scripts/analyze_data.js"
+    "data": "deno task collect && deno task analyze",
+    "collect": "deno run --allow-read=. --allow-write=. scripts/collect.js",
+    "analyze": "deno run --allow-read=. scripts/analyze.js"
   }
 }
 ```
@@ -38,7 +38,11 @@ To execute a specific command, run:
 deno task task-name [additional args]...
 ```
 
-In the example above, to run the `data` task we would do `deno task data`.
+In the example above, to run the `data` task we would do:
+
+```shell
+deno task data
+```
 
 ## Syntax
 
@@ -55,14 +59,14 @@ The `&&` operator provides a way to execute a command and if it _succeeds_ (has
 an exit code of `0`) it will execute a second command:
 
 ```sh
-deno run --allow-read=. --allow-write=. collect_data.ts && deno run --allow-read=. analyze_data.ts
+deno run --allow-read=. --allow-write=. collect.ts && deno run --allow-read=. analyze.ts
 ```
 
 The `||` operator is the opposite. It provides a way to execute a command and
 only if it _fails_ (has a non-zero exit code) it will execute a second command:
 
 ```sh
-deno run --allow-read=. --allow-write =. collect_data.ts || deno run play_sad_music.ts
+deno run --allow-read=. --allow-write =. collect.ts || deno run play_sad_music.ts
 ```
 
 ### Sequential lists
@@ -101,7 +105,7 @@ process (note that in the JSON configuration file the double quotes would need
 to be escaped with backslashes):
 
 ```sh
-export MY_VAR=hello && echo $MY_VAR && deno eval "console.log('Deno: ' + Deno.env.get('MY_VAR'))"
+export VAR=hello && echo $VAR && deno eval "console.log('Deno: ' + Deno.env.get('VAR'))"
 ```
 
 Would output:
@@ -116,7 +120,7 @@ Deno: hello
 To specify environment variable(s) before a command, list them like so:
 
 ```
-MY_VAR=hello MY_VAR2=bye deno run main.ts
+VAR=hello VAR2=bye deno run main.ts
 ```
 
 This will export those environment variable specifically for the following
@@ -135,7 +139,7 @@ If we use a shell variable instead of an environment variable in a similar
 example to what's shown in the previous "Environment variables" section:
 
 ```sh
-MY_VAR=hello && echo $MY_VAR && deno eval "console.log('Deno: ' + Deno.env.get('MY_VAR'))"
+VAR=hello && echo $VAR && deno eval "console.log('Deno: ' + Deno.env.get('VAR'))"
 ```
 
 We will get the following output:
@@ -175,7 +179,7 @@ deno run main.ts $(git rev-parse HEAD)
 Another example using a shell variable:
 
 ```sh
-LATEST_REV=$(git rev-parse HEAD) && deno run main.ts $LATEST_REV && echo $LATEST_REV
+REV=$(git rev-parse HEAD) && deno run main.ts $REV && echo $REV
 ```
 
 ### Future syntax
