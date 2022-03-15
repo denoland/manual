@@ -116,9 +116,9 @@
       "documentation_generator": "Documentation generator",
       "dependency_inspector": "Dependency inspector",
       "linter": "Linter",
-      "task": "Task runner",
+      "task_runner": "Task runner",
       "vendor": "Vendoring dependencies",
-      "bench": "Benchmarking"
+      "benchmarker": "Benchmarking"
     }
   },
   "continuous_integration": {
