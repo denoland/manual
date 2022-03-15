@@ -189,7 +189,7 @@ We are planning to support
 [glob expansion](https://github.com/denoland/deno_task_shell/issues/6) in the
 future.
 
-### Built-in commands
+## Built-in commands
 
 `deno task` ships with several built-in commands that work the same out of the
 box on Windows, Mac, and Linux.
