@@ -388,7 +388,7 @@ deno completions fish > ~/.config/fish/completions/deno.fish
 
 ### Environment variables
 
-There are a couple environment variables which can impact the behavior of Deno:
+There are several environment variables which can impact the behavior of Deno:
 
 - `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow
   Deno to access remote private code. See the
