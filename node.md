@@ -2,15 +2,15 @@
 
 While Deno is pretty powerful itself, many people will want to leverage code and
 libraries that are built for [Node](https://nodejs.org/), in particular the
-large set of package available on the [NPM](https://npmjs.com/) registry. This
-chapter we will explore how.
+large set of packages available on the [NPM](https://npmjs.com/) registry. In
+this chapter, we will explore how.
 
 > ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node environment and consume code authored for Node directly. See
 > [Node compatibility mode](./npm_nodejs/compatibility_mode.md) chapter for
 > details.
 
-The good news, is that in many cases, it _just works_.
+The good news is that in many cases, it _just works_.
 
 There are some foundational things to understand about differences between Node
 and Deno that can help in understanding what challenges might be faced:
@@ -20,7 +20,7 @@ and Deno that can help in understanding what challenges might be faced:
   and most code written for Node is in the CommonJS format.
 - Node has quite a few built-in modules that can be imported and they are a
   fairly expansive set of APIs. On the other hand, Deno focuses on implementing
-  web standards and where functionality goes beyond the browser, we locate APIs
+  web standards, and where functionality goes beyond the browser, we locate APIs
   in a single global `Deno` variable/namespace. Lots of code written for Node
   expects/depends upon these built-in APIs to be available.
 - Node has a non-standards based module resolution algorithm, where you can
@@ -54,7 +54,7 @@ chapter:
 - And finally, a general section of
   [frequently asked questions](./npm_nodejs/faqs.md)
 
-That being said, there are some differences that cannot be overcome:
+That being said, some differences cannot be overcome:
 
 - Node has a plugin system that is incompatible with Deno, and Deno will never
   support Node plugins. If the Node code you want to use requires a "native"
