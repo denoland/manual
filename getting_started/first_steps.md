@@ -153,4 +153,5 @@ back, without further complexity.
 
 ### More examples
 
-You can find more examples, like an HTTP file server, in the `Examples` chapter.
+You can find more examples, like an HTTP file server, in the
+[Examples](../examples) chapter.
