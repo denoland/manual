@@ -66,7 +66,7 @@ The `||` operator is the opposite. It provides a way to execute a command and
 only if it _fails_ (has a non-zero exit code) it will execute a second command:
 
 ```sh
-deno run --allow-read=. --allow-write =. collect.ts || deno run play_sad_music.ts
+deno run --allow-read=. --allow-write=. collect.ts || deno run play_sad_music.ts
 ```
 
 ### Sequential lists
