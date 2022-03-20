@@ -162,10 +162,10 @@ code that is intended to also work in another runtime:
 
 #### Targeting Deno and the Browser
 
-A common use case is writing code that works in Deno and the browser, and have
-the code "sniff" to determine if it is running in the browser or in Deno. If
-that is the case a common configuration of a `compilerOptions` would look like
-this:
+A common use case is writing code that works in Deno and the browser: using a
+conditional check to determine the environment in which the code is executing
+before using any APIs which are exclusive to one or the other. If that is the
+case, a common configuration of a `compilerOptions` would look like this:
 
 ```json
 {

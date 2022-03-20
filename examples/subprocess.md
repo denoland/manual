@@ -22,13 +22,23 @@ This example is the equivalent of running `'echo hello'` from the command line.
  * subprocess_simple.ts
  */
 
+// define command used to create the subprocess
+const cmd = ["echo", "hello"];
+
 // create subprocess
-const p = Deno.run({
-  cmd: ["echo", "hello"],
-});
+const p = Deno.run({ cmd });
 
 // await its completion
 await p.status();
+```
+
+> Note: If using Windows, the command above would need to be written differently
+> because `echo` is not an executable binary (rather, it is a built-in shell
+> command):
+
+```ts
+// define command used to create the subprocess
+const cmd = ["cmd", "/c", "echo hello"];
 ```
 
 Run it:
