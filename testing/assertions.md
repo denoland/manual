@@ -156,6 +156,8 @@ To check if a object is an instance of a specific constructor, you can use
 the passed in variable has a specific type:
 
 ```ts
+import { assertInstanceOf } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Instance Type", () => {
   const variable = new Date() as unknown;
 

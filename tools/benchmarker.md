@@ -158,9 +158,18 @@ The filter flags accept a string or a pattern as value.
 Assuming the following benches:
 
 ```ts
-Deno.bench({ name: "my-bench", fn: myBench });
-Deno.bench({ name: "bench-1", fn: bench1 });
-Deno.bench({ name: "bench2", fn: bench2 });
+Deno.bench({
+  name: "my-bench",
+  fn: () => {/* bench function zero */},
+});
+Deno.bench({
+  name: "bench-1",
+  fn: () => {/* bench function one */},
+});
+Deno.bench({
+  name: "bench2",
+  fn: () => {/* bench function two */},
+});
 ```
 
 This command will run all of these benches because they all contain the word
@@ -196,7 +205,7 @@ Deno.bench({
   name: "bench windows feature",
   ignore: Deno.build.os === "windows",
   fn() {
-    doWindowsFeature();
+    // do windows feature
   },
 });
 ```
@@ -216,7 +225,7 @@ Deno.bench({
   name: "Focus on this bench only",
   only: true,
   fn() {
-    benchComplicatedStuff();
+    // bench complicated stuff
   },
 });
 ```
