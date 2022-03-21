@@ -56,6 +56,27 @@ When a project is enabled, the extension will get information directly from the
 installed Deno CLI. The extension will also _mute_ the built-in
 TypeScript/JavaScript extension.
 
+### Partially Deno enabling a workspace
+
+While vscode supports [Workspace Folders](#workspace-folders), they can be
+challenging to configure and use. Because of this, the option _Deno: Enable
+Paths_ has been introduced (or `"deno.enablePaths"` if manually editing). In a
+given workspace (or workspace folder), sub-paths can be enabled for Deno, while
+code outside those paths will be not be enabled and the vscode built-in
+JavaScript/TypeScript language server will be used.
+
+For example if you have a project like this:
+
+```
+project
+├── worker
+└── front_end
+```
+
+Where you only want to enabled the `worker` path (and its subpaths) to be Deno
+enabled, you will want to add `./worker` to the list of _Deno: Enable Paths_ in
+the configuration.
+
 ### Using linting
 
 The same engine that provides the diagnostics when using `deno lint` can also be
@@ -77,6 +98,11 @@ Typically a configuration file is not required for a Deno project. There are a
 few scenarios though where it might be useful, and if you want to have the same
 settings applied as when specifying the `--config` option on the command line,
 the _Deno: Config_ option can be used (or `deno.config` if manually editing).
+
+The Deno extension will also auto-identify and apply a `deno.jsonc` or
+`deno.jsoc` by looking in the workspace root for the configuration file and
+applying it. Manually specifying a _Deno: Config_ option will override this
+automatic behavior.
 
 ### Using formatting
 
@@ -277,6 +303,8 @@ settings currently only apply to the workspace:
   the extension will disable the built-in vscode JavaScript and TypeScript
   language services, and will use the Deno language server instead. _boolean,
   default `false`_
+- `deno.enablePaths` - Controls if the Deno Language Server is enabled for only
+  specific paths of the workspace folder. Defaults to an empty list.
 - `deno.codeLens.test` - Controls if the test code lens is enabled. _boolean,
   default `true`_
 - `deno.codeLens.testArgs` - The list of arguments that are passed to
@@ -285,7 +313,10 @@ settings currently only apply to the workspace:
 
 ### Mixed-Deno projects
 
-With this feature, you can have a mixed Deno project, where some of the
+While you can use this feature to enable mixed-Deno projects, you might want to
+consider
+[partially Deno enabling a workspace](#partially-deno-enabling-a-workspace). But
+with this feature, you can have a mixed Deno project, where some of the
 workspace folders are Deno enabled and some are not. This is useful when
 creating a project that might have a front-end component, where you want a
 different configuration for that front end code.
