@@ -78,7 +78,7 @@ You can find documentation about this API on
 
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
 write code that uses the same code path on a server as local, as well as easier
-to author code that work both under the Deno CLI and Deno Deploy.
+to author code that works both with the Deno CLI and Deno Deploy.
 
 Deno only supports absolute file URLs, this means that `fetch("./some.json")`
 will not work. It should be noted though that if
