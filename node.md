@@ -7,8 +7,7 @@ this chapter, we will explore how.
 
 > ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node environment and consume code authored for Node directly. See
-> [Node compatibility mode](./npm_nodejs/compatibility_mode.md) chapter for
-> details.
+> [Node compatibility mode](./node/compatibility_mode.md) chapter for details.
 
 The good news is that in many cases, it _just works_.
 
@@ -31,7 +30,7 @@ and Deno that can help in understanding what challenges might be faced:
   including the extension. When dealing with remote imports, Deno expects the
   web server to do any "resolving" and provide back the media type of the code
   (see the
-  [Determining the type of file](../typescript/overview.md#determining-the-type-of-file)
+  [Determining the type of file](./typescript/overview.md#determining-the-type-of-file)
   for more information).
 - Node effectively doesn't work without a `package.json` file. Deno doesn't
   require an external meta-data file to function or resolve modules.
@@ -44,15 +43,14 @@ and Deno that can help in understanding what challenges might be faced:
 In order to help mitigate these differences, we will further explore in this
 chapter:
 
-- Using the [`std/node`](./npm_nodejs/std_node.md) modules of the Deno standard
+- Using the [`std/node`](./node/std_node.md) modules of the Deno standard
   library to "polyfill" the built-in modules of Node
-- Using [CDNs](./npm_nodejs/cdns.md) to access the vast majority of npm packages
-  in ways that work under Deno.
-- How [import maps](./npm_nodejs/import_maps.md) can be used to provide "bare
+- Using [CDNs](./node/cdns.md) to access the vast majority of npm packages in
+  ways that work under Deno.
+- How [import maps](./node/import_maps.md) can be used to provide "bare
   specifier" imports like Node under Deno, without needing to use a package
   manager to install packages locally.
-- And finally, a general section of
-  [frequently asked questions](./npm_nodejs/faqs.md)
+- And finally, a general section of [frequently asked questions](./node/faqs.md)
 
 That being said, some differences cannot be overcome:
 
