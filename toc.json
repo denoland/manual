@@ -47,7 +47,8 @@
       "cdns": "Packages from CDNs",
       "import_maps": "Using import maps",
       "faqs": "Frequently asked questions",
-      "cheatsheet": "Node->Deno cheatsheet"
+      "cheatsheet": "Node->Deno cheatsheet",
+      "dnt": "dnt - Deno to Node Transform"
     }
   },
   "typescript": {
@@ -133,6 +134,9 @@
       "overview": "Overview of the language server",
       "imports": "Import suggestions and intelligent registries"
     }
+  },
+  "publishing": {
+    "name": "Publishing Modules"
   },
   "embedding_deno": {
     "name": "Embedding Deno"
