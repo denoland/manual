@@ -3,11 +3,30 @@
 Deno has a built-in test runner that you can use for testing JavaScript or
 TypeScript code.
 
-`deno test` will search in `./*` and `./**/*` recursively, for test files:
+## Quickstart
 
-- named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+Firstly, let's create a file `url_test.ts` and register a test case using
+`Deno.test()` function.
+
+```ts
+// url_test.ts
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
+Deno.test("url test", () => {
+  const url = new URL("./foo.js", "https://deno.land/");
+  assertEquals(url.href, "https://deno.land/foo.js");
+});
+```
+
+Secondly, run the test using `deno test` subcommand.
+
+```sh
+$ deno test url_test.ts
+running 1 test from file:///dev/url_test.js
+test url test ... ok (2ms)
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (9ms)
+```
 
 ## Writing tests
 
@@ -202,6 +221,12 @@ function. You can also omit the file name, in which case all tests in the
 current directory (recursively) that match the glob
 `{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass a
 directory, all files in the directory that match this glob will be run.
+
+The glob expands to:
+
+- files named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or files ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
+- or files ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
 
 ```shell
 # Run all tests in the current directory and all sub-directories

@@ -16,7 +16,7 @@ Deno.test("Hello Test", () => {
 > be used in Deno too, for example usage see
 > https://deno.land/std@$STD_VERSION/testing/chai_example.ts.
 
-The assertions module provides 13 assertions:
+The assertions module provides 14 assertions:
 
 - `assert(expr: unknown, msg = ""): asserts expr`
 - `assertEquals(actual: unknown, expected: unknown, msg?: string): void`
@@ -24,6 +24,7 @@ The assertions module provides 13 assertions:
 - `assertNotEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertStrictEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertAlmostEquals(actual: number, expected: number, epsilon = 1e-7, msg?: string): void`
+- `assertInstanceOf(actual: unknown, expectedType: unknown, msg?: string): void`
 - `assertStringIncludes(actual: string, expected: string, msg?: string): void`
 - `assertArrayIncludes(actual: unknown[], expected: unknown[], msg?: string): void`
 - `assertMatch(actual: string, expected: RegExp, msg?: string): void`
@@ -135,6 +136,24 @@ Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
   assertThrows(() => assertAlmostEquals(0.1 + 0.2, 0.3, 1e-17));
+});
+```
+
+#### Instance types
+
+To check if a object is an instance of a specific constructor, you can use
+`assertInstanceOf()`. This has the added benefit that it lets TypeScript know
+the passed in variable has a specific type:
+
+```ts
+Deno.test("Test Assert Instance Type", () => {
+  const variable = new Date() as unknown;
+
+  assertInstanceOf(variable, Date);
+
+  // This won't cause type errors now now that
+  // it's type has been asserted against.
+  variable.getDay();
 });
 ```
 

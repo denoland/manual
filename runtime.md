@@ -1,7 +1,9 @@
 # Runtime
 
 Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on [`doc.deno.land`](https://doc.deno.land/deno/stable).
+on [`doc.deno.land/deno/stable`](https://doc.deno.land/deno/stable@$CLI_VERSION)
+with _unstable_ APIs which are enabled via the `--unstable` flag at
+[`doc.deno.land/deno/unstable`](https://doc.deno.land/deno/unstable@$CLI_VERSION).
 
 ## Web Platform APIs
 
@@ -14,12 +16,9 @@ For more details, view the chapter on
 ## `Deno` global
 
 All APIs that are not web standard are contained in the global `Deno` namespace.
-It has the APIs for reading from files, opening TCP sockets, serving HTTP, and
-executing subprocesses, etc.
+It has the APIs for reading from files, opening TCP sockets,
+[serving HTTP](./runtime/http_server_apis.md), and executing subprocesses, etc.
 
 The TypeScript definitions for the Deno namespaces can be found in the
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
 file.
-
-The documentation for all of the Deno specific APIs can be found on
-[doc.deno.land](https://doc.deno.land/https://raw.githubusercontent.com/denoland/deno/main/cli/dts/lib.deno.ns.d.ts).
