@@ -48,7 +48,7 @@
       "import_maps": "Using import maps",
       "faqs": "Frequently asked questions",
       "cheatsheet": "Node->Deno cheatsheet",
-      "dnt": "dnt"
+      "dnt": "dnt - Deno to Node Transform"
     }
   },
   "typescript": {
