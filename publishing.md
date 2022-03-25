@@ -27,4 +27,4 @@ For more details, see [Adding a Module](https://deno.land/add_module).
 
 ## Publishing Deno modules for Node.js
 
-See [dnt](./npm_nodejs/dnt.md).
+See [dnt - Deno to Node Transform](./node/dnt.md).
