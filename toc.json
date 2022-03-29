@@ -63,9 +63,14 @@
     }
   },
   "jsx_dom": {
-    "name": "Using JSX",
+    "name": "Using JSX and the DOM",
     "children": {
-      "jsx": "Configuring"
+      "overview": "Overview",
+      "jsx": "Configuring JSX",
+      "deno_dom": "Using deno-dom",
+      "linkeddom": "Using LinkeDOM",
+      "jsdom": "Using jsdom",
+      "twind": "Using Twind"
     }
   },
   "webassembly": {
