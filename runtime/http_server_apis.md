@@ -174,7 +174,7 @@ function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
   let socket, response;
   try {
-    res = Deno.upgradeWebSocket(req);
+    const res = Deno.upgradeWebSocket(req);
     socket = res.socket;
     response = res.response;
   } catch {
