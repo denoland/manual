@@ -174,7 +174,7 @@ function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
   let response, socket;
   try {
-    ({ response, socket }  = Deno.upgradeWebSocket(req));
+    ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {
     return new Response("request isn't trying to upgrade to websocket.");
   }
