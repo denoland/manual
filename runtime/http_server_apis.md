@@ -9,7 +9,7 @@ tries to be simple and straightforward.
 > ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
 > flag.
 
-- [A "Hello World" sever](#a-"hello-world"-server)
+- [A "Hello World" sever](#a-"hello-world"-server)"
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
 - [WebSocket support](#websocket-support)
@@ -217,7 +217,7 @@ serveTls(handler, {
 
 ### HTTP/2 support
 
-HTTP/2 support it "automatic" when using the _native_ APIs with Deno. You just
+HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
 need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
 seamlessly.
 
