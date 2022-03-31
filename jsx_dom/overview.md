@@ -80,8 +80,8 @@ to run in a web browser to be able to run under Deno, in order to generate HTML
 and CSS which can be shipped to a browser "pre-rendered". We will cover those in
 the following sections:
 
+- [Using LinkeDOM with Deno](./linkedom.md)
 - [Using deno-dom with Deno](./deno_dom.md)
-- [Using linkeddom with Deno](./linkedom.md)
 - [Using jsdom with Deno](./jsdom.md)
 
 ### CSS
