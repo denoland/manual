@@ -60,10 +60,10 @@ console.log(h1.textContent);
 
 ### Alternative API
 
-For certain workloads the `parseHTML()` can be better suited for SSR workloads.
-This is similar to jsdom's `JSDOM()` function, in the sense it gives you a
-"sandbox" of a `window` scope you can use to access API's outside of the scope
-of the `document`. For example:
+For the `parseHTML()` can be better suited for certain SSR workloads. This is
+similar to jsdom's `JSDOM()` function, in the sense it gives you a "sandbox" of
+a `window` scope you can use to access API's outside of the scope of the
+`document`. For example:
 
 ```ts
 const { document, customElements, HTMLElement } = parseHTML(`<!DOCTYPE html>
