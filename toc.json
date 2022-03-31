@@ -67,7 +67,7 @@
     "children": {
       "overview": "Overview",
       "jsx": "Configuring JSX",
-      "linkeddom": "Using LinkeDOM",
+      "linkedom": "Using LinkeDOM",
       "deno_dom": "Using deno-dom",
       "jsdom": "Using jsdom",
       "twind": "Using Twind"
