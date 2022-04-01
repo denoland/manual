@@ -157,11 +157,17 @@ available in any spawned processes.
 Pipelines provide a way to pipe the output of one command to another. Currently
 only piping stdout is supported.
 
-The following command pipes the output "Hello" to the stdin of the spawned Deno
-process:
+The following command pipes the stdout output "Hello" to the stdin of the
+spawned Deno process:
 
 ```sh
 echo Hello | deno run main.ts
+```
+
+To pipe stdout and stderr, use `|&` instead:
+
+```sh
+deno eval 'console.log(1); console.error(2);' |& deno run main.ts
 ```
 
 ### Command substitution
@@ -180,6 +186,15 @@ Another example using a shell variable:
 
 ```sh
 REV=$(git rev-parse HEAD) && deno run main.ts $REV && echo $REV
+```
+
+### Negate exit code
+
+To negate the exit code, add an exclamation point and space before a command:
+
+```sh
+# change the exit code from 1 to 0
+! deno eval 'Deno.exit(1);'
 ```
 
 ### Future syntax
