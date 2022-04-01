@@ -7,4 +7,5 @@ In this chapter we will discuss:
 - [Using LinkeDOM with Deno](./jsx_dom/LinkeDOM.md)
 - [Using deno-dom with Deno](./deno_dom.md)
 - [Using JSDOM with Deno](./jsx_dom/jsdom.md)
+- [Parsing and stringifying CSS](./jsx_dom/css.md)
 - [Using Twind with Deno](./jsx_dom/twind.md)

@@ -70,6 +70,7 @@
       "linkedom": "Using LinkeDOM",
       "deno_dom": "Using deno-dom",
       "jsdom": "Using jsdom",
+      "css": "Parsing CSS",
       "twind": "Using Twind"
     }
   },

@@ -29,10 +29,13 @@ Model (or DOM). There are APIs that are accessible to application logic via
 JavaScript that manipulate the DOM to provide a desired outcome, as well as HTML
 and CSS are used to structure and style the _display_ of a web application.
 
-In order facilitate manipulation of the DOM server side and the ability to
+In order to facilitate manipulation of the DOM server side and the ability to
 generate HTML and CSS dynamically, there are some key technologies and libraries
 that can be used with Deno to achieve this, which we will explore in this
 chapter.
+
+We will be exploring fairly low-level enabling libraries and technologies,
+versus a full solution or framework for server side generation of websites.
 
 ### JSX
 
@@ -89,4 +92,5 @@ the following sections:
 Cascading Style Sheets (CSS) provide styling for HTML within the DOM. There are
 tools which make working with CSS in a server side context easier and powerful.
 
+- [Parsing and stringifying CSS](./css.md)
 - [Using Twind with Deno](./twind.md)
