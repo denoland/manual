@@ -151,7 +151,7 @@ Deno.test("Test Assert Instance Type", () => {
 
   assertInstanceOf(variable, Date);
 
-  // This won't cause type errors now now that
+  // This won't cause type errors now that
   // it's type has been asserted against.
   variable.getDay();
 });
