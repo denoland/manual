@@ -174,11 +174,9 @@ Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let socket: WebSocket, response;
+  let response, socket;
   try {
-    const res = Deno.upgradeWebSocket(req);
-    socket = res.socket;
-    response = res.response;
+    ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {
     return new Response("request isn't trying to upgrade to websocket.");
   }

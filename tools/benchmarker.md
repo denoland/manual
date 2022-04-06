@@ -91,7 +91,7 @@ runs are useful to allow the JavaScript engine to optimize the code using JIT
 compiler.
 
 You can customize number of iterations and warmup runs using
-`Deno.BenchDefinition.n` and `Deno.BenchDefintion.warmup` respectively:
+`Deno.BenchDefinition.n` and `Deno.BenchDefinition.warmup` respectively:
 
 ```ts
 // Do 100k warmup runs and 1 million measured runs

@@ -19,7 +19,7 @@ haven't already done so.
 
 Once you install the extension for the first time, you should receive a _splash_
 page that welcomes you to the extension. (If you missed it, or want to see it
-again, just use the _Deno: Welcome_ command from the command pallette.)
+again, just use the _Deno: Welcome_ command from the command palette.)
 
 ## Configuring the extension
 
@@ -36,7 +36,7 @@ In order to have support for Deno APIs as well as the ability to resolve modules
 as the Deno CLI does, you need to enable Deno for the workspace. The most direct
 way to do this is to use the _Deno: Initialize Workspace Configuration_ from the
 vscode
-[command pallette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
+[command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette).
 This will activate a helper which will ask if you want to also enable linting
 and the Deno unstable APIs for the project. This command will instruct vscode to
 store these settings in the workspace configuration (your workspace root
@@ -55,6 +55,27 @@ JSON, the setting is `deno.enable`.
 When a project is enabled, the extension will get information directly from the
 installed Deno CLI. The extension will also _mute_ the built-in
 TypeScript/JavaScript extension.
+
+### Partially Deno enabling a workspace
+
+While vscode supports [Workspace Folders](#workspace-folders), they can be
+challenging to configure and use. Because of this, the option _Deno: Enable
+Paths_ has been introduced (or `"deno.enablePaths"` if manually editing). In a
+given workspace (or workspace folder), sub-paths can be enabled for Deno, while
+code outside those paths will be not be enabled and the vscode built-in
+JavaScript/TypeScript language server will be used.
+
+For example if you have a project like this:
+
+```
+project
+├── worker
+└── front_end
+```
+
+Where you only want to enabled the `worker` path (and its subpaths) to be Deno
+enabled, you will want to add `./worker` to the list of _Deno: Enable Paths_ in
+the configuration.
 
 ### Using linting
 
@@ -77,6 +98,11 @@ Typically a configuration file is not required for a Deno project. There are a
 few scenarios though where it might be useful, and if you want to have the same
 settings applied as when specifying the `--config` option on the command line,
 the _Deno: Config_ option can be used (or `deno.config` if manually editing).
+
+The Deno extension will also auto-identify and apply a `deno.jsonc` or
+`deno.jsoc` by looking in the workspace root for the configuration file and
+applying it. Manually specifying a _Deno: Config_ option will override this
+automatic behavior.
 
 ### Using formatting
 
@@ -134,7 +160,7 @@ pressing <kbd>CTRL</kbd> <kbd>.</kbd> or <kbd>⌘</kbd> <kbd>.</kbd> when the
 editor is positioned in the import specifier, or hovering over the specifier and
 selecting _Quick Fix..._.
 
-There is also the _Deno: Cache Dependencies_ command in the command pallette
+There is also the _Deno: Cache Dependencies_ command in the command palette
 which will attempt to cache any dependencies of the module currently active in
 the editor.
 
@@ -234,7 +260,7 @@ interface DenoTaskDefinition {
 
 Several of the commands that are useful in the editor are configured as
 templates and can be added to your workspace by select _Tasks: Configure Task_
-in the command pallette and searching for `deno` tasks.
+in the command palette and searching for `deno` tasks.
 
 And example of what a `deno run mod.ts` would look like in a `tasks.json`:
 
@@ -280,6 +306,8 @@ settings currently only apply to the workspace:
   the extension will disable the built-in vscode JavaScript and TypeScript
   language services, and will use the Deno language server instead. _boolean,
   default `false`_
+- `deno.enablePaths` - Controls if the Deno Language Server is enabled for only
+  specific paths of the workspace folder. Defaults to an empty list.
 - `deno.codeLens.test` - Controls if the test code lens is enabled. _boolean,
   default `true`_
 - `deno.codeLens.testArgs` - The list of arguments that are passed to
@@ -288,7 +316,10 @@ settings currently only apply to the workspace:
 
 ### Mixed-Deno projects
 
-With this feature, you can have a mixed Deno project, where some of the
+While you can use this feature to enable mixed-Deno projects, you might want to
+consider
+[partially Deno enabling a workspace](#partially-deno-enabling-a-workspace). But
+with this feature, you can have a mixed Deno project, where some of the
 workspace folders are Deno enabled and some are not. This is useful when
 creating a project that might have a front-end component, where you want a
 different configuration for that front end code.
@@ -322,7 +353,7 @@ Everything should "just work".
 
 If you have an existing Deno project that you would like to add dev container
 support to, you will want to execute the command _Remote-Containers: Add
-Development Container Configuration Files..._ in the command pallette and then
+Development Container Configuration Files..._ in the command palette and then
 choose _Show All Definitions..._ and then search for the _Deno_ definition. This
 will setup a baseline `.devcontainer` configuration for you that will install
 the latest version of the Deno CLI in the container.
@@ -346,7 +377,7 @@ engine in vscode. You will want to check that your configuration is set properly
 and the _Deno: Enable_/`deno.enable` is true.
 
 You can also check what the Deno language server thinks is your current active
-configuration by using _Deno: Language Server Status_ from the command pallette.
+configuration by using _Deno: Language Server Status_ from the command palette.
 This will display a document from the language server with a section named
 _Workspace Configuration_. This will provide you with what vscode is reporting
 the configuration is to the language server.

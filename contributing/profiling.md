@@ -903,7 +903,7 @@ Options:
         type: bool  default: false
   --stop-sim-at (Simulator stop after x number of instructions)
         type: int  default: 0
-  --sim-stack-alignment (Stack alingment in bytes in simulator (4 or 8, 8 is default))
+  --sim-stack-alignment (Stack alignment in bytes in simulator (4 or 8, 8 is default))
         type: int  default: 8
   --sim-stack-size (Stack size of the ARM64, MIPS64 and PPC64 simulator in kBytes (default is 2 MB))
         type: int  default: 2048

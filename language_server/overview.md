@@ -21,7 +21,9 @@ methods that the client calls via the Language Server RPC protocol.
 There are several settings that the language server supports for a workspace:
 
 - `deno.enable`
+- `deno.enablePaths`
 - `deno.cache`
+- `deno.certificateStores`
 - `deno.config`
 - `deno.importMap`
 - `deno.internalDebug`
@@ -36,12 +38,15 @@ There are several settings that the language server supports for a workspace:
 - `deno.suggest.imports.autoDiscover`
 - `deno.suggest.imports.hosts`
 - `deno.lint`
+- `deno.tlsCertificate`
+- `deno.unsafelyIgnoreCertificateErrors`
 - `deno.unstable`
 
 There are settings that are supported on a per resource basis by the language
 server:
 
 - `deno.enable`
+- `deno.enablePaths`
 - `deno.codeLens.test`
 
 There are several points in the process where Deno analyzes these settings.

@@ -68,7 +68,7 @@ CLI flags:
 - `--options-indent-width` - The number of characters for an indent. Defaults
   to 2.
 
-- `--options-single-quote` - Wheter to use single quote. Defaults to false
+- `--options-single-quote` - Whether to use single quote. Defaults to false
   (using double quote).
 
 - `--options-prose-wrap={always,never,preserve}` - Define how prose should be
