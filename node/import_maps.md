@@ -44,7 +44,7 @@ But, import maps can be used to provide some of the ease of the developer
 experience if you wish to use bare specifiers. For example, if we want to do the
 following in our code:
 
-```ts ignore
+```ts, ignore
 import lodash from "lodash";
 ```
 

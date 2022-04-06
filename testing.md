@@ -290,7 +290,7 @@ The filter flags accept a string or a pattern as value.
 
 Assuming the following tests:
 
-```ts ignore
+```ts, ignore
 Deno.test({ name: "my-test", fn: myTest });
 Deno.test({ name: "test-1", fn: test1 });
 Deno.test({ name: "test2", fn: test2 });

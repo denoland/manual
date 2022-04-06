@@ -35,7 +35,7 @@ In this example the `add` and `multiply` functions are imported from a local
 
 **Command:** `deno run local.ts`
 
-```ts ignore
+```ts, ignore
 /**
  * local.ts
  */
