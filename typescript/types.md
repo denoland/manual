@@ -69,7 +69,7 @@ For example, if I had created `coolLib.js` and along side of it I had created my
 type definitions for my library in `coolLib.d.ts` I could do the following in
 the `coolLib.js` file:
 
-```js ignore
+```js, ignore
 /// <reference types="./coolLib.d.ts" />
 
 // ... the rest of the JavaScript ...

@@ -401,7 +401,7 @@ export function foo(fn) {
 This way, we can call `foo(bar)` in the application code or wrap a spy function
 around `bar` and call `foo(spy)` in the testing code:
 
-```js ignore
+```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { bar, foo } from "./my_file.js";
@@ -441,7 +441,7 @@ export function foo() {
 
 And then `import` in a test file:
 
-```js ignore
+```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo, funcs } from "./my_file.js";

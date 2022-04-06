@@ -174,7 +174,7 @@ Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let response, socket;
+  let response, socket: WebSocket;
   try {
     ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {

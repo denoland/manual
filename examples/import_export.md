@@ -19,7 +19,7 @@ It adopts browser-like module resolution, meaning that file names must be
 specified in full. You may not omit the file extension and there is no special
 handling of `index.js`.
 
-```js ignore
+```js, ignore
 import { add, multiply } from "./arithmetic.ts";
 ```
 
