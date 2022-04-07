@@ -18,7 +18,7 @@
 | `nvm` / `n` / `fnm`                    | `deno upgrade`                                 |
 | `tsserver`                             | `deno lsp`                                     |
 | `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
-| benchmarks                             | `deno bench`       |
+| benchmarks                             | `deno bench`                                   |
 
 ¹ See [Linking to external code](../linking_to_external_code.md), the runtime
 downloads and caches the code on first use.
