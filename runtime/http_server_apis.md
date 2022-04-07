@@ -41,7 +41,7 @@ To then listen on a port and handle requests you need to call the `serve`
 function from the `https://deno.land/std@$STD_VERSION/http/server.ts` module,
 passing in the handler as the first argument:
 
-```ts
+```js
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serve(handler);
@@ -50,7 +50,9 @@ serve(handler);
 By default `serve` will listen on port `8000`, but this can be changed by
 passing in a port number in the second argument options bag:
 
-```ts
+```js
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+
 // To listen on port 4242.
 serve(handler, { port: 4242 });
 ```
@@ -118,7 +120,7 @@ returns a stream of "Hello, World!" repeated every second:
 
 ```ts
 function handler(req: Request): Response {
-  let timer;
+  let timer: number;
   const body = new ReadableStream({
     async start(controller) {
       timer = setInterval(() => {
@@ -172,7 +174,7 @@ Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let response, socket;
+  let response, socket: WebSocket;
   try {
     ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {
@@ -183,7 +185,7 @@ function handler(req: Request): Response {
     console.log("socket message:", e.data);
     socket.send(new Date().toString());
   };
-  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onerror = (e) => console.log("socket errored:", e);
   socket.onclose = () => console.log("socket closed");
   return response;
 }
@@ -203,7 +205,7 @@ To use HTTPS, use `serveTls` from the
 This takes two extra arguments in the options bag: `certFile` and `keyFile`.
 These are paths to the certificate and key files, respectively.
 
-```ts
+```js
 import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serveTls(handler, {

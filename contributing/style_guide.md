@@ -97,14 +97,16 @@ When designing function interfaces, stick to the following rules.
    This allows the API to evolve in a backwards compatible way, even when the
    position of the options object changes.
 
-```ts
+```ts, ignore
 // BAD: optional parameters not part of options object. (#2)
 export function resolve(
   hostname: string,
   family?: "ipv4" | "ipv6",
   timeout?: number,
 ): IPAddress[] {}
+```
 
+```ts, ignore
 // GOOD.
 export interface ResolveOptions {
   family?: "ipv4" | "ipv6";
@@ -116,7 +118,7 @@ export function resolve(
 ): IPAddress[] {}
 ```
 
-```ts
+```ts, ignore
 export interface Environment {
   [key: string]: string;
 }
@@ -143,7 +145,9 @@ export function renameSync(
   replaceExisting?: boolean,
   followLinks?: boolean,
 ) {}
+```
 
+```ts
 // GOOD.
 interface RenameOptions {
   replaceExisting?: boolean;
@@ -160,16 +164,18 @@ export function renameSync(
 // BAD: too many arguments. (#1)
 export function pwrite(
   fd: number,
-  buffer: TypedArray,
+  buffer: ArrayBuffer,
   offset: number,
   length: number,
   position: number,
 ) {}
+```
 
+```ts
 // BETTER.
 export interface PWrite {
   fd: number;
-  buffer: TypedArray;
+  buffer: ArrayBuffer;
   offset: number;
   length: number;
   position: number;
@@ -183,7 +189,7 @@ Whenever you are using interfaces that are included in the arguments of an
 exported member, you should export the interface that is used. Here is an
 example:
 
-```ts
+```ts, ignore
 // my_file.ts
 export interface Person {
   name: string;
@@ -312,7 +318,7 @@ test myTestFunction ... ok
 
 Example of test:
 
-```ts
+```ts, ignore
 import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
 import { foo } from "./mod.ts";
 

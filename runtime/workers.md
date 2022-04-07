@@ -88,7 +88,7 @@ new worker:
 
 **main.js**
 
-```ts
+```js
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
   deno: {
@@ -100,7 +100,7 @@ worker.postMessage({ filename: "./log.txt" });
 
 **worker.js**
 
-```ts
+```ts, ignore
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);

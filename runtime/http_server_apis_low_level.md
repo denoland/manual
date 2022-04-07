@@ -301,7 +301,7 @@ function handleReq(req: Request): Response {
     console.log("socket message:", e.data);
     socket.send(new Date().toString());
   };
-  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onerror = (e) => console.log("socket errored:", e);
   socket.onclose = () => console.log("socket closed");
   return response;
 }

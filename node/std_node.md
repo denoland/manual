@@ -106,7 +106,7 @@ will also install the Node globals for you.
 
 Example usage would look like this:
 
-```ts
+```ts, ignore
 import { createRequire } from "https://deno.land/std@$STD_VERSION/node/module.ts";
 
 // import.meta.url will be the location of "this" module (like `__filename` in

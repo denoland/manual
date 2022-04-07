@@ -120,6 +120,11 @@ That's especially true when working with decimal numbers, where
 `assertStrictEquals()` may work in some cases but not in others:
 
 ```ts
+import {
+  assertStrictEquals,
+  assertThrows,
+} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Strict Equals with float numbers", () => {
   assertStrictEquals(0.25 + 0.25, 0.25);
   assertThrows(() => assertStrictEquals(0.1 + 0.2, 0.3));
@@ -132,6 +137,11 @@ close enough to be considered equals. Default tolerance is set to `1e-7` though
 it is possible to change it by passing a third optional parameter.
 
 ```ts
+import {
+  assertAlmostEquals,
+  assertThrows,
+} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Almost Equals", () => {
   assertAlmostEquals(0.1 + 0.2, 0.3);
   assertAlmostEquals(0.1 + 0.2, 0.3, 1e-16);
@@ -146,6 +156,8 @@ To check if a object is an instance of a specific constructor, you can use
 the passed in variable has a specific type:
 
 ```ts
+import { assertInstanceOf } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 Deno.test("Test Assert Instance Type", () => {
   const variable = new Date() as unknown;
 
@@ -293,7 +305,9 @@ there is always something specific to the project you can add. Creating
 `custom assertion function` can improve readability and reduce the amount of
 code.
 
-```js
+```ts
+import { AssertionError } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+
 function assertPowerOf(actual: number, expected: number, msg?: string): void {
   let received = actual;
   while (received % expected === 0) received = received / expected;

@@ -12,19 +12,19 @@ The quickest fix is to skip type checking. You can do this by using the
 Skipping type checking might not be acceptable though. You could try to load the
 Node types yourself. For example from UNPKG it would look something like this:
 
-```ts
+```ts, ignore
 import type {} from "https://unpkg.com/@types/node/index.d.ts";
 ```
 
 Or from esm.sh:
 
-```ts
+```ts, ignore
 import type {} from "https://esm.sh/@types/node/index.d.ts";
 ```
 
 Or from Skypack:
 
-```ts
+```ts, ignore
 import type {} from "https://cdn.skypack.dev/@types/node/index.d.ts";
 ```
 

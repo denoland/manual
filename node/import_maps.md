@@ -44,7 +44,7 @@ But, import maps can be used to provide some of the ease of the developer
 experience if you wish to use bare specifiers. For example, if we want to do the
 following in our code:
 
-```ts
+```ts, ignore
 import lodash from "lodash";
 ```
 
@@ -94,7 +94,7 @@ tries to import it, but we want other code we are loading to use the standard
 library replacement module for `"fs"`. We would want to create an import map
 that looked something like this:
 
-```ts
+```json
 {
   "imports": {
     "fs": "https://deno.land/std@$STD_VERSION/node/fs.ts"
