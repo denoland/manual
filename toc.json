@@ -126,13 +126,17 @@
     "name": "Continuous integration"
   },
   "vscode_deno": {
-    "name": "Using Visual Studio Code"
+    "name": "Using Visual Studio Code",
+    "children": {
+      "testing_api": "Testing API"
+    }
   },
   "language_server": {
     "name": "Language Server",
     "children": {
       "overview": "Overview of the language server",
-      "imports": "Import suggestions and intelligent registries"
+      "imports": "Import suggestions and intelligent registries",
+      "testing_api": "Testing API"
     }
   },
   "publishing": {
