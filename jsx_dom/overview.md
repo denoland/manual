@@ -47,7 +47,7 @@ syntax that looks a lot like HTML.
 
 An example of what a JSX "component" might look like:
 
-```javascript
+```jsx
 export function Greeting({ name }) {
   return (
     <div>
