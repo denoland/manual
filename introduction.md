@@ -16,8 +16,9 @@ It's built on V8, Rust, and Tokio.
 - Ships a single executable (`deno`).
 - Has built-in utilities like a code formatter (`deno fmt`), a linter
   (`deno lint`), and a test runner (`deno test`).
-- Has [a set of reviewed (audited) standard modules](https://github.com/denoland/deno_std) that are guaranteed to work
-  with Deno.
+- Has
+  [a set of reviewed (audited) standard modules](https://github.com/denoland/deno_std)
+  that are guaranteed to work with Deno.
 - Can bundle scripts into a single JavaScript file.
 
 ## Philosophy
