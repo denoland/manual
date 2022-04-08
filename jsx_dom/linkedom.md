@@ -19,8 +19,7 @@ has indicated they aren't interested in
 means for Deno, you need to use the `--no-check=remote` to avoid diagnostics
 stopping the execution of your programme.
 
-Currently, of LinkeDOM, deno-dom, and jsdom, LinkeDOM is the only library that
-can run under Deno Deploy.
+LinkedDOM runs under Deno Deploy, along with deno_dom, but jsdom does not.
 
 ### Basic example
 

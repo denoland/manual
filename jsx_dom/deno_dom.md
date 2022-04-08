@@ -9,14 +9,8 @@ Currently, deno-dom is slower than LinkeDOM for things like parsing data
 structures, but faster at some manipulation operations. Both deno-dom and
 LinkeDOM are significantly faster than jsdom.
 
-Currently deno-dom does not work under Deno Deploy. This is because deno-dom
-uses runtime dynamic code generation, which is currently not supported by Deno
-Deploy. If you require Deno Deploy support, consider using
-[LinkeDOM](./linkedom.md).
-
-So if you only require Deno CLI support and you want strict standards alignment,
-consider using deno-dom over LinkeDOM. If you require Deploy support, consider
-LinkeDOM.
+As of deno_dom v0.1.22-alpha supports running on Deno Deploy. So if you want
+strict standards alignment, consider using deno-dom over LinkeDOM.
 
 ### Basic example
 
@@ -86,3 +80,7 @@ import {
   );
 })();
 ```
+
+In addition, using the `deno-dom-native.ts` (which requires the `--allow-ffi`
+flag) will bypass the Wasm startup penalty as well as will not require the
+`init()` startup time. This would only work with the Deno CLI and not Deploy.
