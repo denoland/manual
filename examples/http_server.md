@@ -36,9 +36,7 @@ async function serveHttp(conn: Deno.Conn) {
     // The native HTTP server uses the web standard `Request` and `Response`
     // objects.
     const body = `Your user-agent is:\n\n${
-      requestEvent.request.headers.get(
-        "user-agent",
-      ) ?? "Unknown"
+      requestEvent.request.headers.get("user-agent") ?? "Unknown"
     }`;
     // The requestEvent's `.respondWith()` method is how we send the response
     // back to the client.
@@ -75,8 +73,9 @@ import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 const port = 8080;
 
 const handler = (request: Request): Response => {
-  let body = "Your user-agent is:\n\n";
-  body += request.headers.get("user-agent") || "Unknown";
+  const body = `Your user-agent is:\n\n${
+    request.headers.get("user-agent") ?? "Unknown"
+  }`;
 
   return new Response(body, { status: 200 });
 };
