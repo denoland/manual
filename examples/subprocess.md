@@ -26,7 +26,7 @@ This example is the equivalent of running `'echo hello'` from the command line.
 const command = ["echo", "hello"];
 
 // create subprocess
-const p = Deno.run({ cmd : command });
+const p = Deno.run({ cmd: command });
 
 // await its completion
 await p.status();
