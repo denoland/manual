@@ -1,5 +1,6 @@
 {
   "imports": {
-    "https://deno.land/std@$STD_VERSION/": "https://deno.land/std/"
+    "https://deno.land/std@$STD_VERSION/": "https://deno.land/std/",
+    "jsdom": "https://esm.sh/jsdom"
   }
 }
