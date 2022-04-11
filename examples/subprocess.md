@@ -23,10 +23,10 @@ This example is the equivalent of running `'echo hello'` from the command line.
  */
 
 // define command used to create the subprocess
-const cmd = ["echo", "hello"];
+const command = ["echo", "hello"];
 
 // create subprocess
-const p = Deno.run({ cmd });
+const p = Deno.run({ cmd : command });
 
 // await its completion
 await p.status();
