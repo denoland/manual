@@ -131,7 +131,7 @@ function handler(req: Request): Response {
       clearInterval(timer);
     },
   });
-  return new Response(body, {
+  return new Response(body.pipeThrough(new TextEncoderStream()), {
     headers: {
       "content-type": "text/plain; charset=utf-8",
     },
