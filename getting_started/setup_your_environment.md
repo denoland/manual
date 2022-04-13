@@ -417,6 +417,8 @@ There are several environment variables which can impact the behavior of Deno:
   then under the `deno` path.
 - `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts
   are stored. This defaults to `$HOME/.deno/bin`.
+- `DENO_FUTURE_CHECK` - Opt-in to the upcoming behavior of the `deno run`
+  subcommand that doesn't perform type-checking by default.
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
