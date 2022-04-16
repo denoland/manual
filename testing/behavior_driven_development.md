@@ -1,8 +1,9 @@
 # Behavior-driven development
 
-With the `bdd.ts` module you can write your tests in a familiar format for
-grouping tests and adding setup/teardown hooks used by other JavaScript testing
-frameworks like Jasmine, Jest, and Mocha.
+With the [bdd.ts](https://deno.land/std@$STD_VERSION/testing/bdd.ts) module you
+can write your tests in a familiar format for grouping tests and adding
+setup/teardown hooks used by other JavaScript testing frameworks like Jasmine,
+Jest, and Mocha.
 
 The `describe` function creates a block that groups together several related
 tests. The `it` function registers an individual test case.
@@ -12,8 +13,8 @@ tests. The `it` function registers an individual test case.
 There are 4 types of hooks available for test suites. A test suite can have
 multiples of each type of hook, they will be called in the order that they are
 registered. The `afterEach` and `afterAll` hooks will be called whether or not
-the test case passes. The *All hooks will be called once for the whole group
-while the *Each hooks will be called for each individual test case.
+the test case passes. The `*All` hooks will be called once for the whole group
+while the `*Each` hooks will be called for each individual test case.
 
 - `beforeAll`: Runs before all of the tests in the test suite.
 - `afterAll`: Runs after all of the tests in the test suite finish.
