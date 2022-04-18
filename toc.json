@@ -109,7 +109,9 @@
       "assertions": "Assertions",
       "coverage": "Coverage",
       "documentation": "Documentation",
-      "sanitizers": "Sanitizers"
+      "sanitizers": "Sanitizers",
+      "behavior_driven_development": "Behavior-driven development",
+      "mocking": "Mocking"
     }
   },
   "tools": {
