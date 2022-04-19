@@ -417,6 +417,8 @@ There are several environment variables which can impact the behavior of Deno:
   then under the `deno` path.
 - `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts
   are stored. This defaults to `$HOME/.deno/bin`.
+- `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
+  passing `--no-prompt` on invocation).
 - `DENO_FUTURE_CHECK` - Opt-in to the upcoming behavior of the `deno run`
   subcommand that doesn't perform type-checking by default.
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
