@@ -33,6 +33,11 @@ The assertions module provides 14 assertions:
 - `assertThrows(fn: () => void, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Error`
 - `assertRejects(fn: () => Promise<unknown>, ErrorClass?: Constructor, msgIncludes?: string | undefined, msg?: string | undefined): Promise<void>`
 
+In addition to the above assertions, the
+[snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts) also
+exposes an `assertSnapshot` function. The documentation for this module can be
+found [here](https://deno.land/manual@$STD_VERSION/testing/sanitizers).
+
 ### Assert
 
 The assert method is a simple 'truthy' assertion and can be used to assert any
