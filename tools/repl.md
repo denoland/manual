@@ -53,6 +53,51 @@ Uncaught AssertionError
     at <anonymous>:2:1
 ```
 
+## `--eval-file` flag
+
+`--eval-file` flag allows you to run code from specified files before you are
+dropped into the REPL. Like the `--eval` flag, this is useful for importing code
+you commonly use in the REPL, or modifying the runtime in some way.
+
+Files can be specified as paths or URLs. URL files are cached and can be
+reloaded via the `--reload` flag.
+
+If `--eval` is also specified, then `--eval-file` files are run before the
+`--eval` code.
+
+```
+$ deno repl --eval-file=https://examples.deno.land/hello-world.ts,https://deno.land/std@$STD_VERSION/encoding/ascii85.ts
+Download https://examples.deno.land/hello-world.ts
+Hello, World!
+Download https://deno.land/std@$STD_VERSION/encoding/ascii85.ts
+Deno 1.20.5
+exit using ctrl+d or close()
+> rfc1924 // local (not exported) variable defined in ascii85.ts
+"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&()*+-;<=>?@^_`{|}~"
+```
+
+### Relative Import Path Resolution
+
+If `--eval-file` specifies a code file that contains relative imports, then the
+runtime will try to resolve the imports relative to the current working
+directory. It will not try to resolve them relative to the code file's location.
+This can cause "Module not found" errors when `--eval-file` is used with module
+files:
+
+```
+$ deno repl --eval-file=https://deno.land/std@$STD_VERSION/hash/md5.ts
+error in --eval-file file https://deno.land/std@$STD_VERSION/hash/md5.ts. Uncaught TypeError: Module not found "file:///home/encoding/hex.ts".
+    at async <anonymous>:2:13
+Deno 1.20.5
+exit using ctrl+d or close()
+> close()
+$ deno repl --eval-file=https://deno.land/std@$STD_VERSION/encoding/hex.ts
+Download https://deno.land/std@$STD_VERSION/encoding/hex.ts
+Deno 1.20.5
+exit using ctrl+d or close()
+>
+```
+
 ## Tab completions
 
 Tab completions are crucial feature for quick navigation in REPL. After hitting
