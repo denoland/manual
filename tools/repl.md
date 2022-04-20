@@ -39,10 +39,10 @@ undefined
 
 The REPL provides a couple of special functions, that are always available:
 
-| Identifier | Description                       |
-| ---------- | --------------------------------- |
-| clear      | Clears the entire terminal screen |
-| close      | Close current REPL session        |
+| Function | Description                       |
+| -------- | --------------------------------- |
+| clear()  | Clears the entire terminal screen |
+| close()  | Close the current REPL session    |
 
 ## `--eval` flag
 
