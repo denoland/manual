@@ -92,7 +92,7 @@ Deno.bench("async hello world", async () => {
 When registering a bench case, it can be assigned to a group, using
 `Deno.BenchDefinition.group` option:
 
-```ts
+```ts, ignore
 // url_bench.ts
 Deno.bench("url parse", { group: "url" }, () => {
   new URL("https://deno.land");
@@ -106,7 +106,7 @@ In this example we'll check how performant is `Date.now()` compared to
 `performance.now()`, to do that we'll mark the first case as a "baseline" using
 `Deno.BechnDefintion.baseline` option:
 
-```ts
+```ts, ignore
 // time_bench.ts
 Deno.bench("Date.now()", { group: "timing", baseline: true }, () => {
   Date.now();
