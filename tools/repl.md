@@ -35,6 +35,15 @@ undefined
 undefined
 ```
 
+## Special functions
+
+The REPL provides several functions in the global scope:
+
+| Function | Description                       |
+| -------- | --------------------------------- |
+| clear()  | Clears the entire terminal screen |
+| close()  | Close the current REPL session    |
+
 ## `--eval` flag
 
 `--eval` flag allows you to run some code in the runtime before you are dropped
