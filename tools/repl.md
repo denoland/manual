@@ -37,7 +37,7 @@ undefined
 
 ## Special functions
 
-The REPL provides a couple of special functions, that are always available:
+The REPL provides several functions in the global scope:
 
 | Function | Description                       |
 | -------- | --------------------------------- |
