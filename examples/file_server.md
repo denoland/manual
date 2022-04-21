@@ -22,15 +22,12 @@ memory.
 **Command:** `deno run --allow-read --allow-net file_server.ts`
 
 ```ts
-import * as path from "https://deno.land/std@$STD_VERSION/path/mod.ts";
-import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
-
 // Start listening on port 8080 of localhost.
 const server = Deno.listen({ port: 8080 });
 console.log("File server running on http://localhost:8080/");
 
 for await (const conn of server) {
-  handleHttp(conn);
+  handleHttp(conn).catch(console.error);
 }
 
 async function handleHttp(conn: Deno.Conn) {
@@ -44,14 +41,6 @@ async function handleHttp(conn: Deno.Conn) {
     let file;
     try {
       file = await Deno.open("." + filepath, { read: true });
-      const stat = await file.stat();
-
-      // If File instance is a directory, lookup for an index.html
-      if (stat.isDirectory) {
-        file.close();
-        const filePath = path.join("./", filepath, "index.html");
-        file = await Deno.open(filePath, { read: true });
-      }
     } catch {
       // If the file cannot be opened, return a "404 Not Found" response
       const notFoundResponse = new Response("404 Not Found", { status: 404 });
@@ -61,7 +50,7 @@ async function handleHttp(conn: Deno.Conn) {
 
     // Build a readable stream so the file doesn't have to be fully loaded into
     // memory while we send it
-    const readableStream = readableStreamFromReader(file);
+    const readableStream = file.readable;
 
     // Build and send the response
     const response = new Response(readableStream);
