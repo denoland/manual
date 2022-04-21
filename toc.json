@@ -111,7 +111,8 @@
       "documentation": "Documentation",
       "sanitizers": "Sanitizers",
       "behavior_driven_development": "Behavior-driven development",
-      "mocking": "Mocking"
+      "mocking": "Mocking",
+      "snapshot_testing": "Snapshots"
     }
   },
   "tools": {
