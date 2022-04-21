@@ -31,7 +31,7 @@ first `await`, since messages can be lost otherwise. This is not a bug in Deno,
 it's just an unfortunate interaction of features, and it also happens in all
 browsers that support module workers.
 
-```ts
+```ts, ignore
 import { delay } from "https://deno.land/std@0.136.0/async/mod.ts";
 
 // First await: waits for a second, then continues running the module.
