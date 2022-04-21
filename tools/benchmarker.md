@@ -22,10 +22,13 @@ Secondly, run the benchmark using the `deno bench` subcommand.
 
 ```sh
 deno bench --unstable url_bench.ts
-running 1 bench from file:///dev/url_bench.ts
-bench URL parsing ... 1000 iterations 23,063 ns/iter (208..356,041 ns/iter) ok (1s)
+cpu: Apple M1 Max
+runtime: deno 1.21.0 (aarch64-apple-darwin)
 
-bench result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out (1s)
+file:///dev/deno/url_bench.ts
+benchmark        time (avg)             (min … max)       p75       p99      p995
+--------------------------------------------------- -----------------------------
+URL parsing   17.29 µs/iter  (16.67 µs … 153.62 µs)  17.25 µs  18.92 µs  22.25 µs
 ```
 
 ## Writing benchmarks
@@ -84,21 +87,53 @@ Deno.bench("async hello world", async () => {
 });
 ```
 
-### Iterations and warmup runs
+## Grouping and baselines
 
-By default, each bench does 1000 warmup runs and 1000 measures runs. The warmup
-runs are useful to allow the JavaScript engine to optimize the code using JIT
-compiler.
+When registering a bench case, it can be assigned to a group, using
+`Deno.BenchDefinition.group` option:
 
-You can customize number of iterations and warmup runs using
-`Deno.BenchDefinition.n` and `Deno.BenchDefinition.warmup` respectively:
-
-```ts
-// Do 100k warmup runs and 1 million measured runs
-Deno.bench({ warmup: 1e5, n: 1e6 }, function resolveUrl() {
-  new URL("./foo.js", import.meta.url);
+```ts, ignore
+// url_bench.ts
+Deno.bench("url parse", { group: "url" }, () => {
+  new URL("https://deno.land");
 });
 ```
+
+It is useful to assign several cases to a single group and compare how they
+perform against a "baseline" case.
+
+In this example we'll check how performant is `Date.now()` compared to
+`performance.now()`, to do that we'll mark the first case as a "baseline" using
+`Deno.BechnDefintion.baseline` option:
+
+```ts, ignore
+// time_bench.ts
+Deno.bench("Date.now()", { group: "timing", baseline: true }, () => {
+  Date.now();
+});
+
+Deno.bench("performance.now()", { group: "timing" }, () => {
+  performance.now();
+});
+```
+
+```shellsesssion
+$ deno bench --unstable time_bench.ts
+cpu: Apple M1 Max
+runtime: deno 1.21.0 (aarch64-apple-darwin)
+
+file:///dev/deno/time_bench.ts
+benchmark              time (avg)             (min … max)       p75       p99      p995
+--------------------------------------------------------- -----------------------------
+Date.now()         125.24 ns/iter (118.98 ns … 559.95 ns) 123.62 ns 150.69 ns 156.63 ns
+performance.now()    2.67 µs/iter     (2.64 µs … 2.82 µs)   2.67 µs   2.82 µs   2.82 µs
+
+summary
+  Date.now()
+   21.29x times faster than performance.now()
+```
+
+You can specify multiple groups in the same file.
 
 ## Running benchmarks
 
