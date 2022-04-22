@@ -78,7 +78,7 @@ have provided an explicit `--import-map` value in the testing args setting.
 ### Known limitations and caveats
 
 Because of the way the Deno test runner runs, it is not possible to exclude (or
-explicitly include) as as test step. While the vscode UI will allow you to do
-this, by for example, choosing to run a specific test step, all test steps in
-that test will be run (but vscode will not update the results for them). So if
-there are other side effects in the test case, they may occur.
+explicitly include) a test step. While the vscode UI will allow you to do this,
+by for example, choosing to run a specific test step, all test steps in that
+test will be run (but vscode will not update the results for them). So if there
+are other side effects in the test case, they may occur.

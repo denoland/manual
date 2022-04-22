@@ -18,8 +18,8 @@ then be accessed by using a url in the following format:
 https://deno.land/x/<module_name>@<tag_name>/<file_path>
 ```
 
-Module versions are persistent and immutable. It is thus not possible to editor
-or delete a module (or version), to prevent breaking programs that rely on this
+Module versions are persistent and immutable. It is thus not possible to edit or
+delete a module (or version), to prevent breaking programs that rely on this
 module. Modules may be removed if there is a legal reason to do so (for example
 copyright infringement).
 
