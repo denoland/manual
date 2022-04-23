@@ -36,7 +36,7 @@ The assertions module provides 14 assertions:
 In addition to the above assertions, the
 [snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts) also
 exposes an `assertSnapshot` function. The documentation for this module can be
-found [here](https://deno.land/manual@$STD_VERSION/testing/sanitizers).
+found [here](https://deno.land/manual@$STD_VERSION/testing/snapshot_testing).
 
 ### Assert
 
