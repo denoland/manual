@@ -4,7 +4,7 @@ Test spies are function stand-ins that are used to assert if a function's
 internal behavior matches expectations. Test spies on methods keep the original
 behavior but allow you to test how the method is called and what it returns.
 Test stubs are an extension of test spies that also replaces the original
-methods behavior.
+method's behavior.
 
 ## Spying
 
