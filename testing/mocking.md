@@ -4,15 +4,15 @@ Test spies are function stand-ins that are used to assert if a function's
 internal behavior matches expectations. Test spies on methods keep the original
 behavior but allow you to test how the method is called and what it returns.
 Test stubs are an extension of test spies that also replaces the original
-methods behavior.
+method's behavior.
 
 ## Spying
 
 Say we have two functions, `square` and `multiply`, if we want to assert that
 the `multiply` function is called during execution of the `square` function we
 need a way to spy on the `multiply` function. There are a few ways to achieve
-this with Spies, one is to have the `square` function take the `multiply`
-multiply as a parameter.
+this with Spies, one is to have the `square` function take the `multiply` as a
+parameter.
 
 ```ts
 // https://deno.land/std@$STD_VERSION/testing/mock_examples/parameter_injection.ts
