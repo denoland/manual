@@ -56,7 +56,7 @@ switch (Deno.build.os) {
   case "darwin":
     libSuffix = "dylib";
     break;
-  case "linux":
+  default:
     libSuffix = "so";
     break;
 }
