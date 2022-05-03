@@ -1,7 +1,7 @@
 # Introduction
 
 Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
-pronounced `dee-no`) is a JavaScript, TypeScript and Web Assembly runtime with
+pronounced `dee-no`) is a JavaScript, TypeScript, and Web Assembly runtime with
 secure defaults and a great developer experience.
 
 It's built on V8, Rust, and Tokio.
