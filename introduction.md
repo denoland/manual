@@ -15,7 +15,7 @@ It's built on V8, Rust, and Tokio.
   enabled.
 - Supports [TypeScript](./typescript/) out of the box.
 - Ships a single executable (`deno`).
-- Provides built-in development tooling like a code formatter
+- Provides built-in [development tooling](./tools) like a code formatter
   ([`deno fmt`](./tools/formatter.md)), a linter
   ([`deno lint`](./tools/linter.md)), a test runner ([`deno test`](./testing)),
   and a
