@@ -368,3 +368,29 @@ of the module:
 Maintain browser compatibility for such a module by either not using the global
 `Deno` namespace or feature-testing for it. Make sure any new dependencies are
 also browser compatible.
+
+#### Prefer `#` over `private`
+
+We prefer the private fields (`#`) syntax over `private` keyword of TypeScript
+in the standard modules codebase. The private fields make the properties and
+methods private even at runtime. On the other hand, `private` keyword of
+TypeScript guarantee it private only at compile time and the fields are publicly
+accessbile at runtime.
+
+Good:
+
+```ts
+class MyClass {
+  #foo = 1;
+  #bar() {}
+}
+```
+
+Bad:
+
+```ts
+class MyClass {
+  private foo = 1;
+  private bar() {}
+}
+```
