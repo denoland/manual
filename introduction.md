@@ -1,25 +1,30 @@
 # Introduction
 
 Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
-pronounced `dee-no`) is a JavaScript/TypeScript runtime with secure defaults and
-a great developer experience.
+pronounced `dee-no`) is a JavaScript, TypeScript, and WebAssembly runtime with
+secure defaults and a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 
 ## Feature highlights
 
-- Web compatible where possible, for example through usage of ES modules, and
-  support for `fetch`.
-- Secure by default. No file, network, or environment access (unless explicitly
-  enabled).
-- Supports TypeScript out of the box.
+- Provides [web platform functionality](./runtime/web_platform_apis.md) and
+  adopts web platform standards. For example using ES modules, web workers, and
+  support `fetch()`.
+- Secure by default. No file, network, or environment access unless explicitly
+  enabled.
+- Supports [TypeScript](./typescript/) out of the box.
 - Ships a single executable (`deno`).
-- Has built-in utilities like a code formatter (`deno fmt`), a linter
-  (`deno lint`), and a test runner (`deno test`).
+- Provides built-in [development tooling](./tools) like a code formatter
+  ([`deno fmt`](./tools/formatter.md)), a linter
+  ([`deno lint`](./tools/linter.md)), a test runner ([`deno test`](./testing)),
+  and a
+  [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
 - Has
-  [a set of reviewed (audited) standard modules](https://github.com/denoland/deno_std)
+  [a set of reviewed (audited) standard modules](https://doc.deno.land/https://deno.land/std/)
   that are guaranteed to work with Deno.
-- Can bundle scripts into a single JavaScript file.
+- Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
+  [executable](./tools/compiler.md).
 
 ## Philosophy
 
