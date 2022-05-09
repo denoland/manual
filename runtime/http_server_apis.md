@@ -9,7 +9,7 @@ tries to be simple and straightforward.
 > ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
 > flag.
 
-- [A "Hello World" server](#a-"hello-world"-server)
+- [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
 - [WebSocket support](#websocket-support)
