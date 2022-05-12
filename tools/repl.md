@@ -161,3 +161,4 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 | Meta-T                | Transpose words                                                                                  |
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
+| Ctrl-S                | Insert a new line                                                                                |
