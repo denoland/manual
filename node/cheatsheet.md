@@ -4,7 +4,7 @@
 | -------------------------------------- | ---------------------------------------------- |
 | `npm i -g`                             | `deno install`                                 |
 | `npm i` / `npm install`                | _n/a_ ¹                                        |
-| `npm run`                              | `deno run`                                     |
+| `npm run`                              | `deno task`                                    |
 | `eslint`                               | `deno lint`                                    |
 | `prettier`                             | `deno fmt`                                     |
 | `rollup` / `webpack` / etc             | `deno bundle`                                  |
