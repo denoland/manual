@@ -98,29 +98,23 @@ hello world
 
 ### Using Deno in worker
 
-> This is an unstable Deno feature. Learn more about
-> [unstable features](./stability.md).
-
-By default the `Deno` namespace is not available in worker scope.
-
-To enable the `Deno` namespace pass `deno.namespace = true` option when creating
-new worker:
+> Starting in v1.22 the `Deno` namespace is available in worker scope by
+> default. To enable the namespace in earlier versions pass
+> `deno: { namespace: true }` when creating a new worker.
 
 **main.js**
 
 ```js
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
-  deno: {
-    namespace: true,
-  },
 });
+
 worker.postMessage({ filename: "./log.txt" });
 ```
 
 **worker.js**
 
-```ts, ignore
+```js, ignore
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);
@@ -136,7 +130,7 @@ hello world
 ```
 
 ```shell
-$ deno run --allow-read --unstable main.js
+$ deno run --allow-read main.js
 hello world
 ```
 
@@ -162,7 +156,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: [
           "https://deno.land/",
@@ -188,7 +181,6 @@ the `deno.permissions` option in the worker API.
     {
       type: "module",
       deno: {
-        namespace: true,
         permissions: {
           read: [
             "/home/user/Documents/deno/worker/file_1.txt",
@@ -208,7 +200,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "inherit",
     },
   });
@@ -219,7 +210,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         env: false,
         hrtime: false,
@@ -248,7 +238,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: false,
       },
@@ -264,7 +253,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "none",
     },
   });
