@@ -58,7 +58,6 @@
       "configuration": "Configuration",
       "types": "Types and type declarations",
       "migration": "Migrating to/from JavaScript",
-      "runtime": "Runtime compiler APIs",
       "faqs": "Frequently asked questions"
     }
   },
