@@ -20,7 +20,7 @@ The assertions module provides 14 assertions:
 
 - `assert(expr: unknown, msg = ""): asserts expr`
 - `assertEquals(actual: unknown, expected: unknown, msg?: string): void`
-- `assertExists(actual: unknown,msg?: string): void`
+- `assertExists(actual: unknown, msg?: string): void`
 - `assertNotEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertStrictEquals(actual: unknown, expected: unknown, msg?: string): void`
 - `assertAlmostEquals(actual: number, expected: number, epsilon = 1e-7, msg?: string): void`
