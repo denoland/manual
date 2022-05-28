@@ -59,9 +59,9 @@ The TypeScript portion of the code base is the standard library `std`.
 
 ### Use the term "module" instead of "library" or "package".
 
-For clarity and consistency, avoid the terms "library" and "package". Instead use
-"module" to refer to a single JS or TS file and also to refer to a directory of
-TS/JS code.
+For clarity and consistency, avoid the terms "library" and "package". Instead
+use "module" to refer to a single JS or TS file and also to refer to a directory
+of TS/JS code.
 
 ### Do not use the filename `index.ts`/`index.js`.
 
@@ -185,9 +185,9 @@ export function pwrite(options: PWrite) {}
 
 ### Export all interfaces that are used as parameters to an exported member
 
-Whenever you are using interfaces that are included in the parameters or return type of an
-exported member, you should export the interface that is used. Here is an
-example:
+Whenever you are using interfaces that are included in the parameters or return
+type of an exported member, you should export the interface that is used. Here
+is an example:
 
 ```ts, ignore
 // my_file.ts
@@ -213,9 +213,9 @@ introduce circular imports.
 
 ### If a filename starts with an underscore: `_foo.ts`, do not link to it.
 
-There may be situations where an internal module is necessary but its
-API is not meant to be stable or linked to. In this case prefix it with an
-underscore. By convention, only files in its own directory should import it.
+There may be situations where an internal module is necessary but its API is not
+meant to be stable or linked to. In this case prefix it with an underscore. By
+convention, only files in its own directory should import it.
 
 ### Use JSDoc for exported symbols.
 
