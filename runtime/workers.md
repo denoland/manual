@@ -9,7 +9,7 @@ is run on a separate thread, dedicated only to that worker.
 Currently Deno supports only `module` type workers; thus it's essential to pass
 the `type: "module"` option when creating a new worker.
 
-Workers currently do not work in compiled executebles.
+Workers currently do not work in [compiled executables](../tools/compiler.md).
 
 Use of relative module specifiers in the main worker are only supported with
 `--location <href>` passed on the CLI. This is not recommended for portability.
