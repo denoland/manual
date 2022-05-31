@@ -50,69 +50,41 @@ Check out
 [this blog post](https://blog.jetbrains.com/webstorm/2020/06/deno-support-in-jetbrains-ides/)
 to learn more about how to get started with Deno.
 
-#### vim/Neovim
+#### Vim/Neovim via plugins
 
-Deno is well supported on both [vim](https://www.vim.org/) and
+Deno is well-supported on both [Vim](https://www.vim.org/) and
 [Neovim](https://neovim.io/) via
 [coc.nvim](https://github.com/neoclide/coc.nvim),
 [vim-easycomplete](https://github.com/jayli/vim-easycomplete) and
 [ALE](https://github.com/dense-analysis/ale). coc.nvim offers plugins to
 integrate to the Deno language server while ALE supports it _out of the box_.
-The
-[built-in language server](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#denols)
-in Neovim also supports Deno. The built-in language server protocol in Neovim
-also supports Deno.
 
-##### Neovim 0.6+ and nvim-lspconfig
-
-Neovim has supported Deno's language server since version 0.5, but recent
-changes to Deno mean that now [Neovim](https://neovim.io/) 0.6 or newer is
-needed.
+#### Neovim 0.6+ using the built-in language server
 
 To use the Deno language server install
 [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/) and follow the
 instructions to enable the
 [supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
-Deno's linting is not supported out of the box, but assuming you are using the
-`on_attach` helper function from the
-[basic setup example](https://github.com/neovim/nvim-lspconfig#keybindings-and-completion),
-the default of `lint = false` can be overridden as follows:
-
-```lua
-nvim_lsp.denols.setup {
-  on_attach = on_attach,
-  init_options = {
-    lint = true,
-  },
-}
-```
-
-Note that if you also have `tsserver` as an LSP client, you may run into having
-issues where both `tsserver` and `denols` are attached to your current buffer.
-To resolve this, make sure to set some unique `root_dir` for both `tsserver` and
+Note that if you also have `tsserver` as an LSP client, you may run into issues
+where both `tsserver` and `denols` are attached to your current buffer. To
+resolve this, make sure to set some unique `root_dir` for both `tsserver` and
 `denols`. Here is an example of such a configuration:
 
 ```lua
 nvim_lsp.denols.setup {
   on_attach = on_attach,
-  root_dir = nvim_lsp.util.root_pattern("deno.json"),
-  init_options = {
-    lint = true,
-  },
+  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
-  init_options = {
-    lint = true,
-  },
 }
 ```
 
-Also note here that for a Deno project, the example above assumes that there
-exists a `deno.json` file at the root of the project.
+For Deno, the example above assumes a `deno.json` or `deno.jsonc` file exists at
+the root of the project.
 
 ##### coc.nvim
 
@@ -120,7 +92,7 @@ Once you have
 [coc.nvim installed](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
 installed, you need to install the required plugin via `:CocInstall coc-deno`.
 
-Once the plugin is installed and you want to enable Deno for a workspace, run
+Once the plugin is installed, and you want to enable Deno for a workspace, run
 the command `:CocCommand deno.initializeWorkspace` and you should be able to
 utilize commands like `gd` (goto definition) and `gr` (go/find references).
 
@@ -140,8 +112,8 @@ For more information on how to setup ALE (like key bindings) refer to the
 
 Vim-EasyComplete supports Deno without any other configuration. Once you have
 [vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation),
-you need install deno via `:InstallLspServer deno` if you havn't installed deno.
-You can get more information from
+you need install deno via `:InstallLspServer deno` if you haven't installed
+deno. You can get more information from
 [official documentation](https://github.com/jayli/vim-easycomplete).
 
 #### Emacs
@@ -198,10 +170,7 @@ your `.sublime-project` configuration like the below:
   "settings": {
     "LSP": {
       "deno": {
-        "command": [
-          "deno",
-          "lsp"
-        ],
+        "command": ["deno", "lsp"],
         "initializationOptions": {
           // "config": "", // Sets the path for the config file in your project
           "enable": true,
@@ -258,9 +227,9 @@ the
 
 #### GitHub Codespaces
 
-[GitHub Codespaces](https://github.com/features/codespaces) allows you develop
-fully online or remotely on your local machine without needing to configure or
-install Deno. It is currently in early access.
+[GitHub Codespaces](https://github.com/features/codespaces) allows you to
+develop fully online or remotely on your local machine without needing to
+configure or install Deno. It is currently in early access.
 
 If a project is a Deno enabled project and contains the `.devcontainer`
 configuration as part of the repository, opening the project in GitHub
@@ -323,7 +292,7 @@ Output the completions:
 > .$profile
 ```
 
-This will be create a Powershell profile at
+This will create a Powershell profile at
 `$HOME\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`, and it
 will be run whenever you launch the PowerShell.
 
@@ -398,12 +367,12 @@ There are several environment variables which can impact the behavior of Deno:
   establishing TLS connections. The available stores are `mozilla` and `system`.
   You can specify one, both or none. The order you specify the store determines
   the order in which certificate chains will be attempted to resolved. The
-  default value is `mozilla`. The `mozilla` store will use the bundled mozilla
+  default value is `mozilla`. The `mozilla` store will use the bundled Mozilla
   certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
   `system` store will use your platforms
   [native certificate store](https://crates.io/crates/rustls-native-certs). The
-  exact set of mozilla certs will depend the version of Deno you are using. If
-  you specify no certificate stores, then no trust will be given to any TLS
+  exact set of Mozilla certs will depend on the version of Deno you are using.
+  If you specify no certificate stores, then no trust will be given to any TLS
   connection without also specifying `DENO_CERT` or `--cert` or specifying a
   specific certificate per TLS connection.
 - `DENO_CERT` - load a certificate authority from a PEM encoded file. This
