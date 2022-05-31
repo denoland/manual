@@ -66,9 +66,9 @@ To use the Deno language server install
 instructions to enable the
 [supplied Deno configuration](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#denols).
 
-Note that if you also have `tsserver` as an LSP client, you may run into
-issues where both `tsserver` and `denols` are attached to your current buffer.
-To resolve this, make sure to set some unique `root_dir` for both `tsserver` and
+Note that if you also have `tsserver` as an LSP client, you may run into issues
+where both `tsserver` and `denols` are attached to your current buffer. To
+resolve this, make sure to set some unique `root_dir` for both `tsserver` and
 `denols`. Here is an example of such a configuration:
 
 ```lua
@@ -83,7 +83,8 @@ nvim_lsp.tsserver.setup {
 }
 ```
 
-For Deno, the example above assumes a `deno.json` or `deno.jsonc` file exists at the root of the project.
+For Deno, the example above assumes a `deno.json` or `deno.jsonc` file exists at
+the root of the project.
 
 ##### coc.nvim
 
@@ -111,8 +112,8 @@ For more information on how to setup ALE (like key bindings) refer to the
 
 Vim-EasyComplete supports Deno without any other configuration. Once you have
 [vim-easycomplete installed](https://github.com/jayli/vim-easycomplete#installation),
-you need install deno via `:InstallLspServer deno` if you haven't installed deno.
-You can get more information from
+you need install deno via `:InstallLspServer deno` if you haven't installed
+deno. You can get more information from
 [official documentation](https://github.com/jayli/vim-easycomplete).
 
 #### Emacs
@@ -226,9 +227,9 @@ the
 
 #### GitHub Codespaces
 
-[GitHub Codespaces](https://github.com/features/codespaces) allows you to develop
-fully online or remotely on your local machine without needing to configure or
-install Deno. It is currently in early access.
+[GitHub Codespaces](https://github.com/features/codespaces) allows you to
+develop fully online or remotely on your local machine without needing to
+configure or install Deno. It is currently in early access.
 
 If a project is a Deno enabled project and contains the `.devcontainer`
 configuration as part of the repository, opening the project in GitHub
@@ -370,8 +371,8 @@ There are several environment variables which can impact the behavior of Deno:
   certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
   `system` store will use your platforms
   [native certificate store](https://crates.io/crates/rustls-native-certs). The
-  exact set of Mozilla certs will depend on the version of Deno you are using. If
-  you specify no certificate stores, then no trust will be given to any TLS
+  exact set of Mozilla certs will depend on the version of Deno you are using.
+  If you specify no certificate stores, then no trust will be given to any TLS
   connection without also specifying `DENO_CERT` or `--cert` or specifying a
   specific certificate per TLS connection.
 - `DENO_CERT` - load a certificate authority from a PEM encoded file. This
