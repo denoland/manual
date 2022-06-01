@@ -37,7 +37,7 @@ parentheses. Example:
 
 ## Meta-programming is discouraged. Including the use of Proxy.
 
-Be explicit even when it means more code.
+Be explicit, even when it means more code.
 
 There are some situations where it may make sense to use such techniques, but in
 the vast majority of cases it does not.
@@ -59,9 +59,9 @@ The TypeScript portion of the code base is the standard library `std`.
 
 ### Use the term "module" instead of "library" or "package".
 
-For clarity and consistency avoid the terms "library" and "package". Instead use
-"module" to refer to a single JS or TS file and also to refer to a directory of
-TS/JS code.
+For clarity and consistency, avoid the terms "library" and "package". Instead
+use "module" to refer to a single JS or TS file and also to refer to a directory
+of TS/JS code.
 
 ### Do not use the filename `index.ts`/`index.js`.
 
@@ -185,9 +185,9 @@ export function pwrite(options: PWrite) {}
 
 ### Export all interfaces that are used as parameters to an exported member
 
-Whenever you are using interfaces that are included in the arguments of an
-exported member, you should export the interface that is used. Here is an
-example:
+Whenever you are using interfaces that are included in the parameters or return
+type of an exported member, you should export the interface that is used. Here
+is an example:
 
 ```ts, ignore
 // my_file.ts
@@ -213,9 +213,9 @@ introduce circular imports.
 
 ### If a filename starts with an underscore: `_foo.ts`, do not link to it.
 
-Sometimes there may be situations where an internal module is necessary but its
-API is not meant to be stable or linked to. In this case prefix it with an
-underscore. By convention, only files in its own directory should import it.
+There may be situations where an internal module is necessary but its API is not
+meant to be stable or linked to. In this case prefix it with an underscore. By
+convention, only files in its own directory should import it.
 
 ### Use JSDoc for exported symbols.
 
@@ -231,7 +231,7 @@ export function foo() {
 }
 ```
 
-It is important that documentation is easily human readable, but there is also a
+It is important that documentation is easily human-readable, but there is also a
 need to provide additional styling information to ensure generated documentation
 is more rich text. Therefore JSDoc should generally follow markdown markup to
 enrich the text.
@@ -248,34 +248,34 @@ For example:
 Do not document function arguments unless they are non-obvious of their intent
 (though if they are non-obvious intent, the API should be considered anyways).
 Therefore `@param` should generally not be used. If `@param` is used, it should
-not include the `type` as TypeScript is already strongly typed.
+not include the `type` as TypeScript is already strongly-typed.
 
 ```ts
 /**
- * Function with non obvious param.
- * @param foo Description of non obvious parameter.
+ * Function with non-obvious param.
+ * @param foo Description of non-obvious parameter.
  */
 ```
 
-Vertical spacing should be minimized whenever possible. Therefore single line
+Vertical spacing should be minimized whenever possible. Therefore, single-line
 comments should be written as:
 
 ```ts
-/** This is a good single line JSDoc. */
+/** This is a good single-line JSDoc. */
 ```
 
 And not:
 
 ```ts
 /**
- * This is a bad single line JSDoc.
+ * This is a bad single-line JSDoc.
  */
 ```
 
 Code examples should utilize markdown format, like so:
 
 ````ts
-/** A straight forward comment and an example:
+/** A straightforward comment and an example:
  * ```ts
  * import { foo } from "deno";
  * foo("bar");
@@ -284,7 +284,7 @@ Code examples should utilize markdown format, like so:
 ````
 
 Code examples should not contain additional comments and must not be indented.
-It is already inside a comment. If it needs further comments it is not a good
+It is already inside a comment. If it needs further comments, it is not a good
 example.
 
 ### Resolve linting problems using directives
@@ -305,12 +305,12 @@ problems, but it should be used scarcely.
 
 Every module with public functionality `foo.ts` should come with a test module
 `foo_test.ts`. A test for a `std` module should go in `std/tests` due to their
-different contexts, otherwise it should just be a sibling to the tested module.
+different contexts; otherwise, it should just be a sibling to the tested module.
 
 ### Unit Tests should be explicit.
 
 For a better understanding of the tests, function should be correctly named as
-its prompted throughout the test command. Like:
+it's prompted throughout the test command. Like:
 
 ```
 test myTestFunction ... ok
@@ -327,9 +327,9 @@ Deno.test("myTestFunction", function () {
 });
 ```
 
-### Top level functions should not use arrow syntax.
+### Top-level functions should not use arrow syntax.
 
-Top level functions should use the `function` keyword. Arrow syntax should be
+Top-level functions should use the `function` keyword. Arrow syntax should be
 limited to closures.
 
 Bad:
@@ -354,15 +354,15 @@ export function foo(): string {
 
 `https://deno.land/std/` is intended to be baseline functionality that all Deno
 programs can rely on. We want to guarantee to users that this code does not
-include potentially unreviewed third party code.
+include potentially unreviewed third-party code.
 
 #### Document and maintain browser compatibility.
 
-If a module is browser compatible, include the following in the JSDoc at the top
+If a module is browser-compatible, include the following in the JSDoc at the top
 of the module:
 
 ```ts
-// This module is browser compatible.
+// This module is browser-compatible.
 ```
 
 Maintain browser compatibility for such a module by either not using the global
@@ -375,7 +375,7 @@ We prefer the private fields (`#`) syntax over `private` keyword of TypeScript
 in the standard modules codebase. The private fields make the properties and
 methods private even at runtime. On the other hand, `private` keyword of
 TypeScript guarantee it private only at compile time and the fields are publicly
-accessbile at runtime.
+accessible at runtime.
 
 Good:
 
