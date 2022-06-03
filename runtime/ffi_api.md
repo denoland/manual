@@ -38,7 +38,7 @@ And compile it:
 cc -c -o add.o add.c
 cc -shared -W -o libadd.so add.o
 // Windows
-cl /LD add.c /link /EXPORT:libadd
+cl /LD add.c /link /EXPORT:add
 ```
 
 Calling the library from Deno:
