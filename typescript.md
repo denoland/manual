@@ -6,5 +6,4 @@ In this chapter we will discuss:
 - [Configuring TypeScript in Deno](./typescript/configuration.md)
 - [Types and Type Declarations](./typescript/types.md)
 - [Migrating to/from JavaScript](./typescript/migration.md)
-- [Runtime compiler APIs](./typescript/runtime.md)
 - [FAQs about TypeScript in Deno](./typescript/faqs.md)
