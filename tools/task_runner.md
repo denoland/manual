@@ -62,6 +62,8 @@ deno task --cwd project1 wasmbuild
 cd project2 && deno task --cwd . wasmbuild
 ```
 
+Note: Be sure to provide this flag _before_ the task name.
+
 ## Syntax
 
 `deno task` uses a cross platform shell that's a subset of sh/bash to execute
