@@ -136,7 +136,7 @@ $ deno run --allow-read main.js
 hello world
 ```
 
-> Starting in v1.23 the `Deno.exit()` API no longer exits the process with the
+> Starting in v1.23 `Deno.exit()` no longer exits the process with the
 > provided exit code, but intead is an alias to `self.close()`, which causes the
 > worker to shutdown, but keeps the program alive. This better aligns with the
 > Web platform, as there's no way in the browser for a worker to close the page
