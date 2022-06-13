@@ -139,7 +139,7 @@ hello world
 > Starting in v1.23 `Deno.exit()` no longer exits the process with the
 > provided exit code. Instead is an alias to `self.close()`, which causes only the
 > worker to shutdown. This better aligns with the
-> Web platform, as there's no way in the browser for a worker to close the page
+> Web platform, as there is no way in the browser for a worker to close the page.
 > it was started on.
 
 ### Specifying worker permissions
