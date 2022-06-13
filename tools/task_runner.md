@@ -56,14 +56,14 @@ code of the initial command. They separate commands using the `&&` and `||`
 operators.
 
 The `&&` operator provides a way to execute a command and if it _succeeds_ (has
-an exit code of `0`) it will execute a second command:
+an exit code of `0`) it will execute the next command:
 
 ```sh
 deno run --allow-read=. --allow-write=. collect.ts && deno run --allow-read=. analyze.ts
 ```
 
 The `||` operator is the opposite. It provides a way to execute a command and
-only if it _fails_ (has a non-zero exit code) it will execute a second command:
+only if it _fails_ (has a non-zero exit code) it will execute the next command:
 
 ```sh
 deno run --allow-read=. --allow-write=. collect.ts || deno run play_sad_music.ts
@@ -123,7 +123,7 @@ To specify environment variable(s) before a command, list them like so:
 VAR=hello VAR2=bye deno run main.ts
 ```
 
-This will export those environment variable specifically for the following
+This will use those environment variables specifically for the following
 command.
 
 ### Shell variables
@@ -154,8 +154,7 @@ available in any spawned processes.
 
 ### Pipelines
 
-Pipelines provide a way to pipe the output of one command to another. Currently
-only piping stdout is supported.
+Pipelines provide a way to pipe the output of one command to another.
 
 The following command pipes the stdout output "Hello" to the stdin of the
 spawned Deno process:
@@ -197,10 +196,47 @@ To negate the exit code, add an exclamation point and space before a command:
 ! deno eval 'Deno.exit(1);'
 ```
 
+### Redirects
+
+Redirects provide a way to pipe stdout or stderr to a file.
+
+For example, the following redirects _stdout_ of `deno run main.ts` to a file
+called `file.txt` on the file system:
+
+```sh
+deno run main.ts > file.txt
+```
+
+To instead redirect _stderr_, use `2>`:
+
+```sh
+deno run main.ts 2> file.txt
+```
+
+To redirect both stdout _and_ stderr, use `&>`:
+
+```sh
+deno run main.ts &> file.txt
+```
+
+Suppressing either stdout, stderr, or both of a command is possible by
+redirecting to `/dev/null`. This works in a cross platform way including on
+Windows.
+
+```sh
+# suppress stdout
+deno run main.ts > /dev/null
+# suppress stderr
+deno run main.ts 2> /dev/null
+# suppress both stdout and stderr
+deno run main.ts &> /dev/null
+```
+
+Note that redirecting input and multiple redirects are currently not supported.
+
 ### Future syntax
 
 We are planning to support
-[redirects](https://github.com/denoland/deno_task_shell/issues/5) and
 [glob expansion](https://github.com/denoland/deno_task_shell/issues/6) in the
 future.
 
@@ -227,8 +263,13 @@ box on Windows, Mac, and Linux.
     second
 - [`echo`](https://man7.org/linux/man-pages/man1/echo.1.html) - Displays a line
   of text.
+- [`cat`](https://man7.org/linux/man-pages/man1/cat.1.html) - Concatenates files
+  and outputs them on stdout. When no arguments are provided it reads and
+  outputs stdin.
 - [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the
   shell to exit.
+- [`xargs`](https://man7.org/linux/man-pages/man1/xargs.1p.html) - Builds
+  arguments from stdin and executes a command.
 
 If you find a useful flag missing on a command or have any suggestions for
 additional commands that should be supported out of the box, then please
