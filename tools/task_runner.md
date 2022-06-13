@@ -47,10 +47,10 @@ deno task data
 ## Specifying the current working directory
 
 By default, `deno task` executes commands with the directory of the Deno
-configuration file (_deno.json_) as the current working directory. This allows
-tasks to use relative paths and continue to work regardless of where in the
-directory tree you happen to execute the deno task from. In some scenarios, this
-may not be desired and this behavior can be overridden by providing a
+configuration file (ex. _deno.json_) as the current working directory. This
+allows tasks to use relative paths and continue to work regardless of where in
+the directory tree you happen to execute the deno task from. In some scenarios,
+this may not be desired and this behavior can be overridden by providing a
 `--cwd <path>` flag.
 
 For example, given a task called `wasmbuild` in a _deno.json_ file:
