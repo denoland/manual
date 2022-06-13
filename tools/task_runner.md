@@ -56,7 +56,7 @@ this may not be desired and this behavior can be overridden by providing a
 For example, given a task called `wasmbuild` in a _deno.json_ file:
 
 ```sh
-# use the sub directory (project1) as the cwd for the task
+# use the sub directory project1 as the cwd for the task
 deno task --cwd project1 wasmbuild
 # use the cwd (project2) as the cwd for the task
 cd project2 && deno task --cwd . wasmbuild
