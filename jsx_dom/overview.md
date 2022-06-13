@@ -60,7 +60,7 @@ export function Greeting({ name }) {
 The main challenge with JSX is that it isn't JavaScript nor is it HTML. It
 requires transpiling to pure JavaScript before it can be used in a browser,
 which then has to process that logic to manipulate the DOM in the browser. This
-is provably less efficient than having a browser render static HTML.
+is probably less efficient than having a browser render static HTML.
 
 This is where Deno can play a role. Deno supports JSX in both `.jsx` and `.tsx`
 modules and combined with a JSX runtime, Deno can be used to dynamically
