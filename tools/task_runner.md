@@ -218,7 +218,7 @@ To negate the exit code, add an exclamation point and space before a command:
 
 ### Redirects
 
-Redirects provide a way to pipe stdout or stderr to a file.
+Redirects provide a way to pipe stdout and/or stderr to a file.
 
 For example, the following redirects _stdout_ of `deno run main.ts` to a file
 called `file.txt` on the file system:
@@ -237,6 +237,13 @@ To redirect both stdout _and_ stderr, use `&>`:
 
 ```sh
 deno run main.ts &> file.txt
+```
+
+To append to a file, instead of overwriting an existing one, use two right angle
+brackets instead of one:
+
+```sh
+deno run main.ts >> file.txt
 ```
 
 Suppressing either stdout, stderr, or both of a command is possible by
