@@ -217,7 +217,7 @@ serveTls(handler, {
 
 ### HTTP/2 support
 
-HTTP/2 support it "automatic" when using the _native_ APIs with Deno. You just
+HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
 need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
 seamlessly.
 
