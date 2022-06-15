@@ -1,6 +1,6 @@
 # Handle OS Signals
 
-> ⚠️ Handling OS signals is currently not available on Windows.
+> ⚠️ Windows only supports listening for SIGINT and SIGBREAK as of Deno v1.23.
 
 ## Concepts
 
