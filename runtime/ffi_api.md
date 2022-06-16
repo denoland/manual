@@ -134,28 +134,106 @@ Before
 After
 ```
 
+### Callbacks
+
+Deno FFI API supports creating C callbacks from JavaScript functions for calling
+back into Deno from dynamic libraries. An example of how callbacks are created
+and used is as follows:
+
+```typescript
+// callback_ffi.ts
+const STATUS_CALLBACK_DEFINITION = {
+  parameters: ["u8"],
+  result: "void",
+} as const;
+const library = Deno.dlopen(
+  "./callback.so",
+  {
+    set_status_callback: {
+      parameters: [{ function: STATUS_CALLBACK_DEFINITION }],
+      result: "void",
+    },
+    start_long_operation: {
+      parameters: [],
+      result: "void",
+    },
+    check_status: {
+      parameters: [],
+      result: "void",
+    },
+  } as const,
+);
+
+const callback = new Deno.UnsafeCallback(
+  STATUS_CALLBACK_DEFINITION,
+  (success: number) => {},
+);
+
+// Pass the callback to dynamic library
+library.symbols.set_status_callback(callback);
+// Start some long operation that does not block the thread
+library.symbols.start_long_operation();
+
+// Later, trigger the library to check if the operation is done.
+// If it is, this call will trigger the callback.
+library.symbols.check_status();
+```
+
+If an `UnsafeCallback`'s callback function throws an error, the error will get
+propagated up to the function that triggered the callback to be called (above it
+would be `check_status()`) and can be caught there. If a callback returning a
+pointer throws then Deno will set the return value to a nullptr. Other return
+types are not touched on throw and are thus returned in an undefined state after
+the callback throws.
+
+`UnsafeCallback` is not deallocated by default as it can cause use-after-free
+bugs. To properly dispose of an `UnsafeCallback` its `close()` method must be
+called.
+
+```typescript
+const callback = new Deno.UnsafeCallback(
+  { parameters: [], result: "void" } as const,
+  () => {},
+);
+
+// After callback is no longer needed
+callback.close();
+// It is no longer safe to pass the callback as a parameter.
+```
+
+It is also possible for native libraries to setup interrupt handlers and to have
+those directly trigger the callback. However, this is not recommended and may
+cause unexpected side-effects and undefined behaviour. Preferably any interrupt
+handlers would only set a flag that can later be polled similarly to how
+`check_status()` is used above.
+
 ### Supported types
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type     | C                        | Rust        |
-| ------------ | ------------------------ | ----------- |
-| `i8`         | `char` / `signed char`   | `i8`        |
-| `u8`         | `unsigned char`          | `u8`        |
-| `i16`        | `short int`              | `i16`       |
-| `u16`        | `unsigned short int`     | `u16`       |
-| `i32`        | `int` / `signed int`     | `i32`       |
-| `u32`        | `unsigned int`           | `u32`       |
-| `i64`        | `long long int`          | `i64`       |
-| `u64`        | `unsigned long long int` | `u64`       |
-| `usize`      | `size_t`                 | `usize`     |
-| `f32`        | `float`                  | `f32`       |
-| `f64`        | `double`                 | `f64`       |
-| `void`       | `void`                   | `()`        |
-| `pointer`[1] | `const uint8_t *`        | `*const u8` |
+| FFI Type      | Deno        | C                      | Rust                     |
+| ------------- | ----------- | ---------------------- | ------------------------ |
+| `i8`          | `number`    | `char` / `signed char` | `i8`                     |
+| `u8`          | `number`    | `unsigned char`        | `u8`                     |
+| `i16`         | `number`    | `short int`            | `i16`                    |
+| `u16`         | `number`    | `unsigned short int`   | `u16`                    |
+| `i32`         | `number`    | `int` / `signed int`   | `i32`                    |
+| `u32`         | `number`    | `unsigned int`         | `u32`                    |
+| `i64`         | `number     | bigint`                | `long long int`          |
+| `u64`         | `number     | bigint`                | `unsigned long long int` |
+| `usize`       | `number     | bigint`                | `size_t`                 |
+| `f32`         | `number     | bigint`                | `float`                  |
+| `f64`         | `number     | bigint`                | `double`                 |
+| `void`[1]     | `undefined` | `void`                 | `()`                     |
+| `pointer`[2]  | `bigint     | TypedArray`            | `const uint8_t *`        |
+| `function`[3] | `bigint`    | `void (*fun)()`        | `fn()`                   |
 
-- [1] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
+- [1] `void` type can only be used as a result type.
+- [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
   it always returns the latter when used as result type.
+- [3] `function` type parameters and return types are defined using objects, and
+  are passed in as parameters and returned as result types as BigInt pointer
+  values.
 
 ### deno_bindgen
 
