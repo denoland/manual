@@ -7,12 +7,6 @@ There are usually two or three patch releases (done weekly) after a minor
 releases; after that a merge window for new features opens for the upcoming
 minor release.
 
-The release dates for the upcoming minor releases are:
-
-- 1.20.0: March 16, 2022
-- 1.21.0: April 20, 2022
-- 1.22.0: May 19, 2022
-
 Stable releases can be found on the
 [GitHub releases page](https://github.com/denoland/deno/releases).
 
