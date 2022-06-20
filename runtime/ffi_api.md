@@ -154,8 +154,8 @@ Here's a list of types supported currently by the Deno FFI API.
 | `void`       | `void`                   | `()`        |
 | `pointer`[1] | `const uint8_t *`        | `*const u8` |
 
-- [1] `pointer` type accepts both Typed Arrays and `Deno.UnsafePointer` as
-  parameter, while it always returns the latter when used as result type.
+- [1] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
+  it always returns the latter when used as result type.
 
 ### deno_bindgen
 
