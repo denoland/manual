@@ -169,8 +169,8 @@ const callback = new Deno.UnsafeCallback(
   (success: number) => {},
 );
 
-// Pass the callback to dynamic library
-library.symbols.set_status_callback(callback);
+// Pass the callback pointer to dynamic library
+library.symbols.set_status_callback(callback.value);
 // Start some long operation that does not block the thread
 library.symbols.start_long_operation();
 
