@@ -3,6 +3,9 @@
 A new minor release for the `deno` cli is released every month, on the third
 Thursday of the month.
 
+See [Milestones on Deno's GitHub](https://github.com/denoland/deno/milestones)
+for the upcoming releases.
+
 There are usually two or three patch releases (done weekly) after a minor
 releases; after that a merge window for new features opens for the upcoming
 minor release.
