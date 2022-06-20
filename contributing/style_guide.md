@@ -396,8 +396,10 @@ class MyClass {
 ```
 
 #### Naming convention
-Always use camel or pascal case.
-Some Web APIs use uppercase acronyms (`JSON`, `URL`, `URL.createObjectURL()` etc.). Deno does not follow this convention and also uses camel or pascal case.
+
+Always use camel or pascal case. Some Web APIs use uppercase acronyms (`JSON`,
+`URL`, `URL.createObjectURL()` etc.). Deno does not follow this convention and
+also uses camel or pascal case.
 
 Good:
 
@@ -417,7 +419,7 @@ Good:
 
 ```ts
 function convertUrl(url: URL) {
-   return url.href
+  return url.href;
 }
 ```
 
@@ -425,7 +427,6 @@ Bad:
 
 ```ts
 function convertURL(url: URL) {
-   return url.href
+  return url.href;
 }
 ```
-
