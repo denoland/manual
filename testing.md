@@ -293,7 +293,7 @@ Assuming the following tests:
 ```ts, ignore
 Deno.test({ name: "my-test", fn: myTest });
 Deno.test({ name: "test-1", fn: test1 });
-Deno.test({ name: "test2", fn: test2 });
+Deno.test({ name: "test-2", fn: test2 });
 ```
 
 This command will run all of these tests because they all contain the word
