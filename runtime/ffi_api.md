@@ -63,9 +63,12 @@ switch (Deno.build.os) {
 
 const libName = `./libadd.${libSuffix}`;
 // Open library and define exported symbols
-const dylib = Deno.dlopen(libName, {
-  "add": { parameters: ["isize", "isize"], result: "isize" },
-});
+const dylib = Deno.dlopen(
+  libName,
+  {
+    "add": { parameters: ["isize", "isize"], result: "isize" },
+  } as const,
+);
 
 // Call the symbol `add`
 const result = dylib.symbols.add(35, 34); // 69
@@ -114,13 +117,16 @@ Calling it from Deno:
 
 ```typescript
 // nonblocking_ffi.ts
-const library = Deno.dlopen("./sleep.so", {
-  sleep: {
-    parameters: ["usize"],
-    result: "void",
-    nonblocking: true,
-  },
-});
+const library = Deno.dlopen(
+  "./sleep.so",
+  {
+    sleep: {
+      parameters: ["usize"],
+      result: "void",
+      nonblocking: true,
+    },
+  } as const,
+);
 
 library.symbols.sleep(500).then(() => console.log("After"));
 console.log("Before");
@@ -169,7 +175,7 @@ const callback = new Deno.UnsafeCallback(
 );
 
 // Pass the callback pointer to dynamic library
-library.symbols.set_status_callback(callback.value);
+library.symbols.set_status_callback(callback.pointer);
 // Start some long operation that does not block the thread
 library.symbols.start_long_operation();
 
