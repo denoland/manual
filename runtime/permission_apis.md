@@ -135,18 +135,22 @@ console.log(await Deno.permissions.revoke(desc));
 // PermissionStatus { state: "prompt" }
 ```
 
-However, what happens when you try to revoke a permission which is _partial_ to
-one granted on the CLI?
+What happens when you try to revoke a permission which is _partial_ to one
+granted on the CLI?
 
 ```ts
 // deno run --allow-read=/foo main.ts
 
 const desc = { name: "read", path: "/foo/bar" } as const;
 console.log(await Deno.permissions.revoke(desc));
-// PermissionStatus { state: "granted" }
+// PermissionStatus { state: "prompt" }
+const cliDesc = { name: "read", path: "/foo" } as const;
+console.log(await Deno.permissions.revoke(cliDesc));
+// PermissionStatus { state: "prompt" }
 ```
 
-It was not revoked.
+The CLI-granted permission, which implies the revoked permission, was also
+revoked.
 
 To understand this behaviour, imagine that Deno stores an internal set of
 _explicitly granted permission descriptors_. Specifying `--allow-read=/foo,/bar`
@@ -171,20 +175,10 @@ to:
 ```
 
 Deno's permission revocation algorithm works by removing every element from this
-set which the argument permission descriptor is _stronger than_. So to ensure
-`desc` is no longer granted, pass an argument descriptor _stronger than_
-whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
+set which is _stronger than_ the argument permission descriptor.
 
-```ts
-// deno run --allow-read=/foo main.ts
-
-const desc = { name: "read", path: "/foo/bar" } as const;
-console.log(await Deno.permissions.revoke(desc)); // Insufficient.
-// PermissionStatus { state: "granted" }
-
-const strongDesc = { name: "read", path: "/foo" } as const;
-await Deno.permissions.revoke(strongDesc); // Good.
-
-console.log(await Deno.permissions.query(desc));
-// PermissionStatus { state: "prompt" }
-```
+Deno does not allow "fragmented" permission states, where some strong permission
+is granted with exclusions of weak permissions implied by it. Such a system
+would prove increasingly complex and unpredictable as you factor in a wider
+variety of use cases and the `"denied"` state. This is a calculated trade-off of
+granularity for security.
