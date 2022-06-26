@@ -142,15 +142,11 @@ and used is as follows:
 
 ```typescript
 // callback_ffi.ts
-const STATUS_CALLBACK_DEFINITION = {
-  parameters: ["u8"],
-  result: "void",
-} as const;
 const library = Deno.dlopen(
   "./callback.so",
   {
     set_status_callback: {
-      parameters: [{ function: STATUS_CALLBACK_DEFINITION }],
+      parameters: ["function"],
       result: "void",
     },
     start_long_operation: {
@@ -165,7 +161,10 @@ const library = Deno.dlopen(
 );
 
 const callback = new Deno.UnsafeCallback(
-  STATUS_CALLBACK_DEFINITION,
+  {
+    parameters: ["u8"],
+    result: "void",
+  } as const,
   (success: number) => {},
 );
 
