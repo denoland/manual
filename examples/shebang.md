@@ -1,4 +1,4 @@
-# Using #!Shebang to make scripts executable
+# Making scripts executable with #!Shebang
 
 ## Concepts
 
