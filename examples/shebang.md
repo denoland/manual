@@ -15,16 +15,16 @@ small tools.
 In this program we give the context permission to access the environment
 variables and print the Deno installation path.
 
-```typescript
+```javascript
 #!/usr/bin/env -S deno run --allow-env
 
 /**
- *  Shebang.ts
+ *  shebang.ts
  */
 
-const deno_path = Deno.env.get("DENO_INSTALL");
+const path = Deno.env.get("DENO_INSTALL");
 
-console.log("Deno Install Path:", deno_path);
+console.log("Deno Install Path:", path);
 ```
 
 ### Permissions
@@ -34,7 +34,7 @@ You may require to give the script execution permissions.
 #### Linux
 
 ```shell
-sudo chmod +x Shebang.ts
+sudo chmod +x shebang.ts
 ```
 
 ### Execute
@@ -42,7 +42,7 @@ sudo chmod +x Shebang.ts
 Start the script by calling it like any other command:
 
 ```shell
-./Shebang.ts
+./shebang.ts
 ```
 
 ## Details
