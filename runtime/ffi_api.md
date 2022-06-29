@@ -224,14 +224,14 @@ Here's a list of types supported currently by the Deno FFI API.
 | `u16`         | `number`    | `unsigned short int`   | `u16`                    |
 | `i32`         | `number`    | `int` / `signed int`   | `i32`                    |
 | `u32`         | `number`    | `unsigned int`         | `u32`                    |
-| `i64`         | `number     | bigint`                | `long long int`          |
-| `u64`         | `number     | bigint`                | `unsigned long long int` |
-| `usize`       | `number     | bigint`                | `size_t`                 |
-| `f32`         | `number     | bigint`                | `float`                  |
-| `f64`         | `number     | bigint`                | `double`                 |
+| `i64`         | <code>number &#124; bigint</code> | `long long int`          | `i64` |
+| `u64`         | <code>number &#124; bigint</code> | `unsigned long long int` | `u64` |
+| `usize`       | <code>number &#124; bigint</code> | `size_t`                 | `usize` |
+| `f32`         | <code>number &#124; bigint</code> | `float`                  | `f32` |
+| `f64`         | <code>number &#124; bigint</code> | `double`                 | `f64` |
 | `void`[1]     | `undefined` | `void`                 | `()`                     |
-| `pointer`[2]  | `bigint     | TypedArray`            | `const uint8_t *`        |
-| `function`[3] | `bigint`    | `void (*fun)()`        | `fn()`                   |
+| `pointer`[2]  | <code>bigint &#124; TypedArray</code> | `const uint8_t *`       | `*const u8` |
+| `function`[3] | `bigint`    | `void (*fun)()`        | `&fn()`                  |
 
 - [1] `void` type can only be used as a result type.
 - [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
