@@ -216,22 +216,22 @@ handlers would only set a flag that can later be polled similarly to how
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type      | Deno        | C                      | Rust                     |
-| ------------- | ----------- | ---------------------- | ------------------------ |
-| `i8`          | `number`    | `char` / `signed char` | `i8`                     |
-| `u8`          | `number`    | `unsigned char`        | `u8`                     |
-| `i16`         | `number`    | `short int`            | `i16`                    |
-| `u16`         | `number`    | `unsigned short int`   | `u16`                    |
-| `i32`         | `number`    | `int` / `signed int`   | `i32`                    |
-| `u32`         | `number`    | `unsigned int`         | `u32`                    |
-| `i64`         | <code>number &#124; bigint</code> | `long long int`          | `i64` |
-| `u64`         | <code>number &#124; bigint</code> | `unsigned long long int` | `u64` |
-| `usize`       | <code>number &#124; bigint</code> | `size_t`                 | `usize` |
-| `f32`         | <code>number &#124; bigint</code> | `float`                  | `f32` |
-| `f64`         | <code>number &#124; bigint</code> | `double`                 | `f64` |
-| `void`[1]     | `undefined` | `void`                 | `()`                     |
-| `pointer`[2]  | <code>bigint &#124; TypedArray</code> | `const uint8_t *`       | `*const u8` |
-| `function`[3] | `bigint`    | `void (*fun)()`        | `&fn()`                  |
+| FFI Type      | Deno                                  | C                        | Rust                      |
+| ------------- | ------------------------------------- | ------------------------ | ------------------------- |
+| `i8`          | `number`                              | `char` / `signed char`   | `i8`                      |
+| `u8`          | `number`                              | `unsigned char`          | `u8`                      |
+| `i16`         | `number`                              | `short int`              | `i16`                     |
+| `u16`         | `number`                              | `unsigned short int`     | `u16`                     |
+| `i32`         | `number`                              | `int` / `signed int`     | `i32`                     |
+| `u32`         | `number`                              | `unsigned int`           | `u32`                     |
+| `i64`         | `number \| bigint`                    | `long long int`          | `i64`                     |
+| `u64`         | `number \| bigint`                    | `unsigned long long int` | `u64`                     |
+| `usize`       | `number \| bigint`                    | `size_t`                 | `usize`                   |
+| `f32`         | `number \| bigint`                    | `float`                  | `f32`                     |
+| `f64`         | `number \| bigint`                    | `double`                 | `f64`                     |
+| `void`[1]     | `undefined`                           | `void`                   | `()`                      |
+| `pointer`[2]  | `bigint \| TypedArray`                | `const uint8_t *`        | `*const u8`               |
+| `function`[3] | `bigint`                              | `void (*fun)()`          | `Option<extern "C" fn()>` |
 
 - [1] `void` type can only be used as a result type.
 - [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
