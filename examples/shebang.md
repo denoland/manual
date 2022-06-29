@@ -15,7 +15,7 @@ small tools.
 In this program we give the context permission to access the environment
 variables and print the Deno installation path.
 
-```javascript
+```typescript , ignore
 #!/usr/bin/env -S deno run --allow-env
 
 /**
