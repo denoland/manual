@@ -10,6 +10,7 @@ more about the runtime.
 - [Manage dependencies](./examples/manage_dependencies.md)
 - [Fetch data](./examples/fetch_data.md)
 - [Read and write files](./examples/read_write_files.md)
+- [Shebang](./examples/shebang.md)
 
 ## Advanced
 
