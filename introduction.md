@@ -21,7 +21,7 @@ It's built on V8, Rust, and Tokio.
   and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
 - Has
-  [a set of reviewed (audited) standard modules](https://doc.deno.land/https://deno.land/std/)
+  [a set of reviewed (audited) standard modules](https://deno.land/std/)
   that are guaranteed to work with Deno.
 - Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
   [executable](./tools/compiler.md).
