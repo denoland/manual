@@ -241,8 +241,7 @@ error message, which includes the diff for failed snapshots.
 
 You can configure default options for `assertSnapshot`.
 
-```ts
-// @ts-nocheck
+```ts, ignore
 // example_test.ts
 import { createAssertSnapshot } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
 
@@ -259,8 +258,7 @@ over the default options, where the value provded for an option differs.
 It is possible to "extend" an `assertSnapshot` function which has been
 configured with default options.
 
-```ts
-// @ts-nocheck
+```ts, ignore
 // example_test.ts
 import { createAssertSnapshot } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
 import { stripColor } from "https://deno.land/std@$STD_VERSION/fmt/colors.ts";
