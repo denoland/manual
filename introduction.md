@@ -33,7 +33,7 @@ programmer.
 
 Deno will always be distributed as a single executable. Given a URL to a Deno
 program, it is runnable with nothing more than
-[the ~25 megabyte zipped executable](https://github.com/denoland/deno/releases).
+[the zipped executable](https://github.com/denoland/deno/releases).
 Deno explicitly takes on the role of both runtime and package manager. It uses a
 standard browser-compatible protocol for loading modules: URLs.
 
