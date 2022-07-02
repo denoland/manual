@@ -21,12 +21,22 @@ jobs:
 
   type-check:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.canary }}
+    strategy:
+      matrix:
+        deno-version: [ v1.x ]
+        canary: [ false ]
+        include:
+          - deno-version: canary
+            canary: true
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
+        with:
+          deno-version: ${{ matrix.deno-version }}
         
       - name: Type-check Deno manual
         run: deno test --doc --unstable --import-map=.github/import_map.json --no-check=remote
