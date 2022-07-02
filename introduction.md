@@ -8,22 +8,22 @@ It's built on V8, Rust, and Tokio.
 
 ## Feature highlights
 
-- Provides [web platform functionality](./runtime/web_platform_apis.md) and
+- Provides [web platform functionality](./manual/runtime/web_platform_apis) and
   adopts web platform standards. For example using ES modules, web workers, and
   support `fetch()`.
 - Secure by default. No file, network, or environment access unless explicitly
   enabled.
-- Supports [TypeScript](./typescript/) out of the box.
+- Supports [TypeScript](./manual/typescript/) out of the box.
 - Ships a single executable (`deno`).
-- Provides built-in [development tooling](./tools) like a code formatter
-  ([`deno fmt`](./tools/formatter.md)), a linter
-  ([`deno lint`](./tools/linter.md)), a test runner ([`deno test`](./testing)),
-  and a
-  [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
+- Provides built-in [development tooling](./manual/tools) like a code formatter
+  ([`deno fmt`](./manual/tools/formatter)), a linter
+  ([`deno lint`](./manual/tools/linter)), a test runner
+  ([`deno test`](./manual/testing)), and a
+  [language server for your editor](./manual/getting_started/setup_your_environment#using-an-editoride).
 - Has [a set of reviewed (audited) standard modules](https://deno.land/std/)
   that are guaranteed to work with Deno.
-- Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
-  [executable](./tools/compiler.md).
+- Can [bundle](./manual/tools/bundler) scripts into a single JavaScript file or
+  [executable](./manual/tools/compiler).
 
 ## Philosophy
 
