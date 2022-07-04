@@ -31,6 +31,7 @@ file is planned for the upcoming releases.
     "lib": ["deno.window"],
     "strict": true
   },
+  "importMap": "import_map.json",
   "lint": {
     "files": {
       "include": ["src/"],
