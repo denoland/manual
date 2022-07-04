@@ -147,13 +147,18 @@ You can type-check your code (without executing it) using the command:
 > deno check main.ts
 ```
 
-You can also type-check your code before execution by using the `--check` argument to deno run:
+You can also type-check your code before execution by using the `--check`
+argument to deno run:
 
 ```shell
 > deno run --check main.ts
 ```
 
-This flag affects `deno run`, `deno eval`, `deno repl` and `deno cache`. The following table describes the type-checking behavior of various subcommands. Here "Local" means that only errors from local code will induce type-errors, modules imported from https URLs (remote) may have type errors that are not reported. (To turn on type-checking for all modules, use `--check=all`.)
+This flag affects `deno run`, `deno eval`, `deno repl` and `deno cache`. The
+following table describes the type-checking behavior of various subcommands.
+Here "Local" means that only errors from local code will induce type-errors,
+modules imported from https URLs (remote) may have type errors that are not
+reported. (To turn on type-checking for all modules, use `--check=all`.)
 
 | Subcommand     | Type checking mode |
 | -------------- | ------------------ |
