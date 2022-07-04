@@ -237,6 +237,54 @@ the suffix will be incremented as normal. i.e. `Test Name 1`, `Test Name 2`,
 Allows setting a custom error message to use. This will overwrite the default
 error message, which includes the diff for failed snapshots.
 
+#### Default Options
+
+You can configure default options for `assertSnapshot`.
+
+```ts, ignore
+// example_test.ts
+import { createAssertSnapshot } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
+
+const assertSnapshot = createAssertSnapshot({
+  // options
+});
+```
+
+When configuring default options like this, the resulting `assertSnapshot`
+function will function the same as the default function exported from the
+snapshot module. If passed an optional options object, this will take precedence
+over the default options, where the value provded for an option differs.
+
+It is possible to "extend" an `assertSnapshot` function which has been
+configured with default options.
+
+```ts, ignore
+// example_test.ts
+import { createAssertSnapshot } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
+import { stripColor } from "https://deno.land/std@$STD_VERSION/fmt/colors.ts";
+
+const assertSnapshot = createAssertSnapshot({
+  dir: ".snaps",
+});
+
+const assertMonochromeSnapshot = createAssertSnapshot<string>(
+  { serializer: stripColor },
+  assertSnapshot,
+);
+
+Deno.test("isSnapshotMatch", async function (t): Promise<void> {
+  const a = "\x1b[32mThis green text has had it's colours stripped\x1b[39m";
+  await assertMonochromeSnapshot(t, a);
+});
+```
+
+```js
+// .snaps/example_test.ts.snap
+export const snapshot = {};
+
+snapshot[`isSnapshotMatch 1`] = `This green text has had it's colours stripped`;
+```
+
 #### Serialization with `Deno.customInspect`
 
 The default serialization behaviour can be customised in two ways. The first is
