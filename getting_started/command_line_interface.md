@@ -100,7 +100,7 @@ depend on the subcommand used:
 Whenever one of the watched files is changed on disk, the program will
 automatically be restarted / formatted / tested / bundled.
 
-```
+```shell
 deno run --watch main.ts
 deno test --watch
 deno fmt --watch
@@ -111,7 +111,7 @@ deno fmt --watch
 Affect commands which can download resources to the cache: `deno cache`,
 `deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
 
-```
+```terminal
 --lock <FILE>    Check the specified lock file
 --lock-write     Write lock file. Use with --lock.
 ```
@@ -126,7 +126,7 @@ Affect commands which can populate the cache: `deno cache`, `deno run`,
 above, this includes those which affect module resolution, compilation
 configuration etc.
 
-```
+```terminal
 --config <FILE>               Load configuration file
 --import-map <FILE>           Load import map file
 --no-remote                   Do not resolve remote modules
@@ -147,7 +147,7 @@ These are listed [here](./permissions.md#permissions-list).
 
 More flags which affect the execution environment.
 
-```
+```terminal
 --cached-only                Require that remote dependencies are already cached
 --inspect=<HOST:PORT>        activate inspector on host:port ...
 --inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
