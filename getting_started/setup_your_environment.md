@@ -278,7 +278,7 @@ stdout the completions. Current shells that are supported:
 
 Output the completions and add them to the environment:
 
-```
+```shell
 > deno completions bash > /usr/local/etc/bash_completion.d/deno.bash
 > source /usr/local/etc/bash_completion.d/deno.bash
 ```
@@ -287,7 +287,7 @@ Output the completions and add them to the environment:
 
 Output the completions:
 
-```
+```shell
 > deno completions powershell >> $profile
 > .$profile
 ```
@@ -300,13 +300,13 @@ will be run whenever you launch the PowerShell.
 
 You should have a directory where the completions can be saved:
 
-```
+```shell
 > mkdir ~/.zsh
 ```
 
 Then output the completions:
 
-```
+```shell
 > deno completions zsh > ~/.zsh/_deno
 ```
 
@@ -330,7 +330,7 @@ zsh and can make it easier to manage your shell configuration.
 
 Create the directory to store the completions and output the completions:
 
-```
+```shell
 > mkdir ~/.oh-my-zsh/custom/plugins/deno
 > deno completions zsh > ~/.oh-my-zsh/custom/plugins/deno/_deno
 ```
@@ -352,7 +352,7 @@ Output the completions to a `deno.fish` file into the completions directory in
 the fish config folder:
 
 ```shell
-deno completions fish > ~/.config/fish/completions/deno.fish
+> deno completions fish > ~/.config/fish/completions/deno.fish
 ```
 
 ### Environment variables
@@ -388,8 +388,6 @@ There are several environment variables which can impact the behavior of Deno:
   are stored. This defaults to `$HOME/.deno/bin`.
 - `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
   passing `--no-prompt` on invocation).
-- `DENO_FUTURE_CHECK` - Opt-in to the upcoming behavior of the `deno run`
-  subcommand that doesn't perform type-checking by default.
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
   [Proxies](../linking_to_external_code/proxies.md) section for more
@@ -398,7 +396,7 @@ There are several environment variables which can impact the behavior of Deno:
   [Proxies](../linking_to_external_code/proxies.md) section for more
   information.
 - `NO_COLOR` - If set, this will cause the Deno CLI to not send ANSI color codes
-  when writing to stdout and stderr. See the website https://no-color.org/ for
+  when writing to stdout and stderr. See the website <https://no-color.org/> for
   more information on this _de facto_ standard. The value of this flag can be
   accessed at runtime without permission to read the environment variables by
   checking the value of `Deno.noColor`.

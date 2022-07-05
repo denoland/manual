@@ -100,7 +100,7 @@ depend on the subcommand used:
 Whenever one of the watched files is changed on disk, the program will
 automatically be restarted / formatted / tested / bundled.
 
-```
+```shell
 deno run --watch main.ts
 deno test --watch
 deno fmt --watch
@@ -111,7 +111,7 @@ deno fmt --watch
 Affect commands which can download resources to the cache: `deno cache`,
 `deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
 
-```
+```terminal
 --lock <FILE>    Check the specified lock file
 --lock-write     Write lock file. Use with --lock.
 ```
@@ -126,7 +126,7 @@ Affect commands which can populate the cache: `deno cache`, `deno run`,
 above, this includes those which affect module resolution, compilation
 configuration etc.
 
-```
+```terminal
 --config <FILE>               Load configuration file
 --import-map <FILE>           Load import map file
 --no-remote                   Do not resolve remote modules
@@ -139,6 +139,39 @@ configuration etc.
 Affect commands which execute user code: `deno run` and `deno test`. These
 include all of the above as well as the following.
 
+#### Type checking flags
+
+You can type-check your code (without executing it) using the command:
+
+```shell
+> deno check main.ts
+```
+
+You can also type-check your code before execution by using the `--check`
+argument to deno run:
+
+```shell
+> deno run --check main.ts
+```
+
+This flag affects `deno run`, `deno eval`, `deno repl` and `deno cache`. The
+following table describes the type-checking behavior of various subcommands.
+Here "Local" means that only errors from local code will induce type-errors,
+modules imported from https URLs (remote) may have type errors that are not
+reported. (To turn on type-checking for all modules, use `--check=all`.)
+
+| Subcommand     | Type checking mode |
+| -------------- | ------------------ |
+| `deno bench`   | 📁 Local            |
+| `deno bundle`  | 📁 Local            |
+| `deno cache`   | ❌ None             |
+| `deno check`   | 📁 Local            |
+| `deno compile` | 📁 Local            |
+| `deno eval`    | ❌ None             |
+| `deno repl`    | ❌ None             |
+| `deno run`     | ❌ None             |
+| `deno test`    | 📁 Local            |
+
 #### Permission flags
 
 These are listed [here](./permissions.md#permissions-list).
@@ -147,7 +180,7 @@ These are listed [here](./permissions.md#permissions-list).
 
 More flags which affect the execution environment.
 
-```
+```terminal
 --cached-only                Require that remote dependencies are already cached
 --inspect=<HOST:PORT>        activate inspector on host:port ...
 --inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
