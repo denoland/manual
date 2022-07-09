@@ -13,12 +13,12 @@ It's built on V8, Rust, and Tokio.
   support `fetch()`.
 - Secure by default. No file, network, or environment access unless explicitly
   enabled.
-- Supports [TypeScript](./typescript/) out of the box.
+- Supports [TypeScript](./typescript.md) out of the box.
 - Ships a single executable (`deno`).
-- Provides built-in [development tooling](./tools) like a code formatter
+- Provides built-in [development tooling](./tools.md) like a code formatter
   ([`deno fmt`](./tools/formatter.md)), a linter
-  ([`deno lint`](./tools/linter.md)), a test runner ([`deno test`](./testing)),
-  and a
+  ([`deno lint`](./tools/linter.md)), a test runner
+  ([`deno test`](./testing.md)), and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
 - Has [a set of reviewed (audited) standard modules](https://deno.land/std/)
   that are guaranteed to work with Deno.
