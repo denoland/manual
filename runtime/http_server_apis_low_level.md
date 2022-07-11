@@ -207,7 +207,7 @@ async function handle(conn: Deno.Conn) {
     await requestEvent.respondWith(
       new Response("hello world", {
         status: 200,
-      })
+      }),
     );
   }
 }
