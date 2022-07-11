@@ -225,8 +225,8 @@ when to do any cleanup from for the request/response cycle.
 The web standard `Response` object is pretty powerful, allowing easy creation of
 complex and rich responses to a client, and Deno strives to provide a `Response`
 object that as closely matches the web standard as possible, so if you are
-wondering how to send a particular response, checkout out the documentation for
-the web standard
+wondering how to send a particular response, checkout the documentation for the
+web standard
 [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response).
 
 ### HTTP/2 Support
