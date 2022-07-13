@@ -238,7 +238,7 @@ skipped.
 ```ts
 Deno.bench({
   name: "bench windows feature",
-  ignore: Deno.build.os === "windows",
+  ignore: Deno.build.os !== "windows",
   fn() {
     // do windows feature
   },
