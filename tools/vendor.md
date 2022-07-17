@@ -22,7 +22,7 @@ $ git commit
 ```
 
 To then use the vendored dependencies in your program, just add
-`import-map=vendor/import_map.json` to your Deno invocations. You can also add
+`--import-map=vendor/import_map.json` to your Deno invocations. You can also add
 `--no-remote` to your invocation to completely disable fetching of remote
 modules to ensure it's using the modules in the vendor directory.
 
