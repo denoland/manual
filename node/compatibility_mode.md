@@ -103,55 +103,6 @@ to Node:
   conditional `"deno"` export, you can add an entrypoint that doesn't depend on
   `node-fetch` and instead uses built-in `fetch` API in Deno.
 
-### Node built-in modules
-
-Following built-in Node modules are currently supported:
-
-- `assert` (_partly_)
-- `assert/strict` (_partly_)
-- `buffer`
-- `console` (_partly_)
-- `constants`
-- `crypto` (_partly_)
-- `child_process` (_partly_)
-- `dns` (_partly_)
-- `events`
-- `fs` (_partly_)
-- `fs/promises` (_partly_)
-- `http` (_partly_)
-- `module`
-- `net` (_partly_)
-- `os` (_partly_)
-- `path`
-- `perf_hooks` (_partly_)
-- `process` (_partly_)
-- `querystring`
-- `readline` (_partly_)
-- `stream`
-- `string_decoder`
-- `sys` (_partly_)
-- `timers`
-- `timers/promises`
-- `tty` (_partly_)
-- `url` (_partly_)
-- `util` (_partly_)
-- `worker_threads` (_partly_)
-
-Following modules are not yet implemented:
-
-- `cluster`
-- `dgram`
-- `http2`
-- `https`
-- `repl`
-- `tls`
-- `vm`
-- `zlib`
-
-If you try to run Node code that requires any of the not implemented modules,
-please open an issue in https://github.com/denoland/deno_std/issues with example
-code.
-
 ### TypeScript support
 
 Currently, the compatibility mode does not support TypeScript.
