@@ -256,6 +256,9 @@ deno test util/
 
 # Run just my_test.ts
 deno test my_test.ts
+
+# Run test modules in parallel
+deno test --parallel
 ```
 
 > ⚠️ If you want to pass additional CLI arguments to the test files use `--` to
