@@ -10,6 +10,10 @@
 - The string
   [import.meta.url](https://doc.deno.land/deno/stable/~/ImportMeta#url) will
   give you the URL of the current module.
+- The
+  [import.meta.resolve](https://doc.deno.land/deno/stable/~/ImportMeta#resolve)
+  allows you to resolve specifier relative to the current module. This function
+  takes into account an import map (if one was provided on startup).
 - The string
   [Deno.mainModule](https://doc.deno.land/deno/stable/~/Deno.mainModule) will
   give you the URL of the main module entry point, i.e. the module invoked by
@@ -48,6 +52,7 @@ function outputA() {
     "Is module A the main module via import.meta.main?",
     import.meta.main,
   );
+  console.log("Resolved specifier for ./module_b.ts", import.meta.resolve("./module_b.ts"));
 }
 
 outputA();
@@ -62,6 +67,7 @@ If `module_a.ts` is located in `/home/alice/deno` then the output of
 Module A's import.meta.url file:///home/alice/deno/module_a.ts
 Module A's mainModule url file:///home/alice/deno/module_a.ts
 Is module A the main module via import.meta.main? true
+Resolved specifier for ./module_b.ts file:///home/alice/deno/module_b.ts
 
 Module B's import.meta.url file:///home/alice/deno/module_b.ts
 Module B's mainModule url file:///home/alice/deno/module_a.ts
