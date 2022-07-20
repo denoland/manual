@@ -43,7 +43,7 @@ console.log("log from main script");
 
 **imported.ts**
 
-```ts
+```ts, ignore
 const handler = (e: Event): void => {
   console.log(`got ${e.type} event in event handler (imported)`);
 };
