@@ -10,7 +10,7 @@
 | `prettier`                             | `deno fmt`                                     |
 | `rollup` / `webpack` / etc             | `deno bundle`                                  |
 | `package.json`                         | `deno.json` / `deno.jsonc` / `import_map.json` |
-| `tsc`                                  | _n/a; tsc is built-in_ ²                       |
+| `tsc`                                  | `deno check` ²                                 |
 | `typedoc`                              | `deno doc`                                     |
 | `jest` / `ava` / `mocha` / `tap` / etc | `deno test`                                    |
 | `nodemon`                              | `deno run/lint/test --watch`                   |

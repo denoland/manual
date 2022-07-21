@@ -54,6 +54,12 @@ project.
       "singleQuote": true,
       "proseWrap": "preserve"
     }
+  },
+  "test": {
+    "files": {
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
+    }
   }
 }
 ```
