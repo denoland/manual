@@ -99,7 +99,8 @@
       "subprocess": "Creating a subprocess",
       "os_signals": "OS signals",
       "file_system_events": "File system events",
-      "module_metadata": "Module metadata"
+      "module_metadata": "Module metadata",
+      "shebang": "Shebang"
     }
   },
   "testing": {
