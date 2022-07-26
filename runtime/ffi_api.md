@@ -242,7 +242,7 @@ Here's a list of types supported currently by the Deno FFI API.
 
 ### deno_bindgen
 
-[`deno_bindgen`](https://github.com/littledivy/deno_bindgen) is an external tool
+[`deno_bindgen`](https://github.com/denoland/deno_bindgen) is the official tool
 to simplify glue code generation of Deno FFI libraries written in Rust.
 
 It is similar to [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) in
@@ -276,4 +276,4 @@ mul({ a: 10, b: 2 }); // 20
 ```
 
 Any issues related to `deno_bindgen` should be reported at
-https://github.com/littledivy/deno_bindgen/issues
+https://github.com/denoland/deno_bindgen/issues
