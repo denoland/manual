@@ -1,4 +1,4 @@
-# First steps
+# First Steps
 
 This page contains some examples to teach you about the fundamentals of Deno.
 

@@ -1,4 +1,4 @@
-# Import completions and intelligent registries
+# Import Completions and Intelligent Registries
 
 The language server, supports completions for URLs.
 

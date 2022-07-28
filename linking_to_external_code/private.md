@@ -1,4 +1,4 @@
-# Private modules and repositories
+# Private Modules and Repositories
 
 There maybe instances where you want to load a remote module that is located in
 a _private_ repository, like a private repository on GitHub.

@@ -1,4 +1,4 @@
-# Debugging your code
+# Debugging Your Code
 
 Deno supports the [V8 Inspector Protocol](https://v8.dev/docs/inspector) used by
 Chrome, Edge and Node.js. This makes it possible to debug Deno programs using

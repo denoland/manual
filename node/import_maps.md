@@ -1,4 +1,4 @@
-# Using import maps
+# Using Import Maps
 
 Deno supports [import maps](../linking_to_external_code/import_maps.md) which
 allow you to supply Deno with information about how to resolve modules that

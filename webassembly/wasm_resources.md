@@ -1,4 +1,4 @@
-# Helpful resources
+# Helpful Resources
 
 This page contains some further information that is helpful when using and/or
 developing WebAssembly modules.

@@ -1,4 +1,4 @@
-# Language server overview
+# Language Server Overview
 
 The Deno Language Server provides a server implementation of the
 [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)

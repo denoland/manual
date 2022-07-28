@@ -1,4 +1,4 @@
-# Reloading modules
+# Reloading Modules
 
 By default, a module in the cache will be reused without fetching or
 re-compiling it. Sometimes this is not desirable and you can force deno to

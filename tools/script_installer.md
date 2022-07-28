@@ -1,4 +1,4 @@
-# Script installer
+# Script Installer
 
 Deno provides `deno install` to easily install and distribute executable code.
 

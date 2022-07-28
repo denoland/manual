@@ -1,4 +1,4 @@
-# Set up your environment
+# Set Up Your Environment
 
 The Deno CLI contains a lot of the tools that are commonly needed for developing
 applications, including a full language server to help power your IDE of choice.

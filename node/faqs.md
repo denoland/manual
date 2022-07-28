@@ -1,4 +1,4 @@
-# Frequently asked questions
+# Frequently Asked Questions
 
 ## Getting errors when type checking like `cannot find namespace NodeJS`
 

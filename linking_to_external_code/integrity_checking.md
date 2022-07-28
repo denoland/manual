@@ -1,4 +1,4 @@
-# Integrity checking & lock files
+# Integrity Checking & Lock Files
 
 ## Introduction
 

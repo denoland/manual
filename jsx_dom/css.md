@@ -1,4 +1,4 @@
-# Parsing and stringifying CSS
+# Parsing and Stringifying CSS
 
 If you want to parse CSS to a abstract syntax tree (AST) then there are two
 solutions you might want to consider:
