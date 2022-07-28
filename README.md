@@ -1,4 +1,4 @@
-# Deno manual
+# Deno Manual
 
 This repository is the official documentation for Deno.
 
