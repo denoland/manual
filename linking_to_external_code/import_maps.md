@@ -1,4 +1,4 @@
-## Import maps
+# Import maps
 
 Deno supports [import maps](https://github.com/WICG/import-maps).
 

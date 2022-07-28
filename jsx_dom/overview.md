@@ -1,4 +1,4 @@
-## Overview of JSX and DOM in Deno
+# Overview of JSX and DOM in Deno
 
 One of the common use cases for Deno is to handle workloads as part of web
 applications. Because Deno includes many of the browser APIs built-in, there is
@@ -37,7 +37,7 @@ chapter.
 We will be exploring fairly low-level enabling libraries and technologies,
 versus a full solution or framework for server side generation of websites.
 
-### JSX
+## JSX
 
 Created by the React team at Facebook, JSX is a popular DSL (domain specific
 language) for embedding HTML-like syntax in JavaScript. The TypeScript team also
@@ -70,7 +70,7 @@ un-transpiled source file, or the JSX runtime library to the browser.
 Read the [Configuring JSX in Deno](./jsx.md) section for information on how to
 customize the configuration of JSX in Deno.
 
-### Document Object Model (DOM)
+## Document Object Model (DOM)
 
 The DOM is the main way a user interface is provided in a browser, and it
 exposes a set of APIs that allow it to be manipulated via JavaScript, but also
@@ -87,7 +87,7 @@ the following sections:
 - [Using deno-dom with Deno](./deno_dom.md)
 - [Using jsdom with Deno](./jsdom.md)
 
-### CSS
+## CSS
 
 Cascading Style Sheets (CSS) provide styling for HTML within the DOM. There are
 tools which make working with CSS in a server side context easier and powerful.

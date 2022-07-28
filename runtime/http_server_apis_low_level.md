@@ -1,4 +1,4 @@
-## HTTP Server APIs (low level)
+# HTTP Server APIs (low level)
 
 As of Deno 1.9 and later, _native_ HTTP server APIs were introduced which allow
 users to create robust and performant web servers in Deno.
@@ -10,7 +10,7 @@ users to create robust and performant web servers in Deno.
 > Use the
 > [higher level API in the standard library instead](./http_server_apis).
 
-### Listening for a connection
+## Listening for a connection
 
 In order to accept requests, first you need to listen for a connection on a
 network port. To do this in Deno, you use `Deno.listen()`:
@@ -48,7 +48,7 @@ happens during the TLS negotiation with the client and server.
 > ℹ️ Generating SSL certificates is outside of the scope of this documentation.
 > There are many resources on the web which address this.
 
-### Handling connections
+## Handling connections
 
 Once we are listening for a connection, we need to handle the connection. The
 return value of `Deno.listen()` or `Deno.listenTls()` is a `Deno.Listener` which
@@ -92,7 +92,7 @@ listener and might need handling in the user code.
 
 A listener also has a `.close()` method which can be used to close the listener.
 
-### Serving HTTP
+## Serving HTTP
 
 Once a connection is accepted, you can use `Deno.serveHttp()` to handle HTTP
 requests and responses on the connection. `Deno.serveHttp()` returns a
@@ -229,7 +229,7 @@ wondering how to send a particular response, checkout the documentation for the
 web standard
 [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response).
 
-### HTTP/2 Support
+## HTTP/2 Support
 
 HTTP/2 support is effectively transparent within the Deno runtime. Typically
 HTTP/2 is negotiated between a client and a server during the TLS connection
@@ -257,7 +257,7 @@ HTTP/2 cleartext connection via the `Upgrade` header (see:
 [#10275](https://github.com/denoland/deno/issues/10275)), so therefore HTTP/2
 support is only available via a TLS/HTTPS connection.
 
-### Serving WebSockets
+## Serving WebSockets
 
 > ℹ️ These APIs were stabilized in Deno 1.14 and no longer require the
 > `--unstable` flag.

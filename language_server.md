@@ -10,5 +10,5 @@ providing a package registry for Deno that integrates intelligently.
 
 In this section we will cover:
 
-- [An overview of the language server](./language_server/overview.md)
-- [Import completions and intelligent package registries](./language_server/imports.md)
+- [An Overview of the Language Server](./language_server/overview.md)
+- [Import Sompletions and Intelligent Package Registries](./language_server/imports.md)

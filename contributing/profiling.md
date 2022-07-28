@@ -1,6 +1,6 @@
-### Profiling
+# Profiling
 
-### Perf profiling:
+## Perf profiling:
 
 Tools that can be used to generate/ visualise perf results:
 
@@ -30,7 +30,7 @@ sleep 1
 kill `pgrep perf`
 ```
 
-### v8 profiling:
+## v8 profiling:
 
 Example using v8 profiling on `micro_bench_ops`:
 
@@ -83,7 +83,7 @@ To learn more about profiling, check out the following links:
 
 - [https://v8.dev/docs/profile](https://v8.dev/docs/profile)
 
-### Debugging with LLDB
+## Debugging with LLDB
 
 To debug the deno binary, we can use `rust-lldb`. It should come with `rustc`
 and is a wrapper around LLDB.
@@ -104,7 +104,7 @@ Current executable set to '../deno/target/debug/deno' (x86_64).
 (lldb) r
 ```
 
-### V8 flags
+## V8 flags
 
 V8 has many many internal command-line flags:
 

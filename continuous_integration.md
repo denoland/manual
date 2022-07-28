@@ -1,4 +1,4 @@
-## Continuous Integration
+# Continuous Integration
 
 Deno's built-in tools make it easy to set up Continuous Integration (CI)
 pipelines for your projects. Testing, linting and formatting of code can all be
@@ -14,7 +14,7 @@ On this page we will discuss:
   - [Reducing repetition](#reducing-repetition)
   - [Caching dependencies](#caching-dependencies)
 
-### Setting up a basic pipeline
+## Setting up a basic pipeline
 
 This page will show you how to set up basic pipelines for Deno projects in
 GitHub Actions. The concepts explained on this page largely apply to other CI
@@ -59,7 +59,7 @@ need:
       - run: deno coverage --lcov cov/ > cov.lcov
 ```
 
-### Cross-platform workflows
+## Cross-platform workflows
 
 As a Deno module maintainer, you probably want to know that your code works on
 all of the major operating systems in use today: Linux, MacOS and Windows. A
@@ -109,9 +109,9 @@ jobs:
             canary: true
 ```
 
-### Speeding up Deno pipelines
+## Speeding up Deno pipelines
 
-#### Reducing repetition
+### Reducing repetition
 
 In cross-platform runs, certain steps of a pipeline do not need to run for each
 OS necessarily. For example, generating the same test coverage report on Linux,
@@ -133,7 +133,7 @@ coverage generation and upload steps only on the `ubuntu` (Linux) runner:
     path-to-lcov: cov.lcov
 ```
 
-#### Caching dependencies
+### Caching dependencies
 
 As a project grows in size, more and more dependencies tend to be included. Deno
 will download these dependencies during testing and if a workflow is run many
@@ -199,7 +199,7 @@ You should see changes in the lockfile's contents after running this. When this
 is committed and run through the pipeline, you should then see the `hashFiles`
 function saving a new cache and using it in any runs that follow.
 
-##### Clearing the cache
+#### Clearing the cache
 
 Occasionally you may run into a cache that has been corrupted or malformed,
 which can happen for various reasons. There is no option in GitHub Actions UI to
