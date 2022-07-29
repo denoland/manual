@@ -1,7 +1,5 @@
 # Deno manual
 
-test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test
-
 This repository is the official documentation for Deno.
 
 Manual is available at: https://deno.land/manual
