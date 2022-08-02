@@ -1,0 +1,23 @@
+name: suggest-format
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  suggest-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1.0.0
+
+      - name: Format
+        run: deno fmt
+
+      - name: Create Suggestion
+        uses: reviewdog/action-suggester@v1
+        with:
+          tool_name: deno fmt
