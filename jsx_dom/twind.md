@@ -1,4 +1,4 @@
-## Using Twind with Deno
+# Using Twind with Deno
 
 [Twind](https://twind.dev/) is a _tailwind-in-js_ solution for using
 [Tailwind](https://tailwindcss.com/). Twind is particularly useful in Deno's
@@ -6,7 +6,7 @@ server context, where Tailwind and CSS can be easily server side rendered,
 generating dynamic, performant and efficient CSS while having the usability of
 styling with Tailwind.
 
-### Basic example
+## Basic example
 
 In the following example, we will use twind to server side render an HTML page
 and log it to the console. It demonstrates using the `tw` function to specify

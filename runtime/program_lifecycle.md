@@ -1,4 +1,4 @@
-## Program lifecycle
+# Program Lifecycle
 
 Deno supports browser compatible lifecycle events: `load`, `beforeunload` and
 `unload`. You can use these events to provide setup and cleanup code in your

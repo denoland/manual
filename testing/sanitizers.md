@@ -3,7 +3,7 @@
 The test runner offers several sanitizers to ensure that the test behaves in a
 reasonable and expected way.
 
-### Resource sanitizer
+## Resource sanitizer
 
 Certain actions in Deno create resources in the resource table
 ([learn more here](../contributing/architecture.md)).
@@ -25,7 +25,7 @@ Deno.test({
 });
 ```
 
-### Op sanitizer
+## Op sanitizer
 
 The same is true for async operation like interacting with the filesystem. The
 test runner checks that each operation you start in the test is completed before
@@ -45,7 +45,7 @@ Deno.test({
 });
 ```
 
-### Exit sanitizer
+## Exit sanitizer
 
 There's also the exit sanitizer which ensures that tested code doesn't call
 `Deno.exit()` signaling a false test success.

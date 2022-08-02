@@ -1,4 +1,4 @@
-## Parsing and stringifying CSS
+# Parsing and Stringifying CSS
 
 If you want to parse CSS to a abstract syntax tree (AST) then there are two
 solutions you might want to consider:
@@ -19,7 +19,7 @@ capability to stringify the AST it generates.
 `deno_css` is authored in TypeScript specifically for Deno and is available on
 `deno.land/x`.
 
-### Basic example with `reworkcss/css`
+## Basic example with `reworkcss/css`
 
 In this example, we will parse some CSS into an AST and make a modification to
 the `background` declaration of the `body` rule, to change the color to `white`.
@@ -51,7 +51,7 @@ background.value = "white";
 console.log(css.stringify(ast));
 ```
 
-### A basic example with `deno_css`
+## A basic example with `deno_css`
 
 In this example, we will parse some CSS into an AST and log out the `background`
 declaration of the `body` rule to the console.

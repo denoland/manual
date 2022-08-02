@@ -1,6 +1,6 @@
-## Internal details
+# Internal Details
 
-### Deno and Linux analogy
+## Deno and Linux analogy
 
 |                       **Linux** | **Deno**                                     |
 | ------------------------------: | :------------------------------------------- |
@@ -12,7 +12,7 @@
 |                 /proc/\$\$/stat | [Deno.metrics()](architecture#metrics)       |
 |                       man pages | deno types                                   |
 
-#### Resources
+### Resources
 
 Resources (AKA `rid`) are Deno's version of file descriptors. They are integer
 values used to refer to open files, sockets, and other concepts. For testing it
@@ -27,7 +27,7 @@ console.log(Deno.resources());
 // { 1: "stdout", 2: "stderr" }
 ```
 
-#### Metrics
+### Metrics
 
 Metrics is Deno's internal counter for various statistics.
 
@@ -50,11 +50,11 @@ Metrics is Deno's internal counter for various statistics.
 └─────────────────────────┴───────────┘
 ```
 
-### Schematic diagram
+## Schematic diagram
 
 ![architectural schematic](https://deno.land/images/schematic_v0.2.png)
 
-### Conference
+## Conference
 
 - Ryan Dahl. (May 27, 2020).
   [An interesting case with Deno](https://www.youtube.com/watch?v=1b7FoBwxc7E).

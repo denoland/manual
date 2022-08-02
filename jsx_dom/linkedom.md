@@ -1,4 +1,4 @@
-## Using LinkeDOM with Deno
+# Using LinkeDOM with Deno
 
 [LinkeDOM](https://github.com/WebReflection/linkedom) is a DOM-like namespace to
 be used in environments, like Deno, which don't implement the DOM.
@@ -21,7 +21,7 @@ stopping the execution of your programme.
 
 LinkedDOM runs under Deno Deploy, along with deno_dom, but jsdom does not.
 
-### Basic example
+## Basic example
 
 This example will take a test string and parse it as HTML and generate a DOM
 structure based on it. It will then query that DOM structure, picking out the
@@ -57,7 +57,7 @@ assert(h1);
 console.log(h1.textContent);
 ```
 
-### Alternative API
+## Alternative API
 
 For the `parseHTML()` can be better suited for certain SSR workloads. This is
 similar to jsdom's `JSDOM()` function, in the sense it gives you a "sandbox" of

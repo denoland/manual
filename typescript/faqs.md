@@ -1,6 +1,6 @@
-## FAQs about TypeScript in Deno
+# FAQs about TypeScript in Deno
 
-### Can I use TypeScript not written for Deno?
+## Can I use TypeScript not written for Deno?
 
 Maybe. That is the best answer, we are afraid. For lots of reasons, Deno has
 chosen to have fully qualified module specifiers. In part this is because it
@@ -23,7 +23,7 @@ resolution logic is to use
 [import maps](../linking_to_external_code/import_maps.md) which would allow you
 to specify "packages" of bare specifiers which then Deno could resolve and load.
 
-### What version(s) of TypeScript does Deno support?
+## What version(s) of TypeScript does Deno support?
 
 Deno is built with a specific version of TypeScript. To find out what this is,
 type the following on the command line:
@@ -36,7 +36,7 @@ The TypeScript version (along with the version of Deno and v8) will be printed.
 Deno tries to keep up to date with general releases of TypeScript, providing
 them in the next patch or minor release of Deno.
 
-### There was a breaking change in the version of TypeScript that Deno uses, why did you break my program?
+## There was a breaking change in the version of TypeScript that Deno uses, why did you break my program?
 
 We do not consider changes in behavior or breaking changes in TypeScript
 releases as breaking changes for Deno. TypeScript is a generally mature language
@@ -52,14 +52,14 @@ that you control. You can also replace whole dependencies, using
 dependency of a dependency isn't being maintained or has some sort of breaking
 change you want to bypass while waiting for it to be updated.
 
-### How do I write code that works in Deno and a browser, but still type checks?
+## How do I write code that works in Deno and a browser, but still type checks?
 
 You can do this by using a configuration file with the `--config` option on the
 command line and adjusting the `"lib"` option in the `"compilerOptions"` in the
 file. For more information see
 [Targeting Deno and the Browser](./configuration#targeting-deno-and-the-browser).
 
-### Why are you forcing me to use isolated modules, why can't I use const enums with Deno, why do I need to do export type?
+## Why are you forcing me to use isolated modules, why can't I use const enums with Deno, why do I need to do export type?
 
 As of Deno 1.5 we defaulted to _isolatedModules_ to `true` and in Deno 1.6 we
 removed the options to set it back to `false` via a configuration file. The
@@ -103,7 +103,7 @@ are:
 - Only `declare namespace` is supported. Runtime `namespace` is legacy
   TypeScript syntax that is not supported.
 
-### Why don't you support language service plugins or transformer plugins?
+## Why don't you support language service plugins or transformer plugins?
 
 While `tsc` supports language service plugins, Deno does not. Deno does not
 always use the built-in TypeScript compiler to do what it does, and the
@@ -116,7 +116,7 @@ we supported it in all modes, and the other emitter is written in Rust, meaning
 that any emitter plugin for TypeScript wouldn't be available for the Rust
 emitter.
 
-### How do I combine Deno code with non-Deno code in my IDE?
+## How do I combine Deno code with non-Deno code in my IDE?
 
 The Deno language server supports the ability to have a "per-resource"
 configuration of enabling Deno or not. This also requires a client IDE to

@@ -1,6 +1,6 @@
-## Frequently asked questions
+# Frequently Asked Questions
 
-### Getting errors when type checking like `cannot find namespace NodeJS`
+## Getting errors when type checking like `cannot find namespace NodeJS`
 
 One of the modules you are using has type definitions that depend upon the
 NodeJS global namespace, but those types don't include the NodeJS global
@@ -42,7 +42,7 @@ declare global {
 }
 ```
 
-### Getting type errors like cannot find `document` or `HTMLElement`
+## Getting type errors like cannot find `document` or `HTMLElement`
 
 The library you are using has dependencies on the DOM. This is common for
 packages that are designed to run in a browser as well as server-side. By

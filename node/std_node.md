@@ -1,4 +1,4 @@
-## The `std/node` library
+# The `std/node` Library
 
 > ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
 > emulate Node environment and consume code authored for Node directly. See
@@ -13,7 +13,7 @@ The library is most useful when trying to use your own or private code that was
 written for Node. If you are trying to consume public npm packages, you are
 likely to get a better result using a [CDN](./cdns.md).
 
-### Node built-in modules
+## Node built-in modules
 
 The standard library provides several "replacement" modules for Node built-in
 modules. These either replicate the functionality of the built-in or they call
@@ -87,7 +87,7 @@ and the URL of the module in your terminal:
 > deno doc https://deno.land/std/fs/move.ts
 ```
 
-### Loading CommonJS modules
+## Loading CommonJS modules
 
 Deno only supports natively loading ES Modules, but a lot of Node code is still
 written in the CommonJS format. As mentioned above, for public npm packages, it

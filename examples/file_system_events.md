@@ -1,4 +1,4 @@
-# File system events
+# File System Events
 
 ## Concepts
 

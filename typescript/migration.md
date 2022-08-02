@@ -1,11 +1,11 @@
-## Migrating to and from JavaScript
+# Migrating to and from JavaScript
 
 One of the advantages of Deno is that it treats TypeScript and JavaScript pretty
 equally. This might mean that transitioning from JavaScript to TypeScript or
 even from TypeScript to JavaScript is something you want to accomplish. There
 are several features of Deno that can help with this.
 
-### Type checking JavaScript
+## Type checking JavaScript
 
 You might have some JavaScript that you would like to ensure is more type sound
 but you don't want to go through a process of adding type annotations
@@ -34,7 +34,7 @@ configuration file with the check JS option enabled:
 
 And setting the `--config` option on the command line.
 
-### Using JSDoc in JavaScript
+## Using JSDoc in JavaScript
 
 If you are type checking JavaScript, or even importing JavaScript into
 TypeScript you can use JSDoc in JavaScript to express more types information
@@ -49,7 +49,7 @@ For example to set the type of an array:
 const a = [];
 ```
 
-### Skipping type checking
+## Skipping type checking
 
 You might have TypeScript code that you are experimenting with, where the syntax
 is valid but not fully type safe. You can always bypass type checking for a
@@ -62,7 +62,7 @@ have check JS enabled, by using the no-check pragma:
 // @ts-nocheck
 ```
 
-### Just renaming JS files to TS files
+## Just renaming JS files to TS files
 
 While this might work in some cases, it has some severe limits in Deno. This is
 because Deno, by default, runs type checking in what is called _strict mode_.

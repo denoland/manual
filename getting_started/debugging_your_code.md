@@ -1,4 +1,4 @@
-## Debugging your code
+# Debugging Your Code
 
 Deno supports the [V8 Inspector Protocol](https://v8.dev/docs/inspector) used by
 Chrome, Edge and Node.js. This makes it possible to debug Deno programs using
@@ -16,7 +16,7 @@ the first line of code.
 > before the program finishes execution. In such cases, try running with
 > `--inspect-brk` flag instead, or add a timeout at the end of your code.
 
-### Chrome Devtools
+## Chrome Devtools
 
 Let's try debugging a program using Chrome Devtools. For this, we'll use
 [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) from
@@ -80,13 +80,13 @@ $ curl http://0.0.0.0:4507/
 At this point we can introspect the contents of the request and go step-by-step
 to debug the code.
 
-### VSCode
+## VSCode
 
 Deno can be debugged using VSCode. This is best done with help from the official
 `vscode_deno` extension. Documentation for this can be found
 [here](../vscode_deno#using-the-debugger).
 
-### JetBrains IDEs
+## JetBrains IDEs
 
 _**Note**: make sure you have
 [this Deno plugin](https://plugins.jetbrains.com/plugin/14382-deno) installed
@@ -102,7 +102,7 @@ This will create a run/debug configuration with no permission flags set. If you
 want to configure them, open your run/debug configuration and add the required
 flags to the `Command` field.
 
-### Other
+## Other
 
 Any client that implements the DevTools protocol should be able to connect to a
 Deno process.

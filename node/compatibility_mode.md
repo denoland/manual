@@ -1,4 +1,4 @@
-## Node compatibility mode
+# Node Compatibility Mode
 
 Starting with v1.15 Deno provides Node compatibility mode that makes it possible
 to run a subset of programs authored for Node directly in Deno. Compatibility
@@ -11,7 +11,7 @@ mode can be activated by passing `--compat` flag in CLI.
 > For the time being we suggest to keep using your current solution (`npm`,
 > `yarn`, `pnpm`).
 
-### Example
+## Example
 
 [`eslint`](https://eslint.org/) is a very popular tool used by most of Node
 projects. Let's run `eslint` using Deno in Node compatibility mode. Assuming
@@ -53,7 +53,7 @@ $ deno run \
 > environmental variables. Programs run in compatility mode are subject to
 > Deno's permission model.
 
-### How does it work?
+## How does it work?
 
 When using compatibility mode there Deno does a few things behind the scenes:
 
@@ -76,7 +76,7 @@ When using compatibility mode there Deno does a few things behind the scenes:
   documentation on [CJS](https://nodejs.org/api/modules.html) and
   [ES](https://nodejs.org/api/esm.html) modules.
 
-### Module resolution
+## Module resolution
 
 [CommonJS resolution](https://nodejs.org/api/modules.html) is implemented as in
 Node and there should be no observable differences.
@@ -103,7 +103,7 @@ to Node:
   conditional `"deno"` export, you can add an entrypoint that doesn't depend on
   `node-fetch` and instead uses built-in `fetch` API in Deno.
 
-### TypeScript support
+## TypeScript support
 
 Currently, the compatibility mode does not support TypeScript.
 

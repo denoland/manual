@@ -1,4 +1,4 @@
-## Using deno-dom with Deno
+# Using deno-dom with Deno
 
 [deno-dom](https://deno.land/x/deno_dom) is an implementation of DOM and HTML
 parser in Deno. It is implemented in Rust (via Wasm) and TypeScript. There is
@@ -12,7 +12,7 @@ LinkeDOM are significantly faster than jsdom.
 As of deno_dom v0.1.22-alpha supports running on Deno Deploy. So if you want
 strict standards alignment, consider using deno-dom over LinkeDOM.
 
-### Basic example
+## Basic example
 
 This example will take a test string and parse it as HTML and generate a DOM
 structure based on it. It will then query that DOM structure, picking out the
@@ -53,7 +53,7 @@ console.log(h1.textContent);
 > outcomes. You should use the latest version of available of
 > [deno-dom](https://deno.land/x/deno_dom).
 
-### Faster startup
+## Faster startup
 
 Just importing the `deno-dom-wasm.ts` file bootstraps the Wasm code via top
 level await. The problem is that top level await blocks the module loading

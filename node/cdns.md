@@ -1,4 +1,4 @@
-## Packages from CDNs
+# Packages from CDNs
 
 Because Deno supports remote HTTP modules, and content delivery networks (CDNs)
 can be powerful tools to transform code, the combination allows an easy way to
@@ -6,7 +6,7 @@ access code in the npm registry via Deno, usually in a way that works with Deno
 without any further actions, and often enriched with TypeScript types. In this
 section we will explore that in detail.
 
-### What about `deno.land/x/`?
+## What about `deno.land/x/`?
 
 The [`deno.land/x/`](https://deno.land/x/) is a public registry for code,
 hopefully code written specifically for Deno. It is a public registry though and
@@ -20,7 +20,7 @@ Because it simply serves up the original published source code, it doesn't
 really help when trying to use code that didn't specifically consider Deno when
 authored.
 
-### Deno "friendly" CDNs
+## Deno "friendly" CDNs
 
 Deno friendly content delivery networks (CDNs) not only host packages from npm,
 they provide them in a way that maximizes their integration to Deno. They
@@ -40,7 +40,7 @@ directly address some of the challenges in consuming code written for Node:
   developer can express your 3rd party dependency versioning as part of the URL
   you use to import the package.
 
-#### esm.sh
+### esm.sh
 
 [esm.sh](https://esm.sh/) is a CDN that was specifically designed for Deno,
 though addressing the concerns for Deno also makes it a general purpose CDN for
@@ -90,7 +90,7 @@ China", as well as esm.sh provides information on self hosting the CDN as well.
 Check out the [esm.sh homepage](https://esm.sh/) for more detailed information
 on how the CDN can be used and what features it has.
 
-#### Skypack
+### Skypack
 
 [Skypack.dev](https://www.skypack.dev/) is designed to make development overall
 easier by not requiring packages to be installed locally, even for Node
@@ -142,18 +142,18 @@ Skypack docs have a
 [specific page on usage with Deno](https://docs.skypack.dev/skypack-cdn/code/deno)
 for more information.
 
-### Other CDNs
+## Other CDNs
 
 There are a couple of other CDNs worth mentioning.
 
-#### UNPKG
+### UNPKG
 
 [UNPKG](https://unpkg.com/) is the most well known CDN for npm packages. For
 packages that include an ES Module distribution for things like the browsers,
 many of them can be used directly off of UNPKG. That being said, everything
 available on UNPKG is available on more Deno friendly CDNs.
 
-#### JSPM
+### JSPM
 
 The [jspm.io](https://jspm.io) CDN is specifically designed to provide npm and
 other registry packages as ES Modules in a way that works well with import maps.
@@ -162,7 +162,7 @@ maps, allows you to use the [JSPM.io generator](https://generator.jspm.io/) to
 generate an import-map of all the packages you want to use and have them served
 up from the CDN.
 
-### Considerations
+## Considerations
 
 While CDNs can make it easy to allow Deno to consume packages and modules from
 the npm registry, there can still be some things to consider:

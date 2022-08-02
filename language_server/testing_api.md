@@ -1,11 +1,11 @@
-## Testing API
+# Testing API
 
 The Deno language server supports a custom set of APIs to enable testing. These
 are built around providing information to enable the
 [vscode's Testing API](https://code.visualstudio.com/api/extension-guides/testing)
 but can be used by other language server clients to provide a similar interface.
 
-### Capabilities
+## Capabilities
 
 Both the client and the server should support the experimental `testingApi`
 capability:
@@ -33,7 +33,7 @@ detection and will start providing the notifications which enable it.
 It should also be noted that when the testing API capabilities are enabled, the
 testing code lenses will no longer be sent to the client.
 
-### Settings
+## Settings
 
 There are specific settings which change the behavior of the language server:
 
@@ -43,11 +43,11 @@ There are specific settings which change the behavior of the language server:
 - `deno.testing.enable` - A binary flag that enables or disables the testing
   server
 
-### Notifications
+## Notifications
 
 The server will send notifications to the client under certain conditions.
 
-#### `deno/testModule`
+### `deno/testModule`
 
 When a module containing tests is discovered by the server, it will notify the
 client by sending a `deno/testModule` notification along with a payload of
@@ -113,7 +113,7 @@ interface TestModuleParams {
 }
 ```
 
-#### `deno/testModuleDelete`
+### `deno/testModuleDelete`
 
 When a test module is deleted that the server is observing, the server will
 issue a `deno/testModuleDelete` notification. When receiving the notification
@@ -127,7 +127,7 @@ interface TestModuleDeleteParams {
 }
 ```
 
-#### `deno/testRunProgress`
+### `deno/testRunProgress`
 
 When a [`deno/testRun`](#denotestrun) is requested from the client, the server
 will support progress of that test run via the `deno/testRunProgress`
@@ -258,11 +258,11 @@ interface TestRunProgressParams {
 }
 ```
 
-### Requests
+## Requests
 
 The server handles two different requests:
 
-#### `deno/testRun`
+### `deno/testRun`
 
 To request the language server to perform a set of tests, the client sends a
 `deno/testRun` request, which includes that ID of the test run to be used in
@@ -311,7 +311,7 @@ interface TestRunResponseParams {
 }
 ```
 
-#### `deno/testRunCancel`
+### `deno/testRunCancel`
 
 If a client wishes to cancel a currently running test run, it sends a
 `deno/testRunCancel` request with the test ID to cancel. The response back will

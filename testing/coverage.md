@@ -1,4 +1,4 @@
-# Test coverage
+# Test Coverage
 
 Deno will collect test coverage into a directory for your code if you specify
 the `--coverage` flag when starting `deno test`.

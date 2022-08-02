@@ -1,4 +1,4 @@
-# Linking to third party code
+# Linking to Third Party Code
 
 In the [Getting Started](./getting_started.md) section, we saw Deno could
 execute scripts from URLs. Like browser JavaScript, Deno can import libraries

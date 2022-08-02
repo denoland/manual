@@ -1,4 +1,4 @@
-## Using WebAssembly in Deno
+# Using WebAssembly in Deno
 
 To run WebAssembly in Deno, all you need is a binary to run. WebAssembly is a
 binary data format. This means that `.wasm` files are not directly human

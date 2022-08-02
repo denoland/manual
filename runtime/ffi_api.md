@@ -1,10 +1,10 @@
-## Foreign Function Interface API
+# Foreign Function Interface API
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
 to call libraries written in native languages that support the C ABIs (Rust,
 C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
 
-### Usage
+## Usage
 
 Here's an example showing how to call a Rust function from Deno:
 
@@ -82,7 +82,7 @@ Run with `--allow-ffi` and `--unstable` flag:
 deno run --allow-ffi --unstable ffi.ts
 ```
 
-### Non-blocking FFI
+## Non-blocking FFI
 
 There are many use cases where users might want to run CPU-bound FFI functions
 in the background without blocking other tasks on the main thread.
@@ -140,7 +140,7 @@ Before
 After
 ```
 
-### Callbacks
+## Callbacks
 
 Deno FFI API supports creating C callbacks from JavaScript functions for calling
 back into Deno from dynamic libraries. An example of how callbacks are created
@@ -212,7 +212,7 @@ cause unexpected side-effects and undefined behaviour. Preferably any interrupt
 handlers would only set a flag that can later be polled similarly to how
 `check_status()` is used above.
 
-### Supported types
+## Supported types
 
 Here's a list of types supported currently by the Deno FFI API.
 
@@ -240,7 +240,7 @@ Here's a list of types supported currently by the Deno FFI API.
   are passed in as parameters and returned as result types as BigInt pointer
   values.
 
-### deno_bindgen
+## deno_bindgen
 
 [`deno_bindgen`](https://github.com/denoland/deno_bindgen) is the official tool
 to simplify glue code generation of Deno FFI libraries written in Rust.

@@ -1,4 +1,4 @@
-## Using jsdom with Deno
+# Using jsdom with Deno
 
 [jsdom](https://github.com/jsdom/jsdom) is a pure JavaScript implementation of
 many web standards, notably the WHATWG DOM and HTML Standards. It's main goal is
@@ -23,7 +23,7 @@ This means if you want strong typing and intelligent auto-completion in your
 editor while using the Deno language server, you have to perform some extra
 steps.
 
-#### Defining an `import_map.json`
+### Defining an `import_map.json`
 
 You need to map the bare specifier `"jsdom"` to the imported version of jsdom.
 This allows Deno to correctly apply the types to the import in the way they were
@@ -35,7 +35,7 @@ specified.
 }
 ```
 
-#### Setting up a configuration file
+### Setting up a configuration file
 
 You will want to set up a `deno.jsonc` configuration file in the root of your
 workspace with both TypeScript library information as well as specifying the
@@ -58,7 +58,7 @@ import map defined above:
 > Note: we are using an unpinned version of jsdom above. You should consider
 > pinning the version to the version you know you want to use.
 
-### Basic example
+## Basic example
 
 This example will take a test string and parse it as HTML and generate a DOM
 structure based on it. It will then query that DOM structure, picking out the

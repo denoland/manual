@@ -31,7 +31,7 @@ Here is a list of web platform APIs Deno implements:
 
 ## `fetch` API
 
-### Overview
+## Overview
 
 The `fetch` API can be used to make HTTP requests. It is implemented as
 specified in the [WHATWG `fetch` spec](https://fetch.spec.whatwg.org/).
@@ -39,7 +39,7 @@ specified in the [WHATWG `fetch` spec](https://fetch.spec.whatwg.org/).
 You can find documentation about this API on
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-### Spec deviations
+## Spec deviations
 
 - The Deno user agent does not have a cookie jar. As such, the `set-cookie`
   header on a response is not processed, or filtered from the visible response
@@ -74,7 +74,7 @@ You can find documentation about this API on
   `headers` iterator. This behaviour is in the
   [process of being specified](https://github.com/whatwg/fetch/pull/1346).
 
-### Fetching local files
+## Fetching local files
 
 As of Deno 1.16, Deno supports fetching `file:` URLs. This makes it easier to
 write code that uses the same code path on a server as local, as well as easier
@@ -110,7 +110,7 @@ Notes on fetching local files:
 
 ## `CustomEvent`, `EventTarget` and `EventListener`
 
-### Overview
+## Overview
 
 The DOM Event API can be used to dispatch and listen to events happening in an
 application. It is implemented as specified in the
@@ -119,7 +119,7 @@ application. It is implemented as specified in the
 You can find documentation about this API on
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget).
 
-### Spec deviations
+## Spec deviations
 
 - Events do not bubble, because Deno does not have a DOM hierarchy, so there is
   no tree for Events to bubble/capture through.

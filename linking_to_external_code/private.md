@@ -1,4 +1,4 @@
-## Private modules and repositories
+# Private Modules and Repositories
 
 There maybe instances where you want to load a remote module that is located in
 a _private_ repository, like a private repository on GitHub.
@@ -8,7 +8,7 @@ tokens are the predominant type of access token used with OAuth 2.0 and is
 broadly supported by hosting services (e.g. GitHub, Gitlab, BitBucket,
 Cloudsmith, etc.).
 
-### DENO_AUTH_TOKENS
+## DENO_AUTH_TOKENS
 
 The Deno CLI will look for an environment variable named `DENO_AUTH_TOKENS` to
 determine what authentication tokens it should consider using when requesting
@@ -44,7 +44,7 @@ remote server to recognize that the request is an authorized request tied to a
 specific authenticated user, and provide access to the appropriate resources and
 modules on the server.
 
-### GitHub
+## GitHub
 
 To be able to access private repositories on GitHub, you would need to issue
 yourself a _personal access token_. You do this by logging into GitHub and going

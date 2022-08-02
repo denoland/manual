@@ -1,14 +1,14 @@
-## Helpful resources
+# Helpful Resources
 
 This page contains some further information that is helpful when using and/or
 developing WebAssembly modules.
 
-### WebAssembly API
+## WebAssembly API
 
 Further information on all parts of the WebAssembly API can be found on
 [MDN](https://developer.mozilla.org/en-US/docs/WebAssembly).
 
-### Working with Non-Numeric Types
+## Working with Non-Numeric Types
 
 The code samples in this chapter only used numeric types in the WebAssembly
 modules. To run WebAssembly with more complex types (strings, classes) you will
@@ -26,7 +26,7 @@ Rust crates useful. `web_sys` contains bindings to most of the Web APIs that are
 available in Deno, while `js_sys` provides bindings to JavaScript's standard,
 built-in objects.
 
-### Optimization
+## Optimization
 
 For production builds it can be a good idea to perform optimizations on
 WebAssembly binaries. If you're mainly serving binaries over networks then

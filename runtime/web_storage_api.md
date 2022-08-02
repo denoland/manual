@@ -1,4 +1,4 @@
-## Web Storage API
+# Web Storage API
 
 Deno 1.10 introduced the
 [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
@@ -29,7 +29,7 @@ determine what is a unique storage location:
 This means, unlike versions prior to 1.16, `localStorage` is always available in
 the main process.
 
-### Example
+## Example
 
 The following snippet accesses the local storage bucket for the current origin
 and adds a data item to it using `setItem()`.

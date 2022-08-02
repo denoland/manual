@@ -1,4 +1,4 @@
-## Benchmarking tool
+# Benchmarking Tool
 
 > ⚠️ `deno bench` was introduced in Deno v1.20 and currently requires
 > `--unstable` flag.

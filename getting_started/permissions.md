@@ -1,4 +1,4 @@
-## Permissions
+# Permissions
 
 Deno is secure by default. Therefore, unless you specifically enable it, a
 program run with Deno has no file, network, or environment access. Access to
@@ -13,7 +13,7 @@ sensitive functions.
 deno run --allow-read mod.ts
 ```
 
-### Permissions list
+## Permissions list
 
 The following permissions are available:
 
@@ -44,12 +44,12 @@ The following permissions are available:
 - **-A, --allow-all** Allow all permissions. This enables all security sensitive
   functions. Use with caution.
 
-### Configurable permissions
+## Configurable permissions
 
 Some permissions allow you to grant access to a specific list of entities
 (files, servers, etc) rather than to everything.
 
-#### File system access
+### File system access
 
 This example restricts file system access by allowing read-only access to the
 `/usr` directory. In consequence the execution fails as the process was
@@ -77,7 +77,7 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 > yourself, replace `/etc/passwd` with `C:\Windows\System32\Drivers\etc\hosts`,
 > and `/usr` with `C:\Users`.
 
-#### Network access
+### Network access
 
 ```js
 // fetch.js
@@ -110,7 +110,7 @@ Allow net calls to any hostname/ip:
 deno run --allow-net fetch.js
 ```
 
-#### Environment variables
+### Environment variables
 
 ```js
 // env.js
@@ -130,7 +130,7 @@ deno run --allow-env=HOME env.js
 > Note for Windows users: environment variables are case insensitive on Windows,
 > so Deno also matches them case insensitively (on Windows only).
 
-#### Subprocess permissions
+### Subprocess permissions
 
 Subprocesses are very powerful, and can be a little scary: they access system
 resources regardless of the permissions you granted to the Deno process that
@@ -162,7 +162,7 @@ You can only limit the executables that are allowed; if permission is granted to
 execute it then any parameters can be passed. For example if you pass
 `--allow-run=cat` then the user can use `cat` to read any file.
 
-### Conference
+## Conference
 
 Permission flags were explained by Ryan Dahl in his 2020 talk about the Deno
 security model at Speakeasy JS:

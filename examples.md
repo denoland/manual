@@ -5,20 +5,20 @@ more about the runtime.
 
 ## Basic
 
-- [Hello world](./examples/hello_world.md)
-- [Import and export modules](./examples/import_export.md)
-- [Manage dependencies](./examples/manage_dependencies.md)
-- [Fetch data](./examples/fetch_data.md)
-- [Read and write files](./examples/read_write_files.md)
+- [Hello World](./examples/hello_world.md)
+- [Import and Export Modules](./examples/import_export.md)
+- [Manage Dependencies](./examples/manage_dependencies.md)
+- [Fetch Data](./examples/fetch_data.md)
+- [Read and Write Files](./examples/read_write_files.md)
 - [Shebang](./examples/shebang.md)
 
 ## Advanced
 
-- [Unix cat program](./examples/unix_cat.md)
-- [HTTP web server](./examples/http_server.md)
-- [File server](./examples/file_server.md)
-- [TCP echo server](./examples/tcp_echo.md)
-- [Creating a subprocess](./examples/subprocess.md)
-- [OS signals](./examples/os_signals.md)
-- [File system events](./examples/file_system_events.md)
-- [Module metadata](./examples/module_metadata.md)
+- [Unix cat Program](./examples/unix_cat.md)
+- [HTTP Web Server](./examples/http_server.md)
+- [File Server](./examples/file_server.md)
+- [TCP echo Server](./examples/tcp_echo.md)
+- [Creating a Subprocess](./examples/subprocess.md)
+- [OS Signals](./examples/os_signals.md)
+- [File System Events](./examples/file_system_events.md)
+- [Module Metadata](./examples/module_metadata.md)

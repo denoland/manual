@@ -1,4 +1,4 @@
-## Language server overview
+# Language Server Overview
 
 The Deno Language Server provides a server implementation of the
 [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
@@ -10,13 +10,13 @@ Most users will never interact with the server directly, but instead will via
 [editor extension](../getting_started/setup_your_environment.md). This
 documentation is for those implementing a editor client.
 
-### Structure
+## Structure
 
 When the language server is started, a `LanguageServer` instance is created
 which holds all of the state of the language server. It also defines all of the
 methods that the client calls via the Language Server RPC protocol.
 
-### Settings
+## Settings
 
 There are several settings that the language server supports for a workspace:
 
@@ -79,7 +79,7 @@ settings.
 If the client does not have the `workspaceConfiguration` capability, the
 language server will assume the workspace setting applies to all resources.
 
-### Commands
+## Commands
 
 There are several commands that might be issued by the language server to the
 client, which the client is expected to implement:
@@ -96,7 +96,7 @@ client, which the client is expected to implement:
   is expected to run a test based on the arguments, which are the specifier the
   test is contained in and the name of the test to filter the tests on.
 
-### Requests
+## Requests
 
 The LSP currently supports the following custom requests. A client should
 implement these in order to have a fully functioning client that integrates well
@@ -143,7 +143,7 @@ with Deno:
   }
   ```
 
-### Notifications
+## Notifications
 
 There is currently one custom notification that is sent from the server to the
 client:
@@ -168,7 +168,7 @@ client:
   }
   ```
 
-### Language IDs
+## Language IDs
 
 The language server supports diagnostics and formatting for the following
 [text document language IDs](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocumentItem):

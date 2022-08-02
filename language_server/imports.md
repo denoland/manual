@@ -1,27 +1,27 @@
-## Import completions and intelligent registries
+# Import Completions and Intelligent Registries
 
 The language server, supports completions for URLs.
 
-### Local import completions
+## Local import completions
 
 When attempting to import a relative module specifier (one that starts with `./`
 or `../`), import completions are provided for directories and files that Deno
 thinks it can run (ending with the extensions `.ts`, `.js`, `.tsx`, `.jsx`, or
 `.mjs`).
 
-### Workspace import completions
+## Workspace import completions
 
 When attempting to import a remote URL that isn't configured as a registry (see
 below), the extension will provide remote modules that are already part of the
 workspace.
 
-### Module registry completions
+## Module registry completions
 
 Module registries that support it can be configured for auto completion. This
 provides a handy way to explore a module registry from the "comfort" of your
 IDE.
 
-#### Auto-discovery
+### Auto-discovery
 
 The Deno language server, by default, will attempt to determine if a server
 supports completion suggestions. If the host/origin has not been explicitly
@@ -32,7 +32,7 @@ You should only enable this for registries you trust, as the remote server could
 provide suggestions for modules which are an attempt to get you to run
 un-trusted code.
 
-#### Configuration
+### Configuration
 
 Settings for configuring registries for auto completions:
 
@@ -53,7 +53,7 @@ Settings for configuring registries for auto completions:
   }
   ```
 
-#### How does it work?
+### How does it work?
 
 On startup of the extension and language server, Deno will attempt to fetch
 `/.well-known/deno-import-intellisense.json` from any of the hosts that are
@@ -69,14 +69,14 @@ configuration file.
 When you complete the module specifier, if it isn't already cached locally for
 you, Deno will attempt to fetch the completed specifier from the registry.
 
-#### Does it work with all remote modules?
+### Does it work with all remote modules?
 
 No, as the extension and Deno need to understand how to _find_ modules. The
 configuration file provides a highly flexible way to allow people to describe
 how to build up a URL, including supporting things like semantic versioning if
 the module registry supports it.
 
-### Registry support for import completions
+## Registry support for import completions
 
 In order to support having a registry be discoverable by the Deno language
 server, the registry needs to provide a few things:
@@ -88,7 +88,7 @@ server, the registry needs to provide a few things:
 - A series of API endpoints that provide the values to be provided to the user
   to complete an import specifier.
 
-#### Configuration schema
+### Configuration schema
 
 The JSON response to the schema definition needs to be an object with two
 required properties:
@@ -108,7 +108,7 @@ features. This is not recommended though, because while there is no specific
 branches in code to support the v2 features currently, that doesn't mean there
 will not be in the future in order to support a _v3_ or whatever.
 
-#### Registries
+### Registries
 
 In the configuration schema, the `"registries"` property is an array of
 registries, which are objects which contain two required properties:
@@ -141,7 +141,7 @@ registries, which are objects which contain two required properties:
   had 3 variables of `package`, `version` and `path`, so we would expect a
   variable definition for each.
 
-#### Variables
+### Variables
 
 In the configuration schema, the `"variables"` property is an array of variable
 definitions, which are objects with two required properties:
@@ -192,7 +192,7 @@ definitions, which are objects with two required properties:
   }
   ```
 
-##### URL endpoints
+#### URL endpoints
 
 The response from each URL endpoint needs to be a JSON document that is an array
 of strings or a _completions list_:
@@ -287,7 +287,7 @@ Or:
 }
 ```
 
-##### Multi-part variables and folders
+#### Multi-part variables and folders
 
 Navigating large file listings can be a challenge for the user. With the
 registry V2, the language server has some special handling of returned items to
@@ -339,7 +339,7 @@ This would allow the user to select the folder `examples` in the IDE before
 getting the listing of what was in the folder, making it easier to navigate the
 file structure.
 
-##### Documentation endpoints
+#### Documentation endpoints
 
 Documentation endpoints should return a documentation object with any
 documentation related to the requested entity:
@@ -361,7 +361,7 @@ For extending the example from above, a query to
 }
 ```
 
-#### Schema validation
+### Schema validation
 
 When the language server is started up (or the configuration for the extension
 is changed) the language server will attempt to fetch and validate the schema
@@ -378,7 +378,7 @@ up your registry for auto-completions, feel free to open up an
 [issue](https://github.com/denoland/deno/issues/new?labels=lsp&title=lsp%3A%20registry%20configuration)
 and we will try to help.
 
-### Known registries
+## Known registries
 
 The following is a list of registries known to support the scheme. All you need
 to do is add the domain to `deno.suggest.imports.hosts` and set the value to
