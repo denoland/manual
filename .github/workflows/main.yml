@@ -9,7 +9,7 @@ on:
 jobs:
   post_status_check:
     name: Post PR preview status
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Create status item
         uses: Sibz/github-status-action@v1

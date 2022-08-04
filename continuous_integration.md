@@ -30,10 +30,10 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - uses: denoland/setup-deno@v1.0.0
+      - uses: denoland/setup-deno@v1.1.0
         with:
           deno-version: v1.x # Run with latest stable Deno.
 ```
@@ -72,7 +72,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2019 ]
+        os: [ ubuntu-22.04, macos-12, windows-2022 ]
     steps:
       - run: deno test --allow-all --coverage cov/
 ```
@@ -100,12 +100,12 @@ jobs:
     continue-on-error: ${{ matrix.canary }} # Continue in case the canary run does not succeed
     strategy:
       matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2019 ]
+        os: [ ubuntu-22.04, macos-12, windows-2022 ]
         deno-version: [ v1.x ]
         canary: [ false ]
         include: 
           - deno-version: canary
-            os: ubuntu-20.04
+            os: ubuntu-22.04
             canary: true
 ```
 
@@ -121,11 +121,11 @@ coverage generation and upload steps only on the `ubuntu` (Linux) runner:
 
 ```yaml
 - name: Generate coverage report
-  if: matrix.os == 'ubuntu-20.04'
+  if: matrix.os == 'ubuntu-22.04'
   run: deno coverage --lcov cov > cov.lcov
 
 - name: Upload coverage to Coveralls.io
-  if: matrix.os == 'ubuntu-20.04'
+  if: matrix.os == 'ubuntu-22.04'
   # Any code coverage service can be used, Coveralls.io is used here as an example.
   uses: coverallsapp/github-action@master
   with:
