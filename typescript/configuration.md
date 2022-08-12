@@ -72,7 +72,7 @@ and any other notes about that option:
 
 For a full list of compiler options and how they affect TypeScript, please refer
 to the
-[TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+[TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 ### What an implied tsconfig.json looks like
 
