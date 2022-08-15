@@ -87,7 +87,10 @@ In order to avoid this, you will either need to resolve the issue, utilise the
 `// @ts-ignore` or `// @ts-expect-error` pragmas, or skip type checking all
 together.
 
-## Determining the type of file
+You can learn more about type-checking arguments
+[here](../getting_started/command_line_interface#type-checking-flags).
+
+### Determining the type of file
 
 Since Deno supports JavaScript, TypeScript, JSX, TSX modules, Deno has to make a
 decision about how to treat each of these kinds of files. For local modules,
