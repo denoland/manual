@@ -53,27 +53,39 @@ One of the main advantages of TypeScript is that you can make code more type
 safe, so that what would be syntactically valid JavaScript becomes TypeScript
 with warnings about being "unsafe".
 
-In Deno we handle TypeScript in two major ways. We can type check TypeScript,
-the default, or you can opt into skipping that checking using the `--no-check`
-flag. For example if you had a program you wanted to run, normally you would do
-something like this:
+You can type-check your code (without executing it) using the following command:
 
-```
-deno run --allow-net my_server.ts
-```
-
-But if you wanted to skip the type checking, you would do something like this:
-
-```
-deno run --allow-net --no-check my_server.ts
+```shell
+deno check module.ts
 ```
 
 Type checking can take a significant amount of time, especially if you are
 working on a code base where you are making a lot of changes. We have tried to
-optimise the type checking, but it still comes at a cost. If you just want to
-hack at some code, or if you are working in an IDE which is type checking your
-code as you author it, using `--no-check` can certainly speed up the process of
-running TypeScript in Deno.
+optimise the type checking, but it still comes at a cost. **Therefore, by
+default, TypeScript modules are not type-checked before they are executed.**
+
+```shell
+deno run module.ts
+```
+
+When using the command above, Deno will simply transpile the module before
+executing it, ignoring any potential type-related issues. In order to perform a
+type-check of the module before execution occurs, the `--check` argument must be
+used with `deno run`:
+
+```shell
+deno run --check module.ts
+```
+
+While `tsc` will (by default) still emit JavaScript when encountering diagnostic
+(type-checking) issues, Deno currently treats them as terminal. When using
+`deno run` _with_ the `--check` argument, type-related diagnostics will prevent
+the program from running: it will halt on these warnings, and exit the process
+before exectuing the code.
+
+In order to avoid this, you will either need to resolve the issue, utilise the
+`// @ts-ignore` or `// @ts-expect-error` pragmas, or skip type checking all
+together.
 
 ## Determining the type of file
 
@@ -139,18 +151,7 @@ figure out what the types are of the JavaScript you import into TypeScript,
 including reading any JSDoc comments. Details of this are discussed in detail in
 the [Types and type declarations](./types.md) section.
 
-## Diagnostics are terminal
-
-While `tsc` by default will still emit JavaScript when run while encountering
-diagnostic (type checking) issues, Deno currently treats them as terminal. It
-will halt on these warnings, not cache any of the emitted files, and exit the
-process.
-
-In order to avoid this, you will either need to resolve the issue, utilise the
-`// @ts-ignore` or `// @ts-expect-error` pragmas, or utilise `--no-check` to
-bypass type checking all together.
-
-## Type resolution
+### Type resolution
 
 One of the core design principles of Deno is to avoid non-standard module
 resolution, and this applies to type resolution as well. If you want to utilise
