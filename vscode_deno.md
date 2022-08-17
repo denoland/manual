@@ -100,7 +100,7 @@ settings applied as when specifying the `--config` option on the command line,
 the _Deno: Config_ option can be used (or `deno.config` if manually editing).
 
 The Deno extension will also auto-identify and apply a `deno.jsonc` or
-`deno.jsoc` by looking in the workspace root for the configuration file and
+`deno.json` by looking in the workspace root for the configuration file and
 applying it. Manually specifying a _Deno: Config_ option will override this
 automatic behavior.
 
