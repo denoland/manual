@@ -52,11 +52,10 @@ chapter:
   manager to install packages locally.
 - And finally, a general section of [frequently asked questions](./node/faqs.md)
 
-That being said, some differences cannot be overcome:
+That being said, some differences cannot be overcome at the moment:
 
-- Node has a plugin system that is incompatible with Deno, and Deno will never
-  support Node plugins. If the Node code you want to use requires a "native"
-  Node plugin, it won't work under Deno.
+- Node has a plugin system that is incompatible with Deno. If the Node code you
+  want to use requires a "native" Node plugin, it won't work under Deno.
 - Node has some built-in modules (e.g. like `vm`) that are effectively
   incompatible with the scope of Deno and therefore there aren't easy ways to
   provide a _polyfill_ of the functionality in Deno.
