@@ -17,7 +17,7 @@ It's built on V8, Rust, and Tokio.
 - Ships a single executable (`deno`).
 - Provides built-in [development tooling](./tools.md) like a code formatter
   ([`deno fmt`](./manual/tools/formatter)), a linter
-  ([`deno lint`](.manual/tools/linter)), a test runner
+  ([`deno lint`](./manual/tools/linter)), a test runner
   ([`deno test`](./manual/testing)), and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
 - Has [a set of reviewed (audited) standard modules](https://deno.land/std/)
