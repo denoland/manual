@@ -164,6 +164,7 @@
       "web_platform_tests": "Web Platform Tests",
       "style_guide": "Style Guide",
       "architecture": "Architecture",
+      "profiling": "Profiling",
       "release_schedule": "Release Schedule"
     }
   }
