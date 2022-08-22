@@ -1,4 +1,4 @@
-## Snapshot Testing
+# Snapshot Testing
 
 The Deno standard library comes with a
 [snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts), which
@@ -13,7 +13,7 @@ requiring a prohibitive amount of code, or where the assertions a test makes are
 expected to change often. It therefore lends itself especially well to use in
 the development of front ends and CLIs.
 
-### Basic usage
+## Basic usage
 
 The `assertSnapshot` function will create a snapshot of a value and compare it
 to a reference snapshot, which is stored alongside the test file in the
@@ -48,7 +48,7 @@ Calling `assertSnapshot` in a test will throw an `AssertionError`, causing the
 test to fail, if the snapshot created during the test does not match the one in
 the snapshot file.
 
-### Creating and updating snapshots
+## Creating and updating snapshots
 
 When adding new snapshot assertions to your test suite, or when intentionally
 making changes which cause your snapshots to fail, you can update your snapshots
@@ -62,7 +62,7 @@ deno test --allow-all -- --update
 
 Additionally, new snapshots will only be created when this flag is present.
 
-### Permissions
+## Permissions
 
 When running snapshot tests, the `--allow-read` permission must be enabled, or
 else any calls to `assertSnapshot` will fail due to insufficient permissions.
@@ -73,7 +73,7 @@ The `assertSnapshot` function will only attempt to read from and write to
 snapshot files. As such, the allow list for `--allow-read` and `--allow-write`
 can be limited to only include existing snapshot files, if so desired.
 
-### Version Control
+## Version Control
 
 Snapshot testing works best when changes to snapshot files are comitted
 alongside other code changes. This allows for changes to reference snapshots to
@@ -81,9 +81,9 @@ be reviewed along side the code changes that caused them, and ensures that when
 others pull your changes, their tests will pass without needing to update
 snapshots locally.
 
-### Advanced Usage
+## Advanced Usage
 
-#### Options
+### Options
 
 The `assertSnapshot` function can also be called with an options object which
 offers greater flexibility and enables some non standard use cases.
@@ -237,7 +237,7 @@ the suffix will be incremented as normal. i.e. `Test Name 1`, `Test Name 2`,
 Allows setting a custom error message to use. This will overwrite the default
 error message, which includes the diff for failed snapshots.
 
-#### Default Options
+### Default Options
 
 You can configure default options for `assertSnapshot`.
 
@@ -285,7 +285,7 @@ export const snapshot = {};
 snapshot[`isSnapshotMatch 1`] = `This green text has had it's colours stripped`;
 ```
 
-#### Serialization with `Deno.customInspect`
+### Serialization with `Deno.customInspect`
 
 The default serialization behaviour can be customised in two ways. The first is
 by specifying the `serializer` option. This allows you to control the

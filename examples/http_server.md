@@ -1,4 +1,4 @@
-# Simple HTTP web server
+# Simple HTTP Web Server
 
 ## Concepts
 

@@ -1,10 +1,10 @@
-## Configuring JSX in Deno
+# Configuring JSX in Deno
 
 Deno has built-in support for JSX in both `.jsx` files and `.tsx` files. JSX in
 Deno can be handy for server-side rendering or generating code for consumption
 in a browser.
 
-### Default configuration
+## Default configuration
 
 The Deno CLI has a default configuration for JSX that is different than the
 defaults for `tsc`. Effectively Deno uses the following
@@ -21,7 +21,7 @@ options by default:
 }
 ```
 
-### JSX import source
+## JSX import source
 
 In React 17, the React team added what they called
 [the _new_ JSX transforms](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html).
@@ -34,7 +34,7 @@ As of Deno 1.16, initial support for these transforms was added. Deno supports
 both the JSX import source pragma as well as configuring a JSX import source in
 a [configuration file](../getting_started/configuration_file.md).
 
-#### JSX runtime
+### JSX runtime
 
 When using the automatic transforms, Deno will try to import a JSX runtime
 module that is expected to conform to the _new_ JSX API and is located at either
@@ -57,7 +57,7 @@ import source, and esm.sh will resolve `https://esm.sh/preact/jsx-runtime` as a
 module, including providing a header in the response that tells Deno where to
 find the type definitions for Preact.
 
-#### Using the JSX import source pragma
+### Using the JSX import source pragma
 
 Whether you have a JSX import source configured for your project, or if you are
 using the default "legacy" configuration, you can add the JSX import source
@@ -78,7 +78,7 @@ export function App() {
 }
 ```
 
-#### Using JSX import source in a configuration file
+### Using JSX import source in a configuration file
 
 If you want to configure a JSX import source for a whole project, so you don't
 need to insert the pragma on each module, you can use the `"compilerOptions"` in
@@ -95,7 +95,7 @@ would configure the following, in the configuration file:
 }
 ```
 
-#### Using an import map
+### Using an import map
 
 In situations where the import source plus `/jsx-runtime` or `/jsx-dev-runtime`
 is not resolvable to the correct module, an import map can be used to instruct
@@ -134,7 +134,7 @@ You would then need to pass the `--import-map` option on the command line (along
 with the `--config` option is using a config file) or set the `deno.importMap`
 option (and `deno.config` option) in your IDE.
 
-#### Current limitations
+### Current limitations
 
 There are two current limitations of the support of the JSX import source:
 

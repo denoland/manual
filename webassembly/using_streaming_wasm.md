@@ -1,4 +1,4 @@
-## Using the streaming WebAssembly APIs
+# Using the Streaming WebAssembly APIs
 
 The
 [most efficient](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/instantiateStreaming)

@@ -1,4 +1,4 @@
-## Release Schedule
+# Release Schedule
 
 A new minor release for the `deno` cli is released every month, on the third
 Thursday of the month.
@@ -13,7 +13,7 @@ minor release.
 Stable releases can be found on the
 [GitHub releases page](https://github.com/denoland/deno/releases).
 
-### Canary channel
+## Canary channel
 
 In addition to the stable channel described above, canaries are released
 multiple times daily (for each commit on main). You can upgrade to the latest

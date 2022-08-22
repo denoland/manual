@@ -1,4 +1,4 @@
-## Configuring TypeScript in Deno
+# Configuring TypeScript in Deno
 
 TypeScript comes with a lot of different options that can be configured, but
 Deno strives to make it easy to use TypeScript with Deno. Lots of different
@@ -27,7 +27,7 @@ a path on the command line. For example:
 > `deno.json` or `deno.jsonc`, as an automatic lookup of this file is planned
 > for an upcoming release.
 
-### How Deno uses a configuration file
+## How Deno uses a configuration file
 
 Deno does not process a TypeScript configuration file like `tsc` does, as there
 are lots of parts of a TypeScript configuration file that are meaningless in a
@@ -74,7 +74,7 @@ For a full list of compiler options and how they affect TypeScript, please refer
 to the
 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
-### What an implied tsconfig.json looks like
+## What an implied tsconfig.json looks like
 
 It is impossible to get `tsc` to behave like Deno. It is also difficult to get
 the TypeScript language service to behave like Deno. This is why we have built a
@@ -116,7 +116,7 @@ is type checked with `"deno.worker"` instead of `"deno.window"`. See
 [Type Checking Web Workers](./types#type-checking-web-workers) for more
 information on this.
 
-### Using the "lib" property
+## Using the "lib" property
 
 Deno has several libraries built into it that are not present in other
 platforms, like `tsc`. This is what enables Deno to properly check code written
@@ -160,7 +160,7 @@ code that is intended to also work in another runtime:
 - `"webworker.iterable"` - The library that adds iterables to objects within a
   web worker. Modern browsers support this.
 
-#### Targeting Deno and the Browser
+### Targeting Deno and the Browser
 
 A common use case is writing code that works in Deno and the browser: using a
 conditional check to determine the environment in which the code is executing
@@ -205,7 +205,7 @@ is significantly looser, and there is no way to validate that you are doing
 sufficient and effective feature detection in your code, which may lead to what
 could be trivial errors becoming runtime errors.
 
-### Using the "types" property
+## Using the "types" property
 
 The `"types"` property in `"compilerOptions"` can be used to specify arbitrary
 type definitions to include when type checking a program. For more information

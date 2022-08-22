@@ -1,4 +1,4 @@
-# Task runner
+# Task Runner
 
 > ⚠️ `deno task` was introduced in Deno v1.20 and is unstable. It may
 > drastically change in the future.

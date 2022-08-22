@@ -1,4 +1,4 @@
-## Using import maps
+# Using Import Maps
 
 Deno supports [import maps](../linking_to_external_code/import_maps.md) which
 allow you to supply Deno with information about how to resolve modules that
@@ -11,7 +11,7 @@ When coupled with Deno friendly [CDNs](./cdns.md) import maps can be a powerful
 tool in managing code and dependencies without need of a package management
 tool.
 
-### Bare and extension-less specifiers
+## Bare and extension-less specifiers
 
 Deno will only load a fully qualified module, including the extension. The
 import specifier needs to either be relative or absolute. Specifiers that are
@@ -80,7 +80,7 @@ for the dependency in your import map. For example, to pin to lodash version
 }
 ```
 
-### Overriding imports
+## Overriding imports
 
 The other situation where import maps can be very useful is the situation where
 you have tried your best to make something work, but have failed. For example

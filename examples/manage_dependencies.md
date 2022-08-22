@@ -1,4 +1,4 @@
-# Managing dependencies
+# Managing Dependencies
 
 ## Concepts
 

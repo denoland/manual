@@ -1,4 +1,4 @@
-# An implementation of the unix "cat" program
+# An Implementation of the Unix "cat" Program
 
 ## Concepts
 

@@ -1,4 +1,4 @@
-## First steps
+# First Steps
 
 This page contains some examples to teach you about the fundamentals of Deno.
 
@@ -8,7 +8,7 @@ you might want to follow a guide
 [on the basics of JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
 before attempting to start with Deno.
 
-### Hello World
+## Hello World
 
 Deno is a runtime for JavaScript/TypeScript which tries to be web compatible and
 use modern features wherever possible.
@@ -26,7 +26,7 @@ Try the program:
 deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
 ```
 
-### Making an HTTP request
+## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a webserver. Let's write a
 small program that fetches a file and prints its contents out to the terminal.
@@ -73,7 +73,7 @@ Try it out again with the correct permission flag:
 deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
-### Reading a file
+## Reading a file
 
 Deno also provides APIs which do not come from the web. These are all contained
 in the `Deno` global. You can find documentation for these APIs on
@@ -110,7 +110,7 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/ho
 deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
-### TCP server
+## TCP server
 
 This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.
@@ -151,7 +151,7 @@ Like the `cat.ts` example, the `copy()` function here also does not make
 unnecessary memory copies. It receives a packet from the kernel and sends it
 back, without further complexity.
 
-### More examples
+## More examples
 
 You can find more examples, like an HTTP file server, in the
 [Examples](../examples) chapter.

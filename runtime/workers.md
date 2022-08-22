@@ -1,4 +1,4 @@
-## Workers
+# Workers
 
 Deno supports
 [`Web Worker API`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker).
@@ -47,7 +47,7 @@ self.onmessage = (evt) => {
 };
 ```
 
-### Instantiation permissions
+## Instantiation permissions
 
 Creating a new `Worker` instance is similar to a dynamic import; therefore Deno
 requires appropriate permission for this action.
@@ -98,7 +98,7 @@ $ deno run --allow-net main.ts
 hello world
 ```
 
-### Using Deno in worker
+## Using Deno in worker
 
 > Starting in v1.22 the `Deno` namespace is available in worker scope by
 > default. To enable the namespace in earlier versions pass
@@ -141,7 +141,7 @@ hello world
 > to shutdown. This better aligns with the Web platform, as there is no way in
 > the browser for a worker to close the page.
 
-### Specifying worker permissions
+## Specifying worker permissions
 
 > This is an unstable Deno feature. Learn more about
 > [unstable features](./stability.md).

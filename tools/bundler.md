@@ -1,4 +1,4 @@
-## Bundling
+# Bundling
 
 `deno bundle [URL]` will output a single JavaScript file for consumption in
 Deno, which includes all dependencies of the specified input. For example:
@@ -35,7 +35,7 @@ It could be imported like this:
 import { bar, foo } from "./lib.bundle.js";
 ```
 
-### Bundling for the Web
+## Bundling for the Web
 
 The output of `deno bundle` is intended for consumption in Deno and not for use
 in a web browser or other runtimes. That said, depending on the input it may

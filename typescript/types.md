@@ -1,4 +1,4 @@
-## Types and Type Declarations
+# Types and Type Declarations
 
 One of the design principles of Deno is no non-standard module resolution. When
 TypeScript is type checking a file, it only cares about the types for the file,
@@ -29,7 +29,7 @@ module, everyone can consume it without having to figure out how to resolve the
 types for the JavaScript module, but when consuming modules that you may not
 have direct control over, the ability to do the former is also required.
 
-### Providing types when importing
+## Providing types when importing
 
 If you are consuming a JavaScript module and you have either created types (a
 `.d.ts` file) or have otherwise obtained the types, you want to use, you can
@@ -53,13 +53,13 @@ The pattern matching for the compiler hint is somewhat forgiving and will accept
 quoted and non-question values for the specifier as well as it accepts
 whitespace before and after the equals sign.
 
-### Providing types when hosting
+## Providing types when hosting
 
 If you are in control of the source code of the module, or you are in control of
 how the file is hosted on a web server, there are two ways to inform Deno of the
 types for a given module, without requiring the importer to do anything special.
 
-#### Using the triple-slash reference directive
+### Using the triple-slash reference directive
 
 Deno supports using the triple-slash reference `types` directive, which adopts
 the reference comment used by TypeScript in TypeScript files to _include_ other
@@ -84,7 +84,7 @@ the file, but still load the JavaScript file when running the program.
 > TypeScript file works under Deno as well, but has essentially the same
 > behavior as the `path` directive.
 
-#### Using X-TypeScript-Types header
+### Using X-TypeScript-Types header
 
 Similar to the triple-slash directive, Deno supports a header for remote modules
 that instructs Deno where to locate the types for a given module. For example, a
@@ -101,7 +101,7 @@ When seeing this header, Deno would attempt to retrieve
 `https://example.com/coolLib.d.ts` and use that when type checking the original
 module.
 
-### Using ambient or global types
+## Using ambient or global types
 
 Overall it is better to use module/UMD type definitions with Deno, where a
 module expressly imports the types it depends upon. Modular type definitions can
@@ -122,7 +122,7 @@ In some cases though, when leveraging other existing type libraries, it may not
 be possible to leverage modular type definitions. Therefore there are ways to
 include arbitrary type definitions when type checking programmes.
 
-#### Using a triple-slash directive
+### Using a triple-slash directive
 
 This option couples the type definitions to the code itself. By adding a
 triple-slash `types` directive near the type of a module, type checking the file
@@ -140,7 +140,7 @@ can be a fully qualified URL as well:
 /// <reference types="https://deno.land/x/pkg@1.0.0/types.d.ts" />
 ```
 
-#### Using a configuration file
+### Using a configuration file
 
 Another option is to use a configuration file that is configured to include the
 type definitions, by supplying a `"types"` value to the `"compilerOptions"`. For
@@ -163,7 +163,7 @@ array will be resolved like other specifiers in Deno. In the case of relative
 specifiers, it will be resolved relative to the path to the config file. Make
 sure to tell Deno to use this file by specifying `--config=path/to/file` flag.
 
-### Type Checking Web Workers
+## Type Checking Web Workers
 
 When Deno loads a TypeScript module in a web worker, it will automatically type
 check the module and its dependencies against the Deno web worker library. This
@@ -171,7 +171,7 @@ can present a challenge in other contexts like `deno cache`, `deno bundle`, or
 in editors. There are a couple of ways to instruct Deno to use the worker
 libraries instead of the standard Deno libraries.
 
-#### Using triple-slash directives
+### Using triple-slash directives
 
 This option couples the library settings with the code itself. By adding the
 following triple-slash directives near the top of the entry point file for the
@@ -197,7 +197,7 @@ The one disadvantage of this, is that it makes the code less portable to other
 non-Deno platforms like `tsc`, as it is only Deno which has the `"deno.worker"`
 library built into it.
 
-#### Using a configuration file
+### Using a configuration file
 
 Another option is to use a configuration file that is configured to apply the
 library files. A minimal file that would work would look something like this:
@@ -219,9 +219,9 @@ If you also have non-worker scripts, you will either need to omit the `--config`
 argument, or have one that is configured to meet the needs of your non-worker
 scripts.
 
-### Important points
+## Important points
 
-#### Type declaration semantics
+### Type declaration semantics
 
 Type declaration files (`.d.ts` files) follow the same semantics as other files
 in Deno. This means that declaration files are assumed to be module declarations
@@ -237,7 +237,7 @@ To overcome this problem, some solution providers, like the
 [Skypack CDN](https://www.skypack.dev/), will automatically bundle type
 declarations just like they provide bundles of JavaScript as ESM.
 
-#### Deno Friendly CDNs
+### Deno Friendly CDNs
 
 There are CDNs which host JavaScript modules that integrate well with Deno.
 
@@ -250,7 +250,7 @@ There are CDNs which host JavaScript modules that integrate well with Deno.
   import React from "https://cdn.skypack.dev/react?dts";
   ```
 
-### Behavior of JavaScript when type checking
+## Behavior of JavaScript when type checking
 
 If you import JavaScript into TypeScript in Deno and there are no types, even if
 you have `checkJs` set to `false` (the default for Deno), the TypeScript
@@ -264,7 +264,7 @@ TypeScript's analysis of the module can fail and cause misleading errors. The
 best thing to do in this situation is provide some form of types using one of
 the methods mention above.
 
-#### Internals
+### Internals
 
 While it isn't required to understand how Deno works internally to be able to
 leverage TypeScript with Deno well, it can help to understand how it works.

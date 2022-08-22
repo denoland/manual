@@ -1,4 +1,4 @@
-## Command line interface
+# Command Line Interface
 
 Deno is a command line program. You should be familiar with some simple commands
 having followed the examples thus far and already understand the basics of shell
@@ -29,7 +29,7 @@ deno bundle --help
 
 Detailed guides for each subcommand can be found [here](../tools.md).
 
-### Script source
+## Script source
 
 Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
 read the file from stdin. The latter is useful for integration with other
@@ -41,7 +41,7 @@ deno run https://mydomain.com/main.ts
 cat main.ts | deno run -
 ```
 
-### Script arguments
+## Script arguments
 
 Separately from the Deno runtime flags, you can pass user-space arguments to the
 script you are running by specifying them **after** the script name:
@@ -85,7 +85,7 @@ However:
 There exist logical groups of flags that are shared between related subcommands.
 We discuss these below.
 
-### Watch mode
+## Watch mode
 
 You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
 `deno fmt` to enable the built-in file watcher. The files that are watched
@@ -106,7 +106,7 @@ deno test --watch
 deno fmt --watch
 ```
 
-### Integrity flags (lock files)
+## Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
 `deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
@@ -119,7 +119,7 @@ Affect commands which can download resources to the cache: `deno cache`,
 Find out more about these
 [here](../linking_to_external_code/integrity_checking.md).
 
-### Cache and compilation flags
+## Cache and compilation flags
 
 Affect commands which can populate the cache: `deno cache`, `deno run`,
 `deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
@@ -134,12 +134,12 @@ configuration etc.
 --unstable                    Enable unstable APIs
 ```
 
-### Runtime flags
+## Runtime flags
 
 Affect commands which execute user code: `deno run` and `deno test`. These
 include all of the above as well as the following.
 
-#### Type checking flags
+### Type checking flags
 
 You can type-check your code (without executing it) using the command:
 
@@ -172,11 +172,11 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 | `deno run`     | ❌ None             |
 | `deno test`    | 📁 Local            |
 
-#### Permission flags
+### Permission flags
 
 These are listed [here](./permissions.md#permissions-list).
 
-#### Other runtime flags
+### Other runtime flags
 
 More flags which affect the execution environment.
 
