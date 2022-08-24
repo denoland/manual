@@ -394,3 +394,39 @@ class MyClass {
   private bar() {}
 }
 ```
+
+#### Naming convention
+
+Always use camel or pascal case. Some Web APIs use uppercase acronyms (`JSON`,
+`URL`, `URL.createObjectURL()` etc.). Deno does not follow this convention and
+also uses camel or pascal case.
+
+Good:
+
+```ts
+class HttpObject {
+}
+```
+
+Bad:
+
+```ts
+class HTTPObject {
+}
+```
+
+Good:
+
+```ts
+function convertUrl(url: URL) {
+  return url.href;
+}
+```
+
+Bad:
+
+```ts
+function convertURL(url: URL) {
+  return url.href;
+}
+```
