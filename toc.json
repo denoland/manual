@@ -98,7 +98,7 @@
       "tcp_echo": "TCP echo Server",
       "subprocess": "Creating a Subprocess",
       "os_signals": "OS Signals",
-      "file_system_events": "File System Wvents",
+      "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
       "shebang": "Shebang"
     }
