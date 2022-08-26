@@ -90,7 +90,7 @@ together.
 You can learn more about type-checking arguments
 [here](../getting_started/command_line_interface#type-checking-flags).
 
-### Determining the type of file
+## Determining the type of file
 
 Since Deno supports JavaScript, TypeScript, JSX, TSX modules, Deno has to make a
 decision about how to treat each of these kinds of files. For local modules,
@@ -154,7 +154,7 @@ figure out what the types are of the JavaScript you import into TypeScript,
 including reading any JSDoc comments. Details of this are discussed in detail in
 the [Types and type declarations](./types.md) section.
 
-### Type resolution
+## Type resolution
 
 One of the core design principles of Deno is to avoid non-standard module
 resolution, and this applies to type resolution as well. If you want to utilise
