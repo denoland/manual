@@ -15,7 +15,7 @@ interface TableOfContents {
   [section: string]: Section;
 }
 
-const MANUAL_INDEX = "manual_new";
+const MANUAL_INDEX = "manual";
 
 dax.logStep("Generate manual search records...");
 
