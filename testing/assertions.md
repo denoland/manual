@@ -156,7 +156,7 @@ Deno.test("Test Assert Almost Equals", () => {
 
 ### Instance types
 
-To check if a object is an instance of a specific constructor, you can use
+To check if an object is an instance of a specific constructor, you can use
 `assertInstanceOf()`. This has the added benefit that it lets TypeScript know
 the passed in variable has a specific type:
 
