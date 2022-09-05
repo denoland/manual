@@ -6,6 +6,8 @@ secure defaults and a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 
+It can be considered a modern alternative to Node.js.
+
 ## Feature highlights
 
 - Provides [web platform functionality](./runtime/web_platform_apis.md) and
@@ -53,22 +55,6 @@ have been historically written with Bash or Python.
   - E.g. unit testing, code formatting, and linting.
 - Keep V8 concepts out of user land.
 - Serve HTTP efficiently.
-
-## Comparison to Node.js
-
-- Deno does not use `npm`.
-  - It uses modules referenced as URLs or file paths.
-- Deno does not use `package.json` in its module resolution algorithm.
-- All async actions in Deno return a promise. Thus Deno provides different APIs
-  than Node.
-- Deno requires explicit permissions for file, network, and environment access.
-- Deno always dies on uncaught errors.
-- Deno uses "ES Modules" and does not support `require()`. Third party modules
-  are imported via URLs:
-
-  ```javascript
-  import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
-  ```
 
 ## Other key behaviors
 
