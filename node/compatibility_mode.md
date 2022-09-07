@@ -50,7 +50,7 @@ $ deno run \
 
 > ⚠️ Notice that ESLint is run with limited set of permissions. We only give it
 > access to the read from the file system, write to current directory and access
-> environmental variables. Programs run in compatility mode are subject to
+> environmental variables. Programs run in compatibility mode are subject to
 > Deno's permission model.
 
 ## How does it work?
