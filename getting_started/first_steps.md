@@ -14,9 +14,10 @@ Deno is a runtime for JavaScript/TypeScript which tries to be web compatible and
 use modern features wherever possible.
 
 Browser compatibility means a `Hello World` program in Deno is the same as the
-one you can run in the browser. 
+one you can run in the browser.
 
-Create file locally called `first_steps.ts` and copy and paste the code line below:
+Create file locally called `first_steps.ts` and copy and paste the code line
+below:
 
 ```ts
 console.log("Welcome to Deno!");
@@ -30,7 +31,9 @@ Now to run the program from the terminal:
 deno run first_steps.ts
 ```
 
-Deno also has the ability to execute scripts from URLs. Deno [hosts a library](https://deno.land/std@0.103.0/examples) of example code, one of which is a `Hello World` program. To run that hosted code, do: 
+Deno also has the ability to execute scripts from URLs. Deno
+[hosts a library](https://deno.land/std@0.103.0/examples) of example code, one
+of which is a `Hello World` program. To run that hosted code, do:
 
 ```shell
 deno run https://deno.land/std@0.103.0/examples/welcome.ts
@@ -38,17 +41,19 @@ deno run https://deno.land/std@0.103.0/examples/welcome.ts
 
 ## $STD_VERSION
 
-Throughout this documentation, you may see `$STD_VERSION`. This variable is meant to be replaced with the numeric version of the standard library to be imported. 
+Throughout this documentation, you may see `$STD_VERSION`. This variable is
+meant to be replaced with the numeric version of the standard library to be
+imported.
 
-You should always pin your imports to a specific version, to avoid unintended changes later.
+You should always pin your imports to a specific version, to avoid unintended
+changes later.
 
 For the latest version go [here](https://deno.land/std@0.154.0/version.ts)
 
 ## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a webserver. Let's write a
-small program that fetches a file and prints its contents out to  terminal.
-the
+small program that fetches a file and prints its contents out to terminal. the
 Just like in the browser you can use the web standard
 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
 make HTTP calls.
@@ -193,26 +198,26 @@ One of the most common usecases for Deno is building an HTTP Server.
 
 ```ts
 import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
-import { urlJoin } from 'https://deno.land/x/url_join/mod.ts';
+import { urlJoin } from "https://deno.land/x/url_join/mod.ts";
 
 async function handler(req: Request): Promise<Response> {
-    const fullUrl = urlJoin('https://api.github.com/', 'users', '/denoland');
-    const resp = await fetch(fullUrl, {
-      // The init object here has an headers object containing a
-      // header that indicates what type of response we accept.
-      // We're not specifying the method field since by default
-      // fetch makes a GET request.
-      headers: {
-        accept: "application/json",
-      },
-    });
-    return new Response(resp.body, {
-      status: resp.status,
-      headers: {
-        "content-type": "application/json",
-      },
-    });
-  }
+  const fullUrl = urlJoin("https://api.github.com/", "users", "/denoland");
+  const resp = await fetch(fullUrl, {
+    // The init object here has an headers object containing a
+    // header that indicates what type of response we accept.
+    // We're not specifying the method field since by default
+    // fetch makes a GET request.
+    headers: {
+      accept: "application/json",
+    },
+  });
+  return new Response(resp.body, {
+    status: resp.status,
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+}
 
 console.log("Listening on http://localhost:8000");
 serve(handler);
@@ -221,15 +226,24 @@ serve(handler);
 Let's walk through what this program does.
 
 1. Import the http server from `std/http` (standard library)
-2. Import a third party module, `url_join`, which is hosted at [deno.land/x](https://deno.land/x). (Since it can be unwieldy to import URLs everywhere, best practice is actually to import and re-export your external libraries into a central `deps.ts` file. For more details read [here](https://deno.land/manual@v1.12.2/linking_to_external_code#it-seems-unwieldy-to-import-urls-everywhere)).
-3. HTTP servers need a handler function. This function is called for every request that comes in. It must return a `Response`. The handler function can be asynchronous (it may return a `Promise`).
-3. In the handler function, use `url_join` to join together a complex Github url.
-4. Use `fetch` to fetch the url.
-5. Write the response body to a local file.
-6. Return the Github response as a response to the handler.
-7. Finally, to start the server on the default port, call `serve` with the handler.
+2. Import a third party module, `url_join`, which is hosted at
+   [deno.land/x](https://deno.land/x). (Since it can be unwieldy to import URLs
+   everywhere, best practice is actually to import and re-export your external
+   libraries into a central `deps.ts` file. For more details read
+   [here](https://deno.land/manual@v1.12.2/linking_to_external_code#it-seems-unwieldy-to-import-urls-everywhere)).
+3. HTTP servers need a handler function. This function is called for every
+   request that comes in. It must return a `Response`. The handler function can
+   be asynchronous (it may return a `Promise`).
+4. In the handler function, use `url_join` to join together a complex Github
+   url.
+5. Use `fetch` to fetch the url.
+6. Write the response body to a local file.
+7. Return the Github response as a response to the handler.
+8. Finally, to start the server on the default port, call `serve` with the
+   handler.
 
-Now run the server. Note that you need to give both network and write permissions.
+Now run the server. Note that you need to give both network and write
+permissions.
 
 ```shell
 deno run --allow-net --allow-write http_server.ts
@@ -243,8 +257,7 @@ curl http://localhost:8000
 
 You will see a JSON response from the Deno Github page.
 
-
 ## More examples
 
-You can find more examples in the
-[Examples](../examples) chapter and at [Deno by Example](https://examples.deno.land/).
+You can find more examples in the [Examples](../examples) chapter and at
+[Deno by Example](https://examples.deno.land/).

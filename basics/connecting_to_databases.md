@@ -1,12 +1,14 @@
 # Connecting to databases
 
-The Deno community has published a number of third-party modules that make it easy to connect to popular databases like MySQL, Postgres, and MongoDB.
+The Deno community has published a number of third-party modules that make it
+easy to connect to popular databases like MySQL, Postgres, and MongoDB.
 
 They are hosted at Deno's third-party module site.
 
 ## MySQL
 
-[deno_mysql](https://deno.land/x/mysql@v2.10.2) is a MySQL and MariaDB database driver for Deno.
+[deno_mysql](https://deno.land/x/mysql@v2.10.2) is a MySQL and MariaDB database
+driver for Deno.
 
 ### Connect to MySQL with deno_mysql
 
@@ -21,10 +23,10 @@ const client = await new Client().connect({
 });
 ```
 
-
 ## Postgres
 
-[deno-postgres](https://deno.land/x/postgres@v0.16.1) is a lightweight PostgreSQL driver for Deno focused on user experience.
+[deno-postgres](https://deno.land/x/postgres@v0.16.1) is a lightweight
+PostgreSQL driver for Deno focused on user experience.
 
 ### Connect to Postgres with deno-postgres
 
@@ -46,8 +48,8 @@ await client.connect();
 }
 
 {
-  const result = await client.queryArray
-    `SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
+  const result = await client
+    .queryArray`SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
   console.log(result.rows); // [[1, 'Carlos']]
 }
 
@@ -57,8 +59,8 @@ await client.connect();
 }
 
 {
-  const result = await client.queryObject
-    `SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
+  const result = await client
+    .queryObject`SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
   console.log(result.rows); // [{id: 1, name: 'Carlos'}]
 }
 
@@ -67,7 +69,8 @@ await client.end();
 
 ## MongoDB
 
-[deno_mongo](https://deno.land/x/mongo@v0.31.1) is a MongoDB database driver developed for Deno.
+[deno_mongo](https://deno.land/x/mongo@v0.31.1) is a MongoDB database driver
+developed for Deno.
 
 ### Connect to MongoDB
 
@@ -104,5 +107,4 @@ await client.connect({
 await client.connect(
   "mongodb+srv://<username>:<password>@<db_cluster_url>/<db_name>?authMechanism=SCRAM-SHA-1",
 );
-
 ```
