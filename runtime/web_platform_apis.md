@@ -1,4 +1,4 @@
-# Web Platform APIs
+# Using Web Platform APIs
 
 Deno aims to use web platform APIs (like `fetch`) instead of inventing a new
 proprietary API where it makes sense. These APIs generally follow the
