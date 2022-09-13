@@ -234,14 +234,14 @@ Here's a list of types supported currently by the Deno FFI API.
 | `buffer`[3]   | `TypedArray \| null`       | `const uint8_t *`        | `*const u8`               |
 | `function`[4] | `bigint \| null`           | `void (*fun)()`          | `Option<extern "C" fn()>` |
 
-As of Deno 1.25, the `pointer` type has been split into a `pointer` and a `buffer`
-type to ensure users take advantage of optimizations for Typed Arrays.
+As of Deno 1.25, the `pointer` type has been split into a `pointer` and a
+`buffer` type to ensure users take advantage of optimizations for Typed Arrays.
 
 - [1] `void` type can only be used as a result type.
-- [2] `pointer` type accepts both `number` and `bigint` as parameter, while
-  it always returns the latter when used as result type.
-- [3] `buffer` type accepts Typed Arrays as parameter, while it always returns
-  a `bigint` when used as result type like the `pointer` type.
+- [2] `pointer` type accepts both `number` and `bigint` as parameter, while it
+  always returns the latter when used as result type.
+- [3] `buffer` type accepts Typed Arrays as parameter, while it always returns a
+  `bigint` when used as result type like the `pointer` type.
 - [4] `function` type parameters and return types are defined using objects, and
   are passed in as parameters and returned as result types as BigInt pointer
   values.
