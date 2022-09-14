@@ -1,4 +1,4 @@
-# Importing npm packages via npm specifiers
+# Using npm packages with npm specifiers
 
 Deno release 1.25 offers experimental support for npm specifiers. npm specifiers allow you to use npm modules directly in Deno with a higher chance of compatibility than importing from CDN's, particularly if the modules depend on artifact files in their package.
 

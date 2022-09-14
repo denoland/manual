@@ -1,10 +1,10 @@
-# Packages from CDNs
+# Using npm packages with CDNs
 
-Because Deno supports remote HTTP modules, and content delivery networks (CDNs)
-can be powerful tools to transform code, the combination allows an easy way to
-access code in the npm registry via Deno, usually in a way that works with Deno
-without any further actions, and often enriched with TypeScript types. In this
-section we will explore that in detail.
+Most developers currently use npm modules in Deno by importing them using one of many CDNs. You can reference the CDN URL in your Deno TS code or directly in your browser as an ES Module. These CDN URLs are reusuable - they also provide instructions on how to be used in Deno, the browser, etc. Sometimes you need a URL flag to indicate that that you need a Deno-specific module.
+
+**Starting with Deno release 1.25**, Deno also offers experimental support for [npm specifiers](), which are a new way of using npm modules in Deno that offers a higher chance of compatibility. Our recommendation is that you use npm specifiers when possible.
+
+However, given that npm specifiers are still a work in progress, below we cover how to use npm modules in Deno via some popular CDNs.
 
 ## What about `deno.land/x/`?
 
@@ -33,7 +33,7 @@ directly address some of the challenges in consuming code written for Node:
 - Often, they inform Deno of type definitions for a package, meaning that Deno
   can use them to type check your code and provide a better development
   experience.
-- The CDNs also "polyfill" the built-in Node modules, making a lot of code that
+- The CDNs also "polyfill" the built-in Node modules (fs, os, etc.c), making a lot of code that
   leverages the built-in Node modules _just work_.
 - The CDNs deal with all the semver matching for packages that a package manager
   like `npm` would be required for a Node application, meaning you as a
@@ -74,7 +74,19 @@ Or to get the latest patch release of a minor release:
 import React from "https://esm.sh/react@~16.13.0";
 ```
 
-esm.sh uses the `std/node` polyfills to replace the built-in modules in Node,
+Or to get a submodule:
+
+```tsx
+import { renderToString } from 'https://esm.sh/react-dom/server'
+```
+
+Or to import regular files:
+
+```tsx
+import 'https://esm.sh/tailwindcss/dist/tailwind.min.css'
+```
+
+esm.sh uses the `std/node` polyfills to replace the built-in modules in Node (fs, os , etc.),
 meaning that code that uses those built-in modules will have the same
 limitations and caveats as those modules in `std/node`.
 
@@ -85,7 +97,7 @@ in this manual for more details on how this works.
 
 The CDN is also a good choice for people who develop in mainland China, as the
 hosting of the CDN is specifically designed to work with "the great firewall of
-China", as well as esm.sh provides information on self hosting the CDN as well.
+China". esm.sh also provides information on [self hosting the CDN](https://github.com/ije/esm.sh/blob/main/HOSTING.md).
 
 Check out the [esm.sh homepage](https://esm.sh/) for more detailed information
 on how the CDN can be used and what features it has.
