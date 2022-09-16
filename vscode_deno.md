@@ -382,6 +382,13 @@ This will display a document from the language server with a section named
 _Workspace Configuration_. This will provide you with what vscode is reporting
 the configuration is to the language server.
 
+Also check if the VSCode configuration called `enableProjectDiagnostics`, 
+located in **TypeScript › Tsserver › Experimental: Enable Project Diagnostics**
+is **disabled**. This setting allows TypeScript language server to execute 
+in the background to check the entire project at once and Deno cannot disable
+its behaviour so the errors keep showing even when all other settings are
+correctly set.
+
 If `"enable"` is set to `true` in there, and the error message still persists,
 you might want to try restarting vscode, as the part of the extension that
 "mutes" the built-in TypeScript diagnostics for files is not working as
