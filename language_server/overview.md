@@ -142,6 +142,10 @@ with Deno:
     textDocument: TextDocumentIdentifier;
   }
   ```
+  
+- `deno/task` - Requests the return of avalaible deno tasks, see [task_runner](../tools/task_runner.md).
+
+  It does not expect any parameters.
 
 ## Notifications
 
