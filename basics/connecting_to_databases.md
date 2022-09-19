@@ -3,7 +3,7 @@
 The Deno community has published a number of third-party modules that make it
 easy to connect to popular databases like MySQL, Postgres, and MongoDB.
 
-They are hosted at Deno's third-party module site.
+They are hosted at Deno's third-party module site [deno.land/x](https://deno.land/x).
 
 ## MySQL
 
@@ -25,46 +25,14 @@ const client = await new Client().connect({
 
 ## Postgres
 
-[deno-postgres](https://deno.land/x/postgres@v0.16.1) is a lightweight
-PostgreSQL driver for Deno focused on user experience.
+[postgresjs](https://deno.land/x/postgresjs) is a full featured Postgres client for Node and Deno.
 
-### Connect to Postgres with deno-postgres
+### Connect to Postgres with postgresjs
 
-```ts
-// deno run --allow-net --allow-read mod.ts
-import { Client } from "https://deno.land/x/postgres@v0.16.1/mod.ts";
+```jsx
+import postgres from 'https://deno.land/x/postgresjs/mod.js'
 
-const client = new Client({
-  user: "user",
-  database: "test",
-  hostname: "localhost",
-  port: 5432,
-});
-await client.connect();
-
-{
-  const result = await client.queryArray("SELECT ID, NAME FROM PEOPLE");
-  console.log(result.rows); // [[1, 'Carlos'], [2, 'John'], ...]
-}
-
-{
-  const result = await client
-    .queryArray`SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
-  console.log(result.rows); // [[1, 'Carlos']]
-}
-
-{
-  const result = await client.queryObject("SELECT ID, NAME FROM PEOPLE");
-  console.log(result.rows); // [{id: 1, name: 'Carlos'}, {id: 2, name: 'Johnru'}, ...]
-}
-
-{
-  const result = await client
-    .queryObject`SELECT ID, NAME FROM PEOPLE WHERE ID = ${1}`;
-  console.log(result.rows); // [{id: 1, name: 'Carlos'}]
-}
-
-await client.end();
+const sql = postgres('postgres://username:password@host:port/database')
 ```
 
 ## MongoDB
@@ -72,7 +40,7 @@ await client.end();
 [deno_mongo](https://deno.land/x/mongo@v0.31.1) is a MongoDB database driver
 developed for Deno.
 
-### Connect to MongoDB
+### Connect to MongoDB with deno_mongo
 
 ```ts
 import {
@@ -108,3 +76,215 @@ await client.connect(
   "mongodb+srv://<username>:<password>@<db_cluster_url>/<db_name>?authMechanism=SCRAM-SHA-1",
 );
 ```
+
+## SQLite
+
+There are two primary solutions to connect to SQLite in Deno:
+
+### Connect to SQLite with the FFI Module
+
+[sqlite3](https://deno.land/x/sqlite3) provides JavaScript bindings to the SQLite3 C API, using Deno FFI.
+
+```jsx
+import { Database } from "https://deno.land/x/sqlite3@0.5.3/mod.ts";
+
+const db = new Database("test.db");
+
+const [version] = db.prepare("select sqlite_version()").get<[string]>()!;
+console.log(version);
+
+db.close();
+```
+
+### Connect to SQLite with the WASM-Optimized Module
+
+[sqlite](https://deno.land/x/sqlite) is a SQLite module for JavaScript and TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3 compiled to WebAssembly (WASM).
+
+```jsx
+import { DB } from "https://deno.land/x/sqlite/mod.ts";
+
+const db = new DB("test.db");
+db.query("SELECT 1+1");
+
+db.close();
+```
+
+## Firebase
+
+To connect to Firebase with Deno, import the [firestore npm module](https://firebase.google.com/docs/firestore/quickstart) with the skypak CDN. To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
+
+### Connect to Firebase with the firestore npm module
+
+```jsx
+import firebase from "https://cdn.skypack.dev/firebase@8.7.0/app";
+import "https://cdn.skypack.dev/firebase@8.7.0/auth";
+import "https://cdn.skypack.dev/firebase@8.7.0/firestore";
+
+var firebaseConfig = {
+  apiKey: "APIKEY",
+  authDomain: "example-12345.firebaseapp.com",
+  projectId: "example-12345",
+  storageBucket: "example-12345.appspot.com",
+  messagingSenderId: "1234567890",
+  appId: "APPID",
+};
+
+const firebaseApp = firebase.initializeApp(firebaseConfig, "example");
+const auth = firebase.auth(firebaseApp);
+const db = firebase.firestore(firebaseApp);
+```
+
+## Supabase
+
+To connect to Supabase with Deno, import the [supabase-js npm module](https://supabase.com/docs/reference/javascript) with the [esm CDN](https://esm.sh/). To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
+
+### Connect to Supabase with the supabase-js npm module
+
+```jsx
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+const options = {
+  schema: 'public',
+  headers: { 'x-my-custom-header': 'my-app-name' },
+  autoRefreshToken: true,
+  persistSession: true,
+  detectSessionInUrl: true,
+}
+
+const supabase = createClient(
+  'https://xyzcompany.supabase.co',
+  'public-anon-key',
+  options
+)
+```
+
+## ORMs
+
+The idea with ORMs (object relational mapping) is to define your models as classes that can be persisted to a database. The classes and their instances then provide you with a programmatic API to read and write data in the database. For more information about ORMs read [here](https://www.linkedin.com/pulse/object-relational-mappers-orms-prince-paulson/).
+
+Deno has support for a number of popular ORMs, including Prisma and DenoDB.
+
+### DenoDB
+
+[Denodb](https://deno.land/x/denodb) is a Deno-specific ORM database. ORM (object-relational mapping) databases allow instances of classes to be persisted to a database.
+
+#### Connect to DenoDB
+
+```jsx
+import { DataTypes, Database, Model, PostgresConnector } from 'https://deno.land/x/denodb/mod.ts';
+
+const connection = new PostgresConnector({
+  host: '...',
+  username: 'user',
+  password: 'password',
+  database: 'airlines',
+});
+
+const db = new Database(connection);
+
+class Flight extends Model {
+  static table = 'flights';
+  static timestamps = true;
+
+  static fields = {
+    id: { primaryKey: true, autoIncrement: true },
+    departure: DataTypes.STRING,
+    destination: DataTypes.STRING,
+    flightDuration: DataTypes.FLOAT,
+  };
+
+  static defaults = {
+    flightDuration: 2.5,
+  };
+}
+
+db.link([Flight]);
+
+await db.sync({ drop: true });
+
+const flight = new Flight();
+flight.departure = 'London';
+flight.destination = 'San Francisco';
+await flight.save();
+```
+
+## GraphQL
+
+GraphQL is an API query language that is often used to compose disparate data sources into client centric APIs. To set up a GraphQL API, you need to set up a GraphQL server. This server exposes your data as a GraphQL API that your client applications can query for data.
+
+### Server (GQL)
+
+The simplest way to run a GraphQL API server in Deno is to use [gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware for Deno.
+
+#### Run a GraphQL API Server with gql
+
+```jsx
+import { Server } from 'https://deno.land/std@0.148.0/http/server.ts'
+import { GraphQLHTTP } from 'https://deno.land/x/gql/mod.ts'
+import { makeExecutableSchema } from 'https://deno.land/x/graphql_tools@0.0.2/mod.ts'
+import { gql } from 'https://deno.land/x/graphql_tag@0.0.1/mod.ts'
+
+const typeDefs = gql`
+  type Query {
+    hello: String
+  }
+`
+
+const resolvers = {
+  Query: {
+    hello: () => `Hello World!`
+  }
+}
+
+const schema = makeExecutableSchema({ resolvers, typeDefs })
+
+const s = new Server({
+  handler: async (req) => {
+    const { pathname } = new URL(req.url)
+
+    return pathname === '/graphql'
+      ? await GraphQLHTTP<Request>({
+          schema,
+          graphiql: true
+        })(req)
+      : new Response('Not Found', { status: 404 })
+  },
+  port: 3000
+})
+
+s.listenAndServe()
+
+console.log(`Started on http://localhost:3000`)
+```
+
+### Client
+
+To make GraphQL client calls in Deno, import the [graphql npm module](https://www.npmjs.com/package/graphql) with the [esm CDN](https://esm.sh/). To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
+
+#### Make GraphQL client calls with the graphql npm module
+
+```jsx
+import { buildSchema, graphql } from "https://esm.sh/graphql";
+
+const schema = buildSchema(`
+type Query {
+  hello: String
+}
+`);
+
+const rootValue = {
+  hello: () => {
+    return "Hello world!";
+  },
+};
+
+const response = await graphql({
+  schema,
+  source: "{ hello }",
+  rootValue,
+});
+
+console.log(response);
+```
+
+
