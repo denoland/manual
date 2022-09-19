@@ -7,7 +7,7 @@ They are hosted at Deno's third-party module site [deno.land/x](https://deno.lan
 
 ## MySQL
 
-[deno_mysql](https://deno.land/x/mysql@v2.10.2) is a MySQL and MariaDB database
+[deno_mysql](https://deno.land/x/mysql) is a MySQL and MariaDB database
 driver for Deno.
 
 ### Connect to MySQL with deno_mysql
@@ -37,7 +37,7 @@ const sql = postgres('postgres://username:password@host:port/database')
 
 ## MongoDB
 
-[deno_mongo](https://deno.land/x/mongo@v0.31.1) is a MongoDB database driver
+[deno_mongo](https://deno.land/x/mongo) is a MongoDB database driver
 developed for Deno.
 
 ### Connect to MongoDB with deno_mongo
@@ -111,7 +111,7 @@ db.close();
 
 ## Firebase
 
-To connect to Firebase with Deno, import the [firestore npm module](https://firebase.google.com/docs/firestore/quickstart) with the skypak CDN. To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
+To connect to Firebase with Deno, import the [firestore npm module](https://firebase.google.com/docs/firestore/quickstart) with the [skypak CDN](https://www.skypack.dev/). To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
 
 ### Connect to Firebase with the firestore npm module
 
@@ -136,7 +136,7 @@ const db = firebase.firestore(firebaseApp);
 
 ## Supabase
 
-To connect to Supabase with Deno, import the [supabase-js npm module](https://supabase.com/docs/reference/javascript) with the [esm CDN](https://esm.sh/). To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
+To connect to Supabase with Deno, import the [supabase-js npm module](https://supabase.com/docs/reference/javascript) with the [esm.sh CDN](https://esm.sh/). To learn more about using npm modules in Deno via CDN read [here](../using_deno_with_other_technologies/node/cdns.md) 
 
 ### Connect to Supabase with the supabase-js npm module
 
@@ -160,7 +160,7 @@ const supabase = createClient(
 
 ## ORMs
 
-The idea with ORMs (object relational mapping) is to define your models as classes that can be persisted to a database. The classes and their instances then provide you with a programmatic API to read and write data in the database. For more information about ORMs read [here](https://www.linkedin.com/pulse/object-relational-mappers-orms-prince-paulson/).
+The idea with ORMs (object relational mapping) is to define your data models as classes that can be persisted to a database. The classes and their instances then provide you with a programmatic API to read and write data in the database. For more information about ORMs read [here](https://www.linkedin.com/pulse/object-relational-mappers-orms-prince-paulson/).
 
 Deno has support for a number of popular ORMs, including Prisma and DenoDB.
 
@@ -210,7 +210,7 @@ await flight.save();
 
 ## GraphQL
 
-GraphQL is an API query language that is often used to compose disparate data sources into client centric APIs. To set up a GraphQL API, you need to set up a GraphQL server. This server exposes your data as a GraphQL API that your client applications can query for data.
+GraphQL is an API query language that is often used to compose disparate data sources into client centric APIs. To set up a GraphQL API, you first need to set up a GraphQL server. This server exposes your data as a GraphQL API that your client applications can query for data.
 
 ### Server (GQL)
 
