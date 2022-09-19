@@ -115,23 +115,38 @@ To connect to Firebase with Deno, import the [firestore npm module](https://fire
 
 ### Connect to Firebase with the firestore npm module
 
-```jsx
-import firebase from "https://cdn.skypack.dev/firebase@8.7.0/app";
-import "https://cdn.skypack.dev/firebase@8.7.0/auth";
-import "https://cdn.skypack.dev/firebase@8.7.0/firestore";
+```tsx
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 
-var firebaseConfig = {
-  apiKey: "APIKEY",
-  authDomain: "example-12345.firebaseapp.com",
-  projectId: "example-12345",
-  storageBucket: "example-12345.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "APPID",
-};
+import {
+  addDoc,
+  collection,
+  connectFirestoreEmulator,
+  deleteDoc,
+  doc,
+  Firestore,
+  getDoc,
+  getDocs,
+  getFirestore,
+  query,
+  QuerySnapshot,
+  setDoc,
+  where,
+} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
-const firebaseApp = firebase.initializeApp(firebaseConfig, "example");
-const auth = firebase.auth(firebaseApp);
-const db = firebase.firestore(firebaseApp);
+import {getAuth} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+
+const app = initializeApp({
+  apiKey: Deno.env.get("FIREBASE_API_KEY"),
+  authDomain: Deno.env.get("FIREBASE_AUTH_DOMAIN"),
+  projectId: Deno.env.get("FIREBASE_PROJECT_ID"),
+  storageBucket: Deno.env.get("FIREBASE_STORAGE_BUCKET"),
+  messagingSenderId: Deno.env.get("FIREBASE_MESSING_SENDER_ID"),
+  appId: Deno.env.get("FIREBASE_APP_ID"),
+  measurementId: Deno.env.get("FIREBASE_MEASUREMENT_ID"),
+});
+const db = getFirestore(app);
+const auth = getAuth(app);
 ```
 
 ## Supabase
