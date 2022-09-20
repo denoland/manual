@@ -88,7 +88,7 @@ There are two primary solutions to connect to SQLite in Deno:
 [sqlite3](https://deno.land/x/sqlite3) provides JavaScript bindings to the
 SQLite3 C API, using Deno FFI.
 
-```jsx
+```tsx
 import { Database } from "https://deno.land/x/sqlite3@0.5.3/mod.ts";
 
 const db = new Database("test.db");
@@ -105,7 +105,7 @@ db.close();
 TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3
 compiled to WebAssembly (WASM).
 
-```jsx
+```tsx
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
 const db = new DB("test.db");
@@ -124,7 +124,7 @@ modules in Deno via CDN read
 
 ### Connect to Firebase with the firestore npm module
 
-```tsx
+```jsx
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 
 import {
@@ -203,7 +203,7 @@ to a database.
 
 #### Connect to DenoDB
 
-```jsx
+```tsx
 import {
   Database,
   DataTypes,
@@ -260,7 +260,7 @@ The simplest way to run a GraphQL API server in Deno is to use
 
 #### Run a GraphQL API Server with gql
 
-```jsx
+```tsx
 import { Server } from "https://deno.land/std@0.148.0/http/server.ts";
 import { GraphQLHTTP } from "https://deno.land/x/gql/mod.ts";
 import { makeExecutableSchema } from "https://deno.land/x/graphql_tools@0.0.2/mod.ts";
