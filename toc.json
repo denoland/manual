@@ -26,7 +26,7 @@
     }
   },
   "runtime": {
-    "name": "The Runtime",
+    "name": "Runtime",
     "children": {
       "stability": "Stability",
       "program_lifecycle": "Program Lifecycle",
@@ -64,6 +64,7 @@
   "using_deno_with_other_technologies": {
     "name": "Using Deno with Other Technologies",
     "children": {
+      "react": "Using React",
       "jsx_dom": {
         "name": "Using JSX and the DOM",
         "children": {
