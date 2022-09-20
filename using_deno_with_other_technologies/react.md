@@ -6,6 +6,8 @@ below.
 If you want to better understand how JSX and Deno interface under the
 hood, read on [here](./jsx_dom).
 
+Note:: Fresh and Aleph.js provide a framework for developing React-like websites, but use an alternative foundational technology, Preact to provide a better, more performant experience.
+
 ## Fresh
 
 [Fresh](https://fresh.deno.dev/) is the most popular React framework for Deno.
