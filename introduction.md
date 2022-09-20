@@ -1,7 +1,5 @@
 # Introduction
 
-# Just making a random change
-
 Deno ([/ˈdiːnoʊ/](http://ipa-reader.xyz/?text=%CB%88di%CB%90no%CA%8A),
 pronounced `dee-no`) is a JavaScript, TypeScript, and WebAssembly runtime with
 secure defaults and a great developer experience.

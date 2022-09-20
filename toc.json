@@ -40,7 +40,7 @@
     }
   },
   "examples": {
-    "name": "Tutorials",
+    "name": "Examples",
     "children": {
       "hello_world": "Hello World",
       "import_export": "Import and Export Modules",
@@ -55,7 +55,9 @@
       "os_signals": "OS Signals",
       "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
-      "shebang": "Shebang"
+      "shebang": "Shebang",
+      "chat_app": "Chat App",
+      "word_finder": "Word Finder",
     }
   },
   "using_deno_with_other_technologies": {
@@ -84,7 +86,7 @@
       "node": {
         "name": "Interoperating with Node and NPM",
         "children": {
-          "compatibility_mode": "Node Compatibility Mode",
+          "node_specifiers": "Node Specifiers",
           "std_node": "The std/node Library",
           "cdns": "Packages from CDNs",
           "import_maps": "Using Import Maps",

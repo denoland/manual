@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial we’ll create a simple chat app using Deno. Our chat app will allow multiple chat clients connected to the same backend to send group messages through web sockets. After a client chooses a username, they can then start sending group messages to other online clients. Each client also displays the list of currently active users.
+In this tutorial we'll create a simple chat app using Deno. Our chat app will allow multiple chat clients connected to the same backend to send group messages through web sockets. After a client chooses a username, they can then start sending group messages to other online clients. Each client also displays the list of currently active users.
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4002626d-edc6-41dd-a518-c6197df4f450/Untitled.png)
 
@@ -10,7 +10,7 @@ In this tutorial we’ll create a simple chat app using Deno. Our chat app will 
 
 We can build the simple UI shown above with the following as our `index.html`. Note that:
 
-1. We’re using Bootstrap for styling
+1. We're using Bootstrap for styling
 2. The `app.js` script is our chat client (which will be discussed in detail later)
 
 ```html
@@ -61,11 +61,11 @@ We can build the simple UI shown above with the following as our `index.html`. N
 
 ## **WebSocket** Primer
 
-We will rely on Deno’s native support for web sockets when building our client and server. A [web socket](https://en.wikipedia.org/wiki/WebSocket) is a bidirectional communication channel that allows the both the client and server to send messages to each other at any time. Web sockets are frequently used in realtime applications where low latency is critical. Each of our clients will keep a web socket connection open to our server so they can receive the latest messages and user logins without constantly polling.
+We will rely on Deno's native support for web sockets when building our client and server. A [web socket](https://en.wikipedia.org/wiki/WebSocket) is a bidirectional communication channel that allows the both the client and server to send messages to each other at any time. Web sockets are frequently used in realtime applications where low latency is critical. Each of our clients will keep a web socket connection open to our server so they can receive the latest messages and user logins without constantly polling.
 
 ## Chat Client
 
-The chat client `app.js` runs in the browser and listens for updates from our server and then manipulates the DOM using [jquery](https://jquery.com/). Specifically our client is listening for new messages and the list of currently active users. We need to add event handlers to our client’s web socket to specify what happens when our clients receives a new message or event.
+The chat client `app.js` runs in the browser and listens for updates from our server and then manipulates the DOM using [jquery](https://jquery.com/). Specifically our client is listening for new messages and the list of currently active users. We need to add event handlers to our client's web socket to specify what happens when our clients receives a new message or event.
 
 ```jsx
 // app.js
@@ -119,7 +119,7 @@ $(function () {
 
 ## Chat Server
 
-[Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that we’ll be using to set up our server. Our server will return the plain `index.html` file previously shown when the user first navigates to the site. Our server also exposes a `ws_endpoint/` endpoint which the chat clients will use to create their web socket connection. Note that the client’s initial HTTP connection is converted into a WebSocket connection by the server via HTTP’s [protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism). Our server will maintain web socket connections with each active client and tell them which users are currently active. Our server will also broadcast a message to all active clients whenever there is a new message so that each client can display it.
+[Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that we'll be using to set up our server. Our server will return the plain `index.html` file previously shown when the user first navigates to the site. Our server also exposes a `ws_endpoint/` endpoint which the chat clients will use to create their web socket connection. Note that the client's initial HTTP connection is converted into a WebSocket connection by the server via HTTP's [protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism). Our server will maintain web socket connections with each active client and tell them which users are currently active. Our server will also broadcast a message to all active clients whenever there is a new message so that each client can display it.
 
 ```jsx
 // server.js
