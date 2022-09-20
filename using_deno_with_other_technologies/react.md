@@ -3,11 +3,7 @@
 To use React with Deno, we recommend using one of the third-party frameworks
 below.
 
-You can also use raw React with Deno
-[(example)](https://github.com/denoland/examples/tree/main/with-react) but the
-UX is significantly worse.
-
-Finally, if you want to better understand how JSX and Deno interface under the
+If you want to better understand how JSX and Deno interface under the
 hood, read on [here](./jsx_dom).
 
 ## Fresh
