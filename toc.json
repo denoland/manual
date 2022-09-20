@@ -20,6 +20,7 @@
       "import_export": "Importing and Exporting Modules",
       "linking_to_external_code": "Using Third Party Modules",
       "connecting_to_databases": "Connecting to Databases",
+      "env_variables": "Environment Variables",
       "testing": "Testing",
       "debugging_your_code": "Debugging Your Code"
     }
@@ -86,9 +87,9 @@
       "node": {
         "name": "Interoperating with Node and NPM",
         "children": {
-          "node_specifiers": "Node Specifiers",
+          "node_specifiers": "Using Node Packages with Node Specifiers",
+          "cdns": "Using Node Packages Via CDNs",
           "std_node": "The std/node Library",
-          "cdns": "Packages from CDNs",
           "import_maps": "Using Import Maps",
           "faqs": "Frequently Asked Questions",
           "cheatsheet": "Node->Deno Cheatsheet",

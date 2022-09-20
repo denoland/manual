@@ -7,9 +7,8 @@ instructions on how to be used in Deno, the browser, etc. Sometimes you need a
 URL flag to indicate that that you need a Deno-specific module.
 
 **Starting with Deno release 1.25**, Deno also offers experimental support for
-[npm specifiers](), which are a new way of using npm modules in Deno that offers
-a higher chance of compatibility. Our recommendation is that you use npm
-specifiers when possible.
+[npm specifiers](./node_specifiers), which are a new way of using npm modules in Deno that offers
+a higher chance of compatibility.
 
 However, given that npm specifiers are still a work in progress, below we cover
 how to use npm modules in Deno via some popular CDNs.
