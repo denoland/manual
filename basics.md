@@ -7,4 +7,5 @@ In this chapter, you will find Deno basics, including:
 - [Using Third Party Modules](./basics/linking_to_external_code/)
 - [Connecting to Databases](./basics/connecting_to_databases.md)
 - [Environment Variables](./basics/env_variables.md)
+- [Testing](./basics/testing.md)
 - [Debugging Your Code](./basics/debugging_your_code.md)
