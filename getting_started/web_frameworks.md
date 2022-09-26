@@ -1,16 +1,13 @@
 # Web Frameworks
 
-One of the great things about Node is the thriving ecosystem of tools and
-frameworks built around it that has made developers' lives' easier.
+Most likely, if you're building a more complex application, you'll be interacting with Deno through a web framework. There are two kinds of web frameworks that Deno supports:
 
-Deno offers support for many of these Node.js native frameworks/tools/libraries.
-However, you might not get the best experience or performance.
+- **Node.js native frameworks/tools/libraries.** Some of the most popular tooling, for example esbuild, explicitly supports both Node and Deno. The drawback here is that you might not get the best experience or performance.
+- **Deno native frameworks/tools/libraries.** We present some of these below.
 
-Additionally, a native ecosystem of tools and frameworks is growing around Deno.
-Most likely, if you're building a more complex application, you'll want to use
-one of these Deno-native web frameworks.
+## Deno-native frameworks
 
-## Fresh
+### Fresh
 
 [Fresh](https://fresh.deno.dev/) is the most popular web framework for Deno. It
 uses a model where you send no JavaScript to clients by default. The majority of
@@ -20,7 +17,7 @@ re-rendering small
 means the developer explicitly opts in to client side rendering for specific
 components.
 
-## Aleph
+### Aleph
 
 [Aleph.js](https://alephjs-alephjs-org-next.deno.dev/docs/get-started) is the
 second most popular web framework for Deno. It gives you the same sort of
@@ -33,10 +30,9 @@ box in Next.js, such as:
 - ESM Import Syntax (No need for webpack)
 - TypeScript-Ready
 
-## What are the equivalents of top Node frameworks in Deno?
 
-- Express -> Oak
-- Create-React-App -> Fresh
+### Oak
 
-fresh (5104 MAU) lume (2932 MAU) aleph (732 MAU) ultra (257 MAU) alosaur (169
-MAU) dext (63 MAU)
+[Oak](https://deno.land/x/oak) is a popular middleware framework for Deno based web apps / HTTP servers. It offers additional functionality over the native Deno HTTP server, including a basic router, JSON parser, middlewares, plugins, etc.
+
+If you have been using Express with Node.js, Oak is the rough equivalent for Deno.
