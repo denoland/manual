@@ -285,7 +285,7 @@ const s = new Server({
     const { pathname } = new URL(req.url);
 
     return pathname === "/graphql"
-      ? await GraphQLHTTP < Request > ({
+      ? await GraphQLHTTP<Request>({
         schema,
         graphiql: true,
       })(req)
