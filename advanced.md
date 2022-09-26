@@ -2,8 +2,8 @@
 
 In this chapter, you will find advanced Deno concepts, including:
 
-- [Publishing Modules](./advanced/publishing)
-- [Embedding Deno](./advanced/embedding_deno)
-- [Language Server](./advanced/language_server)
-- [Continuous Integration](./advanced/continuous_integration)
-- [Using TypeScript](./advanced/typescript)
+- [Publishing Modules](./advanced/publishing.md)
+- [Embedding Deno](./advanced/embedding_deno.md)
+- [Language Server](./advanced/language_server.md)
+- [Continuous Integration](./advanced/continuous_integration.md)
+- [Using TypeScript](./advanced/typescript.md)
