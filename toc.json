@@ -26,7 +26,7 @@
     }
   },
   "runtime": {
-    "name": "Runtime",
+    "name": "The Runtime",
     "children": {
       "stability": "Stability",
       "program_lifecycle": "Program Lifecycle",
@@ -117,12 +117,6 @@
       "publishing": {
         "name": "Publishing Modules"
       },
-      "vscode_deno": {
-        "name": "Using Visual Studio Code",
-        "children": {
-          "testing_api": "Testing API"
-        }
-      },
       "embedding_deno": {
         "name": "Embedding Deno"
       },
@@ -170,6 +164,12 @@
     "children": {
       "standard_library": {
         "name": "Standard Library"
+      },
+      "vscode_deno": {
+        "name": "Using Visual Studio Code",
+        "children": {
+          "testing_api": "Testing API"
+        }
       },
       "contributing": {
         "name": "Contributing",
