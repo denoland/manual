@@ -21,7 +21,19 @@
       "linking_to_external_code": "Using Third Party Modules",
       "connecting_to_databases": "Connecting to Databases",
       "env_variables": "Environment Variables",
-      "testing": "Testing",
+      "testing": {
+        "name": "Testing",
+    "children": {
+      "assertions": "Assertions",
+      "coverage": "Coverage",
+      "documentation": "Documentation",
+      "sanitizers": "Sanitizers",
+      "behavior_driven_development": "Behavior-Driven Development",
+      "mocking": "Mocking",
+      "snapshot_testing": "Snapshots"
+    }
+      }
+      ,
       "debugging_your_code": "Debugging Your Code"
     }
   },
@@ -97,18 +109,6 @@
           "dnt": "dnt - Deno to Node Transform"
         }
       }
-    }
-  },
-  "testing": {
-    "name": "Testing",
-    "children": {
-      "assertions": "Assertions",
-      "coverage": "Coverage",
-      "documentation": "Documentation",
-      "sanitizers": "Sanitizers",
-      "behavior_driven_development": "Behavior-Driven Development",
-      "mocking": "Mocking",
-      "snapshot_testing": "Snapshots"
     }
   },
   "advanced": {
