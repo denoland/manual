@@ -101,7 +101,7 @@ Notes on fetching local files:
   permission is needed to be able to read a local file.
 - Fetching locally only supports the `GET` method, and will reject the promise
   with any other method.
-- A file that does not exists simply rejects the promise with a vague
+- A file that does not exist simply rejects the promise with a vague
   `TypeError`. This is to avoid the potential of fingerprinting attacks.
 - No headers are set on the response. Therefore it is up to the consumer to
   determine things like the content type or content length.
