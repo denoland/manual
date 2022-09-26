@@ -23,17 +23,16 @@
       "env_variables": "Environment Variables",
       "testing": {
         "name": "Testing",
-    "children": {
-      "assertions": "Assertions",
-      "coverage": "Coverage",
-      "documentation": "Documentation",
-      "sanitizers": "Sanitizers",
-      "behavior_driven_development": "Behavior-Driven Development",
-      "mocking": "Mocking",
-      "snapshot_testing": "Snapshots"
-    }
-      }
-      ,
+        "children": {
+          "assertions": "Assertions",
+          "coverage": "Coverage",
+          "documentation": "Documentation",
+          "sanitizers": "Sanitizers",
+          "behavior_driven_development": "Behavior-Driven Development",
+          "mocking": "Mocking",
+          "snapshot_testing": "Snapshots"
+        }
+      },
       "debugging_your_code": "Debugging Your Code"
     }
   },
