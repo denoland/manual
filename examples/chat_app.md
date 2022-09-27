@@ -43,7 +43,8 @@ detail later)
 ## **WebSocket** Primer
 
 We will rely on Deno’s native support for web sockets when building our client
-and server. A [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) is a
+and server. A
+[web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) is a
 bidirectional communication channel that allows the both the client and server
 to send messages to each other at any time. Web sockets are frequently used in
 realtime applications where low latency is critical. Each of our clients will

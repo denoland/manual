@@ -53,8 +53,8 @@ For the latest version go [here](https://deno.land/std@0.154.0/version.ts)
 ## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a webserver. Let's write a
-small program that fetches a file and prints its contents out to terminal.
-Just like in the browser you can use the web standard
+small program that fetches a file and prints its contents out to terminal. Just
+like in the browser you can use the web standard
 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
 make HTTP calls.
 
@@ -176,7 +176,6 @@ const handler = (request: Request): Response => {
       "content-type": "application/json",
     },
   });
-
 };
 
 console.log("Listening on http://localhost:8000");
