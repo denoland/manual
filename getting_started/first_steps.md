@@ -60,7 +60,7 @@ make HTTP calls.
 
 In the `first_steps.ts` file you created above, paste the code below:
 
-```ts, ignore
+```ts
 const url = Deno.args[0];
 const res = await fetch(url);
 
@@ -160,7 +160,7 @@ import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
 
 const port = 8080;
 
-const handler = async (request: Request): Response => {
+const handler = async (request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
     // header that indicates what type of response we accept.

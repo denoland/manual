@@ -16,7 +16,7 @@ The way these work is best described with an example:
 
 ```ts
 // main.ts
-import express from "npm:express";
+import express, { Request, Response } from "npm:express";
 const app = express();
 
 app.get("/", function (req: Request, res: Response) {
