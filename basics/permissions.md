@@ -161,9 +161,3 @@ deno run --allow-run run.js
 You can only limit the executables that are allowed; if permission is granted to
 execute it then any parameters can be passed. For example if you pass
 `--allow-run=cat` then the user can use `cat` to read any file.
-
-## Conference
-
-Permission flags were explained by Ryan Dahl in his 2020 talk about the Deno
-security model at Speakeasy JS:
-https://www.youtube.com/watch?v=r5F6dekUmdE#t=34m57

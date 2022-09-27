@@ -16,9 +16,9 @@
   "basics": {
     "name": "Basics",
     "children": {
-      "permissions": "Permissions",
       "import_export": "Importing and Exporting Modules",
       "linking_to_external_code": "Using Third Party Modules",
+      "permissions": "Permissions",
       "connecting_to_databases": "Connecting to Databases",
       "env_variables": "Environment Variables",
       "testing": {
