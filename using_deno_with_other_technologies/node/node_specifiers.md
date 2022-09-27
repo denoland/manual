@@ -27,11 +27,11 @@ app.listen(3000);
 console.log("listening on http://localhost:3000/");
 ```
 
-These npm specifiers have the following format:
+<!-- These npm specifiers have the following format:
 
 ```ts
 npm:<package-name>[@<version-requirement>][/<sub-path>]
-```
+``` -->
 
 Then doing the following will start a simple express server:
 
