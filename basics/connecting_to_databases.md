@@ -104,8 +104,6 @@ import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
 const db = new DB("test.db");
 
-db.query("SELECT 1+1");
-
 db.close();
 ```
 
@@ -212,31 +210,6 @@ const connection = new PostgresConnector({
 });
 
 const db = new Database(connection);
-
-class Flight extends Model {
-  static table = "flights";
-  static timestamps = true;
-
-  static fields = {
-    id: { primaryKey: true, autoIncrement: true },
-    departure: DataTypes.STRING,
-    destination: DataTypes.STRING,
-    flightDuration: DataTypes.FLOAT,
-  };
-
-  static defaults = {
-    flightDuration: 2.5,
-  };
-}
-
-db.link([Flight]);
-
-await db.sync({ drop: true });
-
-const flight = new Flight();
-flight.departure = "London";
-flight.destination = "San Francisco";
-await flight.save();
 ```
 
 ## GraphQL
