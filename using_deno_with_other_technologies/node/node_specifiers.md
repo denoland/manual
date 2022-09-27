@@ -19,7 +19,7 @@ The way these work is best described with an example:
 import express from "npm:express";
 const app = express();
 
-app.get("/", function (req, res) {
+app.get("/", function (req: Request, res: Response) {
   res.send("Hello World");
 });
 
@@ -27,11 +27,11 @@ app.listen(3000);
 console.log("listening on http://localhost:3000/");
 ```
 
-<!-- These npm specifiers have the following format:
+These npm specifiers have the following format:
 
-```ts
+```ts, ignore
 npm:<package-name>[@<version-requirement>][/<sub-path>]
-``` -->
+```
 
 Then doing the following will start a simple express server:
 
