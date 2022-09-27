@@ -39,7 +39,7 @@ of which is a `Hello World` program. To run that hosted code, do:
 deno run https://deno.land/std@0.103.0/examples/welcome.ts
 ```
 
-## STD_VERSION
+## `$STD_VERSION`
 
 Throughout this documentation, you may see `$STD_VERSION`. This variable is
 meant to be replaced with the numeric version of the standard library to be
