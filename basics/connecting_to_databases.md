@@ -46,7 +46,6 @@ for Deno.
 
 ```ts
 import {
-  Bson,
   MongoClient,
 } from "https://deno.land/x/mongo@LATEST_VERSION/mod.ts";
 
@@ -89,7 +88,7 @@ There are two primary solutions to connect to SQLite in Deno:
 SQLite3 C API, using Deno FFI.
 
 ```tsx
-import { Database } from "https://deno.land/x/sqlite3@0.5.3/mod.ts";
+import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
 
 const db = new Database("test.db");
 
@@ -261,7 +260,7 @@ The simplest way to run a GraphQL API server in Deno is to use
 #### Run a GraphQL API Server with gql
 
 ```tsx
-import { Server } from "https://deno.land/std@0.148.0/http/server.ts";
+import { Server } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 import { GraphQLHTTP } from "https://deno.land/x/gql/mod.ts";
 import { makeExecutableSchema } from "https://deno.land/x/graphql_tools@0.0.2/mod.ts";
 import { gql } from "https://deno.land/x/graphql_tag@0.0.1/mod.ts";

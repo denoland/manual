@@ -17,10 +17,10 @@ console.log(Deno.env.get("FIREBASE_API_KEY")); // examplekey123
 console.log(Deno.env.get("FIREBASE_AUTH_DOMAIN")); // firebasedomain.com
 ```
 
-## `.env` file with `dotenv` npm package
+## `.env` file
 
-You can also put environment variables in a `.env` file and retrieve them with
-the [`dotenv` third party module](https://deno.land/x/dotenv@v3.2.0).
+You can also put environment variables in a `.env` file and retrieve them using
+`dotenv` in the standard library.
 
 Let's say you have an `.env` file that looks like this:
 
@@ -29,11 +29,11 @@ PASSWORD=Geheimnis
 ```
 
 To access the environment variables in the `.env` file, import the config
-function from the `dotenv` third party Deno module.Then, import the
-configuration using the `config` function.
+function from the standard library. Then, import the configuration using the
+`config` function.
 
 ```tsx
-import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { config } from "https://deno.land/std/dotenv/mod.ts";
 
 const password = config()["PASSWORD"];
 

@@ -1,64 +1,39 @@
-# Building a chat app with Deno
-
 ## Introduction
 
-In this tutorial we'll create a simple chat app using Deno. Our chat app will
+In this tutorial we’ll create a simple chat app using Deno. Our chat app will
 allow multiple chat clients connected to the same backend to send group messages
 through web sockets. After a client chooses a username, they can then start
 sending group messages to other online clients. Each client also displays the
 list of currently active users.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4002626d-edc6-41dd-a518-c6197df4f450/Untitled.png)
+![Untitled](../images/chat_app_render.png)
 
 ## Building the View
 
 We can build the simple UI shown above with the following as our `index.html`.
-Note that:
-
-1. We're using Bootstrap for styling
-2. The `app.js` script is our chat client (which will be discussed in detail
-   later)
+Note that the `app.js` script is our chat client (which will be discussed in
+detail later)
 
 ```html
 <!-- index.html -->
 
 <html>
   <head>
-    <title>Node Chat App</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    />
+    <title>Chat App</title>
     <script src="/public/app.js"></script>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav"></ul>
-        </div>
+    <div style="text-align: center">
+      <div>
+        <b>Users</b>
+        <hr />
+        <div id="users"></div>
+        <hr class="visible-xs visible-sm" />
       </div>
-    </div>
-
-    <div class="container">
-      <div id="dashboard">
-        <div class="row" />
-        <div class="col-md-4">
-          <b>Users</b>
-          <hr />
-          <div id="users"></div>
-          <hr class="visible-xs visible-sm" />
-        </div>
-        <div class="col-md-8">
-          <input
-            class="col-md-12 col-sm-12"
-            id="data"
-            placeholder="send message"
-          />
-          <hr />
-          <div id="conversation"></div>
-        </div>
+      <div>
+        <input id="data" placeholder="send message" />
+        <hr />
+        <div id="conversation"></div>
       </div>
     </div>
   </body>
@@ -67,8 +42,8 @@ Note that:
 
 ## **WebSocket** Primer
 
-We will rely on Deno's native support for web sockets when building our client
-and server. A [web socket](https://en.wikipedia.org/wiki/WebSocket) is a
+We will rely on Deno’s native support for web sockets when building our client
+and server. A [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) is a
 bidirectional communication channel that allows the both the client and server
 to send messages to each other at any time. Web sockets are frequently used in
 realtime applications where low latency is critical. Each of our clients will
@@ -78,10 +53,10 @@ messages and user logins without constantly polling.
 ## Chat Client
 
 The chat client `app.js` runs in the browser and listens for updates from our
-server and then manipulates the DOM using [jquery](https://jquery.com/).
-Specifically our client is listening for new messages and the list of currently
-active users. We need to add event handlers to our client's web socket to
-specify what happens when our clients receives a new message or event.
+server and then manipulates the DOM. Specifically our client is listening for
+new messages and the list of currently active users. We need to add event
+handlers to our client’s web socket to specify what happens when our clients
+receives a new message or event.
 
 ```jsx
 // app.js
@@ -97,10 +72,11 @@ socket.onmessage = (m) => {
   switch (data.event) {
     case "update-users":
       // refresh displayed user list
-      $("#users").empty();
+      let userListHtml = "";
       for (const username of data.usernames) {
-        $("#users").append("<div>" + username + "</div>");
+        userListHtml += `<div> ${username} </div>`;
       }
+      document.getElementById("users").innerHTML = userListHtml;
       break;
 
     case "send-message":
@@ -112,16 +88,19 @@ socket.onmessage = (m) => {
 
 function addMessage(username, message) {
   // displays new message
-  $("#conversation").append(`<b> ${username} </b>: ${message} <br/>`);
+  document.getElementById(
+    "conversation",
+  ).innerHTML += `<b> ${username} </b>: ${message} <br/>`;
 }
 
 // on page load
-$(function () {
+window.onload = () => {
   // when the client hits the ENTER key
-  $("#data").keypress(function (e) {
-    if (e.which == 13) {
-      var message = $("#data").val();
-      $("#data").val("");
+  document.getElementById("data").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      const inputElement = document.getElementById("data");
+      var message = inputElement.value;
+      inputElement.value = "";
       socket.send(
         JSON.stringify({
           event: "send-message",
@@ -130,17 +109,17 @@ $(function () {
       );
     }
   });
-});
+};
 ```
 
 ## Chat Server
 
 [Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
-we'll be using to set up our server. Our server will return the plain
+we’ll be using to set up our server. Our server will return the plain
 `index.html` file previously shown when the user first navigates to the site.
 Our server also exposes a `ws_endpoint/` endpoint which the chat clients will
-use to create their web socket connection. Note that the client's initial HTTP
-connection is converted into a WebSocket connection by the server via HTTP's
+use to create their web socket connection. Note that the client’s initial HTTP
+connection is converted into a WebSocket connection by the server via HTTP’s
 [protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism).
 Our server will maintain web socket connections with each active client and tell
 them which users are currently active. Our server will also broadcast a message

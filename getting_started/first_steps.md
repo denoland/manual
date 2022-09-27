@@ -39,7 +39,7 @@ of which is a `Hello World` program. To run that hosted code, do:
 deno run https://deno.land/std@0.103.0/examples/welcome.ts
 ```
 
-## $STD_VERSION
+## STD_VERSION
 
 Throughout this documentation, you may see `$STD_VERSION`. This variable is
 meant to be replaced with the numeric version of the standard library to be
@@ -53,7 +53,7 @@ For the latest version go [here](https://deno.land/std@0.154.0/version.ts)
 ## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a webserver. Let's write a
-small program that fetches a file and prints its contents out to terminal. the
+small program that fetches a file and prints its contents out to terminal.
 Just like in the browser you can use the web standard
 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
 make HTTP calls.
@@ -149,47 +149,6 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/ho
 deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
-<!-- ## TCP server
-
-This is an example of a server which accepts connections on port 8080, and
-returns to the client anything it sends.
-
-```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
-const hostname = "0.0.0.0";
-const port = 8080;
-const listener = Deno.listen({ hostname, port });
-console.log(`Listening on ${hostname}:${port}`);
-for await (const conn of listener) {
-  copy(conn, conn);
-}
-```
-
-For security reasons, Deno does not allow programs to access the network without
-explicit permission. To allow accessing the network, use a command-line flag:
-
-```shell
-deno run --allow-net https://deno.land/std@$STD_VERSION/examples/echo_server.ts
-```
-
-To test it, try sending data to it with `netcat` (or `telnet` on Windows):
-
-> Note for Windows users: netcat is not available on Windows. Instead you can
-> use the built-in telnet client. The telnet client is disabled in Windows by
-> default. It is easy to enable however: just follow the instructions
-> [on Microsoft TechNet](https://social.technet.microsoft.com/wiki/contents/articles/38433.windows-10-enabling-telnet-client.aspx)
-
-```shell
-# Note for Windows users: replace the `nc` below with `telnet`
-$ nc localhost 8080
-hello world
-hello world
-```
-
-Like the `cat.ts` example, the `copy()` function here also does not make
-unnecessary memory copies. It receives a packet from the kernel and sends it
-back, without further complexity. -->
-
 ## Putting it all together in an HTTP server
 
 One of the most common usecases for Deno is building an HTTP Server.
@@ -197,12 +156,12 @@ One of the most common usecases for Deno is building an HTTP Server.
 **http_server.ts**
 
 ```ts
-import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
-import { urlJoin } from "https://deno.land/x/url_join/mod.ts";
+import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
 
-async function handler(req: Request): Promise<Response> {
-  const fullUrl = urlJoin("https://api.github.com/", "users", "/denoland");
-  const resp = await fetch(fullUrl, {
+const port = 8080;
+
+const handler = (request: Request): Response => {
+  const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
     // header that indicates what type of response we accept.
     // We're not specifying the method field since by default
@@ -217,7 +176,8 @@ async function handler(req: Request): Promise<Response> {
       "content-type": "application/json",
     },
   });
-}
+
+};
 
 console.log("Listening on http://localhost:8000");
 serve(handler);
