@@ -1,4 +1,4 @@
-<!-- # Connecting to databases
+# Connecting to databases
 
 The Deno community has published a number of third-party modules that make it
 easy to connect to popular databases like MySQL, Postgres, and MongoDB.
@@ -90,9 +90,6 @@ import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
 
 const db = new Database("test.db");
 
-const [version] = db.prepare("select sqlite_version()").get<[string]>()!;
-console.log(version);
-
 db.close();
 ```
 
@@ -106,6 +103,7 @@ compiled to WebAssembly (WASM).
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
 const db = new DB("test.db");
+
 db.query("SELECT 1+1");
 
 db.close();
@@ -325,4 +323,4 @@ const response = await graphql({
 });
 
 console.log(response);
-``` -->
+```
