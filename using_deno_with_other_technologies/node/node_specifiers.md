@@ -53,7 +53,7 @@ Type checking is not yet supported. Integration for the language server,
 npm package binaries can be executed from the command line without an npm
 install using a specifier in the following format:
 
-```ts
+```ts, ignore
 npm:<package-name>[@<version-requirement>][/<binary-name>]
 ```
 

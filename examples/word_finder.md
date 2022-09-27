@@ -45,7 +45,7 @@ export function renderHtml(pattern, words) {
   return `<html>
     <head>
         <title>Deno Word Finder</title>
-        <meta name="version" content="1.0">
+        <meta name="version" content="1.0" />
     </head>
     <body>
         <h1>Deno Word Finder</h1>
@@ -137,7 +137,7 @@ HTML template with data and then return the customized HTML back to the viewer.
 We can conveniently rely on the `/usr/share/dict/words` file as our dictionary
 which is a standard file present on most Unix-like operating systems.
 
-```jsx
+```jsx, ignore
 // server.js
 
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";

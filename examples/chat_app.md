@@ -217,7 +217,7 @@ await app.listen({ port });
 We can start our server with the following command. Note we need to explicitly
 grant access to the file system and network because Deno is secure by default.
 
-```jsx
+```sh
 deno run --allow-read --allow-net server.js
 ```
 

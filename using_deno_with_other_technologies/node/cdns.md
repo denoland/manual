@@ -89,7 +89,7 @@ import { renderToString } from "https://esm.sh/react-dom/server";
 
 Or to import regular files:
 
-```tsx
+```tsx, ignore
 import "https://esm.sh/tailwindcss/dist/tailwind.min.css";
 ```
 
