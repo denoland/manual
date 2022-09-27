@@ -2,14 +2,11 @@
 
 ## Concepts
 
-- Deno is capable of spawning a subprocess via
-  [Deno.run](https://doc.deno.land/deno/stable/~/Deno.run).
+- Deno is capable of spawning a subprocess via [Deno.run](/api?s=Deno.run).
 - `--allow-run` permission is required to spawn a subprocess.
 - Spawned subprocesses do not run in a security sandbox.
-- Communicate with the subprocess via the
-  [stdin](https://doc.deno.land/deno/stable/~/Deno.stdin),
-  [stdout](https://doc.deno.land/deno/stable/~/Deno.stdout) and
-  [stderr](https://doc.deno.land/deno/stable/~/Deno.stderr) streams.
+- Communicate with the subprocess via the [stdin](/api?s=Deno.stdin),
+  [stdout](/api?s=Deno.stdout) and [stderr](/api?s=Deno.stderr) streams.
 - Use a specific shell by providing its path/name and its string input switch,
   e.g. `Deno.run({cmd: ["bash", "-c", "ls -la"]});`
 

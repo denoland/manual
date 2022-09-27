@@ -53,5 +53,5 @@ Start the script by calling it like any other command:
 
 <!----------------------------------------------------------------------------->
 
-[Deno.env]: https://doc.deno.land/deno/stable/~/Deno.env
+[Deno.env]: /api?s=Deno.env
 [env]: https://www.man7.org/linux/man-pages/man1/env.1.html

@@ -21,44 +21,35 @@ the Deno native APIs, returning an interface that is compatible with Node.
 
 The standard library provides modules for the following built-ins:
 
-- [`assert`](https://doc.deno.land/https://deno.land/std/node/assert.ts)
-  (_partly_)
-- [`assert/strict`](https://doc.deno.land/https://deno.land/std/node/assert/strict.ts)
-  (_partly_)
-- [`buffer`](https://doc.deno.land/https://deno.land/std/node/buffer.ts)
-- [`console`](https://doc.deno.land/https://deno.land/std/node/console.ts)
-  (_partly_)
-- [`constants`](https://doc.deno.land/https://deno.land/std/node/constants.ts)
-- [`crypto`](https://doc.deno.land/https://deno.land/std/node/crypto.ts)
-  (_partly_)
-- [`child_process`](https://doc.deno.land/https://deno.land/std/node/child_process.ts)
-  (_partly_)
-- [`dns`](https://doc.deno.land/https://deno.land/std/node/dns.ts) (_partly_)
-- [`events`](https://doc.deno.land/https://deno.land/std/node/events.ts)
-- [`fs`](https://doc.deno.land/https://deno.land/std/node/fs.ts) (_partly_)
-- [`fs/promises`](https://doc.deno.land/https://deno.land/std/node/fs/promises.ts)
-  (_partly_)
-- [`http`](https://doc.deno.land/https://deno.land/std/node/http.ts) (_partly_)
-- [`module`](https://doc.deno.land/https://deno.land/std/node/module.ts)
-- [`net`](https://doc.deno.land/https://deno.land/std/node/net.ts) (_partly_)
-- [`os`](https://doc.deno.land/https://deno.land/std/node/os.ts) (_partly_)
-- [`path`](https://doc.deno.land/https://deno.land/std/node/path.ts)
-- [`perf_hooks`](https://doc.deno.land/https://deno.land/std/node/perf_hooks.ts)
-  (_partly_)
-- [`process`](https://doc.deno.land/https://deno.land/std/node/process.ts)
-  (_partly_)
-- [`querystring`](https://doc.deno.land/https://deno.land/std/node/querystring.ts)
-- [`readline`](https://doc.deno.land/https://deno.land/std/node/readline.ts)
-  (_partly_)
-- [`stream`](https://doc.deno.land/https://deno.land/std/node/stream.ts)
-- [`string_decoder`](https://doc.deno.land/https://deno.land/std/node/string_decoder.ts)
-- [`sys`](https://doc.deno.land/https://deno.land/std/node/sys.ts) (_partly_)
-- [`timers`](https://doc.deno.land/https://deno.land/std/node/timers.ts)
-- [`timers/promises`](https://doc.deno.land/https://deno.land/std/node/timers/promises.ts)
-- [`tty`](https://doc.deno.land/https://deno.land/std/node/tty.ts) (_partly_)
-- [`url`](https://doc.deno.land/https://deno.land/std/node/url.ts) (_partly_)
-- [`util`](https://doc.deno.land/https://deno.land/std/node/util.ts) (_partly_)
-- [`worker_threads`](https://doc.deno.land/https://deno.land/std/node/worker_threads.ts)
+- [`assert`](https://deno.land/std/node/assert.ts) (_partly_)
+- [`assert/strict`](https://deno.land/std/node/assert/strict.ts) (_partly_)
+- [`buffer`](https://deno.land/std/node/buffer.ts)
+- [`console`](https://deno.land/std/node/console.ts) (_partly_)
+- [`constants`](https://deno.land/std/node/constants.ts)
+- [`crypto`](https://deno.land/std/node/crypto.ts) (_partly_)
+- [`child_process`](https://deno.land/std/node/child_process.ts) (_partly_)
+- [`dns`](https://deno.land/std/node/dns.ts) (_partly_)
+- [`events`](https://deno.land/std/node/events.ts)
+- [`fs`](https://deno.land/std/node/fs.ts) (_partly_)
+- [`fs/promises`](https://deno.land/std/node/fs/promises.ts) (_partly_)
+- [`http`](https://deno.land/std/node/http.ts) (_partly_)
+- [`module`](https://deno.land/std/node/module.ts)
+- [`net`](https://deno.land/std/node/net.ts) (_partly_)
+- [`os`](https://deno.land/std/node/os.ts) (_partly_)
+- [`path`](https://deno.land/std/node/path.ts)
+- [`perf_hooks`](https://deno.land/std/node/perf_hooks.ts) (_partly_)
+- [`process`](https://deno.land/std/node/process.ts) (_partly_)
+- [`querystring`](https://deno.land/std/node/querystring.ts)
+- [`readline`](https://deno.land/std/node/readline.ts) (_partly_)
+- [`stream`](https://deno.land/std/node/stream.ts)
+- [`string_decoder`](https://deno.land/std/node/string_decoder.ts)
+- [`sys`](https://deno.land/std/node/sys.ts) (_partly_)
+- [`timers`](https://deno.land/std/node/timers.ts)
+- [`timers/promises`](https://deno.land/std/node/timers/promises.ts)
+- [`tty`](https://deno.land/std/node/tty.ts) (_partly_)
+- [`url`](https://deno.land/std/node/url.ts) (_partly_)
+- [`util`](https://deno.land/std/node/util.ts) (_partly_)
+- [`worker_threads`](https://deno.land/std/node/worker_threads.ts)
 
 Following modules are not yet implemented:
 
@@ -76,9 +67,8 @@ please open an issue in https://github.com/denoland/deno_std/issues with example
 code.
 
 In addition, there is the
-[`std/node/global.ts`](https://doc.deno.land/https://deno.land/std/node/global.ts)
-module which provides some of the Node globals like `global`, `process`, and
-`Buffer`.
+[`std/node/global.ts`](https://deno.land/std/node/global.ts) module which
+provides some of the Node globals like `global`, `process`, and `Buffer`.
 
 If you want documentation for any of the modules, you can simply type `deno doc`
 and the URL of the module in your terminal:

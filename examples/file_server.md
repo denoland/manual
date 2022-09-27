@@ -2,8 +2,7 @@
 
 ## Concepts
 
-- Use [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) to read a
-  file's content in chunks.
+- Use [Deno.open](/api?s=Deno.open) to read a file's content in chunks.
 - Transform a Deno file into a
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 - Use Deno's integrated HTTP server to run your own file server.

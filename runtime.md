@@ -1,9 +1,8 @@
 # Runtime
 
 Documentation for all runtime functions (Web APIs + `Deno` global) can be found
-on [`doc.deno.land/deno/stable`](https://doc.deno.land/deno/stable@$CLI_VERSION)
-with _unstable_ APIs which are enabled via the `--unstable` flag at
-[`doc.deno.land/deno/unstable`](https://doc.deno.land/deno/unstable@$CLI_VERSION).
+at [`/api`](/api) or with adding the _unstable_ APIs which are enabled via the
+`--unstable` flag at [`/api?unstable`](/api?unstable).
 
 ## Web Platform APIs
 
