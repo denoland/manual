@@ -14,7 +14,7 @@ releases.
 
 The way these work is best described with an example:
 
-```ts
+```ts, ignore
 // main.ts
 import express from "npm:express";
 const app = express();
