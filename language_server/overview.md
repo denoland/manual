@@ -143,6 +143,11 @@ with Deno:
   }
   ```
 
+- `deno/task` - Requests the return of avalaible deno tasks, see
+  [task_runner](../tools/task_runner.md).
+
+  It does not expect any parameters.
+
 ## Notifications
 
 There is currently one custom notification that is sent from the server to the
