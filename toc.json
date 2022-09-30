@@ -113,17 +113,17 @@
   "tools": {
     "name": "Tools",
     "children": {
-      "script_installer": "Script Installer",
-      "formatter": "Formatter",
-      "repl": "Read-Eval-Print-Loop",
-      "bundler": "Bundler",
-      "compiler": "Compiling Executables",
-      "documentation_generator": "Documentation Generator",
-      "dependency_inspector": "Dependency Inspector",
-      "linter": "Linter",
-      "task_runner": "Task Runner",
-      "vendor": "Vendoring Dependencies",
-      "benchmarker": "Benchmarking"
+      "script_installer": "deno install",
+      "formatter": "deno fmt",
+      "repl": "deno repl",
+      "bundler": "deno bundle",
+      "compiler": "deno compile",
+      "documentation_generator": "deno doc",
+      "dependency_inspector": "deno info",
+      "linter": "deno lint",
+      "task_runner": "deno task",
+      "vendor": "deno vendor",
+      "benchmarker": "deno bench"
     }
   },
   "advanced": {
