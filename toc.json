@@ -17,6 +17,18 @@
     "name": "Basics",
     "children": {
       "import_export": "Importing and Exporting Modules",
+       "node": {
+        "name": "Importing NPM modules",
+        "children": {
+          "node_specifiers": "Using Node Packages with Node Specifiers",
+          "cdns": "Using Node Packages Via CDNs",
+          "std_node": "The std/node Library",
+          "import_maps": "Using Import Maps",
+          "faqs": "Frequently Asked Questions",
+          "cheatsheet": "Node->Deno Cheatsheet",
+          "dnt": "dnt - Deno to Node Transform"
+        }
+      }
       "linking_to_external_code": "Using Third Party Modules",
       "permissions": "Permissions",
       "connecting_to_databases": "Connecting to Databases",
@@ -49,6 +61,14 @@
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
       "ffi_api": "Foreign Function Interface API"
+      "webassembly": {
+        "name": "Using WebAssembly",
+        "children": {
+          "using_wasm": "Using WebAssembly in Deno",
+          "using_streaming_wasm": "Using the Streaming WebAssembly APIs",
+          "wasm_resources": "Helpful Resources"
+        }
+      },
     }
   },
   "examples": {
@@ -88,26 +108,22 @@
           "twind": "Using Twind"
         }
       },
-      "webassembly": {
-        "name": "Using WebAssembly",
-        "children": {
-          "using_wasm": "Using WebAssembly in Deno",
-          "using_streaming_wasm": "Using the Streaming WebAssembly APIs",
-          "wasm_resources": "Helpful Resources"
-        }
-      },
-      "node": {
-        "name": "Interoperating with Node and NPM",
-        "children": {
-          "node_specifiers": "Using Node Packages with Node Specifiers",
-          "cdns": "Using Node Packages Via CDNs",
-          "std_node": "The std/node Library",
-          "import_maps": "Using Import Maps",
-          "faqs": "Frequently Asked Questions",
-          "cheatsheet": "Node->Deno Cheatsheet",
-          "dnt": "dnt - Deno to Node Transform"
-        }
-      }
+    }
+  },
+  "tools": {
+    "name": "Tools",
+    "children": {
+      "script_installer": "Script Installer",
+      "formatter": "Formatter",
+      "repl": "Read-Eval-Print-Loop",
+      "bundler": "Bundler",
+      "compiler": "Compiling Executables",
+      "documentation_generator": "Documentation Generator",
+      "dependency_inspector": "Dependency Inspector",
+      "linter": "Linter",
+      "task_runner": "Task Runner",
+      "vendor": "Vendoring Dependencies",
+      "benchmarker": "Benchmarking"
     }
   },
   "advanced": {
@@ -140,22 +156,6 @@
           "faqs": "Frequently Asked Questions"
         }
       }
-    }
-  },
-  "tools": {
-    "name": "Tools",
-    "children": {
-      "script_installer": "Script Installer",
-      "formatter": "Formatter",
-      "repl": "Read-Eval-Print-Loop",
-      "bundler": "Bundler",
-      "compiler": "Compiling Executables",
-      "documentation_generator": "Documentation Generator",
-      "dependency_inspector": "Dependency Inspector",
-      "linter": "Linter",
-      "task_runner": "Task Runner",
-      "vendor": "Vendoring Dependencies",
-      "benchmarker": "Benchmarking"
     }
   },
   "references": {

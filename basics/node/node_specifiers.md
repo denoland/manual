@@ -16,10 +16,10 @@ The way these work is best described with an example:
 
 ```ts
 // main.ts
-import express, { Request, Response } from "npm:express";
+import express from "npm:express";
 const app = express();
 
-app.get("/", function (req: Request, res: Response) {
+app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
