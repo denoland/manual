@@ -33,6 +33,8 @@ Here is a list of web platform APIs Deno implements:
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 - [`WebGPU`](https://deno.land/api@v1.26.0)
 
+You can find the Deno reference for these APIs [here](https://deno.land/api@v1.26.0).
+
 ## `fetch` API
 
 ## Overview
