@@ -18,6 +18,9 @@ All APIs that are not web standard are contained in the global `Deno` namespace.
 It has the APIs for reading from files, opening TCP sockets,
 [serving HTTP](./runtime/http_server_apis.md), and executing subprocesses, etc.
 
+For more details, view the chapter on
+[Namespace APIs](./runtime/namespace_apis.md).
+
 The TypeScript definitions for the Deno namespaces can be found in the
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
 file.

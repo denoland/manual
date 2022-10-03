@@ -10,9 +10,11 @@ Here is a list of web platform APIs Deno implements:
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
 - [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
 - [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [DOM APIs](https://deno.land/api@v1.26.0#DOM_APIs)
 - [DOM `CustomEvent`, `EventTarget` and `EventListener`](#customevent-eventtarget-and-eventlistener)
 - [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
 - [Fetch API](#fetch-api)
@@ -25,9 +27,11 @@ Here is a list of web platform APIs Deno implements:
 - [`URLPattern`](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
 - [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Web File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API)
 - [Web Storage API](./web_storage_api.md)
 - [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [`WebGPU`](https://deno.land/api@v1.26.0)
 
 ## `fetch` API
 
