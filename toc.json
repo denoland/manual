@@ -29,6 +29,7 @@
           "dnt": "dnt - Deno to Node Transform"
         }
       }
+      "standard_library":"Standard Library",
       "linking_to_external_code": "Using Third Party Modules",
       "permissions": "Permissions",
       "connecting_to_databases": "Connecting to Databases",
@@ -161,9 +162,6 @@
   "references": {
     "name": "References",
     "children": {
-      "standard_library": {
-        "name": "Standard Library"
-      },
       "vscode_deno": {
         "name": "Using Visual Studio Code",
         "children": {
