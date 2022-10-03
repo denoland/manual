@@ -1,12 +1,18 @@
 # Namespace API
 
-The global Deno namespace contains APIs that are not web standard, including APIs for reading from files, opening TCP sockets, serving HTTP, and executing subprocesses, etc.
+The global Deno namespace contains APIs that are not web standard, including
+APIs for reading from files, opening TCP sockets, serving HTTP, and executing
+subprocesses, etc.
 
-For a full list of Deno Namespace APIs, see the [reference](https://deno.land/api@v1.26.0?s=Deno). Below we highlight some of the most important.
+For a full list of Deno Namespace APIs, see the
+[reference](https://deno.land/api@v1.26.0?s=Deno). Below we highlight some of
+the most important.
 
 ## Errors
 
-The Deno runtime comes with [19 error classes](https://deno.land/api@v1.26.0#Errors) that can be raised in response to a number of conditions.
+The Deno runtime comes with
+[19 error classes](https://deno.land/api@v1.26.0#Errors) that can be raised in
+response to a number of conditions.
 
 Some examples are:
 
@@ -32,19 +38,23 @@ try {
 
 ## File System
 
-The Deno runtime comes with [various functions for working with files and directories](https://deno.land/api@v1.26.0#File_System). You will need to use --allow-read and --allow-write permissions to gain access to the file system.
+The Deno runtime comes with
+[various functions for working with files and directories](https://deno.land/api@v1.26.0#File_System).
+You will need to use --allow-read and --allow-write permissions to gain access
+to the file system.
 
-Refer to the links below for code examples of how to use the file system functions.
+Refer to the links below for code examples of how to use the file system
+functions.
 
 - [Reading files in several different ways](https://examples.deno.land/reading-files)
 - [Reading files in streams](https://deno.land/manual@v1.26.0/examples/file_server)
 - [Reading a text file (`Deno.readTextFile`)](https://deno.land/manual@v1.26.0/examples/read_write_files#reading-a-text-file)
 - [Writing a text file (`Deno.writeTextFile`)](https://deno.land/manual@v1.26.0/examples/read_write_files#writing-a-text-file)
 
-
 ## I/O
 
-The Deno runtime comes with [built-in functions for working with resources and I/O](https://deno.land/api@v1.26.0#I/O).
+The Deno runtime comes with
+[built-in functions for working with resources and I/O](https://deno.land/api@v1.26.0#I/O).
 
 Refer to the links below for code examples for common functions.
 
@@ -53,7 +63,8 @@ Refer to the links below for code examples for common functions.
 
 ## Network
 
-The Deno runtime comes with [built-in functions for dealing with connections to network ports](https://deno.land/api@v1.26.0#Network).
+The Deno runtime comes with
+[built-in functions for dealing with connections to network ports](https://deno.land/api@v1.26.0#Network).
 
 Refer to the links below for code examples for common functions.
 
@@ -62,7 +73,8 @@ Refer to the links below for code examples for common functions.
 
 ## Sub Process
 
-The Deno runtime comes with [built-in functions for spinning up subprocesses](https://deno.land/api@v1.26.0#Sub_Process).
+The Deno runtime comes with
+[built-in functions for spinning up subprocesses](https://deno.land/api@v1.26.0#Sub_Process).
 
 Refer to the links below for code samples of how to create a subprocess.
 

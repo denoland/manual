@@ -17,7 +17,7 @@
     "name": "Basics",
     "children": {
       "import_export": "Importing and Exporting Modules",
-       "node": {
+      "node": {
         "name": "Importing NPM modules",
         "children": {
           "node_specifiers": "Using Node Packages with Node Specifiers",
@@ -28,8 +28,8 @@
           "cheatsheet": "Node->Deno Cheatsheet",
           "dnt": "dnt - Deno to Node Transform"
         }
-      }
-      "standard_library":"Standard Library",
+      },
+      "standard_library": "Standard Library",
       "linking_to_external_code": "Using Third Party Modules",
       "permissions": "Permissions",
       "connecting_to_databases": "Connecting to Databases",
@@ -62,7 +62,7 @@
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
-      "ffi_api": "Foreign Function Interface API"
+      "ffi_api": "Foreign Function Interface API",
       "webassembly": {
         "name": "Using WebAssembly",
         "children": {
@@ -70,7 +70,7 @@
           "using_streaming_wasm": "Using the Streaming WebAssembly APIs",
           "wasm_resources": "Helpful Resources"
         }
-      },
+      }
     }
   },
   "examples": {
@@ -109,7 +109,7 @@
           "css": "Parsing CSS",
           "twind": "Using Twind"
         }
-      },
+      }
     }
   },
   "tools": {
