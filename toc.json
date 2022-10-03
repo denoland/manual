@@ -53,6 +53,7 @@
     "name": "The Runtime",
     "children": {
       "stability": "Stability",
+      "namespace_apis": "Namespace APIs",
       "program_lifecycle": "Program Lifecycle",
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
