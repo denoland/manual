@@ -47,7 +47,7 @@ to be replaced with the numeric version of the standard library to be imported.
 You should always pin your imports to a specific version, to avoid unintended
 changes later.
 
-For the latest version go [here](https://deno.land/std@0.154.0/version.ts)
+For the latest version go [here](https://deno.land/std@0.154.0/version.ts).
 
 ## Making an HTTP request
 
