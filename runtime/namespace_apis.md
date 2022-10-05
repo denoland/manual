@@ -5,14 +5,14 @@ APIs for reading from files, opening TCP sockets, serving HTTP, and executing
 subprocesses, etc.
 
 For a full list of Deno Namespace APIs, see the
-[reference](https://deno.land/api@v$CLI_VERSION?s=Deno). Below we highlight some of
-the most important.
+[reference](https://deno.land/api@v$CLI_VERSION?s=Deno). Below we highlight some
+of the most important.
 
 ## Errors
 
 The Deno runtime comes with
-[19 error classes](https://deno.land/api@v$CLI_VERSION#Errors) that can be raised in
-response to a number of conditions.
+[19 error classes](https://deno.land/api@v$CLI_VERSION#Errors) that can be
+raised in response to a number of conditions.
 
 Some examples are:
 
