@@ -1,9 +1,5 @@
 # The `std/node` Library
 
-> ⚠️ Starting with v1.15 Deno provides a compatibility mode, that allows to
-> emulate Node environment and consume code authored for Node directly. See
-> [Node compatibility mode](./compatibility_mode.md) chapter for details.
-
 The `std/node` part of the Deno standard library is a Node compatibility layer.
 Its primary focus is providing "polyfills" for Node's
 [built-in modules](https://github.com/denoland/deno_std/tree/main/node#supported-builtins).
@@ -12,6 +8,9 @@ It also provides a mechanism for loading CommonJS modules into Deno.
 The library is most useful when trying to use your own or private code that was
 written for Node. If you are trying to consume public npm packages, you are
 likely to get a better result using a [CDN](./cdns.md).
+
+Node has some built-in modules (e.g. like `vm`) that are effectively
+incompatible with the scope of Deno and therefore there aren't easy ways to provide a _polyfill_ of the functionality in Deno.
 
 ## Node built-in modules
 
@@ -79,9 +78,11 @@ and the URL of the module in your terminal:
 
 ## Loading CommonJS modules
 
-Deno only supports natively loading ES Modules, but a lot of Node code is still
-written in the CommonJS format. As mentioned above, for public npm packages, it
-is often better to use a CDN to transpile CommonJS modules to ES Modules for
+Current Node supports both CommonJS and ES Modules, while Deno only supports
+ES Modules. The addition of stabilized ES Modules in Node is relatively recent
+and most code written for Node is in the CommonJS format.
+
+As mentioned above, for public npm packages, it is often better to use a CDN to transpile CommonJS modules to ES Modules for
 consumption by Deno. Not only do you get reliable conversion plus all the
 dependency resolution and management without requiring a package manager to
 install the packages on your local machine, you get the advantages of being able

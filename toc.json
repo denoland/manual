@@ -25,8 +25,6 @@
           "std_node": "The std/node Library",
           "import_maps": "Using Import Maps",
           "faqs": "Frequently Asked Questions",
-          "cheatsheet": "Node->Deno Cheatsheet",
-          "dnt": "dnt - Deno to Node Transform"
         }
       },
       "standard_library": "Standard Library",
@@ -132,7 +130,8 @@
     "name": "Advanced",
     "children": {
       "publishing": {
-        "name": "Publishing Modules"
+        "name": "Publishing Modules",
+        "children": "dnt - Deno to Node Transform"
       },
       "embedding_deno": {
         "name": "Embedding Deno"
@@ -169,6 +168,7 @@
           "testing_api": "Testing API"
         }
       },
+      "cheatsheet": "Deno Cheatsheet",
       "contributing": {
         "name": "Contributing",
         "children": {

@@ -1,48 +1,19 @@
 # Using Import Maps
 
-Deno supports [import maps](../linking_to_external_code/import_maps.md) which
-allow you to supply Deno with information about how to resolve modules that
-overrides the default behavior. Import maps are a web platform standard that is
-increasingly being included natively in browsers. They are specifically useful
-with adapting Node code to work well with Deno, as you can use import maps to
-map "bare" specifiers to a specific module.
+Node has a non-standards based module resolution algorithm, where you can
+import bare-specifiers (e.g. `react` or `lodash`) and Node will look in your
+local and global `node_modules` for a path, introspect the `package.json` and
+try to see if there is a module named the right way. Deno resolves modules the
+same way a browser does. For local files, Deno expects a full module name,
+  including the extension. When dealing with remote imports, Deno expects the
+  web server to do any "resolving" and provide back the media type of the code
+  (see the
+  [Determining the type of file](./typescript/overview.md#determining-the-type-of-file)
+  for more information).
 
-When coupled with Deno friendly [CDNs](./cdns.md) import maps can be a powerful
-tool in managing code and dependencies without need of a package management
-tool.
+To bridge this gap, Deno supports [Import maps](https://github.com/WICG/import-maps#the-import-map), a web-platform standard that allows you to use bare specifiers with Deno without having to install the Node package locally. 
 
-## Bare and extension-less specifiers
-
-Deno will only load a fully qualified module, including the extension. The
-import specifier needs to either be relative or absolute. Specifiers that are
-neither relative or absolute are often called "bare" specifiers. For example
-`"./lodash/index.js"` is a relative specifier and
-`https://cdn.skypack.dev/lodash` is an absolute specifier. Whereas `"lodash"`
-would be a bare specifier.
-
-Also Deno requires that for local modules, the module to load is fully
-resolve-able. When an extension is not present, Deno would have to "guess" what
-the author intended to be loaded. For example does `"./lodash"` mean
-`./lodash.js`, `./lodash.ts`, `./lodash.tsx`, `./lodash.jsx`,
-`./lodash/index.js`, `./lodash/index.ts`, `./lodash/index.jsx`, or
-`./lodash/index.tsx`?
-
-When dealing with remote modules, Deno allows the CDN/web server define whatever
-semantics around resolution the server wants to define. It just treats a URL,
-including its query string, as a "unique" module that can be loaded. It expects
-the CDN/web server to provide it with a valid media/content type to instruct
-Deno how to handle the file. More information on how media types impact how Deno
-handles modules can be found in the
-[Determining the type of file](../typescript/overview.md#determining-the-type-of-file)
-section of the manual.
-
-Node does have defined semantics for resolving specifiers, but they are complex,
-assume unfettered access to the local file system to query it. Deno has chosen
-not to go down that path.
-
-But, import maps can be used to provide some of the ease of the developer
-experience if you wish to use bare specifiers. For example, if we want to do the
-following in our code:
+So if we want to do the following in our code:
 
 ```ts, ignore
 import lodash from "lodash";
@@ -66,10 +37,12 @@ And we would run our program like:
 > deno run --import-map ./import_map.json example.ts
 ```
 
+## Managing version of modules in the import map.
+
 If you wanted to manage the versions in the import map, you could do this as
-well. For example if you were using Skypack CDN, you can used a
+well. For example if you were using Skypack CDN, you can use a
 [pinned URL](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized)
-for the dependency in your import map. For example, to pin to lodash version
+for the dependency in your import map. To pin to `lodash` version
 4.17.21 (and minified production ready version), you would do this:
 
 ```json
@@ -82,17 +55,15 @@ for the dependency in your import map. For example, to pin to lodash version
 
 ## Overriding imports
 
-The other situation where import maps can be very useful is the situation where
-you have tried your best to make something work, but have failed. For example
+The other situation where import maps can be very useful is when
+you have tried your best to import a npm package, but keep getting errors. For example
 you are using an npm package which has a dependency on some code that just
 doesn't work under Deno, and you want to substitute another module that
 "polyfills" the incompatible APIs.
 
-For example, let's say we have a package that is using a version of the built-in
-`"fs"` module that we have a local module we want to replace it with when it
-tries to import it, but we want other code we are loading to use the standard
-library replacement module for `"fs"`. We would want to create an import map
-that looked something like this:
+Let's say we have a package that is using a version of the built-in
+`"fs"` module. We want to replace it with a local module when the scope is `https://deno.land/x/example`, but then we want to use the std library replacement module for `"fs"` for all other code. To do this, we can create an import map
+that looks something like this:
 
 ```json
 {
@@ -106,7 +77,3 @@ that looked something like this:
   }
 }
 ```
-
-Import maps can be very powerful, check out the official
-[standards README](https://github.com/WICG/import-maps#the-import-map) for more
-information.
