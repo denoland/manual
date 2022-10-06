@@ -9,9 +9,6 @@ The library is most useful when trying to use your own or private code that was
 written for Node. If you are trying to consume public npm packages, you are
 likely to get a better result using a [CDN](./cdns.md).
 
-Node has some built-in modules (e.g. like `vm`) that are effectively
-incompatible with the scope of Deno and therefore there aren't easy ways to provide a _polyfill_ of the functionality in Deno.
-
 ## Node built-in modules
 
 The standard library provides several "replacement" modules for Node built-in
@@ -76,18 +73,23 @@ and the URL of the module in your terminal:
 > deno doc https://deno.land/std/fs/move.ts
 ```
 
+Note that Node has some built-in modules (e.g. like `vm`) that are effectively
+incompatible with the scope of Deno and therefore there aren't easy ways to
+provide a _polyfill_ of the functionality in Deno.
+
 ## Loading CommonJS modules
 
-Current Node supports both CommonJS and ES Modules, while Deno only supports
-ES Modules. The addition of stabilized ES Modules in Node is relatively recent
-and most code written for Node is in the CommonJS format.
+Current Node supports both CommonJS and ES Modules, while Deno only supports ES
+Modules. The addition of stabilized ES Modules in Node is relatively recent and
+most code written for Node is in the CommonJS format.
 
-As mentioned above, for public npm packages, it is often better to use a CDN to transpile CommonJS modules to ES Modules for
-consumption by Deno. Not only do you get reliable conversion plus all the
-dependency resolution and management without requiring a package manager to
-install the packages on your local machine, you get the advantages of being able
-to share your code easier without requiring other users to setup some of the
-Node infrastructure to consume your code with Node.
+As mentioned above, for public npm packages, it is often better to use a CDN to
+transpile CommonJS modules to ES Modules for consumption by Deno. Not only do
+you get reliable conversion plus all the dependency resolution and management
+without requiring a package manager to install the packages on your local
+machine, you get the advantages of being able to share your code easier without
+requiring other users to setup some of the Node infrastructure to consume your
+code with Node.
 
 That being said, the built-in Node module `"module"` provides a function named
 `createRequire()` which allows you to create a Node compatible `require()`

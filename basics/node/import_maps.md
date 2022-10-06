@@ -1,17 +1,19 @@
 # Using Import Maps
 
-Node has a non-standards based module resolution algorithm, where you can
-import bare-specifiers (e.g. `react` or `lodash`) and Node will look in your
-local and global `node_modules` for a path, introspect the `package.json` and
-try to see if there is a module named the right way. Deno resolves modules the
-same way a browser does. For local files, Deno expects a full module name,
-  including the extension. When dealing with remote imports, Deno expects the
-  web server to do any "resolving" and provide back the media type of the code
-  (see the
-  [Determining the type of file](./typescript/overview.md#determining-the-type-of-file)
-  for more information).
+Node allows you to import bare specifiers (e.g. `react` or `lodash`) -- its
+module resolution algorithm will look in your local and global `node_modules`
+for a path, introspect the `package.json` and try to see if there is a module
+named the right way.
 
-To bridge this gap, Deno supports [Import maps](https://github.com/WICG/import-maps#the-import-map), a web-platform standard that allows you to use bare specifiers with Deno without having to install the Node package locally. 
+Deno, on the other hand, resolves modules the same way a browser does. For local
+files, Deno expects a full module name, including the extension. When dealing
+with remote imports, Deno expects the web server to do any "resolving" and
+provide back the media type of the code.
+
+To bridge this gap, Deno supports
+[Import maps](https://github.com/WICG/import-maps#the-import-map), a
+web-platform standard that allows you to use bare specifiers with Deno without
+having to install the Node package locally.
 
 So if we want to do the following in our code:
 
@@ -42,8 +44,8 @@ And we would run our program like:
 If you wanted to manage the versions in the import map, you could do this as
 well. For example if you were using Skypack CDN, you can use a
 [pinned URL](https://docs.skypack.dev/skypack-cdn/api-reference/pinned-urls-optimized)
-for the dependency in your import map. To pin to `lodash` version
-4.17.21 (and minified production ready version), you would do this:
+for the dependency in your import map. To pin to `lodash` version 4.17.21 (and
+minified production ready version), you would do this:
 
 ```json
 {
@@ -55,15 +57,17 @@ for the dependency in your import map. To pin to `lodash` version
 
 ## Overriding imports
 
-The other situation where import maps can be very useful is when
-you have tried your best to import a npm package, but keep getting errors. For example
-you are using an npm package which has a dependency on some code that just
-doesn't work under Deno, and you want to substitute another module that
-"polyfills" the incompatible APIs.
+The other situation where import maps can be very useful is when you have tried
+your best to import a npm package, but keep getting errors. For example you are
+using an npm package which has a dependency on some code that just doesn't work
+under Deno, and you want to substitute another module that "polyfills" the
+incompatible APIs.
 
-Let's say we have a package that is using a version of the built-in
-`"fs"` module. We want to replace it with a local module when the scope is `https://deno.land/x/example`, but then we want to use the std library replacement module for `"fs"` for all other code. To do this, we can create an import map
-that looks something like this:
+Let's say we have a package that is using a version of the built-in `"fs"`
+module. We want to replace it with a local module when the scope is
+`https://deno.land/x/example`, but then we want to use the std library
+replacement module for `"fs"` for all other code. To do this, we can create an
+import map that looks something like this:
 
 ```json
 {
