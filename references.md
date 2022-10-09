@@ -8,7 +8,3 @@ This chapter contains links to reference manuals and sheets, including:
 - [Full Guide to Using Visual Studio Code](./references/vscode_deno.md)
 - [Node to Deno Cheatsheet](./references/cheatsheet.md)
 - [Contributing to Deno](./references/contributing.md)
-
-
-
-

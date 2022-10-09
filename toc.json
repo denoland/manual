@@ -24,7 +24,7 @@
           "cdns": "Using Node Packages Via CDNs",
           "std_node": "The std/node Library",
           "import_maps": "Using Import Maps",
-          "faqs": "Frequently Asked Questions",
+          "faqs": "Frequently Asked Questions"
         }
       },
       "standard_library": "Standard Library",
