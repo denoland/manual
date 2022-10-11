@@ -1,4 +1,5 @@
-# Assertions
+# TODO: remove comments
+<!-- # Assertions
 
 To help developers write tests the Deno standard library comes with a built-in
 [assertions module](https://deno.land/std@$STD_VERSION/testing/asserts.ts) which
@@ -332,4 +333,4 @@ Deno.test("Test Assert PowerOf", () => {
   assertPowerOf(8, 2);
   assertPowerOf(11, 4);
 });
-```
+``` -->

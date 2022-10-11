@@ -15,14 +15,15 @@ It can be considered a modern alternative to Node.js. s
   support `fetch()`.
 - Secure by default. No file, network, or environment access unless explicitly
   enabled.
-- Supports [TypeScript](./typescript.md) out of the box.
+- Supports [TypeScript](./advanced/typescript.md) out of the box.
 - Ships a single executable (`deno`).
 - Provides built-in [development tooling](./tools.md) like a code formatter
   ([`deno fmt`](./tools/formatter.md)), a linter
   ([`deno lint`](./tools/linter.md)), a test runner
-  ([`deno test`](./testing.md)), and a
+  ([`deno test`](./basics/testing.md)), and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
-- Has [a set of reviewed (audited) standard modules](https://deno.land/std/)
+# TODO: (remove comments)
+<!-- - Has [a set of reviewed (audited) standard modules](https://deno.land/std/@$STD_VERSION) -->
   that are guaranteed to work with Deno.
 - Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
   [executable](./tools/compiler.md).

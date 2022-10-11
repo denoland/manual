@@ -1,4 +1,4 @@
-# Connecting to databases
+<!-- # Connecting to databases
 
 The Deno community has published a number of third-party modules that make it
 easy to connect to popular databases like MySQL, Postgres, and MongoDB.
@@ -113,7 +113,7 @@ To connect to Firebase with Deno, import the
 [firestore npm module](https://firebase.google.com/docs/firestore/quickstart)
 with the [skypak CDN](https://www.skypack.dev/). To learn more about using npm
 modules in Deno via CDN read
-[here](../using_deno_with_other_technologies/node/cdns.md)
+[here](../basics/node/cdns.md)
 
 ### Connect to Firebase with the firestore npm module
 
@@ -156,7 +156,7 @@ const auth = getAuth(app);
 To connect to Supabase with Deno, import the
 [supabase-js npm module](https://supabase.com/docs/reference/javascript) with
 the [esm.sh CDN](https://esm.sh/). To learn more about using npm modules in Deno
-via CDN read [here](../using_deno_with_other_technologies/node/cdns.md)
+via CDN read [here](../basics/node/cdns.md)
 
 ### Connect to Supabase with the supabase-js npm module
 
@@ -270,7 +270,7 @@ console.log(`Started on http://localhost:3000`);
 To make GraphQL client calls in Deno, import the
 [graphql npm module](https://www.npmjs.com/package/graphql) with the
 [esm CDN](https://esm.sh/). To learn more about using npm modules in Deno via
-CDN read [here](../using_deno_with_other_technologies/node/cdns.md)
+CDN read [here](../basics/node/cdns.md)
 
 #### Make GraphQL client calls with the graphql npm module
 
@@ -296,4 +296,4 @@ const response = await graphql({
 });
 
 console.log(response);
-```
+``` -->

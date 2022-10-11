@@ -112,7 +112,8 @@ and setting the `"noLib"` option to `true`.
 If you use the `--unstable` flag, Deno will change the `"lib"` option to
 `[ "deno.window", "deno.unstable" ]`. If you are trying to load a worker, that
 is type checked with `"deno.worker"` instead of `"deno.window"`. See
-[Type Checking Web Workers](./types#type-checking-web-workers) for more
+## TODO: remove comments
+<!-- [Type Checking Web Workers](./types#type-checking-web-workers) for more -->
 information on this.
 
 ## Using the "lib" property
@@ -138,7 +139,8 @@ The built-in libraries that are of interest to users:
   libraries.
 - `"deno.worker"` - This is the library used when checking a Deno web worker
   script. For more information about web workers, check out
-  [Type Checking Web Workers](./types#type-checking-web-workers).
+  ## TODO: remove comments
+  <!-- [Type Checking Web Workers](./types#type-checking-web-workers). -->
 - `"dom.asynciterable"` - TypeScript currently does not include the DOM async
   iterables that Deno implements (plus several browsers), so we have implemented
   it ourselves until it becomes available in TypeScript.
@@ -209,4 +211,6 @@ could be trivial errors becoming runtime errors.
 The `"types"` property in `"compilerOptions"` can be used to specify arbitrary
 type definitions to include when type checking a program. For more information
 on this see
-[Using ambient or global types](./types#using-ambient-or-global-types).
+
+## TODO: remove comments
+<!-- [Using ambient or global types](./types#using-ambient-or-global-types). -->

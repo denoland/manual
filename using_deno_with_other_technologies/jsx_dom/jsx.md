@@ -32,7 +32,7 @@ makes it easier to use JSX in your application.
 
 As of Deno 1.16, initial support for these transforms was added. Deno supports
 both the JSX import source pragma as well as configuring a JSX import source in
-a [configuration file](../getting_started/configuration_file.md).
+a [configuration file](../../getting_started/configuration_file.md).
 
 ### JSX runtime
 
@@ -82,7 +82,7 @@ export function App() {
 
 If you want to configure a JSX import source for a whole project, so you don't
 need to insert the pragma on each module, you can use the `"compilerOptions"` in
-a [configuration file](../getting_started/configuration_file.md) to specify
+a [configuration file](../../getting_started/configuration_file.md) to specify
 this. For example if you were using Preact as your JSX library from esm.sh, you
 would configure the following, in the configuration file:
 

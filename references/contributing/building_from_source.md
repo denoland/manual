@@ -2,7 +2,7 @@
 
 Below are instructions on how to build Deno from source. If you just want to use
 Deno you can download a prebuilt executable (more information in the
-[`Getting Started`](../getting_started/installation.md#download-and-install)
+[`Getting Started`](../../getting_started/installation.md#download-and-install)
 chapter).
 
 ## Cloning the Repository

@@ -1,6 +1,6 @@
 # Linking to Third Party Code
 
-In the [Getting Started](./getting_started.md) section, we saw Deno could
+In the [Getting Started](../getting_started.md) section, we saw Deno could
 execute scripts from URLs. Like browser JavaScript, Deno can import libraries
 directly from URLs. This example uses a URL to import an assertion library:
 
@@ -94,4 +94,4 @@ This, like the above, is a problem faced by _any_ remote dependency system.
 Relying on external servers is convenient for development but brittle in
 production. Production software should always vendor its dependencies. In Node
 this is done by checking `node_modules` into source control. In Deno this is
-done by using the [`deno vendor`](./tools/vendor.md) subcommand.
+done by using the [`deno vendor`](../tools/vendor.md) subcommand.

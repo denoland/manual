@@ -1,4 +1,5 @@
-# Behavior-Driven Development
+# TODO: remove comments
+<!-- # Behavior-Driven Development
 
 With the [bdd.ts](https://deno.land/std@$STD_VERSION/testing/bdd.ts) module you
 can write your tests in a familiar format for grouping tests and adding
@@ -302,4 +303,4 @@ describe("User", () => {
     assertEquals(user.getAge(), 18);
   });
 });
-```
+``` -->

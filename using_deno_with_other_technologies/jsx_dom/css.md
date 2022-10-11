@@ -4,7 +4,8 @@ If you want to parse CSS to a abstract syntax tree (AST) then there are two
 solutions you might want to consider:
 
 - [reworkcss/css](https://github.com/reworkcss/css)
-- [deno_css](https://deno.land/x/css)
+# TODO: (remove comments)
+<!-- - [deno_css](https://deno.land/x/css) -->
 
 `reworkcss/css` was written originally for Node.js but work well when consumed
 from a CDN. Importing from `esm.sh` also automatically combines the type

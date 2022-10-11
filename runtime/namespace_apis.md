@@ -1,4 +1,5 @@
-# Namespace API
+## TODO: remove comments
+<!-- # Namespace API
 
 The global Deno namespace contains APIs that are not web standard, including
 APIs for reading from files, opening TCP sockets, serving HTTP, and executing
@@ -78,4 +79,4 @@ The Deno runtime comes with
 
 Refer to the links below for code samples of how to create a subprocess.
 
-- [Creating a subprocess (`Deno.run`)](https://deno.land/manual@v$CLI_VERSION/examples/subprocess)
+- [Creating a subprocess (`Deno.run`)](https://deno.land/manual@v$CLI_VERSION/examples/subprocess) -->

@@ -1,15 +1,16 @@
-# Standard Library
+# TODO: remove comments
+<!-- # Standard Library
 
 Deno provides a set of standard modules that are audited by the core team and
 are guaranteed to work with Deno.
 
-Standard library is available at: https://deno.land/std/
+Standard library is available at: https://deno.land/std@$STD_VERSION
 
 ## Versioning and stability
 
 Standard library is not yet stable and therefore it is versioned differently
-than Deno. For latest release consult https://deno.land/std/ or
-https://deno.land/std/version.ts. The standard library is released each time
+than Deno. For latest release consult https://deno.land/std/@STD_VERSION or
+https://deno.land/std@STD_VERSION/version.ts. The standard library is released each time
 Deno is released.
 
 We strongly suggest to always use imports with pinned version of standard
@@ -73,4 +74,4 @@ To make sure that API producing error is unstable check
 declaration.
 
 This problem should be fixed in the near future. Feel free to omit the flag if
-the particular modules you depend on compile successfully without it.
+the particular modules you depend on compile successfully without it. -->

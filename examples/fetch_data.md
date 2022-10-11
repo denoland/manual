@@ -6,7 +6,7 @@
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 - Deno is secure by default, meaning explicit permission must be granted to
   access the network.
-- See also: Deno's [permissions](../getting_started/permissions.md) model.
+- See also: Deno's [permissions](../basics/permissions.md) model.
 
 ## Overview
 
@@ -55,7 +55,8 @@ try {
 
 Like in browsers, sending and receiving large files is possible thanks to the
 [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The
-standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
+# TODO: remove comments
+<!-- standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/) -->
 can be used to convert a Deno file into a writable or readable stream.
 
 **Command:** `deno run --allow-read --allow-write --allow-net fetch_file.ts`

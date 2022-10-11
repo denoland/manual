@@ -135,7 +135,8 @@ You can find documentation about this API on
 
 ## Typings
 
-The TypeScript definitions for the implemented web APIs can be found in the
+# TODO: remove comments
+<!-- The TypeScript definitions for the implemented web APIs can be found in the
 [`lib.deno.shared_globals.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.shared_globals.d.ts)
 and
 [`lib.deno.window.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.window.d.ts)
@@ -143,4 +144,4 @@ files.
 
 Definitions that are specific to workers can be found in the
 [`lib.deno.worker.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.worker.d.ts)
-file.
+file. -->

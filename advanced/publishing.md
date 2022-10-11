@@ -45,4 +45,4 @@ tag at the end of the first JSDoc block in the module.
 
 ## Publishing Deno modules for Node.js
 
-See [dnt - Deno to Node Transform](./dnt.md).
+See [dnt - Deno to Node Transform](./publishing/dnt.md).

@@ -115,7 +115,8 @@ window.onload = () => {
 
 ## Chat Server
 
-[Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
+## TODO: remove comments
+<!-- [Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that -->
 we’ll be using to set up our server. Our server will return the plain
 `index.html` file previously shown when the user first navigates to the site.
 Our server also exposes a `ws_endpoint/` endpoint which the chat clients will
@@ -221,7 +222,8 @@ grant access to the file system and network because Deno is secure by default.
 deno run --allow-read --allow-net server.js
 ```
 
-Now if you visit [http://localhost:8080](http://localhost:8080/) you will be
+## TODO: remove comments
+<!-- Now if you visit [http://localhost:8080](http://localhost:8080/) you will be -->
 able to start a chat session. You can open 2 simultaneous windows and try
 chatting with yourself.
 

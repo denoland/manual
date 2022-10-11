@@ -19,7 +19,8 @@ the first line of code.
 ## Chrome Devtools
 
 Let's try debugging a program using Chrome Devtools. For this, we'll use
-[file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) from
+# TODO: remove comments
+<!-- [file_server.ts](https://deno.land/std@$STD_VERSION/http/file_server.ts) from -->
 `std`, a static file server.
 
 Use the `--inspect-brk` flag to break execution on the first line:
@@ -84,7 +85,7 @@ to debug the code.
 
 Deno can be debugged using VSCode. This is best done with help from the official
 `vscode_deno` extension. Documentation for this can be found
-[here](../vscode_deno#using-the-debugger).
+[here](../references/vscode_deno#using-the-debugger).
 
 ## JetBrains IDEs
 

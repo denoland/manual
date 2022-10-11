@@ -7,7 +7,7 @@ instructions on how to be used in Deno, the browser, etc. Sometimes you need a
 URL flag to indicate that that you need a Deno-specific module.
 
 **Starting with Deno release 1.25**, Deno also offers experimental support for
-[npm specifiers](./node_specifiers), which are a new way of using npm modules in
+[npm specifiers](./node_specifiers.md), which are a new way of using npm modules in
 Deno that offers a higher chance of compatibility.
 
 However, given that npm specifiers are still a work in progress, below we cover
@@ -99,7 +99,7 @@ the same limitations and caveats as those modules in `std/node`.
 
 esm.sh also automatically sets a header which Deno recognizes that allows Deno
 to be able to retrieve type definitions for the package/module. See
-[Using `X-TypeScript-Types` header](../typescript/types.md#using-x-typescript-types-header)
+[Using `X-TypeScript-Types` header](../../advanced/typescript/types.md#using-x-typescript-types-header)
 in this manual for more details on how this works.
 
 The CDN is also a good choice for people who develop in mainland China, as the
@@ -155,7 +155,7 @@ const re = pathToRegexp("/path/:id");
 ```
 
 See
-[Using `X-TypeScript-Types` header](../typescript/types.md#using-x-typescript-types-header)
+[Using `X-TypeScript-Types` header](../../advanced/typescript/types.md#using-x-typescript-types-header)
 in this manual for more details on how this works.
 
 Skypack docs have a
@@ -199,4 +199,4 @@ the npm registry, there can still be some things to consider:
   diagnostic message when type checking code imported from these CDNs, though
   skipping type checking will result in the code working perfectly fine. This is
   a fairly complex topic and is covered in the
-  [Types and type declarations](../typescript/types.md) section of the manual.
+  [Types and type declarations](../../advanced/typescript/types.md) section of the manual.

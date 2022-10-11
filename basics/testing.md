@@ -262,7 +262,7 @@ deno test --parallel
 ```
 
 Note that starting in Deno v1.24, some test options can be configured via
-[a configuration file](./getting_started/configuration_file.md).
+[a configuration file](../getting_started/configuration_file.md).
 
 > ⚠️ If you want to pass additional CLI arguments to the test files use `--` to
 > inform Deno that remaining arguments are scripts arguments.
@@ -376,9 +376,10 @@ Deno's test runner works with popular testing libraries like
 
 For example integration see:
 
-- https://deno.land/std@$STD_VERSION/testing/chai_example.ts
+# TODO: remove comments
+<!-- - https://deno.land/std@$STD_VERSION/testing/chai_example.ts
 - https://deno.land/std@$STD_VERSION/testing/sinon_example.ts
-- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts
+- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts -->
 
 ### Example: spying on a function with Sinon
 

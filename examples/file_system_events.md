@@ -2,7 +2,9 @@
 
 ## Concepts
 
-- Use [Deno.watchFs](/api?s=Deno.watchFs) to watch for file system events.
+# TODO: remove comments
+
+<!-- - Use [Deno.watchFs](/api?s=Deno.watchFs) to watch for file system events. -->
 - Results may vary between operating systems.
 
 ## Example
