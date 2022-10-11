@@ -13,7 +13,7 @@ for Deno.
 
 ### Connect to MySQL with deno_mysql
 
-```ts
+```ts, ignore
 import { Client } from "https://deno.land/x/mysql/mod.ts";
 
 const client = await new Client().connect({
@@ -31,7 +31,7 @@ for Node and Deno.
 
 ### Connect to Postgres with postgresjs
 
-```js
+```js, ignore
 import postgres from "https://deno.land/x/postgresjs/mod.js";
 
 const sql = postgres("postgres://username:password@host:port/database");
@@ -44,7 +44,7 @@ for Deno.
 
 ### Connect to MongoDB with deno_mongo
 
-```ts
+```ts, ignore
 import { MongoClient } from "https://deno.land/x/mongo@LATEST_VERSION/mod.ts";
 
 const client = new MongoClient();
@@ -85,7 +85,7 @@ There are two primary solutions to connect to SQLite in Deno:
 [sqlite3](https://deno.land/x/sqlite3) provides JavaScript bindings to the
 SQLite3 C API, using Deno FFI.
 
-```ts
+```ts, ignore
 import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
 
 const db = new Database("test.db");
@@ -99,7 +99,7 @@ db.close();
 TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3
 compiled to WebAssembly (WASM).
 
-```ts
+```ts, ignore
 import { DB } from "https://deno.land/x/sqlite/mod.ts";
 
 const db = new DB("test.db");
@@ -116,7 +116,7 @@ modules in Deno via CDN read [here](../basics/node/cdns.md)
 
 ### Connect to Firebase with the firestore npm module
 
-```js
+```js, ignore
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 
 import {
@@ -159,7 +159,7 @@ via CDN read [here](../basics/node/cdns.md)
 
 ### Connect to Supabase with the supabase-js npm module
 
-```js
+```js, ignore
 import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
 const options = {
@@ -193,7 +193,7 @@ to a database.
 
 #### Connect to DenoDB
 
-```ts
+```ts, ignore
 import {
   Database,
   DataTypes,
@@ -225,7 +225,7 @@ The simplest way to run a GraphQL API server in Deno is to use
 
 #### Run a GraphQL API Server with gql
 
-```ts
+```ts, ignore
 import { Server } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 import { GraphQLHTTP } from "https://deno.land/x/gql/mod.ts";
 import { makeExecutableSchema } from "https://deno.land/x/graphql_tools@0.0.2/mod.ts";
@@ -273,7 +273,7 @@ CDN read [here](../basics/node/cdns.md)
 
 #### Make GraphQL client calls with the graphql npm module
 
-```js
+```js, ignore
 import { buildSchema, graphql } from "https://esm.sh/graphql";
 
 const schema = buildSchema(`
