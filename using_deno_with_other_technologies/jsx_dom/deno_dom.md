@@ -1,7 +1,7 @@
 # Using deno-dom with Deno
 
-# TODO: (remove comments)
-<!-- [deno-dom](https://deno.land/x/deno_dom) is an implementation of DOM and HTML -->
+[deno-dom](https://deno.land/x/deno_dom) is an implementation of DOM and HTML
+
 parser in Deno. It is implemented in Rust (via Wasm) and TypeScript. There is
 also a "native" implementation, leveraging the FFI interface.
 
@@ -52,8 +52,7 @@ console.log(h1.textContent);
 > Note: the example uses an unpinned version from `deno_land/x`, which you
 > likely don't want to do, because the version can change and cause unexpected
 > outcomes. You should use the latest version of available of
-# TODO: (remove comments)
-<!-- > [deno-dom](https://deno.land/x/deno_dom). -->
+> [deno-dom](https://deno.land/x/deno_dom).
 
 ## Faster startup
 

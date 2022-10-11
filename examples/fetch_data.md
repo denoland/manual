@@ -55,8 +55,7 @@ try {
 
 Like in browsers, sending and receiving large files is possible thanks to the
 [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The
-# TODO: remove comments
-<!-- standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/) -->
+standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
 can be used to convert a Deno file into a writable or readable stream.
 
 **Command:** `deno run --allow-read --allow-write --allow-net fetch_file.ts`

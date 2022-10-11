@@ -1,6 +1,4 @@
-# TODO: remove comments
-
-<!-- # Module Metadata
+# Module Metadata
 
 ## Concepts
 
@@ -69,4 +67,4 @@ Resolved specifier for ./module_b.ts file:///home/alice/deno/module_b.ts
 Module B's import.meta.url file:///home/alice/deno/module_b.ts
 Module B's mainModule url file:///home/alice/deno/module_a.ts
 Is module B the main module via import.meta.main? false
-``` -->
+```

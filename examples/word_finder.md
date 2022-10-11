@@ -130,8 +130,7 @@ export function search(pattern, dictionary) {
 
 ## Running a Deno Server
 
-## TODO: remove comments
-<!-- [Oak](https://deno.land/x/oak@v11.1.0) is a framework that lets you easily setup -->
+[Oak](https://deno.land/x/oak@v11.1.0) is a framework that lets you easily setup
 a server in Deno (analogous to Javascript’s Express) and we’ll be using it to
 host our application. Our server will use our search function to populate our
 HTML template with data and then return the customized HTML back to the viewer.
@@ -177,8 +176,7 @@ grant access to the file system and network because Deno is secure by default.
 deno run --allow-read --allow-net server.js
 ```
 
-## TODO: remove comments
-<!-- Now if you visit [http://localhost:8080](http://localhost:8080/) you should be -->
+Now if you visit [http://localhost:8080](http://localhost:8080/) you should be
 able to view the Word Finder app.
 
 ## Example Code

@@ -1,8 +1,7 @@
 # Snapshot Testing
 
 The Deno standard library comes with a
-# TODO: remove comments
-<!-- [snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts), which -->
+[snapshot module](https://deno.land/std@$STD_VERSION/testing/snapshot.ts), which
 enables developers to write tests which assert a value against a reference
 snapshot. This reference snapshot, is a serialized representation of the
 original value and is stored alongside the test file.

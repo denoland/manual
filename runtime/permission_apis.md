@@ -35,8 +35,7 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-# TODO: (remove comments)
-<!-- > ⚠️ See [`PermissionDescriptor`](/api?s=Deno.PermissionDescriptor) in API -->
+> ⚠️ See [`PermissionDescriptor`](/api?s=Deno.PermissionDescriptor) in API
 > reference for more details.
 
 ## Query permissions

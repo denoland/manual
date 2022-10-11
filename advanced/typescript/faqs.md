@@ -19,9 +19,9 @@ and setting it to `true` to help ensure that your code can be properly handled
 by Deno.
 
 One of the ways to deal with the extension and the lack of Node.js non-standard
-resolution logic is to use
-[import maps](../../basics/node/import_maps.md) which would allow you
-to specify "packages" of bare specifiers which then Deno could resolve and load.
+resolution logic is to use [import maps](../../basics/node/import_maps.md) which
+would allow you to specify "packages" of bare specifiers which then Deno could
+resolve and load.
 
 ## What version(s) of TypeScript does Deno support?
 
@@ -57,8 +57,7 @@ change you want to bypass while waiting for it to be updated.
 You can do this by using a configuration file with the `--config` option on the
 command line and adjusting the `"lib"` option in the `"compilerOptions"` in the
 file. For more information see
-## TODO: remove comments
-<!-- [Targeting Deno and the Browser](./configuration#targeting-deno-and-the-browser). -->
+[Targeting Deno and the Browser](./configuration#targeting-deno-and-the-browser).
 
 ## Why are you forcing me to use isolated modules, why can't I use const enums with Deno, why do I need to do export type?
 

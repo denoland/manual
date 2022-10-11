@@ -2,15 +2,14 @@
 
 ## Concepts
 
-# TODO: remove comments
-<!-- - Use [Deno.open](/api?s=Deno.open) to read a file's content in chunks. -->
+- Use [Deno.open](/api?s=Deno.open) to read a file's content in chunks.
 - Transform a Deno file into a
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 - Use Deno's integrated HTTP server to run your own file server.
 
 ## Overview
-s
-Sending files over the network is a common requirement. As seen in the
+
+s Sending files over the network is a common requirement. As seen in the
 [Fetch Data example](./fetch_data.md), because files can be of any size, it is
 important to use streams in order to prevent having to load entire files into
 memory.
@@ -60,8 +59,7 @@ async function handleHttp(conn: Deno.Conn) {
 ## Using the `std/http` file server
 
 The Deno standard library provides you with a
-# TODO: remove comments
-<!-- [file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that -->
+[file server](https://deno.land/std@$STD_VERSION/http/file_server.ts) so that
 you don't have to write your own.
 
 To use it, first install the remote script to your local file system. This will
@@ -81,8 +79,7 @@ Downloading https://deno.land/std@$STD_VERSION/http/file_server.ts...
 HTTP server listening on http://0.0.0.0:4507/
 ```
 
-# TODO: remove comments
-<!-- Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to -->
+Now go to [http://0.0.0.0:4507/](http://0.0.0.0:4507/) in your web browser to
 see your local directory contents.
 
 The complete list of options are available via:

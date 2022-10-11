@@ -376,10 +376,9 @@ Deno's test runner works with popular testing libraries like
 
 For example integration see:
 
-# TODO: remove comments
-<!-- - https://deno.land/std@$STD_VERSION/testing/chai_example.ts
+- https://deno.land/std@$STD_VERSION/testing/chai_example.ts
 - https://deno.land/std@$STD_VERSION/testing/sinon_example.ts
-- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts -->
+- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts
 
 ### Example: spying on a function with Sinon
 

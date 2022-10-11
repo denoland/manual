@@ -177,9 +177,9 @@ key: ${{ hashFiles('lock.json') }}
 
 To make this work you will also need a have a lockfile in your Deno project,
 which is discussed in detail
-[here](../basics/linking_to_external_code/integrity_checking.md). Now, if the contents
-of `lock.json` are changed, a new cache will be made and used in subsequent
-pipeline runs thereafter.
+[here](../basics/linking_to_external_code/integrity_checking.md). Now, if the
+contents of `lock.json` are changed, a new cache will be made and used in
+subsequent pipeline runs thereafter.
 
 To demonstrate, let's say you have a project that uses the logger from
 `deno.land/std`:

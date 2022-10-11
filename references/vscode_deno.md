@@ -87,10 +87,11 @@ section for more information on how to use the Deno linter.
 
 ### Using import maps
 
-It is possible to use [import maps](../basics/linking_to_external_code/import_maps.md)
-in the editor. The option _Deno: Import Map_ (or `deno.importMap` if manually
-editing) should be set to the value of the import map file. If the path is a
-relative path, it will be resolved relative to the root of the workspace.
+It is possible to use
+[import maps](../basics/linking_to_external_code/import_maps.md) in the editor.
+The option _Deno: Import Map_ (or `deno.importMap` if manually editing) should
+be set to the value of the import map file. If the path is a relative path, it
+will be resolved relative to the root of the workspace.
 
 ### Using a configuration file
 
@@ -182,8 +183,8 @@ insight into the code. Most are disabled by default, but can easily be enabled:
 
 ## Testing code lens
 
-The Deno CLI includes a [built-in testing API](../basics/testing.md) available under
-`Deno.test`. The extension and language server have a code lens enabled by
+The Deno CLI includes a [built-in testing API](../basics/testing.md) available
+under `Deno.test`. The extension and language server have a code lens enabled by
 default which provides the ability to run a test from within the editor.
 
 When you have a block of code that provides a test, like:

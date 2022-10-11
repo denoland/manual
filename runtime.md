@@ -1,6 +1,4 @@
-## TODO: remove comments
-
-<!-- # Runtime
+# Runtime
 
 Documentation for all runtime functions (Web APIs + `Deno` global) can be found
 at [`/api`](/api) or with adding the _unstable_ APIs which are enabled via the
@@ -25,4 +23,4 @@ For more details, view the chapter on
 
 The TypeScript definitions for the Deno namespaces can be found in the
 [`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
-file. -->
+file.

@@ -21,8 +21,8 @@
 | `nyc` / `c8` / `istanbul`              | `deno coverage`                                |
 | benchmarks                             | `deno bench`                                   |
 
-¹ See [Linking to external code](../basics/linking_to_external_code.md), the runtime
-downloads and caches the code on first use.
+¹ See [Linking to external code](../basics/linking_to_external_code.md), the
+runtime downloads and caches the code on first use.
 
 ² Type checking happens automatically, TypeScript compiler is built into the
 `deno` binary.
