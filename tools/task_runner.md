@@ -64,6 +64,26 @@ cd project2 && deno task --cwd . wasmbuild
 
 Note: Be sure to provide this flag _before_ the task name.
 
+## Getting directory `deno task` was run from
+
+Since tasks are run using the directory of the Deno configuration file as the
+current working directory, it may be useful to know the directory the
+`deno task` was executed from instead. This is possible by using the `INIT_CWD`
+environment variable in a task or script launched from `deno task` (works the
+same way as in `npm run`, but in a cross platform way).
+
+For example, to provide this directory to a script in a task, do the following
+(note the directory is surrounded in double quotes to keep it as a single
+argument in case it contains spaces):
+
+```json
+{
+  "tasks": {
+    "start": "deno run main.ts \"$INIT_CWD\""
+  }
+}
+```
+
 ## Syntax
 
 `deno task` uses a cross platform shell that's a subset of sh/bash to execute
