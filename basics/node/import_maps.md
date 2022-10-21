@@ -1,6 +1,6 @@
 # Using Import Maps
 
-Node allows you to import bare specifiers (e.g. `react` or `lodash`) -- its
+Node.js allows you to import bare specifiers (e.g. `react` or `lodash`) -- its
 module resolution algorithm will look in your local and global `node_modules`
 for a path, introspect the `package.json` and try to see if there is a module
 named the right way.
