@@ -143,6 +143,13 @@ Additionally to the above make sure that:
 1. Run `deno lint` - this will check TypeScript code for common mistakes and
    errors.
 
+## Submitting a PR to [`denoland/manual`](https://github.com/denoland/manual)
+
+If you are submitting a PR to this manual, make sure that all imports of the
+standard library have the numeric version replaced with "$STD_VERSION".
+
+For the latest version go [here](https://deno.land/std@0.154.0/version.ts).
+
 ## Documenting APIs
 
 It is important to document all public APIs and we want to do that inline with

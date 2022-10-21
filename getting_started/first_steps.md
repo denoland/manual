@@ -39,16 +39,6 @@ of which is a `Hello World` program. To run that hosted code, do:
 deno run https://deno.land/std@0.103.0/examples/welcome.ts
 ```
 
-## $STD_VERSION
-
-Throughout this documentation, you may see $STD_VERSION. This variable is meant
-to be replaced with the numeric version of the standard library to be imported.
-
-You should always pin your imports to a specific version, to avoid unintended
-changes later.
-
-For the latest version go [here](https://deno.land/std@0.154.0/version.ts).
-
 ## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a webserver. Let's write a

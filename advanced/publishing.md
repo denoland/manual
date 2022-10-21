@@ -45,4 +45,6 @@ tag at the end of the first JSDoc block in the module.
 
 ## Publishing Deno modules for Node.js/npm
 
-We have built a tool that assists in the process of taking Deno specific code and publishing it to npm to work under Node.js or other parts of the JavaScript ecosystem. See [dnt - Deno to Node Transform](./publishing/dnt.md).
+We have built a tool that assists in the process of taking Deno specific code
+and publishing it to npm to work under Node.js or other parts of the JavaScript
+ecosystem. See [dnt - Deno to Node Transform](./publishing/dnt.md).
