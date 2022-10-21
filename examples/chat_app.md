@@ -115,7 +115,7 @@ window.onload = () => {
 
 ## Chat Server
 
-[Oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
+[oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
 we’ll be using to set up our server. Our server will return the plain
 `index.html` file previously shown when the user first navigates to the site.
 Our server also exposes a `ws_endpoint/` endpoint which the chat clients will
