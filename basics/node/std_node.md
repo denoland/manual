@@ -1,7 +1,7 @@
 # The `std/node` Library
 
-The `std/node` part of the Deno standard library is a Node.js compatibility layer.
-Its primary focus is providing "polyfills" for Node's
+The `std/node` part of the Deno standard library is a Node.js compatibility
+layer. Its primary focus is providing "polyfills" for Node's
 [built-in modules](https://github.com/denoland/deno_std/tree/main/node#supported-builtins).
 It also provides a mechanism for loading CommonJS modules into Deno.
 
@@ -60,7 +60,7 @@ The standard library provides modules for the following built-ins:
 - [`util`](https://deno.land/std/node/util.ts) (_partly_)
 - [`util/types`](https://deno.land/std/node/util/types.ts) (_partly_)
 - [`vm`](https://deno.land/std/node/vm.ts) (_partly_)
-- [`wasi`](https://deno.land/std/node/wasi.ts) 
+- [`wasi`](https://deno.land/std/node/wasi.ts)
 - [`worker_threads`](https://deno.land/std/node/worker_threads.ts)
 
 Following modules are not yet implemented:
@@ -74,9 +74,9 @@ Following modules are not yet implemented:
 - `vm`
 - `zlib`
 
-If you try to run a Node.js code that requires any of the not implemented modules,
-please open an issue in https://github.com/denoland/deno_std/issues with example
-code.
+If you try to run a Node.js code that requires any of the not implemented
+modules, please open an issue in https://github.com/denoland/deno_std/issues
+with example code.
 
 In addition, there is the
 [`std/node/global.ts`](https://deno.land/std/node/global.ts) module which
@@ -89,29 +89,29 @@ and the URL of the module in your terminal:
 > deno doc https://deno.land/std/fs/move.ts
 ```
 
-Note that Node.js has some built-in modules (e.g. like `vm`) that are effectively
-incompatible with the scope of Deno and therefore there aren't easy ways to
-provide a _polyfill_ of the functionality in Deno.
+Note that Node.js has some built-in modules (e.g. like `vm`) that are
+effectively incompatible with the scope of Deno and therefore there aren't easy
+ways to provide a _polyfill_ of the functionality in Deno.
 
 ## Loading CommonJS modules
 
-Current Node.js supports both CommonJS and ES Modules, while Deno only supports ES
-Modules. The addition of stabilized ES Modules in Node.js is relatively recent and
-most code written for Node.js is in the CommonJS format.
+Current Node.js supports both CommonJS and ES Modules, while Deno only supports
+ES Modules. The addition of stabilized ES Modules in Node.js is relatively
+recent and most code written for Node.js is in the CommonJS format.
 
 As mentioned above, for public npm packages, it is often better to use a CDN to
 transpile CommonJS modules to ES Modules for consumption by Deno. Not only do
 you get reliable conversion plus all the dependency resolution and management
 without requiring a package manager to install the packages on your local
 machine, you get the advantages of being able to share your code easier without
-requiring other users to setup some of the Node.js infrastructure to consume your
-code with Node.
+requiring other users to setup some of the Node.js infrastructure to consume
+your code with Node.
 
-That being said, the built-in Node.js module `"module"` provides a function named
-`createRequire()` which allows you to create a Node.js compatible `require()`
-function which can be used to load CommonJS modules, as well as use the same
-resolution logic that Node.js uses when trying to load a module. `createRequire()`
-will also install the Node.js globals for you.
+That being said, the built-in Node.js module `"module"` provides a function
+named `createRequire()` which allows you to create a Node.js compatible
+`require()` function which can be used to load CommonJS modules, as well as use
+the same resolution logic that Node.js uses when trying to load a module.
+`createRequire()` will also install the Node.js globals for you.
 
 Example usage would look like this:
 

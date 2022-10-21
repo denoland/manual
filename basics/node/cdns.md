@@ -40,8 +40,8 @@ directly address some of the challenges in consuming code written for Node:
 - Often, they inform Deno of type definitions for a package, meaning that Deno
   can use them to type check your code and provide a better development
   experience.
-- The CDNs also "polyfill" the built-in Node.js modules (fs, os, etc.c), making a
-  lot of code that leverages the built-in Node.js modules _just work_.
+- The CDNs also "polyfill" the built-in Node.js modules (fs, os, etc.c), making
+  a lot of code that leverages the built-in Node.js modules _just work_.
 - The CDNs deal with all the semver matching for packages that a package manager
   like `npm` would be required for a Node.js application, meaning you as a
   developer can express your 3rd party dependency versioning as part of the URL
@@ -187,8 +187,8 @@ up from the CDN.
 While CDNs can make it easy to allow Deno to consume packages and modules from
 the npm registry, there can still be some things to consider:
 
-- Deno does not (and will not) support Node.js plugins. If the package requires a
-  native plugin, it won't work under Deno.
+- Deno does not (and will not) support Node.js plugins. If the package requires
+  a native plugin, it won't work under Deno.
 - Dependency management can always be a bit of a challenge and a CDN can make it
   a bit more obfuscated what dependencies are there. You can always use
   `deno info` with the module or URL to get a full breakdown of how Deno
