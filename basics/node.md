@@ -2,11 +2,11 @@
 
 While Deno is pretty powerful itself, many people will want to leverage code and
 libraries that are built for [Node](https://nodejs.org/), in particular the
-large set of packages available on the [NPM](https://npmjs.com/) registry.
+large set of packages available on the [npm](https://npmjs.com/) registry.
 
 There are currently two ways to do this:
 
-- Using [Node specifiers](./node/node_specifiers.md)
+- Using [npm specifiers](./node/npm_specifiers.md)
 - Using [CDNs](./node/cdns.md)
 
 Node specifiers are our recommendation, but they are a new feature and may not

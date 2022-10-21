@@ -20,7 +20,7 @@
       "node": {
         "name": "Importing NPM modules",
         "children": {
-          "node_specifiers": "Using Node Packages with Node Specifiers",
+          "npm_specifiers": "Using Node Packages with npm Specifiers",
           "cdns": "Using Node Packages Via CDNs",
           "std_node": "The std/node Library",
           "import_maps": "Using Import Maps",
