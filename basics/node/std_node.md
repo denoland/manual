@@ -47,7 +47,7 @@ The standard library provides modules for the following built-ins:
 - [`punycode`](https://deno.land/std/node/punycode.ts)
 - [`querystring`](https://deno.land/std/node/querystring.ts)
 - [`readline`](https://deno.land/std/node/readline.ts)
-- [`repl`](https://deno.land/std/node/punycode.ts)(_partly_)
+- [`repl`](https://deno.land/std/node/punycode.ts) (_partly_)
 - [`stream`](https://deno.land/std/node/stream.ts)
 - [`stream/promises`](https://deno.land/std/node/stream/promises.mjs)
 - [`stream/web`](https://deno.land/std/node/stream/web.ts) (_partly_)
@@ -59,7 +59,7 @@ The standard library provides modules for the following built-ins:
 - [`url`](https://deno.land/std/node/url.ts)
 - [`util`](https://deno.land/std/node/util.ts) (_partly_)
 - [`util/types`](https://deno.land/std/node/util/types.ts) (_partly_)
-- [`vm`](https://deno.land/std/node/vm.ts)(_partly_)
+- [`vm`](https://deno.land/std/node/vm.ts) (_partly_)
 - [`wasi`](https://deno.land/std/node/wasi.ts) 
 - [`worker_threads`](https://deno.land/std/node/worker_threads.ts)
 
