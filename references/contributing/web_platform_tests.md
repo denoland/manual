@@ -5,7 +5,7 @@ Deno uses a custom test runner for Web Platform Tests. It can be found at
 
 ## Running tests
 
-> If you are on Windows, or your system does not support shebangs, prefix all
+> If you are on Windows, or your system does not support hashbangs, prefix all
 > `./tools/wpt.ts` commands with
 > `deno run --unstable --allow-write --allow-read --allow-net --allow-env --allow-run`.
 

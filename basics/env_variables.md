@@ -41,3 +41,12 @@ const password = configData["PASSWORD"];
 console.log(password);
 // "Geheimnis"
 ```
+
+## `std/flags`
+
+The Deno standard library has a [`std/flags` module](https://deno.land/std@$STD_VERSION/flags/README.md?source=) for parsing command line arguments.
+
+
+
+
+

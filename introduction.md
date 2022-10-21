@@ -6,8 +6,6 @@ secure defaults and a great developer experience.
 
 It's built on V8, Rust, and Tokio.
 
-It can be considered a modern alternative to Node.js. s
-
 ## Feature highlights
 
 - Provides [web platform functionality](./runtime/web_platform_apis.md) and
