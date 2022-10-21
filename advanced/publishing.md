@@ -43,6 +43,6 @@ supported. To provide module level documentation (which also becomes the path
 level documentation when it is included in a default module), use the @module
 tag at the end of the first JSDoc block in the module.
 
-## Publishing Deno modules for Node.js
+## Publishing Deno modules for Node.js/npm
 
 We have built a tool that assists in the process of taking Deno specific code and publishing it to npm to work under Node.js or other parts of the JavaScript ecosystem. See [dnt - Deno to Node Transform](./publishing/dnt.md).
