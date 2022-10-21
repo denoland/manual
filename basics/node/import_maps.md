@@ -13,7 +13,7 @@ provide back the media type of the code.
 To bridge this gap, Deno supports
 [Import maps](https://github.com/WICG/import-maps#the-import-map), a
 web-platform standard that allows you to use bare specifiers with Deno without
-having to install the Node package locally.
+having to install the Node.js package locally.
 
 So if we want to do the following in our code:
 

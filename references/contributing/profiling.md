@@ -317,7 +317,7 @@ Options:
         type: string  default: nullptr
   --trace-verify-csa (trace code stubs verification)
         type: bool  default: false
-  --csa-trap-on-node (trigger break point when a node with given id is created in given stub. The format is: StubName,NodeId)
+  --csa-trap-on-node (trigger break point when a Node.js with given id is created in given stub. The format is: StubName,NodeId)
         type: string  default: nullptr
   --turbo-stats (print TurboFan statistics)
         type: bool  default: false

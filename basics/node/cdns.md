@@ -36,14 +36,14 @@ directly address some of the challenges in consuming code written for Node:
 - They provide packages and modules in the ES Module format, irrespective of how
   they are published on npm.
 - They resolve all the dependencies as the modules are served, meaning that all
-  the Node specific module resolution logic is handled by the CDN.
+  the Node.js specific module resolution logic is handled by the CDN.
 - Often, they inform Deno of type definitions for a package, meaning that Deno
   can use them to type check your code and provide a better development
   experience.
-- The CDNs also "polyfill" the built-in Node modules (fs, os, etc.c), making a
-  lot of code that leverages the built-in Node modules _just work_.
+- The CDNs also "polyfill" the built-in Node.js modules (fs, os, etc.c), making a
+  lot of code that leverages the built-in Node.js modules _just work_.
 - The CDNs deal with all the semver matching for packages that a package manager
-  like `npm` would be required for a Node application, meaning you as a
+  like `npm` would be required for a Node.js application, meaning you as a
   developer can express your 3rd party dependency versioning as part of the URL
   you use to import the package.
 
@@ -187,7 +187,7 @@ up from the CDN.
 While CDNs can make it easy to allow Deno to consume packages and modules from
 the npm registry, there can still be some things to consider:
 
-- Deno does not (and will not) support Node plugins. If the package requires a
+- Deno does not (and will not) support Node.js plugins. If the package requires a
   native plugin, it won't work under Deno.
 - Dependency management can always be a bit of a challenge and a CDN can make it
   a bit more obfuscated what dependencies are there. You can always use

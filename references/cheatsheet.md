@@ -1,6 +1,6 @@
-# Node -> Deno cheatsheet
+# Node.js -> Deno cheatsheet
 
-| Node                                   | Deno                                           |
+| Node.js                                   | Deno                                           |
 | -------------------------------------- | ---------------------------------------------- |
 | `node file.js`                         | `deno run file.ts`                             |
 | `npm i -g`                             | `deno install`                                 |

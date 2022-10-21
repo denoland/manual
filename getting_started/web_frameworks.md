@@ -5,7 +5,7 @@ interacting with Deno through a web framework. There are two kinds of web
 frameworks that Deno supports:
 
 - **Node.js native frameworks/tools/libraries.** Some of the most popular
-  tooling, for example esbuild, explicitly supports both Node and Deno. The
+  tooling, for example esbuild, explicitly supports both Node.js and Deno. The
   drawback here is that you might not get the best experience or performance.
 - **Deno native frameworks/tools/libraries.** We present some of these below.
 

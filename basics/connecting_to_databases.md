@@ -27,7 +27,7 @@ const client = await new Client().connect({
 ## Postgres
 
 [postgresjs](https://deno.land/x/postgresjs) is a full featured Postgres client
-for Node and Deno.
+for Node.js and Deno.
 
 ### Connect to Postgres with postgresjs
 
