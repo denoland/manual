@@ -18,7 +18,7 @@
     "children": {
       "import_export": "Importing and Exporting Modules",
       "node": {
-        "name": "Importing NPM modules",
+        "name": "Importing npm modules",
         "children": {
           "npm_specifiers": "Using Node Packages with npm Specifiers",
           "cdns": "Using Node Packages Via CDNs",

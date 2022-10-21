@@ -3,7 +3,7 @@
 In this chapter, you will find Deno basics, including:
 
 - [Importing and Exporting Modules](./basics/import_export.md)
-- [Importing NPM Modules](./basics/node.md)
+- [Importing npm Modules](./basics/node.md)
 - [Standard Library](./basics/standard_library.md)
 - [Using Third Party Modules](./basics/linking_to_external_code/)
 - [Permissions](./basics/permissions.md)

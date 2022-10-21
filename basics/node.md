@@ -1,4 +1,4 @@
-# Interoperating with Node and NPM
+# Interoperating with Node.js and npm
 
 While Deno is pretty powerful itself, many people will want to leverage code and
 libraries that are built for [Node](https://nodejs.org/), in particular the
