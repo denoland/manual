@@ -108,5 +108,5 @@ cargo build -vv
 cargo clean && cargo build -vv
 
 # Run:
-./target/debug/deno run https://deno.land/std/examples/welcome.ts
+./target/debug/deno run cli/tests/testdata/run/002_hello.ts
 ```
