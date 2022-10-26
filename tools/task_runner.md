@@ -1,8 +1,5 @@
 # Task Runner
 
-> ⚠️ `deno task` was introduced in Deno v1.20 and is unstable. It may
-> drastically change in the future.
-
 `deno task` provides a cross platform way to define and execute custom commands
 specific to a codebase.
 
