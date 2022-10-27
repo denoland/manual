@@ -5,8 +5,9 @@ Deno strives to make it easy to use TypeScript with Deno. Lots of different
 options frustrates that goal. To make things easier, Deno configures TypeScript
 to "just work" and shouldn't require additional configuration.
 
-That being said, Deno does support using a TypeScript configuration file. To use a TypeScript configuration file with Deno, you may provide
-a path on the command line, or use the default. For example:
+That being said, Deno does support using a TypeScript configuration file. To use
+a TypeScript configuration file with Deno, you may provide a path on the command
+line, or use the default. For example:
 
 ```
 > deno run --config ./deno.json main.ts
