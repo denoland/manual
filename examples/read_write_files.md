@@ -74,6 +74,14 @@ console.log("File written to ./hello.txt");
  */
 ```
 
+You can _append_ text to a file like this:
+
+```typescript
+await Deno.writeTextFile("./hello.txt", "This text will be appended.", {
+  append: true,
+});
+```
+
 By combining `Deno.writeTextFile` and `JSON.stringify` you can easily write
 serialized JSON objects to a file. This example uses synchronous
 `Deno.writeTextFileSync`, but this can also be done asynchronously using
