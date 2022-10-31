@@ -61,12 +61,11 @@ Other highlights of Ultra include:
 by other static site generators such Jekyll or Eleventy. It's simple to use and
 configure, while being super flexible. Highlights include:
 
-- Support for multiple file formats like markdown, yaml, javascript, typescript,
-  jsx, nunjucks.
+- Support for multiple file formats like Markdown, YAML, JavaScript, TypeScript,
+  JSX, Nunjucks.
 - You can hook in any processor to transform assets, for example sass or postcss
   for CSS.
-- Since it's built for Deno, you don't have to install thousand of packages in
-  `node_modules` or complex bundlers. Lume only installs what you need.
+- No need to install thousand of packages in `node_modules` or complex bundlers.
 
 ### Oak
 
