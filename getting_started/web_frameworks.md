@@ -36,20 +36,39 @@ box in Next.js, such as:
 
 ### Ultra
 
-[Ultra](https://ultrajs.dev/) is a modern streaming React framework in Deno that
-supports ES modules, import maps, and web streams. It's another alternative to
-Aleph.
+[Ultra](https://ultrajs.dev/) is a modern streaming React framework for Deno that is another alternative to
+Aleph. It's a way to use React to build dynamic media-rich websites, similar to Next.js.
+
+Deno itself supports JSX and TypeScript out-of-the-box (and therefore Ultra does as well), but they don't work in the browser. Ultra takes over the task of transpiling JSK and TypeScript to regular JavaScript.
+
+Other highlights of Ultra include:
+
+- written in Deno.
+- powered by import maps.
+- 100% esm.
+- uses import maps in both development and production, which massively simplifies toolchains - you don't have to deal with heaps of bundling and transpilation.
+- source code is shipped in production, similar to how it's written.
+- imports, exports, work as they do in development.
 
 ### Lume
 
-[Lume](https://lume.land/) is a static site generator for Deno that supports any
-template engine and is blazingly fast.
+[Lume](https://lume.land/) is a static site generator for Deno that is inspired by other static site generators such Jekyll or Eleventy. It's simple to use and configure, while being super flexible. Highlights include:
+
+- Support for multiple file formats like markdown, yaml, javascript, typescript, jsx, nunjucks.
+- You can hook in any processor to transform assets, for example sass or postcss for CSS.
+- Since it's built for Deno, you don't have to install thousand of packages in `node_modules` or complex bundlers. Lume only installs what you need.
+
 
 ### Oak
 
-[Oak](https://deno.land/x/oak) is a popular middleware framework for Deno based
-web apps / HTTP servers. It offers additional functionality over the native Deno
-HTTP server, including a basic router, JSON parser, middlewares, plugins, etc.
+[Oak](https://deno.land/x/oak) is a web application framework for Deno, similar to Express in Node.js.
 
-If you have been using Express with Node.js, Oak is the rough equivalent for
-Deno.
+As a middleware framework, Oak is the glue between your frontend application and a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just to give you an idea, the following is a list of common tech stacks to build client-server architectures:
+
+- React.js (Frontend) + Oak (Backend) + PostgreSQL (Database)
+- Vue.js (Frontend) + Oak (Backend) + MongoDB (Database)
+- Angular.js (Frontend) + Oak (Backend) + Neo4j (Database)
+
+Oak offers additional functionality over the native Deno HTTP server, including a basic router, JSON parser, middlewares, plugins, etc.
+
+
