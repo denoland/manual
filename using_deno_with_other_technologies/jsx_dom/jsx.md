@@ -42,7 +42,7 @@ module that is expected to conform to the _new_ JSX API and is located at either
 configured to `react`, then the emitted code will add this to the emitted file:
 
 ```jsx, ignore
-import { jsx as jsx_ } from "react/jsx-runtime";
+import { jsx as _jsx } from "react/jsx-runtime";
 ```
 
 Deno generally works off explicit specifiers, which means it will not try any
