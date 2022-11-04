@@ -1,4 +1,4 @@
-## Workers
+# Workers
 
 Deno supports
 [`Web Worker API`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker).
@@ -8,6 +8,8 @@ is run on a separate thread, dedicated only to that worker.
 
 Currently Deno supports only `module` type workers; thus it's essential to pass
 the `type: "module"` option when creating a new worker.
+
+Workers currently do not work in [compiled executables](../tools/compiler.md).
 
 Use of relative module specifiers in the main worker are only supported with
 `--location <href>` passed on the CLI. This is not recommended for portability.
@@ -25,7 +27,27 @@ new Worker(new URL("./worker.js", import.meta.url).href, { type: "classic" });
 new Worker("./worker.js", { type: "module" });
 ```
 
-### Instantiation permissions
+As with regular modules, you can use top-level `await` in worker modules.
+However, you should be careful to always register the message handler before the
+first `await`, since messages can be lost otherwise. This is not a bug in Deno,
+it's just an unfortunate interaction of features, and it also happens in all
+browsers that support module workers.
+
+```ts, ignore
+import { delay } from "https://deno.land/std@0.136.0/async/mod.ts";
+
+// First await: waits for a second, then continues running the module.
+await delay(1000);
+
+// The message handler is only set after that 1s delay, so some of the messages
+// that reached the worker during that second might have been fired when no
+// handler was registered.
+self.onmessage = (evt) => {
+  console.log(evt.data);
+};
+```
+
+## Instantiation permissions
 
 Creating a new `Worker` instance is similar to a dynamic import; therefore Deno
 requires appropriate permission for this action.
@@ -76,31 +98,25 @@ $ deno run --allow-net main.ts
 hello world
 ```
 
-### Using Deno in worker
+## Using Deno in worker
 
-> This is an unstable Deno feature. Learn more about
-> [unstable features](./stability.md).
-
-By default the `Deno` namespace is not available in worker scope.
-
-To enable the `Deno` namespace pass `deno.namespace = true` option when creating
-new worker:
+> Starting in v1.22 the `Deno` namespace is available in worker scope by
+> default. To enable the namespace in earlier versions pass
+> `deno: { namespace: true }` when creating a new worker.
 
 **main.js**
 
-```ts
+```js
 const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
   type: "module",
-  deno: {
-    namespace: true,
-  },
 });
+
 worker.postMessage({ filename: "./log.txt" });
 ```
 
 **worker.js**
 
-```ts
+```js, ignore
 self.onmessage = async (e) => {
   const { filename } = e.data;
   const text = await Deno.readTextFile(filename);
@@ -116,11 +132,16 @@ hello world
 ```
 
 ```shell
-$ deno run --allow-read --unstable main.js
+$ deno run --allow-read main.js
 hello world
 ```
 
-### Specifying worker permissions
+> Starting in v1.23 `Deno.exit()` no longer exits the process with the provided
+> exit code. Instead is an alias to `self.close()`, which causes only the worker
+> to shutdown. This better aligns with the Web platform, as there is no way in
+> the browser for a worker to close the page.
+
+## Specifying worker permissions
 
 > This is an unstable Deno feature. Learn more about
 > [unstable features](./stability.md).
@@ -128,7 +149,7 @@ hello world
 The permissions available for the worker are analogous to the CLI permission
 flags, meaning every permission enabled there can be disabled at the level of
 the Worker API. You can find a more detailed description of each of the
-permission options [here](../getting_started/permissions.md).
+permission options [here](../basics/permissions.md).
 
 By default a worker will inherit permissions from the thread it was created in,
 however in order to allow users to limit the access of this worker we provide
@@ -142,7 +163,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: [
           "https://deno.land/",
@@ -168,7 +188,6 @@ the `deno.permissions` option in the worker API.
     {
       type: "module",
       deno: {
-        namespace: true,
         permissions: {
           read: [
             "/home/user/Documents/deno/worker/file_1.txt",
@@ -188,7 +207,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "inherit",
     },
   });
@@ -199,7 +217,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         env: false,
         hrtime: false,
@@ -228,7 +245,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: {
         net: false,
       },
@@ -244,7 +260,6 @@ the `deno.permissions` option in the worker API.
   const worker = new Worker(new URL("./worker.js", import.meta.url).href, {
     type: "module",
     deno: {
-      namespace: true,
       permissions: "none",
     },
   });

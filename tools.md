@@ -1,4 +1,4 @@
-# Built-in tooling
+# Built-In Tooling
 
 Deno provides some built-in tooling that is useful when working with JavaScript
 and TypeScript:
@@ -13,5 +13,5 @@ and TypeScript:
 - [linter (`deno lint`)](./tools/linter.md)
 - [repl (`deno repl`)](./tools/repl.md)
 - [task runner (`deno task`)](./tools/task_runner.md)
-- [test runner (`deno test`)](./testing.md)
+- [test runner (`deno test`)](./basics/testing.md)
 - [vendoring dependencies (`deno vendor`)](./tools/vendor.md)

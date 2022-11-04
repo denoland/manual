@@ -1,4 +1,4 @@
-## HTTP Server APIs
+# HTTP Server APIs
 
 As of Deno 1.9 and later, _native_ HTTP server APIs were introduced which allow
 users to create robust and performant web servers in Deno.
@@ -9,7 +9,7 @@ tries to be simple and straightforward.
 > ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
 > flag.
 
-- [A "Hello World" sever](#a-"hello-world"-server)
+- [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
 - [WebSocket support](#websocket-support)
@@ -18,7 +18,7 @@ tries to be simple and straightforward.
 - [Automatic body compression](#automatic-body-compression)
 - [Lower level APIs](#lower-level-http-server-apis)
 
-### A "Hello World" server
+## A "Hello World" server
 
 To start a HTTP server on a given port, you can use the `serve` function from
 [`std/http`](https://deno.land/std@$STD_VERSION/http). This function takes a
@@ -41,7 +41,7 @@ To then listen on a port and handle requests you need to call the `serve`
 function from the `https://deno.land/std@$STD_VERSION/http/server.ts` module,
 passing in the handler as the first argument:
 
-```ts
+```js
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serve(handler);
@@ -50,7 +50,9 @@ serve(handler);
 By default `serve` will listen on port `8000`, but this can be changed by
 passing in a port number in the second argument options bag:
 
-```ts
+```js
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+
 // To listen on port 4242.
 serve(handler, { port: 4242 });
 ```
@@ -58,7 +60,7 @@ serve(handler, { port: 4242 });
 This same options bag can also be used to configure some other options, such as
 the hostname to listen on.
 
-### Inspecting the incoming request
+## Inspecting the incoming request
 
 Most servers will not answer with the same response for every request. Instead
 they will change their answer depending on various aspects of the request: the
@@ -92,7 +94,7 @@ async function handler(req: Request): Promise<Response> {
 > as `req.json()`, `req.formData()`, `req.arrayBuffer()`,
 > `req.body.getReader().read()`, `req.body.pipeTo()`, etc.
 
-### Responding with a response
+## Responding with a response
 
 Most servers also do not respond with "Hello, World!" to every request. Instead
 they might respond with different headers, status codes, and body contents (even
@@ -118,7 +120,7 @@ returns a stream of "Hello, World!" repeated every second:
 
 ```ts
 function handler(req: Request): Response {
-  let timer;
+  let timer: number;
   const body = new ReadableStream({
     async start(controller) {
       timer = setInterval(() => {
@@ -129,7 +131,7 @@ function handler(req: Request): Response {
       clearInterval(timer);
     },
   });
-  return new Response(body, {
+  return new Response(body.pipeThrough(new TextEncoderStream()), {
     headers: {
       "content-type": "text/plain; charset=utf-8",
     },
@@ -148,7 +150,7 @@ function handler(req: Request): Response {
 > the response body `ReadableStream` object (for example through a
 > `TransformStream`).
 
-### WebSocket support
+## WebSocket support
 
 Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to
 handle WebSocket endpoints on your HTTP servers.
@@ -172,7 +174,7 @@ Documentation for it can be found
 ```ts
 function handler(req: Request): Response {
   const upgrade = req.headers.get("upgrade") || "";
-  let response, socket;
+  let response, socket: WebSocket;
   try {
     ({ response, socket } = Deno.upgradeWebSocket(req));
   } catch {
@@ -183,7 +185,7 @@ function handler(req: Request): Response {
     console.log("socket message:", e.data);
     socket.send(new Date().toString());
   };
-  socket.onerror = (e) => console.log("socket errored:", e.message);
+  socket.onerror = (e) => console.log("socket errored:", e);
   socket.onclose = () => console.log("socket closed");
   return response;
 }
@@ -193,7 +195,7 @@ WebSockets are only supported on HTTP/1.1 for now. The connection the WebSocket
 was created on can not be used for HTTP traffic after a WebSocket upgrade has
 been performed.
 
-### HTTPS support
+## HTTPS support
 
 > ℹ️ To use HTTPS, you will need a valid TLS certificate and a private key for
 > your server.
@@ -203,7 +205,7 @@ To use HTTPS, use `serveTls` from the
 This takes two extra arguments in the options bag: `certFile` and `keyFile`.
 These are paths to the certificate and key files, respectively.
 
-```ts
+```js
 import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 serveTls(handler, {
@@ -213,13 +215,13 @@ serveTls(handler, {
 });
 ```
 
-### HTTP/2 support
+## HTTP/2 support
 
-HTTP/2 support it "automatic" when using the _native_ APIs with Deno. You just
+HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
 need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
 seamlessly.
 
-### Automatic body compression
+## Automatic body compression
 
 As of Deno 1.20, the HTTP server has built in automatic compression of response
 bodies. When a response is sent to a client, Deno determines if the response
@@ -249,13 +251,16 @@ header to reflect the encoding as well as ensure the
 [`Vary`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) header
 is adjusted or added to indicate what request headers affected the response.
 
-#### When is compression skipped?
+Compression is supported for both responses with a static size, and responses
+with a streaming body. In the case of a streaming body, the compression will
+only be applied to the body as it is written to the response - no buffering is
+required.
+
+### When is compression skipped?
 
 In addition to the logic above, there are a few other reasons why a response
 won't be compressed automatically:
 
-- The response body is a stream. Currently only _static_ response bodies are
-  supported. We will add streaming support in the future.
 - The response contains a `Content-Encoding` header. This indicates your server
   has done some form of encoding already.
 - The response contains a
@@ -270,7 +275,7 @@ won't be compressed automatically:
   value. This indicates that your server doesn't want Deno or any downstream
   proxies to modify the response.
 
-#### What happens to an `ETag` header?
+### What happens to an `ETag` header?
 
 When you set an
 [`ETag`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) that is
@@ -279,11 +284,11 @@ validator (`W/`). This is to ensure the proper behavior of clients and
 downstream proxy services when validating the "freshness" of the content of the
 response body.
 
-### Lower level HTTP server APIs
+## Lower level HTTP server APIs
 
 This chapter focuses only on the high level HTTP server APIs. You should
 probably use this API, as it handles all of the intricacies of parallel requests
 on a single connection, error handling, and so on.
 
 If you do want to learn more about the low level HTTP server APIs though, you
-can [read more about them here](./http_server_apis_low_level).
+can [read more about them here](./http_server_apis_low_level.md).

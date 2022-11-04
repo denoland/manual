@@ -1,4 +1,4 @@
-## Script installer
+# Script Installer
 
 Deno provides `deno install` to easily install and distribute executable code.
 
@@ -72,7 +72,7 @@ Example:
 ```ts
 // https://example.com/awesome/cli.ts
 async function myAwesomeCli(): Promise<void> {
-  -- snip --
+  // -- snip --
 }
 
 if (import.meta.main) {
@@ -89,7 +89,7 @@ example installation command to your repository:
 $ deno install -n awesome_cli https://example.com/awesome/cli.ts
 ```
 
-### Uninstall
+## Uninstall
 
 You can uninstall the script with `deno uninstall` command.
 
