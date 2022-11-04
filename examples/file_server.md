@@ -2,16 +2,15 @@
 
 ## Concepts
 
-- Use [Deno.open](https://doc.deno.land/deno/stable/~/Deno.open) to read a
-  file's content in chunks.
+- Use [Deno.open](/api?s=Deno.open) to read a file's content in chunks.
 - Transform a Deno file into a
   [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream).
 - Use Deno's integrated HTTP server to run your own file server.
 
 ## Overview
 
-Sending files over the network is a common requirement. As seen in the
-[Fetch Data example](./fetch_data), because files can be of any size, it is
+s Sending files over the network is a common requirement. As seen in the
+[Fetch Data example](./fetch_data.md), because files can be of any size, it is
 important to use streams in order to prevent having to load entire files into
 memory.
 

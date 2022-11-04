@@ -39,3 +39,4 @@ target.
 
 - [Workers](../runtime/workers.md)
 - Dynamic Imports
+- [Web Storage API](../runtime/web_storage_api.md)

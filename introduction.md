@@ -13,17 +13,19 @@ It's built on V8, Rust, and Tokio.
   support `fetch()`.
 - Secure by default. No file, network, or environment access unless explicitly
   enabled.
-- Supports [TypeScript](./typescript.md) out of the box.
+- Supports [TypeScript](./advanced/typescript.md) out of the box.
 - Ships a single executable (`deno`).
 - Provides built-in [development tooling](./tools.md) like a code formatter
   ([`deno fmt`](./tools/formatter.md)), a linter
   ([`deno lint`](./tools/linter.md)), a test runner
-  ([`deno test`](./testing.md)), and a
+  ([`deno test`](./basics/testing.md)), and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
-- Has [a set of reviewed (audited) standard modules](https://deno.land/std/)
+- Has
+  [a set of reviewed (audited) standard modules](https://deno.land/std/@$STD_VERSION)
   that are guaranteed to work with Deno.
 - Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
   [executable](./tools/compiler.md).
+- Supports the use of [existing npm modules](./basics/node.md)
 
 ## Philosophy
 
@@ -53,22 +55,6 @@ have been historically written with Bash or Python.
   - E.g. unit testing, code formatting, and linting.
 - Keep V8 concepts out of user land.
 - Serve HTTP efficiently.
-
-## Comparison to Node.js
-
-- Deno does not use `npm`.
-  - It uses modules referenced as URLs or file paths.
-- Deno does not use `package.json` in its module resolution algorithm.
-- All async actions in Deno return a promise. Thus Deno provides different APIs
-  than Node.
-- Deno requires explicit permissions for file, network, and environment access.
-- Deno always dies on uncaught errors.
-- Deno uses "ES Modules" and does not support `require()`. Third party modules
-  are imported via URLs:
-
-  ```javascript
-  import * as log from "https://deno.land/std@$STD_VERSION/log/mod.ts";
-  ```
 
 ## Other key behaviors
 

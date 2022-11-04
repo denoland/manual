@@ -149,7 +149,7 @@ hello world
 The permissions available for the worker are analogous to the CLI permission
 flags, meaning every permission enabled there can be disabled at the level of
 the Worker API. You can find a more detailed description of each of the
-permission options [here](../getting_started/permissions.md).
+permission options [here](../basics/permissions.md).
 
 By default a worker will inherit permissions from the thread it was created in,
 however in order to allow users to limit the access of this worker we provide
