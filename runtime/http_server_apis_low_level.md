@@ -8,7 +8,7 @@ users to create robust and performant web servers in Deno.
 
 > ⚠️ You should probably not be using this API, as it is not easy to get right.
 > Use the
-> [higher level API in the standard library instead](./http_server_apis).
+> [higher level API in the standard library instead](./http_server_apis.md).
 
 ## Listening for a connection
 
