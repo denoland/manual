@@ -4,20 +4,15 @@
 
 - [import.meta](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta)
   can provide information on the context of the module.
-- The boolean
-  [import.meta.main](https://doc.deno.land/deno/stable/~/ImportMeta#main) will
-  let you know if the current module is the program entry point.
-- The string
-  [import.meta.url](https://doc.deno.land/deno/stable/~/ImportMeta#url) will
-  give you the URL of the current module.
-- The
-  [import.meta.resolve](https://doc.deno.land/deno/stable/~/ImportMeta#resolve)
-  allows you to resolve specifier relative to the current module. This function
-  takes into account an import map (if one was provided on startup).
-- The string
-  [Deno.mainModule](https://doc.deno.land/deno/stable/~/Deno.mainModule) will
-  give you the URL of the main module entry point, i.e. the module invoked by
-  the deno runtime.
+- The boolean [import.meta.main](/api?s=ImportMeta#prop_main) will let you know
+  if the current module is the program entry point.
+- The string [import.meta.url](/api?s=ImportMeta#prop_url) will give you the URL
+  of the current module.
+- The [import.meta.resolve](/api?s=ImportMeta#prop_resolve) allows you to
+  resolve specifier relative to the current module. This function takes into
+  account an import map (if one was provided on startup).
+- The string [Deno.mainModule](/api?s=Deno.mainModule) will give you the URL of
+  the main module entry point, i.e. the module invoked by the deno runtime.
 
 ## Example
 

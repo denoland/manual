@@ -6,11 +6,10 @@ more about the runtime.
 ## Basic
 
 - [Hello World](./examples/hello_world.md)
-- [Import and Export Modules](./examples/import_export.md)
 - [Manage Dependencies](./examples/manage_dependencies.md)
 - [Fetch Data](./examples/fetch_data.md)
 - [Read and Write Files](./examples/read_write_files.md)
-- [Shebang](./examples/shebang.md)
+- [Hashbang](./examples/hashbang.md)
 
 ## Advanced
 

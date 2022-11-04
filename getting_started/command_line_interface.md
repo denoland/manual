@@ -117,7 +117,7 @@ Affect commands which can download resources to the cache: `deno cache`,
 ```
 
 Find out more about these
-[here](../linking_to_external_code/integrity_checking.md).
+[here](../basics/linking_to_external_code/integrity_checking.md).
 
 ## Cache and compilation flags
 
@@ -174,7 +174,7 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 
 ### Permission flags
 
-These are listed [here](./permissions.md#permissions-list).
+These are listed [here](../basics/permissions.md#permissions-list).
 
 ### Other runtime flags
 

@@ -4,7 +4,7 @@
 specific to a codebase.
 
 To get started, define your commands in your codebase's
-[Deno configuration file](../getting_started/configuration_file) under a
+[Deno configuration file](../getting_started/configuration_file.md) under a
 `"tasks"` key.
 
 For example:

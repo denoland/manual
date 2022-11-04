@@ -4,9 +4,10 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main, rewrite]
 
 jobs:
+
   format:
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +28,6 @@ jobs:
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
-        
+
       - name: Type-check Deno manual
         run: deno test --doc --unstable --import-map=.github/import_map.json --no-check=remote
