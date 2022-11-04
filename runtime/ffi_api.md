@@ -1,8 +1,8 @@
 # Foreign Function Interface API
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
-to call libraries written in native languages that support the C ABIs (Rust,
-C/C++, C#, Zig, Nim, Kotlin, etc) using `Deno.dlopen`.
+to call libraries written in native languages that support the C ABIs (C/C++,
+Rust, Zig, etc.) using `Deno.dlopen`.
 
 ## Usage
 
@@ -216,27 +216,33 @@ handlers would only set a flag that can later be polled similarly to how
 
 Here's a list of types supported currently by the Deno FFI API.
 
-| FFI Type      | Deno                   | C                        | Rust                      |
-| ------------- | ---------------------- | ------------------------ | ------------------------- |
-| `i8`          | `number`               | `char` / `signed char`   | `i8`                      |
-| `u8`          | `number`               | `unsigned char`          | `u8`                      |
-| `i16`         | `number`               | `short int`              | `i16`                     |
-| `u16`         | `number`               | `unsigned short int`     | `u16`                     |
-| `i32`         | `number`               | `int` / `signed int`     | `i32`                     |
-| `u32`         | `number`               | `unsigned int`           | `u32`                     |
-| `i64`         | `number \| bigint`     | `long long int`          | `i64`                     |
-| `u64`         | `number \| bigint`     | `unsigned long long int` | `u64`                     |
-| `usize`       | `number \| bigint`     | `size_t`                 | `usize`                   |
-| `f32`         | `number \| bigint`     | `float`                  | `f32`                     |
-| `f64`         | `number \| bigint`     | `double`                 | `f64`                     |
-| `void`[1]     | `undefined`            | `void`                   | `()`                      |
-| `pointer`[2]  | `bigint \| TypedArray` | `const uint8_t *`        | `*const u8`               |
-| `function`[3] | `bigint`               | `void (*fun)()`          | `Option<extern "C" fn()>` |
+| FFI Type      | Deno                       | C                        | Rust                      |
+| ------------- | -------------------------- | ------------------------ | ------------------------- |
+| `i8`          | `number`                   | `char` / `signed char`   | `i8`                      |
+| `u8`          | `number`                   | `unsigned char`          | `u8`                      |
+| `i16`         | `number`                   | `short int`              | `i16`                     |
+| `u16`         | `number`                   | `unsigned short int`     | `u16`                     |
+| `i32`         | `number`                   | `int` / `signed int`     | `i32`                     |
+| `u32`         | `number`                   | `unsigned int`           | `u32`                     |
+| `i64`         | `number \| bigint`         | `long long int`          | `i64`                     |
+| `u64`         | `number \| bigint`         | `unsigned long long int` | `u64`                     |
+| `usize`       | `number \| bigint`         | `size_t`                 | `usize`                   |
+| `f32`         | `number \| bigint`         | `float`                  | `f32`                     |
+| `f64`         | `number \| bigint`         | `double`                 | `f64`                     |
+| `void`[1]     | `undefined`                | `void`                   | `()`                      |
+| `pointer`[2]  | `number \| bigint \| null` | `const uint8_t *`        | `*const u8`               |
+| `buffer`[3]   | `TypedArray \| null`       | `const uint8_t *`        | `*const u8`               |
+| `function`[4] | `bigint \| null`           | `void (*fun)()`          | `Option<extern "C" fn()>` |
+
+As of Deno 1.25, the `pointer` type has been split into a `pointer` and a
+`buffer` type to ensure users take advantage of optimizations for Typed Arrays.
 
 - [1] `void` type can only be used as a result type.
-- [2] `pointer` type accepts both Typed Arrays and `bigint` as parameter, while
-  it always returns the latter when used as result type.
-- [3] `function` type parameters and return types are defined using objects, and
+- [2] `pointer` type accepts both `number` and `bigint` as parameter, while it
+  always returns the latter when used as result type.
+- [3] `buffer` type accepts Typed Arrays as parameter, while it always returns a
+  `bigint` when used as result type like the `pointer` type.
+- [4] `function` type parameters and return types are defined using objects, and
   are passed in as parameters and returned as result types as BigInt pointer
   values.
 

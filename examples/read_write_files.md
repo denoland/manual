@@ -2,14 +2,12 @@
 
 ## Concepts
 
-- Deno's runtime API provides the
-  [Deno.readTextFile](https://doc.deno.land/deno/stable/~/Deno.readTextFile) and
-  [Deno.writeTextFile](https://doc.deno.land/deno/stable/~/Deno.writeTextFile)
-  asynchronous functions for reading and writing entire text files.
+- Deno's runtime API provides the [Deno.readTextFile](/api?s=Deno.readTextFile)
+  and [Deno.writeTextFile](/api?s=Deno.writeTextFile) asynchronous functions for
+  reading and writing entire text files.
 - Like many of Deno's APIs, synchronous alternatives are also available. See
-  [Deno.readTextFileSync](https://doc.deno.land/deno/stable/~/Deno.readTextFileSync)
-  and
-  [Deno.writeTextFileSync](https://doc.deno.land/deno/stable/~/Deno.writeTextFileSync).
+  [Deno.readTextFileSync](/api?s=Deno.readTextFileSync) and
+  [Deno.writeTextFileSync](/api?s=Deno.writeTextFileSync).
 - Use `--allow-read` and `--allow-write` permissions to gain access to the file
   system.
 
@@ -17,8 +15,7 @@
 
 Interacting with the filesystem to read and write files is a common requirement.
 Deno provides a number of ways to do this via the
-[standard library](https://deno.land/std) and the
-[Deno runtime API](https://doc.deno.land/deno/stable).
+[standard library](https://deno.land/std) and the [Deno runtime API](/api).
 
 As highlighted in the [Fetch Data example](./fetch_data) Deno restricts access
 to Input / Output by default for security reasons. Therefore when interacting
@@ -72,6 +69,14 @@ console.log("File written to ./hello.txt");
 /**
  * Output: File written to ./hello.txt
  */
+```
+
+You can _append_ text to a file like this:
+
+```typescript
+await Deno.writeTextFile("./hello.txt", "This text will be appended.", {
+  append: true,
+});
 ```
 
 By combining `Deno.writeTextFile` and `JSON.stringify` you can easily write

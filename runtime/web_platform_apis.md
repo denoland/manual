@@ -1,4 +1,4 @@
-# Web Platform APIs
+# Using Web Platform APIs
 
 Deno aims to use web platform APIs (like `fetch`) instead of inventing a new
 proprietary API where it makes sense. These APIs generally follow the
@@ -10,9 +10,11 @@ Here is a list of web platform APIs Deno implements:
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
+- [Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
 - [Channel Messaging API](https://developer.mozilla.org/en-US/docs/Web/API/Channel_Messaging_API)
 - [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API)
 - [Console](https://developer.mozilla.org/en-US/docs/Web/API/Console)
+- [DOM APIs](https://deno.land/api@v1.26.0#DOM_APIs)
 - [DOM `CustomEvent`, `EventTarget` and `EventListener`](#customevent-eventtarget-and-eventlistener)
 - [Encoding API](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API)
 - [Fetch API](#fetch-api)
@@ -25,9 +27,14 @@ Here is a list of web platform APIs Deno implements:
 - [`URLPattern`](https://developer.mozilla.org/en-US/docs/Web/API/URLPattern)
 - [`URLSearchParams`](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 - [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
+- [Web File API](https://developer.mozilla.org/en-US/docs/Web/API/File_API)
 - [Web Storage API](./web_storage_api.md)
 - [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
+- [`WebGPU`](https://gpuweb.github.io/gpuweb/explainer/?)
+
+You can find the Deno reference for these APIs
+[here](https://deno.land/api@v1.26.0).
 
 ## `fetch` API
 
@@ -101,7 +108,7 @@ Notes on fetching local files:
   permission is needed to be able to read a local file.
 - Fetching locally only supports the `GET` method, and will reject the promise
   with any other method.
-- A file that does not exists simply rejects the promise with a vague
+- A file that does not exist simply rejects the promise with a vague
   `TypeError`. This is to avoid the potential of fingerprinting attacks.
 - No headers are set on the response. Therefore it is up to the consumer to
   determine things like the content type or content length.

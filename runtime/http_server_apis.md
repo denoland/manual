@@ -251,13 +251,16 @@ header to reflect the encoding as well as ensure the
 [`Vary`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) header
 is adjusted or added to indicate what request headers affected the response.
 
+Compression is supported for both responses with a static size, and responses
+with a streaming body. In the case of a streaming body, the compression will
+only be applied to the body as it is written to the response - no buffering is
+required.
+
 ### When is compression skipped?
 
 In addition to the logic above, there are a few other reasons why a response
 won't be compressed automatically:
 
-- The response body is a stream. Currently only _static_ response bodies are
-  supported. We will add streaming support in the future.
 - The response contains a `Content-Encoding` header. This indicates your server
   has done some form of encoding already.
 - The response contains a
@@ -288,4 +291,4 @@ probably use this API, as it handles all of the intricacies of parallel requests
 on a single connection, error handling, and so on.
 
 If you do want to learn more about the low level HTTP server APIs though, you
-can [read more about them here](./http_server_apis_low_level).
+can [read more about them here](./http_server_apis_low_level.md).

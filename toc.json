@@ -1,7 +1,5 @@
 {
-  "introduction": {
-    "name": "Introduction"
-  },
+  "introduction": "Introduction",
   "getting_started": {
     "name": "Getting Started",
     "children": {
@@ -10,14 +8,120 @@
       "first_steps": "First Steps",
       "command_line_interface": "Command Line Interface",
       "configuration_file": "Configuration File",
-      "permissions": "Permissions",
-      "debugging_your_code": "Debugging Your Code"
+      "web_frameworks": "Web Frameworks"
+    }
+  },
+  "basics": {
+    "name": "Basics",
+    "children": {
+      "import_export": {
+        "name": "Importing and Exporting Modules",
+        "redirectFrom": ["/examples/import_export"]
+      },
+      "node": {
+        "name": "Importing npm modules",
+        "redirectFrom": ["/node"],
+        "children": {
+          "npm_specifiers": "Using Node.js Packages with npm Specifiers",
+          "cdns": {
+            "name": "Using Node.js Packages Via CDNs",
+            "redirectFrom": ["/node/cdns"]
+          },
+          "std_node": {
+            "name": "The std/node Library",
+            "redirectFrom": ["/node/std_node"]
+          },
+          "import_maps": {
+            "name": "Using Import Maps",
+            "redirectFrom": ["/node/import_maps"]
+          },
+          "faqs": {
+            "name": "Frequently Asked Questions",
+            "redirectFrom": ["/node/import_maps"]
+          }
+        }
+      },
+      "standard_library": {
+        "name": "Standard Library",
+        "redirectFrom": ["/standard_library"]
+      },
+      "linking_to_external_code": {
+        "name": "Using Third Party Modules",
+        "redirectFrom": ["/linking_to_external_code"],
+        "children": {
+          "reloading_modules": {
+            "name": "Reloading Modules",
+            "redirectFrom": ["/linking_to_external_code/reloading_modules"]
+          },
+          "integrity_checking": {
+            "name": "Integrity Checking",
+            "redirectFrom": ["/linking_to_external_code/integrity_checking"]
+          },
+          "proxies": {
+            "name": "Proxies",
+            "redirectFrom": ["/linking_to_external_code/proxies"]
+          },
+          "private": {
+            "name": "Private Modules",
+            "redirectFrom": ["/linking_to_external_code/private"]
+          },
+          "import_maps": {
+            "name": "Import Maps",
+            "redirectFrom": ["/linking_to_external_code/import_maps"]
+          }
+        }
+      },
+      "permissions": {
+        "name": "Permissions",
+        "redirectFrom": ["/getting_started/permissions"]
+      },
+      "connecting_to_databases": "Connecting to Databases",
+      "env_variables": "Environment Variables",
+      "testing": {
+        "name": "Testing",
+        "redirectFrom": ["/testing"],
+        "children": {
+          "assertions": {
+            "name": "Assertions",
+            "redirectFrom": ["/testing/assertions"]
+          },
+          "coverage": {
+            "name": "Coverage",
+            "redirectFrom": ["/testing/coverage"]
+          },
+          "documentation": {
+            "name": "Documentation",
+            "redirectFrom": ["/testing/documentation"]
+          },
+          "sanitizers": {
+            "name": "Sanitizers",
+            "redirectFrom": ["/testing/sanitizers"]
+          },
+          "behavior_driven_development": {
+            "name": "Behavior-Driven Development",
+            "redirectFrom": ["/testing/behavior_driven_development"]
+          },
+          "mocking": {
+            "name": "Mocking",
+            "redirectFrom": ["/testing/mocking"]
+          },
+          "snapshot_testing": {
+            "name": "Snapshots",
+            "redirectFrom": ["/testing/snapshot_testing"]
+          }
+        }
+      },
+      "debugging_your_code": {
+        "name": "Debugging Your Code",
+        "redirectFrom": ["/getting_started/debugging_your_code"]
+      }
     }
   },
   "runtime": {
     "name": "The Runtime",
     "children": {
       "stability": "Stability",
+      "namespace_apis": "Namespace APIs",
       "program_lifecycle": "Program Lifecycle",
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
@@ -26,69 +130,31 @@
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
-      "ffi_api": "Foreign Function Interface API"
+      "ffi_api": "Foreign Function Interface API",
+      "webassembly": {
+        "name": "Using WebAssembly",
+        "redirectFrom": ["/webassembly"],
+        "children": {
+          "using_wasm": {
+            "name": "Using WebAssembly in Deno",
+            "redirectFrom": ["/webassembly/using_wasm"]
+          },
+          "using_streaming_wasm": {
+            "name": "Using the Streaming WebAssembly APIs",
+            "redirectFrom": ["/webassembly/using_streaming_wasm"]
+          },
+          "wasm_resources": {
+            "name": "Helpful Resources",
+            "redirectFrom": ["/webassembly/wasm_resources"]
+          }
+        }
+      }
     }
-  },
-  "linking_to_external_code": {
-    "name": "Linking to External Code",
-    "children": {
-      "reloading_modules": "Reloading Modules",
-      "integrity_checking": "Integrity Checking",
-      "proxies": "Proxies",
-      "private": "Private Modules",
-      "import_maps": "Import Maps"
-    }
-  },
-  "node": {
-    "name": "Interoperating with Node and NPM",
-    "children": {
-      "compatibility_mode": "Node Compatibility Mode",
-      "std_node": "The std/node Library",
-      "cdns": "Packages from CDNs",
-      "import_maps": "Using Import Maps",
-      "faqs": "Frequently Asked Questions",
-      "cheatsheet": "Node->Deno Cheatsheet",
-      "dnt": "dnt - Deno to Node Transform"
-    }
-  },
-  "typescript": {
-    "name": "Using TypeScript",
-    "children": {
-      "overview": "Overview",
-      "configuration": "Configuration",
-      "types": "Types and Type Declarations",
-      "migration": "Migrating to/from JavaScript",
-      "faqs": "Frequently Asked Questions"
-    }
-  },
-  "jsx_dom": {
-    "name": "Using JSX and the DOM",
-    "children": {
-      "overview": "Overview",
-      "jsx": "Configuring JSX",
-      "linkedom": "Using LinkeDOM",
-      "deno_dom": "Using deno-dom",
-      "jsdom": "Using jsdom",
-      "css": "Parsing CSS",
-      "twind": "Using Twind"
-    }
-  },
-  "webassembly": {
-    "name": "Using WebAssembly",
-    "children": {
-      "using_wasm": "Using WebAssembly in Deno",
-      "using_streaming_wasm": "Using the Streaming WebAssembly APIs",
-      "wasm_resources": "Helpful Resources"
-    }
-  },
-  "standard_library": {
-    "name": "Standard Library"
   },
   "examples": {
     "name": "Examples",
     "children": {
       "hello_world": "Hello World",
-      "import_export": "Import and Export Modules",
       "manage_dependencies": "Manage Dependencies",
       "fetch_data": "Fetch Data",
       "read_write_files": "Read and Write Files",
@@ -100,72 +166,182 @@
       "os_signals": "OS Signals",
       "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
-      "shebang": "Shebang"
+      "hashbang": "Hashbang",
+      "chat_app": "Chat App",
+      "word_finder": "Word Finder"
     }
   },
-  "testing": {
-    "name": "Testing",
+  "using_deno_with_other_technologies": {
+    "name": "Using Deno with Other Technologies",
     "children": {
-      "assertions": "Assertions",
-      "coverage": "Coverage",
-      "documentation": "Documentation",
-      "sanitizers": "Sanitizers",
-      "behavior_driven_development": "Behavior-Driven Development",
-      "mocking": "Mocking",
-      "snapshot_testing": "Snapshots"
+      "react": "Using React",
+      "jsx_dom": {
+        "name": "Using JSX and the DOM",
+        "redirectFrom": ["/jsx_dom"],
+        "children": {
+          "overview": {
+            "name": "Overview",
+            "redirectFrom": ["/jsx_dom/overview"]
+          },
+          "jsx": {
+            "name": "Configuring JSX",
+            "redirectFrom": ["/jsx_dom/jsx"]
+          },
+          "linkedom": {
+            "name": "Using LinkeDOM",
+            "redirectFrom": ["/jsx_dom/linkedom"]
+          },
+          "deno_dom": {
+            "name": "Using deno-dom",
+            "redirectFrom": ["/jsx_dom/deno_dom"]
+          },
+          "jsdom": {
+            "name": "Using jsdom",
+            "redirectFrom": ["/jsx_dom/jsdom"]
+          },
+          "css": {
+            "name": "Parsing CSS",
+            "redirectFrom": ["/jsx_dom/css"]
+          },
+          "twind": {
+            "name": "Using Twind",
+            "redirectFrom": ["/jsx_dom/twind"]
+          }
+        }
+      }
     }
   },
   "tools": {
     "name": "Tools",
     "children": {
-      "script_installer": "Script Installer",
-      "formatter": "Formatter",
-      "repl": "Read-Eval-Print-Loop",
-      "bundler": "Bundler",
-      "compiler": "Compiling Executables",
-      "documentation_generator": "Documentation Generator",
-      "dependency_inspector": "Dependency Inspector",
-      "linter": "Linter",
-      "task_runner": "Task Runner",
-      "vendor": "Vendoring Dependencies",
-      "benchmarker": "Benchmarking"
+      "script_installer": "deno install",
+      "formatter": "deno fmt",
+      "repl": "deno repl",
+      "bundler": "deno bundle",
+      "compiler": "deno compile",
+      "documentation_generator": "deno doc",
+      "dependency_inspector": "deno info",
+      "linter": "deno lint",
+      "task_runner": "deno task",
+      "vendor": "deno vendor",
+      "benchmarker": "deno bench"
     }
   },
-  "continuous_integration": {
-    "name": "Continuous Integration"
-  },
-  "vscode_deno": {
-    "name": "Using Visual Studio Code",
+  "advanced": {
+    "name": "Advanced",
     "children": {
-      "testing_api": "Testing API"
+      "publishing": {
+        "name": "Publishing Modules",
+        "redirectFrom": ["/publishing"],
+        "children": {
+          "dnt": {
+            "name": "dnt - Deno to Node.js Transform",
+            "redirectFrom": ["/node/dnt"]
+          }
+        }
+      },
+      "embedding_deno": {
+        "name": "Embedding Deno",
+        "redirectFrom": ["/embedding_deno"]
+      },
+      "language_server": {
+        "name": "Language Server",
+        "redirectFrom": ["/language_server"],
+        "children": {
+          "overview": {
+            "name": "Overview of the Language Server",
+            "redirectFrom": ["/language_server/overview"]
+          },
+          "imports": {
+            "name": "Import Suggestions and Intelligent Registries",
+            "redirectFrom": ["/language_server/imports"]
+          },
+          "testing_api": {
+            "name": "Testing API",
+            "redirectFrom": ["/language_server/testing_api"]
+          }
+        }
+      },
+      "continuous_integration": {
+        "name": "Continuous Integration",
+        "redirectFrom": ["/continuous_integration"]
+      },
+      "typescript": {
+        "name": "Using TypeScript",
+        "redirectFrom": ["/typescript"],
+        "children": {
+          "overview": {
+            "name": "Overview",
+            "redirectFrom": ["/typescript/overview"]
+          },
+          "configuration": {
+            "name": "Configuration",
+            "redirectFrom": ["/typescript/configuration"]
+          },
+          "types": {
+            "name": "Types and Type Declarations",
+            "redirectFrom": ["/typescript/types"]
+          },
+          "migration": {
+            "name": "Migrating to/from JavaScript",
+            "redirectFrom": ["/typescript/migration"]
+          },
+          "faqs": {
+            "name": "Frequently Asked Questions",
+            "redirectFrom": ["/typescript/faqs"]
+          }
+        }
+      }
     }
   },
-  "language_server": {
-    "name": "Language Server",
+  "references": {
+    "name": "References",
     "children": {
-      "overview": "Overview of the Language Server",
-      "imports": "Import Suggestions and Intelligent Registries",
-      "testing_api": "Testing API"
+      "vscode_deno": {
+        "name": "Using Visual Studio Code",
+        "redirectFrom": ["/vscode_deno"],
+        "children": {
+          "testing_api": {
+            "name": "Testing API",
+            "redirectFrom": ["/vscode_deno/testing_api"]
+          }
+        }
+      },
+      "cheatsheet": {
+        "name": "Deno Cheatsheet",
+        "redirectFrom": ["/node/cheatsheet"]
+      },
+      "contributing": {
+        "name": "Contributing",
+        "redirectFrom": ["/contributing"],
+        "children": {
+          "building_from_source": {
+            "name": "Building from Source",
+            "redirectFrom": ["/contributing/building_from_source"]
+          },
+          "web_platform_tests": {
+            "name": "Web Platform Tests",
+            "redirectFrom": ["/contributing/web_platform_tests"]
+          },
+          "style_guide": {
+            "name": "Style Guide",
+            "redirectFrom": ["/contributing/style_guide"]
+          },
+          "architecture": {
+            "name": "Architecture",
+            "redirectFrom": ["/contributing/architecture"]
+          },
+          "profiling": {
+            "name": "Profiling",
+            "redirectFrom": ["/contributing/profiling"]
+          },
+          "release_schedule": {
+            "name": "Release Schedule",
+            "redirectFrom": ["/contributing/release_schedule"]
+          }
+        }
+      }
     }
   },
-  "publishing": {
-    "name": "Publishing Modules"
-  },
-  "embedding_deno": {
-    "name": "Embedding Deno"
-  },
-  "help": {
-    "name": "Help"
-  },
-  "contributing": {
-    "name": "Contributing",
-    "children": {
-      "building_from_source": "Building from Source",
-      "web_platform_tests": "Web Platform Tests",
-      "style_guide": "Style Guide",
-      "architecture": "Architecture",
-      "profiling": "Profiling",
-      "release_schedule": "Release Schedule"
-    }
-  }
+  "help": "Help"
 }

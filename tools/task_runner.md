@@ -1,13 +1,10 @@
 # Task Runner
 
-> ⚠️ `deno task` was introduced in Deno v1.20 and is unstable. It may
-> drastically change in the future.
-
 `deno task` provides a cross platform way to define and execute custom commands
 specific to a codebase.
 
 To get started, define your commands in your codebase's
-[Deno configuration file](../getting_started/configuration_file) under a
+[Deno configuration file](../getting_started/configuration_file.md) under a
 `"tasks"` key.
 
 For example:
@@ -64,6 +61,26 @@ cd project2 && deno task --cwd . wasmbuild
 
 Note: Be sure to provide this flag _before_ the task name.
 
+## Getting directory `deno task` was run from
+
+Since tasks are run using the directory of the Deno configuration file as the
+current working directory, it may be useful to know the directory the
+`deno task` was executed from instead. This is possible by using the `INIT_CWD`
+environment variable in a task or script launched from `deno task` (works the
+same way as in `npm run`, but in a cross platform way).
+
+For example, to provide this directory to a script in a task, do the following
+(note the directory is surrounded in double quotes to keep it as a single
+argument in case it contains spaces):
+
+```json
+{
+  "tasks": {
+    "start": "deno run main.ts \"$INIT_CWD\""
+  }
+}
+```
+
 ## Syntax
 
 `deno task` uses a cross platform shell that's a subset of sh/bash to execute
@@ -96,7 +113,7 @@ the previous command in the list passed or failed. Commands are separated with a
 semi-colon (`;`).
 
 ```sh
-deno run output_data.ts ; deno run --allow-net server/main.ts
+deno run output_data.ts ; deno run --allow-net server.ts
 ```
 
 ### Async commands
@@ -104,11 +121,21 @@ deno run output_data.ts ; deno run --allow-net server/main.ts
 Async commands provide a way to make a command execute asynchronously. This can
 be useful when starting multiple processes. To make a command asynchronous, add
 an `&` to the end of it. For example the following would execute
-`sleep 1 && deno run --allow-net client/main.ts` and
-`deno run --allow-net server/main.ts` at the same time:
+`sleep 1 && deno run --allow-net client.ts` and `deno run --allow-net server.ts`
+at the same time:
 
 ```sh
-sleep 1 && deno run --allow-net client/main.ts & deno run --allow-net server/main.ts
+sleep 1 && deno run --allow-net client.ts & deno run --allow-net server.ts
+```
+
+Unlike in most shells, the first async command to fail will cause all the other
+commands to fail immediately. In the example above, this would mean that if the
+client command fails then the server command will also fail and exit. You can
+opt out of this behavior by adding `|| true` to the end of a command, which will
+force a `0` exit code. For example:
+
+```sh
+deno run --allow-net client.ts || true & deno run --allow-net server.ts || true
 ```
 
 ### Environment variables
@@ -286,8 +313,8 @@ box on Windows, Mac, and Linux.
   the current/working directory.
 - [`sleep`](https://man7.org/linux/man-pages/man1/sleep.1.html) - Delays for a
   specified amount of time.
-  - Ex. `sleep 1` to sleep for 1 second or `sleep 0.5` to sleep for half a
-    second
+  - Ex. `sleep 1` to sleep for 1 second, `sleep 0.5` to sleep for half a second,
+    or `sleep 1m` to sleep a minute
 - [`echo`](https://man7.org/linux/man-pages/man1/echo.1.html) - Displays a line
   of text.
 - [`cat`](https://man7.org/linux/man-pages/man1/cat.1.html) - Concatenates files
