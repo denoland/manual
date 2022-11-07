@@ -92,7 +92,7 @@
     }
   },
   "node": {
-    "name": "npm modules",
+    "name": "npm Modules",
     "children": {
       "npm_specifiers": "Using Node.js Packages with npm Specifiers",
       "cdns": "Using Node.js Packages Via CDNs",
