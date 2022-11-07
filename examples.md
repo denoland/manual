@@ -22,4 +22,5 @@ more about the runtime.
 - [File System Events](./examples/file_system_events.md)
 - [Module Metadata](./examples/module_metadata.md)
 
-Additional examples can by found at [Deno by Example](https://examples.deno.land/).
+Additional examples can by found at
+[Deno by Example](https://examples.deno.land/).
