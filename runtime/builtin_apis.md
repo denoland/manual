@@ -1,10 +1,10 @@
-# Namespace API
+# Built-in API
 
 The global Deno namespace contains APIs that are not web standard, including
 APIs for reading from files, opening TCP sockets, serving HTTP, and executing
 subprocesses, etc.
 
-For a full list of Deno Namespace APIs, see the
+For a full list of Deno Built-in APIs, see the
 [reference](https://deno.land/api@v$CLI_VERSION?s=Deno). Below we highlight some
 of the most important.
 

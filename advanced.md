@@ -7,3 +7,4 @@ In this chapter, you will find advanced Deno concepts, including:
 - [Language Server](./advanced/language_server.md)
 - [Continuous Integration](./advanced/continuous_integration.md)
 - [Using TypeScript](./advanced/typescript.md)
+- [Details on Using JSX and the DOM](./advanced/jsx_dom.md)
