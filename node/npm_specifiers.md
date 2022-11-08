@@ -88,3 +88,37 @@ future release.
 
 Because the feature is still experimental, specifying `--unstable` is required
 when importing an npm specifier.
+
+## `--node-modules-dir` flag
+
+npm specifiers resolve npm packages to a central global npm cache. This works well in most cases and is ideal since it uses less space and doesn't require a node_modules directory. That said, you may find cases where an npm package expects itself to be executing from a `node_modules` directory. To improve compatibility and support those packages, a new `--node-modules-dir` flag has been added.
+
+For example, given `main.ts`:
+
+```ts
+import chalk from "npm:chalk@5";
+
+console.log(chalk.green("Hello"));
+```
+
+Running this script with a `--node-modules-dir` like so...
+
+```sh
+deno run --unstable --node-modules-dir main.ts
+```
+
+...will create a `node_modules` folder in the current directory with a similar folder structure to npm.
+
+![](../images/node_modules_dir.png)
+
+Note that this is all done automatically when calling deno run and there is no separate install command necessary.
+
+In the case where you want to modify the contents of the `node_modules` directory before execution, you can run `deno cache` with `--node-modules-dir`, modify the contents, then run the script. 
+
+For example:
+
+```sh
+deno cache --unstable --node-modules-dir main.ts
+deno run --allow-read=. --allow-write=. scripts/your_script_to_modify_node_modules_dir.ts
+deno run --unstable --node-modules-dir main.ts
+```

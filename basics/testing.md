@@ -319,6 +319,39 @@ deno test --filter "/test-*\d/" tests/
 _To let Deno know that you want to use a pattern, wrap your filter with
 forward-slashes like the JavaScript syntactic sugar for a REGEX._
 
+### Including and excluding paths in the configuration file
+
+You can also filter tests by specifying paths to include or exclude in the Deno configuration file.
+
+For example, if you want to only test `src/fetch_test.ts` and `src/signal_test.ts` and exclude everything in `out/`:
+
+```json
+{
+  "test": {
+    "files": {
+      "include": [
+        "src/fetch_test.ts",
+        "src/signal_test.ts"
+      ]
+    }
+  }
+}
+```
+
+Or more likely:
+
+```json
+{
+  "test": {
+    "files": {
+      "exclude": ["out/"]
+    }
+  }
+}
+```
+
+Then running `deno test` in the same directory tree as the configuration file will take these options into account.
+
 ### Test definition filtering
 
 Within the tests themselves, you have two options for filtering.

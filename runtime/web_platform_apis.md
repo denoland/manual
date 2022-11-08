@@ -20,6 +20,7 @@ Here is a list of web platform APIs Deno implements:
 - [Fetch API](#fetch-api)
 - [`FormData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 - [Location API](./location_api.md)
+- [`navigator.language` API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/language)
 - [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance)
 - [`setTimeout`, `setInterval`, `clearInterval`](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
 - [Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API)
@@ -34,7 +35,7 @@ Here is a list of web platform APIs Deno implements:
 - [`WebGPU`](https://gpuweb.github.io/gpuweb/explainer/?)
 
 You can find the Deno reference for these APIs
-[here](https://deno.land/api@v1.26.0).
+[here](https://deno.land/api@v$CLI_VERSION).
 
 ## `fetch` API
 
@@ -144,3 +145,21 @@ files.
 Definitions that are specific to workers can be found in the
 [`lib.deno.worker.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.worker.d.ts)
 file.
+
+## Deviations of other APIs from spec
+
+### Cache API
+
+Only the following APIs are implemented:
+
+- [CacheStorage::open()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/open)
+- [CacheStorage::has()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/has)
+- [CacheStorage::delete()](https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage/delete)
+- [Cache::match()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/match)
+- [Cache::put()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/put)
+- [Cache::delete()](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete)
+
+A few things that are different compared to browsers:
+
+1. You cannot pass relative paths to the APIs. The request can be an instance of Request or URL or a url string.
+2. `match()` & `delete()` don't support query options yet.

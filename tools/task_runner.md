@@ -47,19 +47,19 @@ By default, `deno task` executes commands with the directory of the Deno
 configuration file (ex. _deno.json_) as the current working directory. This
 allows tasks to use relative paths and continue to work regardless of where in
 the directory tree you happen to execute the deno task from. In some scenarios,
-this may not be desired and this behavior can be overridden by providing a
-`--cwd <path>` flag.
+this may not be desired and this behavior can be overridden with the `INIT_CWD` environment variable.
 
-For example, given a task called `wasmbuild` in a _deno.json_ file:
+`INIT_CWD` will be set with the full path to the directory the task was run in, if not already set. This aligns with the same behavior as `npm run`.
 
-```sh
-# use the sub directory project1 as the cwd for the task
-deno task --cwd project1 wasmbuild
-# use the cwd (project2) as the cwd for the task
-cd project2 && deno task --cwd . wasmbuild
+For example, the following task will change the current working directory of the task to be in the same directory the user ran the task from and then output the current working directory which is now that directory (remember, this works on Windows too because deno task is cross platform).
+
 ```
-
-Note: Be sure to provide this flag _before_ the task name.
+{
+  "tasks": {
+    "my_task": "cd $INIT_CWD && pwd"
+  }
+}
+```
 
 ## Getting directory `deno task` was run from
 

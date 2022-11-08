@@ -3,6 +3,7 @@
 Deno provides some built-in tooling that is useful when working with JavaScript
 and TypeScript:
 
+- [start new project (`deno init`)](./tools/init.md)
 - [benchmarker (`deno bench`)](./tools/benchmarker.md)
 - [bundler (`deno bundle`)](./tools/bundler.md)
 - [compiling executables (`deno compile`)](./tools/compiler.md)
