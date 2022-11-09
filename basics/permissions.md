@@ -21,7 +21,9 @@ The following permissions are available:
   and setting of environment variables. Since Deno 1.9, you can specify an
   optional, comma-separated list of environment variables to provide an
   allow-list of allowed environment variables.
-- **--allow-sys=\<allow-sys\>** Allow access to APIs that provide information about user's operating system, eg. `Deno.osRelease()` and `Deno.systemMemoryInfo()`.
+- **--allow-sys=\<allow-sys\>** Allow access to APIs that provide information
+  about user's operating system, eg. `Deno.osRelease()` and
+  `Deno.systemMemoryInfo()`.
 - **--allow-hrtime** Allow high-resolution time measurement. High-resolution
   time can be used in timing attacks and fingerprinting.
 - **--allow-net=\<allow-net\>** Allow network access. You can specify an
@@ -44,8 +46,6 @@ The following permissions are available:
   an allow-list of allowed file system access.
 - **-A, --allow-all** Allow all permissions. This enables all security sensitive
   functions. Use with caution.
-
-
 
 ## Configurable permissions
 

@@ -2,9 +2,12 @@
 
 Deno currently has three HTTP Server APIs:
 
-- [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts): part of the standard library, high-level. 
-- [`Deno.serve`](https://deno.land/api@v$CLI_VERSION?unstable&s=Deno.serve): native, _higher-level_, supports only http/1.1, but is fast, unstable.
-- [`Deno.serveHttp`](https://deno.land/api@v$CLI_VERSION?s=Deno.serveHttp): native, _low-level_, supports http/2, stable.
+- [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts):
+  part of the standard library, high-level.
+- [`Deno.serve`](https://deno.land/api@v$CLI_VERSION?unstable&s=Deno.serve):
+  native, _higher-level_, supports only http/1.1, but is fast, unstable.
+- [`Deno.serveHttp`](https://deno.land/api@v$CLI_VERSION?s=Deno.serveHttp):
+  native, _low-level_, supports http/2, stable.
 
 ## `serve` from `std/http`
 
@@ -15,7 +18,6 @@ Deno currently has three HTTP Server APIs:
 - [HTTPS support](#https-support)
 - [HTTP/2 support](#http2-support)
 - [Automatic body compression](#automatic-body-compression)
-
 
 ### A "Hello World" server
 
@@ -148,7 +150,6 @@ function handler(req: Request): Response {
 > an error in a `write()` call on a `WritableStream` object that is attached to
 > the response body `ReadableStream` object (for example through a
 > `TransformStream`).
-
 
 ### HTTPS support
 

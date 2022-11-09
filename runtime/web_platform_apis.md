@@ -161,5 +161,6 @@ Only the following APIs are implemented:
 
 A few things that are different compared to browsers:
 
-1. You cannot pass relative paths to the APIs. The request can be an instance of Request or URL or a url string.
+1. You cannot pass relative paths to the APIs. The request can be an instance of
+   Request or URL or a url string.
 2. `match()` & `delete()` don't support query options yet.
