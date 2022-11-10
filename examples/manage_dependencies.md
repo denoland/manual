@@ -7,7 +7,7 @@
   Functionality is then exported out of `deps.ts` for use by local modules.
 - Continuing this convention, dev only dependencies can be kept in a
   `dev_deps.ts` file.
-- See also [Linking to external code](../basics/linking_to_external_code.md)
+- See also [Modules](../basics/modules.md)
 
 ## Overview
 
@@ -44,7 +44,7 @@ export {
 ```
 
 In this example the same functionality is created as is the case in the
-[local and remote import examples](../basics/import_export.md). But in this case
+[local and remote import examples](../basics/modules.md). But in this case
 instead of the Ramda module being referenced directly it is referenced by proxy
 using a local `deps.ts` module.
 

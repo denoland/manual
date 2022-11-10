@@ -1,7 +1,40 @@
 {
+  "ignorePatterns": [
+    {
+      "pattern": [
+        "^https://deno.land/(std|api)@"
+      ]
+    },
+    {
+      "pattern": [
+        "^https://github.com/denoland/deno/blob/"
+      ]
+    },
+    {
+      "pattern": [
+        "https://deno.land/images/schematic_v0.2.png"
+      ]
+    },
+    {
+      "pattern": [
+        "^http://(localhost|0.0.0.0)"
+      ]
+    },
+    {
+      "pattern": [
+        "^/api"
+      ]
+    }
+  ],
   "httpHeaders": [
     {
       "urls": ["https://crates.io"],
+      "headers": {
+        "accept": "text/html"
+      }
+    },
+    {
+      "urls": ["https://deno.land"],
       "headers": {
         "accept": "text/html"
       }

@@ -163,8 +163,7 @@ software, centralized code repositories, and superfluous file formats.
 
 By using a lock file (with the `--lock` command line flag), you can ensure that
 the code pulled from a URL is the same as it was during initial development. You
-can learn more about this
-[here](./linking_to_external_code/integrity_checking.md).
+can learn more about this [here](./modules/integrity_checking.md).
 
 ### But what if the host of the URL goes down? The source won't be available.
 
