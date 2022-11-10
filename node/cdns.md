@@ -6,7 +6,7 @@ your browser as an ES Module. These CDN URLs are reusuable - they also provide
 instructions on how to be used in Deno, the browser, etc. Sometimes you need a
 URL flag to indicate that that you need a Deno-specific module.
 
-**Starting with Deno release 1.25**, Deno also offers experimental support for
+**Starting with Deno release 1.28**, Deno has stabilized support for
 [npm specifiers](./npm_specifiers.md), which are a new way of using npm modules
 in Deno that offers a higher chance of compatibility.
 

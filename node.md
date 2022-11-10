@@ -1,16 +1,16 @@
 # Interoperating with Node.js and npm
 
-While Deno is pretty powerful itself, many people will want to leverage code and
-libraries that are built for [Node](https://nodejs.org/), in particular the
-large set of packages available on the [npm](https://npmjs.com/) registry.
+Though Deno is powerful, many people will want to leverage code and libraries
+that are built for [Node](https://nodejs.org/), in particular the large set of
+packages available on the [npm](https://npmjs.com/) registry.
 
 There are currently two ways to do this:
 
 - Using [npm specifiers](./node/npm_specifiers.md)
 - Using [CDNs](./node/cdns.md)
 
-Node specifiers are our recommendation, but they are a new feature and may not
-work for all npm packages. (In particular they are
+We recommend npm specifiers, but they are a new feature and may not work for all
+npm packages. (In particular they are
 [still in progress](https://github.com/denoland/deno/issues/15960) for tooling
 like `deno vendor` and `deno check`). If you run into issues, you can always
 fall back to using a CDN.

@@ -1,9 +1,9 @@
 # Using npm packages with npm specifiers
 
-Deno release 1.25 offers experimental support for npm specifiers. npm specifiers
-allow you to use npm modules directly in Deno with a higher chance of
-compatibility than importing from CDN's, particularly if the modules depend on
-artifact files in their package.
+Deno 1.28 stabilizes support for npm specifiers, which allow you to use npm
+modules directly in Deno with a higher chance of compatibility than importing
+from CDN's, particularly if the modules depend on artifact files in their
+package.
 
 It is important to emphasize that this feature is still under development. **npm
 specifiers are extremely new** and you're likely find scenarios where something
@@ -36,7 +36,7 @@ npm:<package-name>[@<version-requirement>][/<sub-path>]
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run --unstable --A main.ts
+$ deno run --A main.ts
 listening on http://localhost:3000/
 ```
 
@@ -60,7 +60,7 @@ npm:<package-name>[@<version-requirement>][/<binary-name>]
 For example:
 
 ```sh
-$ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
+$ deno run --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
  ______________
 < Hello there! >
  --------------
@@ -69,7 +69,7 @@ $ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
             (__)\       )\/\
                 ||----w |
                 ||     ||
-$ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
+$ deno run --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
  ______________
 ( What to eat? )
  --------------
@@ -85,6 +85,3 @@ permissions, but in the future it shouldn't require any permissions.
 
 We'll add `deno install` and lockfile support for npm package binaries in a
 future release.
-
-Because the feature is still experimental, specifying `--unstable` is required
-when importing an npm specifier.
