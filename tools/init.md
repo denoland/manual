@@ -6,8 +6,8 @@ manifests, or build scripts.
 
 Users coming from other ecosystems are often not used to this simplicity - they
 often look for a tool to scaffold out a basic project structure to get them
-started on the right path. In this release we have added a deno init subcommand
-that scaffolds a basic Deno project.
+started on the right path. `deno init` subcommand scaffolds a basic Deno
+project.
 
 ```sh
 $ deno init
