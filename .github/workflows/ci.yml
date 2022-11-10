@@ -13,9 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
     
-      - name: Set up Deno
-        uses: denoland/setup-deno@v1.0.0
-      
       - name: Check Markdown Links
         uses: ruzickap/action-my-markdown-link-checker@v1
         with:
