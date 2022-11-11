@@ -361,8 +361,8 @@ There are several environment variables which can impact the behavior of Deno:
 
 - `DENO_AUTH_TOKENS` - a list of authorization tokens which can be used to allow
   Deno to access remote private code. See the
-  [Private modules and repositories](../basics/linking_to_external_code/private.md)
-  section for more details.
+  [Private modules and repositories](../basics/modules/private.md) section for
+  more details.
 - `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
   establishing TLS connections. The available stores are `mozilla` and `system`.
   You can specify one, both or none. The order you specify the store determines
@@ -377,8 +377,7 @@ There are several environment variables which can impact the behavior of Deno:
   specific certificate per TLS connection.
 - `DENO_CERT` - load a certificate authority from a PEM encoded file. This
   "overrides" the `--cert` option. See the
-  [Proxies](../basics/linking_to_external_code/proxies.md) section for more
-  information.
+  [Proxies](../basics/modules/proxies.md) section for more information.
 - `DENO_DIR` - this will set the directory where cached information from the CLI
   is stored. This includes items like cached remote modules, cached transpiled
   modules, language server cache information and persisted data from local
@@ -390,17 +389,14 @@ There are several environment variables which can impact the behavior of Deno:
   passing `--no-prompt` on invocation).
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
-  [Proxies](../basics/linking_to_external_code/proxies.md) section for more
-  information.
+  [Proxies](../basics/modules/proxies.md) section for more information.
 - `HTTPS_PROXY` - The proxy address to use for HTTPS requests. See the
-  [Proxies](../basics/linking_to_external_code/proxies.md) section for more
-  information.
+  [Proxies](../basics/modules/proxies.md) section for more information.
 - `NO_COLOR` - If set, this will cause the Deno CLI to not send ANSI color codes
   when writing to stdout and stderr. See the website <https://no-color.org/> for
   more information on this _de facto_ standard. The value of this flag can be
   accessed at runtime without permission to read the environment variables by
   checking the value of `Deno.noColor`.
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
-  environment variables. See the
-  [Proxies](../basics/linking_to_external_code/proxies.md) section for more
-  information.
+  environment variables. See the [Proxies](../basics/modules/proxies.md) section
+  for more information.
