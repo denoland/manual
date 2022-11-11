@@ -106,11 +106,14 @@
     "children": {
       "stability": "Stability",
       "builtin_apis": "Built-in APIs",
+      "cache_api": "Cache API",
+      "import_meta_api": "`import.meta` API",
       "program_lifecycle": "Program Lifecycle",
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
       "location_api": "Location API",
+      "navigator_api": "`navigator.language` API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
       "ffi_api": "Foreign Function Interface",
@@ -157,6 +160,7 @@
   "tools": {
     "name": "Tools",
     "children": {
+      "init": "deno init",
       "script_installer": "deno install",
       "formatter": "deno fmt",
       "repl": "deno repl",
