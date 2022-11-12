@@ -10,7 +10,25 @@ The quickest fix is to skip type checking. You can do this by using the
 `--no-check` flag.
 
 Skipping type checking might not be acceptable though. You could try to load the
-Node types yourself. For example from UNPKG it would look something like this:
+Node types yourself.
+
+### When using npm specifiers
+
+If you are getting this error while using npm specifiers, then add a triple
+slash types reference directive to your main entry point, specifying to include
+the types from the `@types/node` package:
+
+```ts, ignore
+/// <reference types="npm:@types/node">
+```
+
+### When using CDNs
+
+If you are getting this error when not using npm specifiers and instead while
+importing from npm CDNs, then you can import the `@types/node` types from a CDN
+as well.
+
+For example from UNPKG it would look something like this:
 
 ```ts, ignore
 import type {} from "https://unpkg.com/@types/node/index.d.ts";

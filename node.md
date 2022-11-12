@@ -9,11 +9,10 @@ There are currently two ways to do this:
 - Using [npm specifiers](./node/npm_specifiers.md)
 - Using [CDNs](./node/cdns.md)
 
-Node specifiers are our recommendation, but they are a new feature and may not
-work for all npm packages. (In particular they are
-[still in progress](https://github.com/denoland/deno/issues/15960) for tooling
-like `deno vendor` and `deno check`). If you run into issues, you can always
-fall back to using a CDN.
+npm specifiers are our recommendation, but they are a new feature, and although
+stabilized, they are
+[still a work in progress](https://github.com/denoland/deno/issues/15960). If
+you run into issues, you can always fall back to using a CDN.
 
 Some other scenarios you may run into covered in this chapter:
 
