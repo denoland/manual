@@ -49,7 +49,7 @@ Now, in our `main.ts` file, we'll import mongoose and the `Dinosaur` schema, and
 connect to MongoDB:
 
 ```ts
-import mongoose from "npm:mongoose";
+import mongoose from "npm:mongoose@^6.7";
 import Dinosaur from "./model/Dinosaur.ts";
 
 await mongoose.connect("mongodb://localhost:27017");
