@@ -5,7 +5,7 @@ set up in minutes and use with your existing data source (or REST API). You can
 then connect any GraphQL client to it to receive the data and take advantage of
 GraphQL benefits, such as type-checking and efficient fetching.
 
-We’re going to get a simple Apollo server up and running that will allow us to
+We're going to get a simple Apollo server up and running that will allow us to
 query some local data. We’re only going to need three files for this:
 
 1. schema.ts to set up our data model
