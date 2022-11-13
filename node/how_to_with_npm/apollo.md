@@ -66,7 +66,7 @@ when its up).
 A resolver is responsible for populating the data for each query. Here we have
 our list of dinosaurs and all the resolver is going to do is either a) pass that
 entire list to the client if the user requests the `dinosaurs` query, or pass
-just one if the user requests the ‘dinosaur’ query.
+just one if the user requests the `dinosaur` query.
 
 ```tsx
 const dinosaurs = [
