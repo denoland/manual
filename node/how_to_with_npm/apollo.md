@@ -25,7 +25,7 @@ Let’s go through setting up each.
 
 Our `schema.ts` file describes our data. In this case, our data is a list of
 dinosaurs. We want our users to be able to get the name and a short description
-of each dino. In GraphQL language, this means that ‘Dinosaur’ is our **type**,
+of each dino. In GraphQL language, this means that `Dinosaur` is our **type**,
 and ‘name’ and ‘description’ are our **fields**. We can also define the data
 type for each field. In this case, both are strings.
 
