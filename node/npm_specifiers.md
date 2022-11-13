@@ -1,22 +1,24 @@
 # Using npm packages with npm specifiers
 
-Deno release 1.25 offers experimental support for npm specifiers. npm specifiers
+Deno release 1.28 offers stabilized support for npm specifiers. npm specifiers
 allow you to use npm modules directly in Deno with a higher chance of
-compatibility than importing from CDN's, particularly if the modules depend on
+compatibility than importing from CDNs, particularly if the modules depend on
 artifact files in their package.
 
-It is important to emphasize that this feature is still under development. **npm
-specifiers are extremely new** and you're likely find scenarios where something
-doesn't work. Please report these problems to the
-[issue tracker](https://github.com/denoland/deno/issues). We'll be working hard
-to improve the compatibility layer and user experience over the next few
-releases.
+It is important to emphasize that even though this feature was stabilized for
+use with `deno run` and some other sub commands in Deno 1.28, it is still under
+development and doesn't work in some scenarios (ex. with `deno bundle`). You're
+likely find scenarios where something doesn't work. Please report these problems
+to the [issue tracker](https://github.com/denoland/deno/issues). We'll be
+working hard to improve the compatibility layer and user experience in the near
+future. You can follow
+[issue 15960](https://github.com/denoland/deno/issues/15960) for updates.
 
 The way these work is best described with an example:
 
 ```ts, ignore
 // main.ts
-import express from "npm:express";
+import express from "npm:express@4.18";
 const app = express();
 
 app.get("/", function (req, res) {
@@ -46,9 +48,9 @@ applications. At the moment though, there are some unnecessary permissions that
 get asked for, but in the future the above program will only require network
 permissions.
 
-These specifiers currently work with `deno run`, `deno test`, and `deno bench`.
-Type checking is not yet supported. Integration for the language server,
-`deno vendor`, `deno info`, and `deno install` is not yet ready either.
+These specifiers currently work with `deno run`, `deno check`, `deno info`,
+`deno lsp`, `deno test`, and `deno bench`, but do not with `deno vendor`,
+`deno install`, `deno repl`, and `deno bundle` at the moment.
 
 npm package binaries can be executed from the command line without an npm
 install using a specifier in the following format:
@@ -60,7 +62,7 @@ npm:<package-name>[@<version-requirement>][/<binary-name>]
 For example:
 
 ```sh
-$ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
+$ deno run --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
  ______________
 < Hello there! >
  --------------
@@ -69,7 +71,7 @@ $ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
             (__)\       )\/\
                 ||----w |
                 ||     ||
-$ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
+$ deno run --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
  ______________
 ( What to eat? )
  --------------
@@ -80,23 +82,14 @@ $ deno run --unstable --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to
                 ||     ||
 ```
 
-Similar to the previous example, this npm package requires env and read
-permissions, but in the future it shouldn't require any permissions.
-
-We'll add `deno install` and lockfile support for npm package binaries in a
-future release.
-
-Because the feature is still experimental, specifying `--unstable` is required
-when importing an npm specifier.
-
 ## `--node-modules-dir` flag
 
 npm specifiers resolve npm packages to a central global npm cache. This works
 well in most cases and is ideal since it uses less space and doesn't require a
 node_modules directory. That said, you may find cases where an npm package
 expects itself to be executing from a `node_modules` directory. To improve
-compatibility and support those packages, a new `--node-modules-dir` flag has
-been added.
+compatibility and support those packages, you can use the `--node-modules-dir`
+flag.
 
 For example, given `main.ts`:
 
@@ -109,7 +102,7 @@ console.log(chalk.green("Hello"));
 Running this script with a `--node-modules-dir` like so...
 
 ```sh
-deno run --unstable --node-modules-dir main.ts
+deno run --node-modules-dir main.ts
 ```
 
 ...will create a `node_modules` folder in the current directory with a similar
@@ -127,7 +120,7 @@ modify the contents, then run the script.
 For example:
 
 ```sh
-deno cache --unstable --node-modules-dir main.ts
+deno cache --node-modules-dir main.ts
 deno run --allow-read=. --allow-write=. scripts/your_script_to_modify_node_modules_dir.ts
-deno run --unstable --node-modules-dir main.ts
+deno run --node-modules-dir main.ts
 ```

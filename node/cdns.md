@@ -2,16 +2,17 @@
 
 Most developers currently use npm modules in Deno by importing them using one of
 many CDNs. You can reference the CDN URL in your Deno TS code or directly in
-your browser as an ES Module. These CDN URLs are reusuable - they also provide
+your browser as an ES Module. These CDN URLs are reusable - they also provide
 instructions on how to be used in Deno, the browser, etc. Sometimes you need a
 URL flag to indicate that that you need a Deno-specific module.
 
-**Starting with Deno release 1.25**, Deno also offers experimental support for
+**Starting with Deno release 1.28**, Deno also offers stabilized support for
 [npm specifiers](./npm_specifiers.md), which are a new way of using npm modules
 in Deno that offers a higher chance of compatibility.
 
-However, given that npm specifiers are still a work in progress, below we cover
-how to use npm modules in Deno via some popular CDNs.
+However, given that npm specifiers are still a
+[work in progress](https://github.com/denoland/deno/issues/15960), below we
+cover how to use npm modules in Deno via some popular CDNs.
 
 ## What about `deno.land/x/`?
 

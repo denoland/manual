@@ -39,6 +39,17 @@ And we would run our program like:
 > deno run --import-map ./import_map.json example.ts
 ```
 
+This also works with npm specifiers. Instead of the above, we could have also
+written something similar to the following in our import map:
+
+```json
+{
+  "imports": {
+    "lodash": "npm:lodash@4.17"
+  }
+}
+```
+
 ## Managing version of modules in the import map.
 
 If you wanted to manage the versions in the import map, you could do this as

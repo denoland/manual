@@ -14,10 +14,9 @@ Deno currently has three HTTP Server APIs:
 - [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
-- [WebSocket support](#websocket-support)
 - [HTTPS support](#https-support)
 - [HTTP/2 support](#http2-support)
-- [Automatic body compression](#automatic-body-compression)
+- [Serving WebSockets](#serving-websockets)
 
 ### A "Hello World" server
 
