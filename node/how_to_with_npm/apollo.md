@@ -161,7 +161,7 @@ This will return our dataset:
 }
 ```
 
-Or if we want just one ‘dinosaur’:
+Or if we want just one `dinosaur`:
 
 ```graphql
 query {
