@@ -144,7 +144,7 @@ with Deno:
   ```
 
 - `deno/task` - Requests the return of avalaible deno tasks, see
-  [task_runner](../tools/task_runner.md).
+  [task_runner](../../tools/task_runner.md).
 
   It does not expect any parameters.
 

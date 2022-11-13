@@ -3,8 +3,8 @@
 ## Concepts
 
 - Listening for TCP port connections with [Deno.listen](/api?s=Deno.listen).
-- Use [copy](/std@$STD_VERSION/streams/conversion.ts?s=copy) to take inbound
-  data and redirect it to be outbound data.
+- Use [copy](https://deno.land/std@$STD_VERSION/streams/conversion.ts?s=copy) to
+  take inbound data and redirect it to be outbound data.
 
 ## Example
 

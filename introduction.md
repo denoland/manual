@@ -25,7 +25,7 @@ It's built on V8, Rust, and Tokio.
   that are guaranteed to work with Deno.
 - Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
   [executable](./tools/compiler.md).
-- Supports the use of [existing npm modules](./basics/node.md)
+- Supports the use of [existing npm modules](./node.md)
 
 ## Philosophy
 

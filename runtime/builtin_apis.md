@@ -47,9 +47,9 @@ Refer to the links below for code examples of how to use the file system
 functions.
 
 - [Reading files in several different ways](https://examples.deno.land/reading-files)
-- [Reading files in streams](https://deno.land/manual@v$CLI_VERSION/examples/file_server)
-- [Reading a text file (`Deno.readTextFile`)](https://deno.land/manual@v$CLI_VERSION/examples/read_write_files#reading-a-text-file)
-- [Writing a text file (`Deno.writeTextFile`)](https://deno.land/manual@v$CLI_VERSION/examples/read_write_files#writing-a-text-file)
+- [Reading files in streams](../examples/file_server.md)
+- [Reading a text file (`Deno.readTextFile`)](../examples/read_write_files.md#reading-a-text-file)
+- [Writing a text file (`Deno.writeTextFile`)](../examples/read_write_files.md#writing-a-text-file)
 
 ## I/O
 
@@ -78,4 +78,4 @@ The Deno runtime comes with
 
 Refer to the links below for code samples of how to create a subprocess.
 
-- [Creating a subprocess (`Deno.run`)](https://deno.land/manual@v$CLI_VERSION/examples/subprocess)
+- [Creating a subprocess (`Deno.run`)](../examples/subprocess.md)
