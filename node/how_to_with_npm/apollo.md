@@ -99,7 +99,7 @@ In our `main.ts` we’re going to import the apollo server as well as graphql an
 our typeDefs from the schema and our resolvers:
 
 ```tsx
-import { ApolloServer } from "npm:@apollo/server";
+import { ApolloServer } from "npm:@apollo/server@^4.1";
 import { startStandaloneServer } from "npm:@apollo/server/standalone";
 import { graphql } from "npm:graphql";
 import { typeDefs } from "./schema.ts";
