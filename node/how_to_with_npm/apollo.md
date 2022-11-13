@@ -130,7 +130,7 @@ deno run --allow-net --allow-read --allow-env main.ts
 ```
 
 You should see Server running on: 127.0.0.1:8000 in your terminal. If you go to
-that address you will see the Apollo sandbox where we can enter our ‘dinosaurs’
+that address you will see the Apollo sandbox where we can enter our `dinosaurs`
 query:
 
 ```graphql
