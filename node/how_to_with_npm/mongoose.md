@@ -22,7 +22,7 @@ In `/model/Dinosaur.ts`, we'll import `npm:mongoose`, define the [schema], and
 export it:
 
 ```ts
-import { model, Schema } from "npm:mongoose";
+import { model, Schema } from "npm:mongoose@^6.7";
 
 // Define schema.
 const dinosaurSchema = new Schema({
