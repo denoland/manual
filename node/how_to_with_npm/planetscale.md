@@ -48,7 +48,9 @@ const conn = connect(config);
 This will also work on Deno Deploy if you set the environment variables in the
 dashboard. Run with:
 
-`deno run --allow-net --allow-env main.ts`
+```shell
+deno run --allow-net --allow-env main.ts
+```
 
 The `conn` object is now an open connection to our Planetscale database.
 

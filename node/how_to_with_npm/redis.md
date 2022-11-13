@@ -1,7 +1,7 @@
 # How to Use Redis with Deno
 
-Redis is an in-memory data store you can use for caching, as a message broker,
-or for streaming data.
+[Redis](https://redis.io/) is an in-memory data store you can use for caching,
+as a message broker, or for streaming data.
 
 Here we’re going to set up Redis to cache data from an API call to speed up any
 subsequent requests for that data. We’re going to:
@@ -9,7 +9,7 @@ subsequent requests for that data. We’re going to:
 - Set up a Redis client to save data from every API call in memory
 - Set up a Deno server so we can easily request certain data
 - Call the Github API within the server handler to get the data on first request
-- Serve data from Redis on every subsequent request.
+- Serve data from Redis on every subsequent request
 
 We can do this within a single file, `main.ts`.
 
@@ -44,7 +44,7 @@ object.
 
 Our server is going to act as a wrapper around the Github API. A client can call
 our server with a Github username in the URL pathname, such as
-http://localhost:3000/{username}.
+`http://localhost:3000/{username}`.
 
 Parsing out the pathname and calling the Github API will take place inside a
 handler function in our server. We strip the leading slash so we are left with a
@@ -82,7 +82,7 @@ deno run --allow-net main.ts
 If we then go to [http://localhost:3000/ry](http://localhost:3000/ry) in
 Postman, we’ll get the Github response:
 
-![uncached-redis-body.png](images/uncached-redis-body.png)
+![uncached-redis-body.png](../../images/how-to/redis/uncached-redis-body.png)
 
 Let’s cache this response using Redis.
 
@@ -145,16 +145,16 @@ server.listenAndServe();
 Running this first time gives us the same response as above, and we’ll see the
 `is-cached` header set to `false`:
 
-![uncached-redis-header.png](images/uncached-redis-header.png)
+![uncached-redis-header.png](../../images/how-to/redis/uncached-redis-header.png)
 
 But call with the same username again, and we get the cached result. The body is
 identical:
 
-![cached-redis-body.png](images/cached-redis-body.png)
+![cached-redis-body.png](../../images/how-to/redis/cached-redis-body.png)
 
 But the header shows we have the cache:
 
-![cached-redis-header.png](images/cached-redis-header.png)
+![cached-redis-header.png](../../images/how-to/redis/cached-redis-header.png)
 
 We can also see that the response was ~200ms quicker!
 

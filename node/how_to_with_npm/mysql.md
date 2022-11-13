@@ -1,12 +1,13 @@
 # How to use MySQL with Deno
 
-MySQL is the most popular database in the
+[MySQL](https://www.mysql.com/) is the most popular database in the
 [2022 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2022/#most-popular-technologies-database)
 and counts Facebook, Twitter, YouTube, and Netflix among its users.
 
-You can manipulate and query a MySQL database with Deno using the `mysql2` node
-package and the `npm:` modifier. This allows us to use its Promise wrapper and
-take advantage of top-level await.
+You can manipulate and query a MySQL database with Deno using the
+[`mysql2` node package](https://www.npmjs.com/package/mysql2) and the `npm:`
+modifier. This allows us to use its Promise wrapper and take advantage of
+top-level await.
 
 ```tsx
 import mysql from "npm:mysql2/promise";
@@ -15,7 +16,7 @@ import mysql from "npm:mysql2/promise";
 ## Connecting to MySQL
 
 We can connect to our MySQL server using the `createConnection()` method. You
-need the host (’localhost’ if you are testing, or more likely a cloud database
+need the host (`localhost` if you are testing, or more likely a cloud database
 endpoint in production) and the user and password:
 
 ```tsx
@@ -27,7 +28,7 @@ const connection = await mysql.createConnection({
 ```
 
 You can also optionally specify a database during the connection creation. Here
-we are going to use mysql2 to create the database on the fly.
+we are going to use `mysql2` to create the database on the fly.
 
 ## Creating and populating the database
 
@@ -62,7 +63,7 @@ We now have all the data ready to start querying.
 ## Querying MySQL
 
 We can use the same connection.query() method to write our queries. First we try
-and get all the data in our ‘dinosaurs’ table:
+and get all the data in our `dinosaurs` table:
 
 ```tsx
 const results = await connection.query("SELECT * FROM `dinosaurs`");
@@ -110,5 +111,5 @@ Finally, we can close the connection:
 await connection.end();
 ```
 
-For more on mysql2 you can check out their documentation
+For more on `mysql2`, check out their documentation
 [here](https://github.com/sidorares/node-mysql2).

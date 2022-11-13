@@ -12,7 +12,7 @@ Prisma.
 
 Let's get started.
 
-1. Setup the application
+## Setup the application
 
 ```shell
 mkdir rest-api-with-prisma-oak
@@ -44,25 +44,23 @@ model Dinosaur {
 Create a `.env` file and update the connection string with your actual
 PostgreSQL connection string.
 
-2. Create the database schema
+Next, let's create the database schema:
 
 ```shell
 deno run -A npm:prisma db push
 ```
 
-3. Generate a Prisma client for Data Proxy
+After that's complete, let's generate a Prisma client:
 
 ```shell
 deno run -A npm:prisma generate --data-prxoxy
 ```
 
-4. Create a repository and connect to GitHub
-
 In order to use Prisma Data Platform, we'll first have to create a GitHub repo.
 
 Initialize your repository, add the remote origin, then push to the repo.
 
-5. Import your Project into Prisma Data Platform
+## Import your GitHub Project into Prisma Data Platform
 
 Next, sign up for a free
 [Prisma Data Platform account](https://cloud.prisma.io/).
@@ -75,7 +73,7 @@ Paste it here. Then click **Create Project**.
 You'll receive a new connection string that begins with `prisma://`. You'll use
 it in the next section.
 
-6. Set the Data Proxy Connection string in your environment.
+## Set the Data Proxy Connection string in your environment.
 
 Replace the PostgreSQL connection string in your `.env` file with your new Data
 Proxy connection string.
@@ -88,7 +86,7 @@ npm install dotenv-cli
 
 Let's create a seed script to seed the database.
 
-7. Seed your Database
+## Seed your Database
 
 Create `./prisma/seed.ts`:
 
@@ -143,7 +141,7 @@ After doing so, your Prisma dashboard should show the new dinosaurs:
 
 ![New dinosaurs are in Prisma dashboard](../../images/how-to/prisma/1-dinosaurs-in-prisma.png)
 
-8. Create your API routes
+## Create your API routes
 
 We'll use [`oak`](https://deno.land/x/oak) to create the API routes. Let's keep
 them simple for now.

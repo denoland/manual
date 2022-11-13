@@ -8,10 +8,10 @@ GraphQL benefits, such as type-checking and efficient fetching.
 We’re going to get a simple Apollo server up and running that will allow us to
 query some local data. We’re only going to need three files for this:
 
-1. schema.ts to set up our data model
-2. resolvers.ts to set up how we’re going to populate the data fields in our
+1. `schema.ts` to set up our data model
+2. `resolvers.ts` to set up how we’re going to populate the data fields in our
    schema
-3. Our main.ts where the server is going to launch
+3. Our `main.ts` where the server is going to launch
 
 We’ll start by creating them:
 
@@ -32,11 +32,11 @@ type for each field. In this case, both are strings.
 This is also where we describe the queries we allow for our data, using the
 special **Query** type in GraphQL. We have two queries:
 
-- ‘_dinosaurs’_ which gets a list of all dinosaurs
-- ‘_dinosaur’,_ which takes in the name of a dinosaur as an argument and returns
+- `dinosaurs` which gets a list of all dinosaurs
+- `dinosaur` which takes in the `name` of a dinosaur as an argument and returns
   information about that one type of dinosaur.
 
-We’re going to export all this within our ‘typeDefs,’ type definitions,
+We’re going to export all this within our`‘typeDefs`, type definitions,
 variable:
 
 ```tsx
@@ -56,17 +56,14 @@ export const typeDefs = `
 
 If we wanted to write data, this is also where we would describe the
 **Mutation** to do so. Mutations are how you write data with GraphQL. Because we
-are using a static dataset here, we won’t be writing anything. But we’ve already
-written about how you can set up GrahQL and Deno to work with an external data
-source and read/write to that database in our [GraphQL guide](link to article
-when its up).
+are using a static dataset here, we won’t be writing anything.
 
 ## resolvers.ts
 
 A resolver is responsible for populating the data for each query. Here we have
 our list of dinosaurs and all the resolver is going to do is either a) pass that
-entire list to the client if the user requests the ‘dinosaurs’ query, or pass
-just one if the user requests the ‘dinosaur’ query.
+entire list to the client if the user requests the `dinosaurs` query, or pass
+just one if the user requests the `dinosaur` query.
 
 ```tsx
 const dinosaurs = [
@@ -95,8 +92,8 @@ the name to a name in our dataset.
 
 ## main.ts
 
-In our `main.ts` we’re going to import the apollo server as well as graphql and
-our typeDefs from the schema and our resolvers:
+In our `main.ts` we’re going to import the `ApolloServer` as well as `graphql`
+and our `typeDefs` from the schema and our resolvers:
 
 ```tsx
 import { ApolloServer } from "npm:@apollo/server";
@@ -117,21 +114,21 @@ const { url } = await startStandaloneServer(server, {
 console.log(`Server running on: ${url}`);
 ```
 
-We pass our typeDefs and resolvers to `ApolloServer` to spool up a new server,
-then `startStandaloneServer` is a helper function to get the server up and
-running quickly.
+We pass our `typeDefs` and `resolvers` to `ApolloServer` to spool up a new
+server. Finally, `startStandaloneServer` is a helper function to get the server
+up and running quickly.
 
 ## Running the server
 
 All that is left to do now is run the server:
 
-```tsx
+```ts
 deno run --allow-net --allow-read --allow-env main.ts
 ```
 
-You should see Server running on: 127.0.0.1:8000 in your terminal. If you go to
-that address you will see the Apollo sandbox where we can enter our ‘dinosaurs’
-query:
+You should see `Server running on: 127.0.0.1:8000` in your terminal. If you go
+to that address you will see the Apollo sandbox where we can enter our
+`dinosaurs` query:
 
 ```graphql
 query {
@@ -161,7 +158,7 @@ This will return our dataset:
 }
 ```
 
-Or if we want just one ‘dinosaur’:
+Or if we want just one `dinosaur`:
 
 ```graphql
 query {
@@ -185,6 +182,6 @@ Which returns:
 }
 ```
 
-You can learn more about Apollo and GraphQL on the Apollo site. You can learn
-more about using Deno and GraphQL with a real database in our [GraphQL
-guide](link to article when its up).
+Awesome!
+
+[Learn more about using Apollo and GraphQL in their tutorials](https://www.apollographql.com/tutorials/).
