@@ -40,7 +40,6 @@ We’re going to export all this within our `typeDefs` type definitions, variabl
 
 ```tsx
 export const typeDefs = `
-
   type Dinosaur {
     name: String
     description: String
@@ -96,8 +95,8 @@ and our `typeDefs` from the schema and our resolvers:
 
 ```tsx
 import { ApolloServer } from "npm:@apollo/server@^4.1";
-import { startStandaloneServer } from "npm:@apollo/server/standalone";
-import { graphql } from "npm:graphql";
+import { startStandaloneServer } from "npm:@apollo/server/standalone@4.1";
+import { graphql } from "npm:graphql@16.6";
 import { typeDefs } from "./schema.ts";
 import { resolvers } from "./resolvers.ts";
 
