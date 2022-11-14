@@ -5,7 +5,7 @@ MySQL is the most popular database in the
 and counts Facebook, Twitter, YouTube, and Netflix among its users.
 
 You can manipulate and query a MySQL database with Deno using the `mysql2` node
-package and the `npm:` modifier. This allows us to use its Promise wrapper and
+package and importing via `npm:mysql2`. This allows us to use its Promise wrapper and
 take advantage of top-level await.
 
 ```tsx
