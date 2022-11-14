@@ -9,7 +9,7 @@ package and importing via `npm:mysql2`. This allows us to use its Promise
 wrapper and take advantage of top-level await.
 
 ```tsx
-import mysql from "npm:mysql2/promise";
+import mysql from "npm:mysql2@^2.3.3/promise";
 ```
 
 ## Connecting to MySQL

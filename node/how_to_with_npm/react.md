@@ -46,8 +46,8 @@ into your `api/data.json`.
 Then, let's update `api/main.ts`:
 
 ```ts
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import { oakCors } from "https://deno.land/x/cors/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
+import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 import data from "./data.json" assert { type: "json" };
 
 const router = new Router();
@@ -100,12 +100,12 @@ We'll use [`react-router-dom`](https://reactrouter.com/en/main) for our routing
 logic. Let's add that to our dependencies in `vite.config.mjs`:
 
 ```mjs
-import { defineConfig } from "npm:vite";
-import react from "npm:@vitejs/plugin-react";
+import { defineConfig } from "npm:vite@^3.1.3";
+import react from "npm:@vitejs/plugin-react@^2.1";
 
-import "npm:react";
-import "npm:react-dom/client";
-import "npm:react-router-dom"; // Add this line
+import "npm:react@^18.2";
+import "npm:react-dom/client@^18.2";
+import "npm:react-router-dom@^6.4"; // Add this line
 
 // https://vitejs.dev/config/
 export default defineConfig({

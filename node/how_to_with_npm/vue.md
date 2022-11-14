@@ -286,11 +286,11 @@ which we'll have to setup and configure in another file.
 
 First, let's import `vue-router` in our `vite.config.mjs` file:
 
-```
-import { defineConfig } from "npm:vite";
-import vue from "npm:@vitejs/plugin-vue";
+```ts
+import { defineConfig } from "npm:vite@^3.1.3";
+import vue from "npm:@vitejs/plugin-vue@^3.2.39";
 
-import "npm:vue";
+import "npm:vue@^3.2.39";
 import "npm:vue-router@4";
 
 // https://vitejs.dev/config/

@@ -9,7 +9,7 @@ with Deno. First we want to create `main.ts` and import the connect method from
 this package:
 
 ```tsx
-import { connect } from "npm:@planetscale/database";
+import { connect } from "npm:@planetscale/database@^1.4";
 ```
 
 ## Configuring our connection

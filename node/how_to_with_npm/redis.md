@@ -21,7 +21,7 @@ node package for Redis using the `npm:` modifier:
 
 ```tsx
 import { Server } from "https://deno.land/std@0.148.0/http/server.ts";
-import { createClient } from "npm:redis";
+import { createClient } from "npm:redis@^4.5";
 ```
 
 We create a Redis client using `createClient` and connect to our local Redis
