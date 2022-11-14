@@ -12,6 +12,8 @@ Prisma.
 
 Let's get started.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-prisma)
+
 ## Setup the application
 
 ```shell

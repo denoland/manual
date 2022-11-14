@@ -7,6 +7,8 @@ MongoDB validation, casting, and other relevant business logic.
 This tutorial will show you how to setup Mongoose and MongoDB with your Deno
 project.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-mongoose)
+
 ## Creating a Mongoose Model
 
 Let's create a simple app that connects to MongoDB, creates a `Dinosaur` model,

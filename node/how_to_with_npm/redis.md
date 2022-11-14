@@ -3,6 +3,8 @@
 [Redis](https://redis.io/) is an in-memory data store you can use for caching,
 as a message broker, or for streaming data.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-redis)
+
 Here we’re going to set up Redis to cache data from an API call to speed up any
 subsequent requests for that data. We’re going to:
 

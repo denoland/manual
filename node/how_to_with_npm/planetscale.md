@@ -4,6 +4,8 @@ Planetscale is a MySQL-compatible serverless database that is designed with a
 developer workflow where developers can create, branch, and deploy databases
 from the command line.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-planetscale)
+
 We’ll use the Planetscale serverless driver, `@planetscale/database`, to work
 with Deno. First we want to create `main.ts` and import the connect method from
 this package:

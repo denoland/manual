@@ -4,6 +4,8 @@
 [2022 Stack Overflow Developer Survey](https://survey.stackoverflow.co/2022/#most-popular-technologies-database)
 and counts Facebook, Twitter, YouTube, and Netflix among its users.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-mysql2)
+
 You can manipulate and query a MySQL database with Deno using the `mysql2` node
 package and importing via `npm:mysql2`. This allows us to use its Promise
 wrapper and take advantage of top-level await.

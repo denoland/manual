@@ -21,6 +21,8 @@ touch schema.ts resolvers.ts main.ts
 
 Let’s go through setting up each.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-apollo)
+
 ## schema.ts
 
 Our `schema.ts` file describes our data. In this case, our data is a list of

@@ -6,6 +6,8 @@ for performance and versatility.
 This How To guide will show you how to create a simple app using Deno, Vite, and
 Vue.
 
+[View source here.](https://github.com/denoland/examples/tree/main/with-vue)
+
 ## Run `npm:create-vite-extra`
 
 We'll use Vite to scaffold our Vue app. First, run:
