@@ -88,7 +88,7 @@ In order to avoid this, you will either need to resolve the issue, utilise the
 together.
 
 You can learn more about type-checking arguments
-[here](../getting_started/command_line_interface#type-checking-flags).
+[here](../../getting_started/command_line_interface.md#type-checking-flags).
 
 ## Determining the type of file
 

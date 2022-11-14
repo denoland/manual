@@ -5,7 +5,7 @@ set up in minutes and use with your existing data source (or REST API). You can
 then connect any GraphQL client to it to receive the data and take advantage of
 GraphQL benefits, such as type-checking and efficient fetching.
 
-We’re going to get a simple Apollo server up and running that will allow us to
+We're going to get a simple Apollo server up and running that will allow us to
 query some local data. We’re only going to need three files for this:
 
 1. `schema.ts` to set up our data model
@@ -25,8 +25,8 @@ Let’s go through setting up each.
 
 Our `schema.ts` file describes our data. In this case, our data is a list of
 dinosaurs. We want our users to be able to get the name and a short description
-of each dino. In GraphQL language, this means that ‘Dinosaur’ is our **type**,
-and ‘name’ and ‘description’ are our **fields**. We can also define the data
+of each dino. In GraphQL language, this means that `Dinosaur` is our **type**,
+and `name` and `description` are our **fields**. We can also define the data
 type for each field. In this case, both are strings.
 
 This is also where we describe the queries we allow for our data, using the
@@ -36,8 +36,7 @@ special **Query** type in GraphQL. We have two queries:
 - `dinosaur` which takes in the `name` of a dinosaur as an argument and returns
   information about that one type of dinosaur.
 
-We’re going to export all this within our`‘typeDefs`, type definitions,
-variable:
+We’re going to export all this within our `typeDefs` type definitions, variable:
 
 ```tsx
 export const typeDefs = `
@@ -96,7 +95,7 @@ In our `main.ts` we’re going to import the `ApolloServer` as well as `graphql`
 and our `typeDefs` from the schema and our resolvers:
 
 ```tsx
-import { ApolloServer } from "npm:@apollo/server";
+import { ApolloServer } from "npm:@apollo/server@^4.1";
 import { startStandaloneServer } from "npm:@apollo/server/standalone";
 import { graphql } from "npm:graphql";
 import { typeDefs } from "./schema.ts";

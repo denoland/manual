@@ -4,7 +4,7 @@ To use React with Deno, we recommend using one of the third-party frameworks
 below.
 
 If you want to better understand how JSX and Deno interface under the hood, read
-on [here](./jsx_dom).
+on [here](../advanced/jsx_dom).
 
 Note:: Fresh and Aleph.js provide a framework for developing React-like
 websites, but use an alternative foundational technology, Preact to provide a
@@ -22,7 +22,7 @@ components.
 
 ## Aleph
 
-[Aleph.js](https://alephjs-alephjs-org-next.deno.dev/docs/get-started)
+[Aleph.js](https://alephjs.org/docs/get-started)
 
 is the second most popular React framework for Deno. It gives you the same sort
 of quick-start with React as Create-React-App. Like Next.js, Aleph provides SSR

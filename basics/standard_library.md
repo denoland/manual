@@ -8,8 +8,8 @@ Standard library is available at: https://deno.land/std@$STD_VERSION
 ## Versioning and stability
 
 Standard library is not yet stable and therefore it is versioned differently
-than Deno. For latest release consult https://deno.land/std/@STD_VERSION or
-https://deno.land/std@STD_VERSION/version.ts. The standard library is released
+than Deno. For latest release consult https://deno.land/std@$STD_VERSION or
+https://deno.land/std@$STD_VERSION/version.ts. The standard library is released
 each time Deno is released.
 
 We strongly suggest to always use imports with pinned version of standard

@@ -17,7 +17,7 @@ Let's get started.
 ```shell
 mkdir rest-api-with-prisma-oak
 cd rest-api-with-prisma-oak
-deno run -A npm:prisma init
+deno run -A npm:prisma@4.6 init
 ```
 
 Update the `prisma/schema.prisma` with the following:
