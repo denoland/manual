@@ -93,7 +93,7 @@ Next, let's create a seed script to seed the database.
 Create `./prisma/seed.ts`:
 
 ```shell
-touch mkdir prisma/seed.ts
+touch prisma/seed.ts
 ```
 
 And in `./prisma/seed.ts`:
@@ -157,7 +157,13 @@ After doing so, your Prisma dashboard should show the new dinosaurs:
 We'll use [`oak`](https://deno.land/x/oak) to create the API routes. Let's keep
 them simple for now.
 
-In your `main.ts` file:
+Let's create a `main.ts` file:
+
+```
+touch main.ts
+```
+
+Then, in your `main.ts` file:
 
 ```ts
 import { PrismaClient } from "./generated/client/deno/edge.ts";
