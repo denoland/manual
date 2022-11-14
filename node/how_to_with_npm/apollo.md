@@ -36,8 +36,7 @@ special **Query** type in GraphQL. We have two queries:
 - ‘_dinosaur’,_ which takes in the name of a dinosaur as an argument and returns
   information about that one type of dinosaur.
 
-We’re going to export all this within our `typeDefs` type definitions,
-variable:
+We’re going to export all this within our `typeDefs` type definitions, variable:
 
 ```tsx
 export const typeDefs = `
