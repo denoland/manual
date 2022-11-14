@@ -21,8 +21,8 @@ can do that by following the initial instructions
 Don’t worry about adding the schema—we can do that through
 `@planetscale/database`.
 
-Once you have created the database, head to Overview, click ‘Connect,’ and
-choose ‘Connect with `@planetscale/database`’ to get the host and username. Then
+Once you have created the database, head to Overview, click "Connect", and
+choose "Connect with `@planetscale/database`" to get the host and username. Then
 click through to Passwords to create a new password for your database. Once you
 have all three you can plug them in directly, or better, store them as
 environment variables:
