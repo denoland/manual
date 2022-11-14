@@ -16,13 +16,22 @@ Let's get started.
 
 ## Setup the application
 
+Let's create the folder `rest-api-with-prisma-oak` and navigate there:
+
 ```shell
 mkdir rest-api-with-prisma-oak
 cd rest-api-with-prisma-oak
-deno run -A npm:prisma@4.6 init
 ```
 
-Update the `prisma/schema.prisma` with the following:
+Then, let's run `prisma init` with Deno:
+
+```shell
+deno run --allow-read --allow-env --allow-write npm:prisma@^4.5.0 init
+```
+
+This will generate
+[`prisma/schema.prisma`](https://www.prisma.io/docs/concepts/components/prisma-schema).
+Let's update it with the following:
 
 ```ts
 generator client {
@@ -43,8 +52,9 @@ model Dinosaur {
 }
 ```
 
-Create a `.env` file and update the connection string with your actual
-PostgreSQL connection string.
+Prisma should also have generated a `.env` file with `DATABASE_URL`. Let's
+assign `DATABASE_URL` to a PostreSQL connection string. In this example, we'll
+use a free [PostgreSQL database from Supabase](https://supabase.com/database).
 
 Next, let's create the database schema:
 
@@ -52,17 +62,17 @@ Next, let's create the database schema:
 deno run -A npm:prisma db push
 ```
 
-After that's complete, let's generate a Prisma client:
+After that's complete, we'll need to generate a Prisma client for Data Proxy:
 
 ```shell
 deno run -A npm:prisma generate --data-prxoxy
 ```
 
-In order to use Prisma Data Platform, we'll first have to create a GitHub repo.
+## Setup Prisma Data Platform
 
-Initialize your repository, add the remote origin, then push to the repo.
-
-## Import your GitHub Project into Prisma Data Platform
+In order to use Prisma Data Platform, we'll have to create and connect a GitHub
+repo. So let's initialize the repository, create a new GitHub repo, add the
+remote origin, and push the repo.
 
 Next, sign up for a free
 [Prisma Data Platform account](https://cloud.prisma.io/).
@@ -72,15 +82,11 @@ Click **New Project** and select **Import a Prisma Repository**.
 It'll ask for your PostgreSQL connection string, which you have in your `.env`.
 Paste it here. Then click **Create Project**.
 
-You'll receive a new connection string that begins with `prisma://`. You'll use
-it in the next section.
+You'll receive a new connection string that begins with `prisma://`. Let's grab
+that and assign it to `DATABASE_URL` in your `.env` file, replacing your
+PostgreSQL string from Supabase.
 
-## Set the Data Proxy Connection string in your environment.
-
-Replace the PostgreSQL connection string in your `.env` file with your new Data
-Proxy connection string.
-
-Let's create a seed script to seed the database.
+Next, let's create a seed script to seed the database.
 
 ## Seed your Database
 
