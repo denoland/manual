@@ -1,8 +1,5 @@
 # Benchmarking Tool
 
-> ⚠️ `deno bench` was introduced in Deno v1.20 and currently requires
-> `--unstable` flag.
-
 Deno has a built-in benchmark runner that you can use for checking performance
 of JavaScript or TypeScript code.
 
