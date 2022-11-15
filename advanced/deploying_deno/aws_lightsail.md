@@ -64,8 +64,8 @@ services:
       - "8000:8000"
 ```
 
-Let's test this locally by running `docker compose up` and going to
-`localhost:8000`.
+Let's test this locally by running `docker compose -f docker-compose.yml build`,
+then `docker compose up`, and going to `localhost:8000`.
 
 ![hello world from localhost](../../images/how-to/aws-lightsail/hello-world-from-localhost.png)
 

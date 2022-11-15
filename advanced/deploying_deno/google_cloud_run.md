@@ -68,10 +68,10 @@ services:
       - "8000:8000"
 ```
 
-Let's test this locally by running `docker compose up` and going to
-`localhost:8000`.
+Let's test this locally by running `docker compose -f docker-compose.yml build`,
+then `docker compose up`, and going to `localhost:8000`.
 
-![Hello from localhost](../../images/how-to/google-cloud-run/hello-from-localhost.png)
+![Hello from localhost](../../images/how-to/google-cloud-run/hello-world-from-localhost.png)
 
 It works!
 

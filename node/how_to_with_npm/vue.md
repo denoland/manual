@@ -229,7 +229,7 @@ fetch the data from the API, we'll use
 [`<Suspense>`](https://vuejs.org/guide/built-ins/suspense.html), which manages
 async dependencies in a component tree.
 
-```tsx
+```tsx, ignore
 <script>
 import { ref } from 'vue'
 import Dinosaurs from './Dinosaurs.vue'
