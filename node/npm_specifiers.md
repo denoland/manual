@@ -38,7 +38,7 @@ npm:<package-name>[@<version-requirement>][/<sub-path>]
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run --unstable --A main.ts
+$ deno run --unstable -A main.ts
 listening on http://localhost:3000/
 ```
 
