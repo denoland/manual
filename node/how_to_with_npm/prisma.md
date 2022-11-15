@@ -26,7 +26,7 @@ cd rest-api-with-prisma-oak
 Then, let's run `prisma init` with Deno:
 
 ```shell
-deno run --allow-read --allow-env --allow-write npm:prisma@^4.5.0 init
+deno run --allow-read --allow-env --allow-write npm:prisma@^4.5 init
 ```
 
 This will generate
@@ -59,13 +59,13 @@ use a free [PostgreSQL database from Supabase](https://supabase.com/database).
 Next, let's create the database schema:
 
 ```shell
-deno run -A npm:prisma db push
+deno run -A npm:prisma@^4.5 db push
 ```
 
 After that's complete, we'll need to generate a Prisma client for Data Proxy:
 
 ```shell
-deno run -A npm:prisma generate --data-prxoxy
+deno run -A npm:prisma@^4.5 generate --data-prxoxy
 ```
 
 ## Setup Prisma Data Platform
