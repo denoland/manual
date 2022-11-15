@@ -66,7 +66,7 @@ Because Deno supports top-level `await`, we're able to simply
 
 Running this, we should expect a log of `1`:
 
-```
+```shell, ignore
 $ deno run --allow-read --allow-sys --allow-env --allow-net main.ts
 1
 ```

@@ -19,7 +19,7 @@ click on one, it'll take you to a dinosaur page with more details.
 This tutorial will use [Vite](https://vitejs.dev/) to quickly scaffold a Deno
 and React app. Let's run:
 
-```sh
+```shell, ignore
 deno run -A npm:create-vite-extra
 ```
 
@@ -35,7 +35,7 @@ In the directory, let's create an `api` folder. In that folder, we'll create a
 `main.ts` file, which will run the server, and a `data.json`, which is the hard
 coded data.
 
-```
+```shell, ignore
 mkdir api && touch api/data.json && touch api/main.ts
 ```
 
@@ -82,7 +82,7 @@ await app.listen({ port: 8000 });
 This is a very simple API server using [`oak`](https://deno.land/x/oak) that
 will return dinosaur information based on the route. Let's start the API server:
 
-```
+```shell, ignore
 deno run --allow-env --allow-net api/main.ts
 ```
 
@@ -154,7 +154,7 @@ There will be two pages in this app:
 
 We'll create a `src/pages` folder and create the `.jsx` files:
 
-```sh
+```shell, ignore
 mkdir src/pages && touch src/pages/Index.jsx src/pages/Dinosaur.jsx
 ```
 

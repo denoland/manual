@@ -77,7 +77,7 @@ server.listenAndServe();
 
 We’ll run this with:
 
-```tsx
+```tsx, ignore
 deno run --allow-net main.ts
 ```
 

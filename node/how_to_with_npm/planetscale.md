@@ -50,7 +50,7 @@ const conn = connect(config);
 This will also work on Deno Deploy if you set the environment variables in the
 dashboard. Run with:
 
-```shell
+```shell, ignore
 deno run --allow-net --allow-env main.ts
 ```
 

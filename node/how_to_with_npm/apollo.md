@@ -15,7 +15,7 @@ query some local data. We’re only going to need three files for this:
 
 We’ll start by creating them:
 
-```bash
+```shell, ignore
 touch schema.ts resolvers.ts main.ts
 ```
 
@@ -122,7 +122,7 @@ up and running quickly.
 
 All that is left to do now is run the server:
 
-```ts
+```shell, ignore
 deno run --allow-net --allow-read --allow-env main.ts
 ```
 

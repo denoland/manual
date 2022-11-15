@@ -12,7 +12,7 @@ Vue.
 
 We'll use Vite to scaffold our Vue app. First, run:
 
-```
+```shell, ignore
 deno run -A npm:create-vite-extra
 ```
 
@@ -20,7 +20,7 @@ Name your project, then select "deno-vue".
 
 Then, `cd` into your new project and run:
 
-```
+```shell, ignore
 deno task dev
 ```
 
@@ -37,7 +37,7 @@ In the directory, let's create an `api` folder. In that folder, we'll create a
 `main.ts` file, which will run the server, and a `data.json`, which is the hard
 coded data.
 
-```
+```shell, ignore
 mkdir api && touch api/data.json && touch api/main.ts
 ```
 
@@ -84,7 +84,7 @@ await app.listen({ port: 8000 });
 This is a very simple API server using [`oak`](https://deno.land/x/oak) that
 will return dinosaur information based on the route. Let's start the API server:
 
-```
+```shell, ignore
 deno run --allow-env --allow-net api/main.ts
 ```
 
@@ -104,7 +104,7 @@ Let's update `src/components`. We'll add the files:
 - `Dinosaur.vue`, the component that shows an individual dinosaur's name and
   description
 
-```
+```shell, ignore
 touch src/components/HomePage.vue src/components/Dinosaurs.vue src/components/Dinosaur.vue
 ```
 
@@ -119,7 +119,7 @@ Note for more complex state management, check out the Vue-endorsed
 
 Create a `src/store.js` file:
 
-```
+```shell, ignore
 touch src/store.js
 ```
 
@@ -205,7 +205,7 @@ In `Dinosaur.vue`, we'll add:
 - importing `store`
 - rendering `store.dinosaur` in the HTML
 
-```tsx
+```tsx, ignore
 <script>
 import { store } from '../store.js';
 export default {

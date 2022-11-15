@@ -15,7 +15,7 @@ In order to deploy Deno to Cloudflare, we'll use this community created CLI
 
 [Install it](https://denoflare.dev/cli/#installation):
 
-```
+```shell, ignore
 deno install --unstable --allow-read --allow-net --allow-env --allow-run --name denoflare --force \
 https://raw.githubusercontent.com/skymethod/denoflare/v0.5.10/cli/cli.ts
 ```
@@ -25,7 +25,7 @@ https://raw.githubusercontent.com/skymethod/denoflare/v0.5.10/cli/cli.ts
 In a new directory, let's create a `main.ts` file, which will contain our Module
 Worker function:
 
-```ts
+```ts, ignore
 export default {
   fetch(request: Request): Response {
     return new Response("Hello, world!");
@@ -38,7 +38,7 @@ that exposes a `fetch` function, which returns a `Response` object.
 
 You can test this locally by running:
 
-```
+```shell, ignore
 denoflare push /absolute/path/to/your/main.ts
 ```
 

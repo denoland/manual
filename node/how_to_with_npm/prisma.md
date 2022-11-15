@@ -19,14 +19,14 @@ Let's get started.
 
 Let's create the folder `rest-api-with-prisma-oak` and navigate there:
 
-```shell
+```shell, ignore
 mkdir rest-api-with-prisma-oak
 cd rest-api-with-prisma-oak
 ```
 
 Then, let's run `prisma init` with Deno:
 
-```shell
+```shell, ignore
 deno run --allow-read --allow-env --allow-write npm:prisma@^4.5 init
 ```
 
@@ -59,13 +59,13 @@ use a free [PostgreSQL database from Supabase](https://supabase.com/database).
 
 Next, let's create the database schema:
 
-```shell
+```shell, ignore
 deno run -A npm:prisma@^4.5 db push
 ```
 
 After that's complete, we'll need to generate a Prisma client for Data Proxy:
 
-```shell
+```shell, ignore
 deno run -A npm:prisma@^4.5 generate --data-prxoxy
 ```
 
@@ -93,7 +93,7 @@ Next, let's create a seed script to seed the database.
 
 Create `./prisma/seed.ts`:
 
-```shell
+```shell, ignore
 touch prisma/seed.ts
 ```
 
@@ -145,7 +145,7 @@ await prisma.$disconnect();
 
 We can now run `seed.ts` with:
 
-```shell
+```shell, ignore
 deno run -A prisma/seed.ts
 ```
 
@@ -160,7 +160,7 @@ them simple for now.
 
 Let's create a `main.ts` file:
 
-```
+```shell, ignore
 touch main.ts
 ```
 
@@ -248,7 +248,7 @@ await app.listen({ port: 8000 });
 
 Now, let's run it:
 
-```shell
+```shell, ignore
 deno run -A main.ts
 ```
 
@@ -258,7 +258,7 @@ Let's visit `localhost:8000/dinosaurs`:
 
 Next, let's `POST` a new user with this `curl` command:
 
-```shell
+```shell, ignore
 curl -X POST http://localhost:8000/dinosaur -H "Content-Type: application/json" -d '{"name": "Deno", "description":"The fastest, most secure, easiest to use Dinosaur ever to walk the Earth."}'
 ```
 
