@@ -4,9 +4,9 @@ Deno currently has three HTTP Server APIs:
 
 - [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts):
   part of the standard library, high-level.
-- [`Deno.serve`](https://deno.land/api@v$CLI_VERSION?unstable&s=Deno.serve):
+- [`Deno.serve`](https://deno.land/api@$CLI_VERSION?unstable&s=Deno.serve):
   native, _higher-level_, supports only http/1.1, but is fast, unstable.
-- [`Deno.serveHttp`](https://deno.land/api@v$CLI_VERSION?s=Deno.serveHttp):
+- [`Deno.serveHttp`](https://deno.land/api@$CLI_VERSION?s=Deno.serveHttp):
   native, _low-level_, supports http/2, stable.
 
 ## `serve` from `std/http`
