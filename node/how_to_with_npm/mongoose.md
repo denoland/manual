@@ -24,7 +24,7 @@ $ touch main.ts && mkdir model && touch model/Dinosaur.ts
 In `/model/Dinosaur.ts`, we'll import `npm:mongoose`, define the [schema], and
 export it:
 
-```ts
+```ts, ignore
 import { model, Schema } from "npm:mongoose@^6.7";
 
 // Define schema.
@@ -51,7 +51,7 @@ export default model("Dinosaur", dinosaurSchema);
 Now, in our `main.ts` file, we'll import mongoose and the `Dinosaur` schema, and
 connect to MongoDB:
 
-```ts
+```ts, ignore
 import mongoose from "npm:mongoose@^6.7";
 import Dinosaur from "./model/Dinosaur.ts";
 
@@ -78,7 +78,7 @@ It worked!
 Let's add an instance [method](https://mongoosejs.com/docs/guide.html#methods)
 to our `Dinosaur` schema in `/model/Dinosaur.ts`:
 
-```ts
+```ts, ignore
 // ./model/Dinosaur.ts
 
 // Methods.
@@ -98,7 +98,7 @@ description.
 
 Back in `main.ts`, let's start adding and manipulating data in MongoDB.
 
-```ts
+```ts, ignore
 // main.ts
 
 // Create a new Dinosaur.

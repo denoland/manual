@@ -34,7 +34,7 @@ This will generate
 [`prisma/schema.prisma`](https://www.prisma.io/docs/concepts/components/prisma-schema).
 Let's update it with the following:
 
-```ts
+```ts, ignore
 generator client {
   provider = "prisma-client-js"
   previewFeatures = ["deno"]
@@ -99,7 +99,7 @@ touch prisma/seed.ts
 
 And in `./prisma/seed.ts`:
 
-```ts
+```ts, ignore
 import { Prisma, PrismaClient } from "../generated/client/deno/edge.ts";
 import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";
 
@@ -166,7 +166,7 @@ touch main.ts
 
 Then, in your `main.ts` file:
 
-```ts
+```ts, ignore
 import { PrismaClient } from "./generated/client/deno/edge.ts";
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";

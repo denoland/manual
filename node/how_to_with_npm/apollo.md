@@ -40,7 +40,7 @@ special **Query** type in GraphQL. We have two queries:
 
 We’re going to export all this within our `typeDefs` type definitions, variable:
 
-```tsx
+```tsx, ignore
 export const typeDefs = `
   type Dinosaur {
     name: String
@@ -65,7 +65,7 @@ our list of dinosaurs and all the resolver is going to do is either a) pass that
 entire list to the client if the user requests the `dinosaurs` query, or pass
 just one if the user requests the `dinosaur` query.
 
-```tsx
+```tsx, ignore
 const dinosaurs = [
   {
     name: "Aardonyx",
@@ -95,7 +95,7 @@ the name to a name in our dataset.
 In our `main.ts` we’re going to import the `ApolloServer` as well as `graphql`
 and our `typeDefs` from the schema and our resolvers:
 
-```tsx
+```tsx, ignore
 import { ApolloServer } from "npm:@apollo/server@^4.1";
 import { startStandaloneServer } from "npm:@apollo/server@4.1/standalone";
 import { graphql } from "npm:graphql@16.6";
@@ -130,7 +130,7 @@ You should see `Server running on: 127.0.0.1:8000` in your terminal. If you go
 to that address you will see the Apollo sandbox where we can enter our
 `dinosaurs` query:
 
-```graphql
+```graphql, ignore
 query {
   dinosaurs {
     name
@@ -160,7 +160,7 @@ This will return our dataset:
 
 Or if we want just one `dinosaur`:
 
-```graphql
+```graphql, ignore
 query {
   dinosaur(name:"Aardonyx") {
     name
@@ -171,7 +171,7 @@ query {
 
 Which returns:
 
-```graphql
+```graphql, ignore
 {
   "data": {
     "dinosaur": {
