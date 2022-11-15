@@ -12,5 +12,5 @@ platforms.
 
 - [Digital Ocean](deploying_deno/digital_ocean.md)
 - [AWS Lightsail](deploying_deno/aws_lightsail.md)
-- [Google Cloud Run](deploying_deno/google-cloud-run.md)
+- [Google Cloud Run](deploying_deno/google_cloud_run.md)
 - [Cloudflare Workers](deploying_deno/cloudflare_workers.md)

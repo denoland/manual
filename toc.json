@@ -226,6 +226,15 @@
         "name": "Continuous Integration",
         "redirectFrom": ["/continuous_integration"]
       },
+      "deploying_deno": {
+        "name": "Deploying Deno",
+        "children": {
+          "digital_ocean": "Digital Ocean",
+          "google_cloud_run": "Google Cloud Run",
+          "aws_lightsail": "AWS Lightsail",
+          "cloudflare_workers": "Cloudflare Workers"
+        }
+      },
       "typescript": {
         "name": "Using TypeScript",
         "redirectFrom": ["/typescript"],

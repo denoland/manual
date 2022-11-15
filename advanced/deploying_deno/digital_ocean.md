@@ -66,7 +66,7 @@ services:
 Let's test this locally by running `docker compose up` and going to
 `localhost:8000`.
 
-![Hello from localhost](../../images/how-to/digital-ocean/hello-from-localhost.png)
+![Hello from localhost](../../images/how-to/digital-ocean/hello-world-from-localhost.png)
 
 It works!
 
