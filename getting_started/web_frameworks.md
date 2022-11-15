@@ -42,7 +42,7 @@ media-rich websites, similar to Next.js.
 
 Deno itself supports JSX and TypeScript out-of-the-box (and therefore Ultra does
 as well), but they don't work in the browser. Ultra takes over the task of
-transpiling JSK and TypeScript to regular JavaScript.
+transpiling JSX and TypeScript to regular JavaScript.
 
 Other highlights of Ultra include:
 
