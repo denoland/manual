@@ -198,7 +198,7 @@ export default Index;
 Next, in `<Dinosaur>`, we'll do the same except for
 `localhost:8000/api/${dinosaur}`:
 
-```jsx
+```jsx, ignore
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
