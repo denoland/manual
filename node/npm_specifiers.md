@@ -1,9 +1,9 @@
 # Using npm packages with npm specifiers
 
-Deno release 1.28 offers stabilized support for npm specifiers. npm specifiers
-allow you to use npm modules directly in Deno with a higher chance of
-compatibility than importing from CDNs, particularly if the modules depend on
-artifact files in their package.
+Deno 1.28 stabilizes support for npm specifiers, which allow you to use npm
+modules directly in Deno with a higher chance of compatibility than importing
+from CDN's, particularly if the modules depend on artifact files in their
+package.
 
 It is important to emphasize that even though this feature was stabilized for
 use with `deno run` and some other sub commands in Deno 1.28, it is still under
@@ -18,7 +18,7 @@ The way these work is best described with an example:
 
 ```ts, ignore
 // main.ts
-import express from "npm:express@4.18";
+import express from "npm:express@^4.18";
 const app = express();
 
 app.get("/", function (req, res) {
@@ -38,7 +38,7 @@ npm:<package-name>[@<version-requirement>][/<sub-path>]
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run --unstable --A main.ts
+$ deno run --A main.ts
 listening on http://localhost:3000/
 ```
 

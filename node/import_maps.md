@@ -45,7 +45,7 @@ written something similar to the following in our import map:
 ```json
 {
   "imports": {
-    "lodash": "npm:lodash@4.17"
+    "lodash": "npm:lodash@^4.17"
   }
 }
 ```

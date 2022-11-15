@@ -98,6 +98,19 @@
       "cdns": "Using Node.js Packages Via CDNs",
       "std_node": "The std/node Library",
       "import_maps": "Using Import Maps",
+      "how_to_with_npm": {
+        "name": "How To guides with npm",
+        "children": {
+          "prisma": "Prisma",
+          "mongoose": "Mongoose",
+          "apollo": "Apollo",
+          "mysql2": "MySQL2",
+          "redis": "Redis",
+          "planetscale": "PlanetScale",
+          "react": "React",
+          "vue": "Vue"
+        }
+      },
       "faqs": "Frequently Asked Questions"
     }
   },
@@ -212,6 +225,15 @@
       "continuous_integration": {
         "name": "Continuous Integration",
         "redirectFrom": ["/continuous_integration"]
+      },
+      "deploying_deno": {
+        "name": "Deploying Deno",
+        "children": {
+          "digital_ocean": "Digital Ocean",
+          "google_cloud_run": "Google Cloud Run",
+          "aws_lightsail": "AWS Lightsail",
+          "cloudflare_workers": "Cloudflare Workers"
+        }
       },
       "typescript": {
         "name": "Using TypeScript",
