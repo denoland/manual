@@ -47,7 +47,7 @@ into your `api/data.json`.
 
 Then, let's update `api/main.ts`:
 
-```ts
+```ts, ignore
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
 import data from "./data.json" assert { type: "json" };
@@ -125,7 +125,7 @@ touch src/store.js
 
 And in it, let's add:
 
-```js
+```js, ignore
 import { reactive } from "vue";
 
 export const store = reactive({
@@ -152,7 +152,7 @@ In `Dinosaurs.vue`, we'll three things:
 
 Here is the complete code below:
 
-```tsx
+```tsx, ignore
 <script>
 import { ref } from 'vue'
 import { store } from '../store.js'
@@ -268,7 +268,7 @@ export default {
 
 Tying it all together, let's update `src/App.vue`:
 
-```tsx
+```tsx, ignore
 <script setup>
 </script>
 
@@ -288,7 +288,7 @@ which we'll have to setup and configure in another file.
 
 First, let's import `vue-router` in our `vite.config.mjs` file:
 
-```ts
+```ts, ignore
 import { defineConfig } from "npm:vite@^3.1.3";
 import vue from "npm:@vitejs/plugin-vue@^3.2.39";
 
@@ -311,7 +311,7 @@ In `router/index.ts`, we'll create `router`, which contains information about
 each route and their component, and export it. For more information on using
 `vue-router`, check out their [guide](https://router.vuejs.org/guide).
 
-```ts
+```ts, ignore
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "../components/HomePage.vue";
 import Dinosaur from "../components/Dinosaur.vue";
@@ -341,7 +341,7 @@ export default router;
 Next, in our `src/main.ts` file, which contains all of the logic for the
 frontend app, we'll have to import and use `router`:
 
-```ts
+```ts, ignore
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";

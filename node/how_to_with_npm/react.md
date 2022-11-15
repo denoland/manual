@@ -45,7 +45,7 @@ into your `api/data.json`.
 
 Then, let's update `api/main.ts`:
 
-```ts
+```ts, ignore
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
 import data from "./data.json" assert { type: "json" };
@@ -99,7 +99,7 @@ Our app will have two routes: `/` and `/:dinosaur`.
 We'll use [`react-router-dom`](https://reactrouter.com/en/main) for our routing
 logic. Let's add that to our dependencies in `vite.config.mjs`:
 
-```mjs
+```mjs, ignore
 import { defineConfig } from "npm:vite@^3.1.3";
 import react from "npm:@vitejs/plugin-react@^2.1";
 
@@ -118,7 +118,7 @@ throughout our React app.
 
 Next, let's go to `src/App.jsx` and add our routing logic:
 
-```jsx
+```jsx, ignore
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -161,7 +161,7 @@ mkdir src/pages && touch src/pages/Index.jsx src/pages/Dinosaur.jsx
 Let's start with `<Index>`. This page will `fetch` at `localhost:8000/api` and
 render that through JSX.
 
-```jsx
+```jsx, ignore
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
