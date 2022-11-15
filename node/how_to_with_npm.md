@@ -7,7 +7,7 @@ npm module with Deno.
 
 - [Prisma](how_to_with_npm/prisma.md)
 - [Mongoose](how_to_with_npm/mongoose.md)
-- [MySQL](how_to_with_npm/mysql.md)
+- [MySQL2](how_to_with_npm/mysql2.md)
 - [Redis](how_to_with_npm/redis.md)
 - [Apollo](how_to_with_npm/apollo.md)
 - [PlanetScale](how_to_with_npm/planetscale.md)

@@ -152,7 +152,7 @@ In `Dinosaurs.vue`, we'll three things:
 
 Here is the complete code below:
 
-```vue
+```tsx
 <script>
 import { ref } from 'vue'
 import { store } from '../store.js'
@@ -205,7 +205,7 @@ In `Dinosaur.vue`, we'll add:
 - importing `store`
 - rendering `store.dinosaur` in the HTML
 
-```vue
+```tsx
 <script>
 import { store } from '../store.js';
 export default {
@@ -229,7 +229,7 @@ fetch the data from the API, we'll use
 [`<Suspense>`](https://vuejs.org/guide/built-ins/suspense.html), which manages
 async dependencies in a component tree.
 
-```vue
+```tsx
 <script>
 import { ref } from 'vue'
 import Dinosaurs from './Dinosaurs.vue'
@@ -268,7 +268,7 @@ export default {
 
 Tying it all together, let's update `src/App.vue`:
 
-```vue
+```tsx
 <script setup>
 </script>
 

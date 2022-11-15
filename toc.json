@@ -104,7 +104,7 @@
           "prisma": "Prisma",
           "mongoose": "Mongoose",
           "apollo": "Apollo",
-          "mysql": "MySQL",
+          "mysql2": "MySQL2",
           "redis": "Redis",
           "planetscale": "PlanetScale",
           "react": "React",

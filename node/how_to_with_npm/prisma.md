@@ -12,7 +12,8 @@ Prisma.
 
 Let's get started.
 
-[View source here.](https://github.com/denoland/examples/tree/main/with-prisma)
+[View source](https://github.com/denoland/examples/tree/main/with-prisma) or
+[check out the video guide](https://youtu.be/P8VzA_XSF8w).
 
 ## Setup the application
 
