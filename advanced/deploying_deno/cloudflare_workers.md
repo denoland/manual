@@ -52,7 +52,7 @@ Hello, world!
 
 The next step is to create a `.denoflare` config file. In it, let's add:
 
-```
+```json
 {
   "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.10/common/config.schema.json",
   "scripts": {
