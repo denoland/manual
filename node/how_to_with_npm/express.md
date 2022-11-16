@@ -18,7 +18,7 @@ touch main.ts
 
 In `main.ts`, let's create a simple server:
 
-```ts
+```ts, ignore
 import express from "npm:express@4.18.2";
 
 const app = express();
@@ -60,7 +60,7 @@ And paste in the dinosaur data.
 Next, let's import that data into `main.ts`. Let's add this line at the top of
 the file:
 
-```ts
+```ts, ignore
 import data from "./data.json" assert { type: "json" };
 ```
 
@@ -68,7 +68,7 @@ Then, we can create the routes to access that data. To keep it simple, let's
 just define `GET` handlers for `/api/` and `/api/:dinosaur`. Add the below after
 the `const app = express();` line:
 
-```ts
+```ts, ignore
 app.get("/", (req, res) => {
   res.send("Welcome to the Dinosaur API!");
 });
@@ -96,7 +96,7 @@ app.listen(8000);
 Let's run the server with `deno run -A main.ts` and check out
 `localhost:8000/api`. You should see a list of dinosaurs:
 
-```json
+```json, ignore
 [
   {
     "name": "Aardonyx",
@@ -115,7 +115,7 @@ Let's run the server with `deno run -A main.ts` and check out
 
 And when we go to `localhost:8000/api/aardonyx`:
 
-```json
+```json, ignore
 {
   "name": "Aardonyx",
   "description": "An early stage in the evolution of sauropods."
