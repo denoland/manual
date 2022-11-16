@@ -12,7 +12,8 @@ click on one, it'll take you to a dinosaur page with more details.
 
 ![demo of the app](../../images/how-to/react/react-dinosaur-app-demo.gif)
 
-[View source here.](https://github.com/denoland/examples/tree/main/with-react)
+[View source](https://github.com/denoland/examples/tree/main/with-react) or
+[follow the video guide](https://www.youtube.com/watch?v=eStwt_2THd8).
 
 ## Create Vite Extra
 
@@ -20,7 +21,7 @@ This tutorial will use [Vite](https://vitejs.dev/) to quickly scaffold a Deno
 and React app. Let's run:
 
 ```shell, ignore
-deno run -A npm:create-vite-extra
+deno run --allow-env --allow-read --allow-write npm:create-vite-extra
 ```
 
 We'll name our project "dinosaur-react-app". Then, `cd` into the newly created
@@ -60,13 +61,11 @@ router
   })
   .get("/api/:dinosaur", (context) => {
     if (context?.params?.dinosaur) {
-      const filtered = data.filter((item) =>
-        item["name"].toLowerCase() === context.params.dinosaur.toLowerCase()
-      );
-      if (filtered.length === 0) {
+      const found = data.find(item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase());
+      if (found) {
+        context.response.body = found;
+        } else {
         context.response.body = "No dinosaurs found.";
-      } else {
-        context.response.body = filtered[0];
       }
     }
   });
