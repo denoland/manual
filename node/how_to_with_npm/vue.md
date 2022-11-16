@@ -13,7 +13,7 @@ Vue.
 We'll use Vite to scaffold our Vue app. First, run:
 
 ```shell, ignore
-deno run -A npm:create-vite-extra
+deno run --allow-read --allow-write --allow-env npm:create-vite-extra@latest
 ```
 
 Name your project, then select "deno-vue".
@@ -62,13 +62,11 @@ router
   })
   .get("/api/:dinosaur", (context) => {
     if (context?.params?.dinosaur) {
-      const filtered = data.filter((item) =>
-        item["name"].toLowerCase() === context.params.dinosaur.toLowerCase()
-      );
-      if (filtered.length === 0) {
+      const found = data.find(item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase());
+      if (found) {
+        context.response.body = found;
+        } else {
         context.response.body = "No dinosaurs found.";
-      } else {
-        context.response.body = filtered[0];
       }
     }
   });
@@ -269,15 +267,9 @@ export default {
 Tying it all together, let's update `src/App.vue`:
 
 ```tsx, ignore
-<script setup>
-</script>
-
 <template>
   <router-view/>
 </template>
-
-<style scoped>
-</style>
 ```
 
 ## Add routing

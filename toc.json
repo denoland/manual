@@ -108,7 +108,8 @@
           "redis": "Redis",
           "planetscale": "PlanetScale",
           "react": "React",
-          "vue": "Vue"
+          "vue": "Vue",
+          "express": "Express"
         }
       },
       "faqs": "Frequently Asked Questions"

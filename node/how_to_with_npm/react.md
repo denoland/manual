@@ -20,7 +20,7 @@ This tutorial will use [Vite](https://vitejs.dev/) to quickly scaffold a Deno
 and React app. Let's run:
 
 ```shell, ignore
-deno run -A npm:create-vite-extra
+deno run --allow-env --allow-read --allow-write npm:create-vite-extra@latest
 ```
 
 We'll name our project "dinosaur-react-app". Then, `cd` into the newly created
@@ -60,13 +60,11 @@ router
   })
   .get("/api/:dinosaur", (context) => {
     if (context?.params?.dinosaur) {
-      const filtered = data.filter((item) =>
-        item["name"].toLowerCase() === context.params.dinosaur.toLowerCase()
-      );
-      if (filtered.length === 0) {
+      const found = data.find(item => item.name.toLowerCase() === context.params.dinosaur.toLowerCase());
+      if (found) {
+        context.response.body = found;
+        } else {
         context.response.body = "No dinosaurs found.";
-      } else {
-        context.response.body = filtered[0];
       }
     }
   });
