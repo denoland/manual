@@ -12,7 +12,8 @@ click on one, it'll take you to a dinosaur page with more details.
 
 ![demo of the app](../../images/how-to/react/react-dinosaur-app-demo.gif)
 
-[View source here.](https://github.com/denoland/examples/tree/main/with-react)
+[View source](https://github.com/denoland/examples/tree/main/with-react) or
+[follow the video guide](https://www.youtube.com/watch?v=eStwt_2THd8).
 
 ## Create Vite Extra
 
