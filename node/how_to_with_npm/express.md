@@ -79,7 +79,7 @@ app.get("/api", (req, res) => {
 
 app.get("/api/:dinosaur", (req, res) => {
   if (req?.params?.dinosaur) {
-    const filtered = data.filter(function (item) {
+    const filtered = data.filter((item) => {
       return item["name"].toLowerCase() === req.params.dinosaur.toLowerCase();
     });
     if (filtered.length === 0) {
