@@ -81,9 +81,9 @@ app.get("/api/:dinosaur", (req, res) => {
   if (req?.params?.dinosaur) {
     const found = data.find(item => item.name.toLowerCase() === req.params.dinosaur.toLowerCase());
     if (found) {
-      context.response.body = found;
-      } else {
-      context.response.body = "No dinosaurs found.";
+      res.send(found)
+    } else {
+      res.send("No dinosaurs found.");
     }
   }
 });
