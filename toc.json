@@ -94,8 +94,8 @@
   "node": {
     "name": "npm Modules",
     "children": {
-      "npm_specifiers": "Using Node.js Packages with npm Specifiers",
-      "cdns": "Using Node.js Packages Via CDNs",
+      "npm_specifiers": "Using npm Packages with npm Specifiers",
+      "cdns": "Using npm Packages Via CDNs",
       "std_node": "The std/node Library",
       "import_maps": "Using Import Maps",
       "how_to_with_npm": {
