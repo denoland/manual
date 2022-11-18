@@ -7,7 +7,7 @@ artifact files in their package.
 
 It is important to emphasize that even though this feature was stabilized for
 use with `deno run` and some other sub commands in Deno 1.28, it is still under
-development and doesn't work in some scenarios (ex. with `deno bundle`). You're
+development and doesn't work in some scenarios (ex. with `deno bundle`). You'll
 likely find scenarios where something doesn't work. Please report these problems
 to the [issue tracker](https://github.com/denoland/deno/issues). We'll be
 working hard to improve the compatibility layer and user experience in the near
