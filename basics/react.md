@@ -22,9 +22,7 @@ components.
 
 ## Aleph
 
-[Aleph.js](https://alephjs.org/docs/get-started)
-
-is the second most popular React framework for Deno. It gives you the same sort
+[Aleph.js](https://alephjs.org/docs/get-started) is the second most popular React framework for Deno. It gives you the same sort
 of quick-start with React as Create-React-App. Like Next.js, Aleph provides SSR
 and SSG out of the box in order to allow developers to create SEO-friendly apps.
 In addition, Aleph provides some other built-in features that don’t come out of
