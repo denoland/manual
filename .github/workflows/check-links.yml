@@ -2,7 +2,7 @@ name: check-links
 
 on:
   push:
-    branches: [main, schedule_link_checker]
+    branches: [main]
   schedule:
     - cron: '0 0 * * *' # every day at midnight
 
