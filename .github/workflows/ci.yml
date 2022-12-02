@@ -4,40 +4,21 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main, rewrite]
+    branches: [main]
 
 jobs:
-  broken-links:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-    
-      - name: Check Markdown Links
-        uses: ruzickap/action-my-markdown-link-checker@v1
-        with:
-          config_file: .github/.mlc_config.json
-
   format:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Deno
-        uses: denoland/setup-deno@v1.0.0
-
-      - name: Format
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1.1.1
+      - name: Check Format
         run: deno fmt --check
 
   type-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Deno
-        uses: denoland/setup-deno@v1.0.0
-
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1.1.1
       - name: Type-check Deno manual
         run: deno test --doc --unstable --import-map=.github/import_map.json --no-check=remote
