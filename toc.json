@@ -152,7 +152,10 @@
     "name": "Publishing Modules"
   },
   "embedding_deno": {
-    "name": "Embedding Deno"
+    "name": "Embedding Deno",
+    "children": {
+      "crates_overview": "General Overview of the deno crates and what they do"
+    }
   },
   "help": {
     "name": "Help"
