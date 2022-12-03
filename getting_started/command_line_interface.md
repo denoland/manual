@@ -161,15 +161,15 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 
 | Subcommand     | Type checking mode |
 | -------------- | ------------------ |
-| `deno bench`   | 📁 Local            |
-| `deno bundle`  | 📁 Local            |
-| `deno cache`   | ❌ None             |
-| `deno check`   | 📁 Local            |
-| `deno compile` | 📁 Local            |
-| `deno eval`    | ❌ None             |
-| `deno repl`    | ❌ None             |
-| `deno run`     | ❌ None             |
-| `deno test`    | 📁 Local            |
+| `deno bench`   | 📁 Local           |
+| `deno bundle`  | 📁 Local           |
+| `deno cache`   | ❌ None            |
+| `deno check`   | 📁 Local           |
+| `deno compile` | 📁 Local           |
+| `deno eval`    | ❌ None            |
+| `deno repl`    | ❌ None            |
+| `deno run`     | ❌ None            |
+| `deno test`    | 📁 Local           |
 
 ### Permission flags
 
