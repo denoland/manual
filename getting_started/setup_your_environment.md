@@ -146,6 +146,14 @@ An example configuration for Deno via eglot:
     :lint t))
 ```
 
+### Atom
+
+The [Atom editor](https://atom.io) supports integrating with the Deno language
+server via the [atom-ide-deno](https://atom.io/packages/atom-ide-deno) package.
+`atom-ide-deno` requires that the Deno CLI be installed and the
+[atom-ide-base](https://atom.io/packages/atom-ide-base) package to be installed
+as well.
+
 ### Sublime Text
 
 [Sublime Text](https://www.sublimetext.com/) supports connecting to the Deno
