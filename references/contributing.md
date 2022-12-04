@@ -122,10 +122,10 @@ Additionally to the above make sure that:
 1. `cargo test` passes - this will run full test suite for `deno` including unit
    tests, integration tests and Web Platform Tests
 
-1. Run `./tools/format.js` - this will format all of the code to adhere to the
+1. Run `./tools/fmt.rs` - this will format all of the code to adhere to the
    consistent style in the repository
 
-1. Run `./tools/lint.js` - this will check Rust and JavaScript code for common
+1. Run `./tools/lint.rs` - this will check Rust and JavaScript code for common
    mistakes and errors using `clippy` (for Rust) and `dlint` (for JavaScript)
 
 ## Submitting a PR to [`deno_std`](https://github.com/denoland/deno_std)
