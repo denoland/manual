@@ -146,7 +146,7 @@ One of the most common usecases for Deno is building an HTTP Server.
 
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
-import { urlJoin } from 'https://deno.land/x/url_join/mod.ts';
+import { urlJoin } from "https://deno.land/x/url_join/mod.ts";
 
 const port = 8080;
 
