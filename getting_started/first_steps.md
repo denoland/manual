@@ -169,7 +169,7 @@ const handler = async (request: Request): Promise<Response> => {
 
 console.log(`Listening on http://localhost:${port}`);
 serve(handler, {
-   port
+   port,
 });
 ```
 
