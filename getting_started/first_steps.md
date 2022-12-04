@@ -146,11 +146,13 @@ One of the most common usecases for Deno is building an HTTP Server.
 
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
+import { urlJoin } from 'https://deno.land/x/url_join/mod.ts';
 
 const port = 8080;
 
 const handler = async (request: Request): Promise<Response> => {
-  const resp = await fetch("https://api.github.com/users/denoland", {
+  const url = urlJoin("https://api.github.com", "users", "denoland");
+  const resp = await fetch(url, {
     // The init object here has an headers object containing a
     // header that indicates what type of response we accept.
     // We're not specifying the method field since by default
