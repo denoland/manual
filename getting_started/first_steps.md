@@ -167,8 +167,10 @@ const handler = async (request: Request): Promise<Response> => {
   });
 };
 
-console.log("Listening on http://localhost:8000");
-serve(handler);
+console.log(`Listening on http://localhost:${port}`);
+serve(handler, {
+   port
+});
 ```
 
 Let's walk through what this program does.
