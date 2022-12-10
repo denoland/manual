@@ -22,5 +22,5 @@ For more details, view the chapter on
 [Built-in APIs](./runtime/builtin_apis.md).
 
 The TypeScript definitions for the Deno namespaces can be found in the
-[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/dts/lib.deno.ns.d.ts)
+[`lib.deno.ns.d.ts`](https://github.com/denoland/deno/blob/$CLI_VERSION/cli/tsc/dts/lib.deno.ns.d.ts)
 file.
