@@ -179,9 +179,9 @@ const supabase = createClient(
 
 ## ORMs
 
-Object-Relational Mappings (ORM) define your data models as
-classes that you can persist to a database. You can read and
-write data in your database through instances of these classes.
+Object-Relational Mappings (ORM) define your data models as classes that you can
+persist to a database. You can read and write data in your database through
+instances of these classes.
 
 Deno supports multiple ORMs, including Prisma and DenoDB.
 
@@ -211,15 +211,15 @@ const db = new Database(connection);
 
 ## GraphQL
 
-GraphQL is an API query language often used to compose disparate data
-sources into client-centric APIs. To set up a GraphQL API, you should first set
-up a GraphQL server. This server exposes your data as a GraphQL API that your
-client applications can query for data.
+GraphQL is an API query language often used to compose disparate data sources
+into client-centric APIs. To set up a GraphQL API, you should first set up a
+GraphQL server. This server exposes your data as a GraphQL API that your client
+applications can query for data.
 
 ### Server
 
-You can use [gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware for Deno,
-to run a GraphQL API server in Deno.
+You can use [gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware
+for Deno, to run a GraphQL API server in Deno.
 
 #### Run a GraphQL API server with gql
 
