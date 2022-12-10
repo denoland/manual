@@ -62,7 +62,7 @@ Rust bindings for the V8 JavaScript engine. Very technical and low-level.
 
 Languages: **Rust**
 
-### [`serde_v8`](https://github.com/denoland/serde_v8)
+### [`serde_v8`](https://github.com/denoland/deno/tree/main/serde_v8)
 
 Library that provides bijection layer between V8 and Rust objects. Based on
 [`serde`](https://crates.io/crates/serde) library. Very technical and low-level.

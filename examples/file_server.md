@@ -9,7 +9,7 @@
 
 ## Overview
 
-s Sending files over the network is a common requirement. As seen in the
+Sending files over the network is a common requirement. As seen in the
 [Fetch Data example](./fetch_data.md), because files can be of any size, it is
 important to use streams in order to prevent having to load entire files into
 memory.
