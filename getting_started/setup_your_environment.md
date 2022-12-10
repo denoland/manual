@@ -400,3 +400,5 @@ There are several environment variables which can impact the behavior of Deno:
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
   environment variables. See the [Proxies](../basics/modules/proxies.md) section
   for more information.
+- `NPM_CONFIG_REGISTRY` - The npm registry to use when loading modules via
+  [npm specifiers](../node/npm_specifiers.md)
