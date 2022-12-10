@@ -89,8 +89,9 @@ the root of the project.
 #### coc.nvim
 
 Once you have
-[coc.nvim installed](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
-installed, you need to install the required plugin via `:CocInstall coc-deno`.
+[coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
+installed, you need to install the required
+[coc-deno](https://github.com/fannheyward/coc-deno) via `:CocInstall coc-deno`.
 
 Once the plugin is installed, and you want to enable Deno for a workspace, run
 the command `:CocCommand deno.initializeWorkspace` and you should be able to
