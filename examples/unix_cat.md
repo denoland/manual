@@ -19,7 +19,7 @@ is opened, and printed to stdout (e.g. the console).
 /**
  * cat.ts
  */
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
+import { copy } from "https://deno.land/std@$STD_VERSION/streams/copy.ts";
 for (const filename of Deno.args) {
   const file = await Deno.open(filename);
   await copy(file, Deno.stdout);
