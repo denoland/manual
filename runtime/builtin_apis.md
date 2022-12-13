@@ -11,8 +11,8 @@ of the most important.
 ## Errors
 
 The Deno runtime comes with
-[19 error classes](https://deno.land/api@$CLI_VERSION#Errors) that can be
-raised in response to a number of conditions.
+[19 error classes](https://deno.land/api@$CLI_VERSION#Errors) that can be raised
+in response to a number of conditions.
 
 Some examples are:
 
