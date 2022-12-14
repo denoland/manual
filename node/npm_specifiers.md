@@ -1,32 +1,25 @@
 # Using npm packages with npm specifiers
 
-Deno release 1.28 offers stabilized support for npm specifiers. npm specifiers
-allow you to use npm modules directly in Deno with a higher chance of
-compatibility than importing from CDNs, particularly if the modules depend on
-artifact files in their package.
+Deno 1.28 stabilizes support for npm specifiers, which allow you to use npm
+modules directly in Deno with a higher chance of compatibility than importing
+from CDN's, particularly if the modules depend on artifact files in their
+package.
 
 It is important to emphasize that even though this feature was stabilized for
 use with `deno run` and some other sub commands in Deno 1.28, it is still under
 development and doesn't work in some scenarios (ex. with `deno bundle`). You're
-likely find scenarios where something doesn't work. Please report these problems
-to the [issue tracker](https://github.com/denoland/deno/issues). We'll be
-working hard to improve the compatibility layer and user experience in the near
-future. You can follow
+likely to find scenarios where something doesn't work. Please report these
+problems to the [issue tracker](https://github.com/denoland/deno/issues). We'll
+be working hard to improve the compatibility layer and user experience in the
+near future. You can follow
 [issue 15960](https://github.com/denoland/deno/issues/15960) for updates.
 
 The way these work is best described with an example:
 
 ```ts, ignore
-// main.ts
-import express from "npm:express@4.18";
-const app = express();
+import chalk from "npm:chalk@5";
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
-
-app.listen(3000);
-console.log("listening on http://localhost:3000/");
+console.log(chalk.green("Hello!"));
 ```
 
 These npm specifiers have the following format:
@@ -35,10 +28,26 @@ These npm specifiers have the following format:
 npm:<package-name>[@<version-requirement>][/<sub-path>]
 ```
 
+Another example with express:
+
+```ts, ignore
+// main.ts
+// @deno-types="npm:@types/express@^4.17"
+import express from "npm:express@^4.17";
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(3000);
+console.log("listening on http://localhost:3000/");
+```
+
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run --unstable --A main.ts
+$ deno run --A main.ts
 listening on http://localhost:3000/
 ```
 
@@ -49,8 +58,8 @@ get asked for, but in the future the above program will only require network
 permissions.
 
 These specifiers currently work with `deno run`, `deno check`, `deno info`,
-`deno lsp`, `deno test`, and `deno bench`, but do not with `deno vendor`,
-`deno install`, `deno repl`, and `deno bundle` at the moment.
+`deno install`, `deno lsp`, `deno test`, and `deno bench`, but do not with
+`deno vendor`, `deno repl`, and `deno bundle` at the moment.
 
 npm package binaries can be executed from the command line without an npm
 install using a specifier in the following format:
@@ -80,6 +89,25 @@ $ deno run --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
             (__)\       )\/\
                 ||----w |
                 ||     ||
+```
+
+## TypeScript Types
+
+Many packages ship with types out of the box, you can import those and use them
+with types easily:
+
+```ts, ignore
+import chalk from "npm:chalk@5";
+```
+
+Some packages do not though, but you can specify their types with a
+[`@deno-types`](../advanced/typescript/types.md) directive. For example, using a
+[`@types`](https://www.typescriptlang.org/docs/handbook/2/type-declarations.html#definitelytyped--types)
+package:
+
+```ts, ignore
+// @deno-types="npm:@types/express@^4.17"
+import express from "npm:express@^4.17";
 ```
 
 ## `--node-modules-dir` flag

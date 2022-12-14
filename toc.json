@@ -94,10 +94,24 @@
   "node": {
     "name": "npm Modules",
     "children": {
-      "npm_specifiers": "Using Node.js Packages with npm Specifiers",
-      "cdns": "Using Node.js Packages Via CDNs",
+      "npm_specifiers": "Using npm Packages with npm Specifiers",
+      "cdns": "Using npm Packages Via CDNs",
       "std_node": "The std/node Library",
       "import_maps": "Using Import Maps",
+      "how_to_with_npm": {
+        "name": "How To guides with npm",
+        "children": {
+          "prisma": "Prisma",
+          "mongoose": "Mongoose",
+          "apollo": "Apollo",
+          "mysql2": "MySQL2",
+          "redis": "Redis",
+          "planetscale": "PlanetScale",
+          "react": "React",
+          "vue": "Vue",
+          "express": "Express"
+        }
+      },
       "faqs": "Frequently Asked Questions"
     }
   },
@@ -106,14 +120,12 @@
     "children": {
       "stability": "Stability",
       "builtin_apis": "Built-in APIs",
-      "cache_api": "Cache API",
       "import_meta_api": "`import.meta` API",
       "program_lifecycle": "Program Lifecycle",
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
       "location_api": "Location API",
-      "navigator_api": "`navigator.language` API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
       "ffi_api": "Foreign Function Interface",
@@ -212,6 +224,15 @@
       "continuous_integration": {
         "name": "Continuous Integration",
         "redirectFrom": ["/continuous_integration"]
+      },
+      "deploying_deno": {
+        "name": "Deploying Deno",
+        "children": {
+          "digital_ocean": "Digital Ocean",
+          "google_cloud_run": "Google Cloud Run",
+          "aws_lightsail": "AWS Lightsail",
+          "cloudflare_workers": "Cloudflare Workers"
+        }
       },
       "typescript": {
         "name": "Using TypeScript",

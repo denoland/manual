@@ -24,6 +24,11 @@
       "pattern": [
         "^/api"
       ]
+    },
+    {
+      "pattern": [
+        "^https://dash.cloudflare.com"
+      ]
     }
   ],
   "httpHeaders": [

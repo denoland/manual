@@ -89,8 +89,9 @@ the root of the project.
 #### coc.nvim
 
 Once you have
-[coc.nvim installed](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
-installed, you need to install the required plugin via `:CocInstall coc-deno`.
+[coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim)
+installed, you need to install the required
+[coc-deno](https://github.com/fannheyward/coc-deno) via `:CocInstall coc-deno`.
 
 Once the plugin is installed, and you want to enable Deno for a workspace, run
 the command `:CocCommand deno.initializeWorkspace` and you should be able to
@@ -146,13 +147,14 @@ An example configuration for Deno via eglot:
     :lint t))
 ```
 
-### Atom
+### Pulsar
 
-The [Atom editor](https://atom.io) supports integrating with the Deno language
-server via the [atom-ide-deno](https://atom.io/packages/atom-ide-deno) package.
+The [Pulsar editor, formerly known as Atom](https://pulsar-edit.dev/) supports
+integrating with the Deno language server via the
+[atom-ide-deno](https://web.pulsar-edit.dev/packages/atom-ide-deno) package.
 `atom-ide-deno` requires that the Deno CLI be installed and the
-[atom-ide-base](https://atom.io/packages/atom-ide-base) package to be installed
-as well.
+[atom-ide-base](https://web.pulsar-edit.dev/packages/atom-ide-base) package to
+be installed as well.
 
 ### Sublime Text
 
@@ -400,3 +402,5 @@ There are several environment variables which can impact the behavior of Deno:
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
   environment variables. See the [Proxies](../basics/modules/proxies.md) section
   for more information.
+- `NPM_CONFIG_REGISTRY` - The npm registry to use when loading modules via
+  [npm specifiers](../node/npm_specifiers.md)
