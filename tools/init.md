@@ -13,8 +13,18 @@ project.
 $ deno init
 ✅ Project initialized
 Run these commands to get started
+
+  // Run the program
   deno run main.ts
+
+  // Run the program and watch for file changes
+  deno task dev
+
+  // Run the tests
   deno test
+
+  // Run the benchmarks
+  deno bench
 
 $ deno run main.ts
 Add 2 + 3 = 5
@@ -38,8 +48,20 @@ specific directory:
 ```sh
 $ deno init my_deno_project
 ✅ Project initialized
+
 Run these commands to get started
+
   cd my_deno_project
+
+  // Run the program
   deno run main.ts
+
+  // Run the program and watch for file changes
+  deno task dev
+
+  // Run the tests
   deno test
+
+  // Run the benchmarks
+  deno bench
 ```

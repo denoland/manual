@@ -58,8 +58,8 @@ get asked for, but in the future the above program will only require network
 permissions.
 
 These specifiers currently work with `deno run`, `deno check`, `deno info`,
-`deno install`, `deno lsp`, `deno test`, and `deno bench`, but do not with
-`deno vendor`, `deno repl`, and `deno bundle` at the moment.
+`deno install`, `deno lsp`, `deno repl`, `deno test`, and `deno bench`, but do not with
+`deno bundle`, `deno compile` and `deno vendor` at the moment.
 
 npm package binaries can be executed from the command line without an npm
 install using a specifier in the following format:
