@@ -14,3 +14,4 @@ platforms.
 - [AWS Lightsail](deploying_deno/aws_lightsail.md)
 - [Google Cloud Run](deploying_deno/google_cloud_run.md)
 - [Cloudflare Workers](deploying_deno/cloudflare_workers.md)
+- [Kinsta](deploying_deno/kinsta.md)
