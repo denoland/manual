@@ -25,6 +25,7 @@ To do so, your `package.json` should look like this:
 ```
 
 ## Example application
+
 ```
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { parse } from 'https://deno.land/std@0.168.0/flags/mod.ts';
