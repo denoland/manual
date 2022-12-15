@@ -57,12 +57,14 @@ You can type-check your code (without executing it) using the following command:
 
 ```shell
 deno check module.ts
+# or also type check remote modules and npm packages
+deno check --all module.ts
 ```
 
 Type checking can take a significant amount of time, especially if you are
 working on a code base where you are making a lot of changes. We have tried to
-optimise the type checking, but it still comes at a cost. **Therefore, by
-default, TypeScript modules are not type-checked before they are executed.**
+optimize type checking, but it still comes at a cost. **Therefore, by default,
+TypeScript modules are not type-checked before they are executed.**
 
 ```shell
 deno run module.ts
@@ -75,13 +77,15 @@ used with `deno run`:
 
 ```shell
 deno run --check module.ts
+# or also type check remote modules and npm packages
+deno run --check=all module.ts
 ```
 
 While `tsc` will (by default) still emit JavaScript when encountering diagnostic
 (type-checking) issues, Deno currently treats them as terminal. When using
 `deno run` _with_ the `--check` argument, type-related diagnostics will prevent
 the program from running: it will halt on these warnings, and exit the process
-before exectuing the code.
+before executing the code.
 
 In order to avoid this, you will either need to resolve the issue, utilise the
 `// @ts-ignore` or `// @ts-expect-error` pragmas, or skip type checking all
