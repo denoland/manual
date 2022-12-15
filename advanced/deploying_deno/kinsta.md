@@ -1,5 +1,4 @@
 # How to Deploy Deno on Kinsta
-
 [Kinsta Application Hosting](https://kinsta.com/application-hosting) is a service that lets you build and deploy your web apps directly from your Git repository.
 
 ## Preparing your application
@@ -10,7 +9,7 @@ To do so, your `package.json` should look like this:
 {
   "name": "deno app",
   "scripts": {
-    "start": "deno run --allow-net=:${PORT} index.js --port=${PORT}"
+    "start": "deno run --allow-net index.js --port=${PORT}"
   },
   "devDependencies": {
     "deno-bin": "^1.28.2"
@@ -20,19 +19,13 @@ To do so, your `package.json` should look like this:
 
 ## Example application
 ```
-import { serve } from "https://deno.land/std@0.57.0/http/server.ts";
-import { parse } from 'https://deno.land/std@0.166.0/flags/mod.ts';
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { parse } from 'https://deno.land/std@0.168.0/flags/mod.ts';
 
 const { args } = Deno;
-const DEFAULT_PORT = 8000;
-const argPort = parse(args).port;
+const argPort = parse(args).port ? Number(parse(args).port) : 8000;
 
-const s = serve({ port: argPort ? Number(argPort) : DEFAULT_PORT });
-console.log( 'Server running...' );
-
-for await (const req of s) {
-  req.respond({ body: "Hello World\n" });
-}
+serve((_req) => new Response("Hello, world"), { port: argPort });
 ```
 
 The application itself is self-explanatory. It's crucial not to hardcode the `PORT` but use the environmental variable **Kinsta** provides.
