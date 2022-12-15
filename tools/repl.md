@@ -4,8 +4,9 @@
 program state in the global context, it is especially useful for quick
 prototyping and checking snippets of code.
 
-> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript code
-> is not type-checked, instead it is transpiled to JavaScript behind the scenes.
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
+> code is not type-checked, instead it is transpiled to JavaScript behind the
+> scenes.
 
 > ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
 > export declarations. It means that you can paste code containing
