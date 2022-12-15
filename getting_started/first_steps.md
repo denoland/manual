@@ -146,13 +146,11 @@ One of the most common usecases for Deno is building an HTTP Server.
 
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
-import { urlJoin } from "https://deno.land/x/url_join/mod.ts";
 
 const port = 8080;
 
 const handler = async (request: Request): Promise<Response> => {
-  const url = urlJoin("https://api.github.com", "users", "denoland");
-  const resp = await fetch(url, {
+  const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
     // header that indicates what type of response we accept.
     // We're not specifying the method field since by default
@@ -176,20 +174,13 @@ serve(handler);
 Let's walk through what this program does.
 
 1. Import the http server from `std/http` (standard library)
-2. Import a third party module, `url_join`, which is hosted at
-   [deno.land/x](https://deno.land/x). (Since it can be unwieldy to import URLs
-   everywhere, best practice is actually to import and re-export your external
-   libraries into a central `deps.ts` file. For more details read
-   [here](https://deno.land/manual@v1.12.2/linking_to_external_code#it-seems-unwieldy-to-import-urls-everywhere)).
-3. HTTP servers need a handler function. This function is called for every
+2. HTTP servers need a handler function. This function is called for every
    request that comes in. It must return a `Response`. The handler function can
    be asynchronous (it may return a `Promise`).
-4. In the handler function, use `url_join` to join together a complex Github
-   url.
-5. Use `fetch` to fetch the url.
-6. Write the response body to a local file.
-7. Return the Github response as a response to the handler.
-8. Finally, to start the server on the default port, call `serve` with the
+3. Use `fetch` to fetch the url.
+4. Write the response to a local variable.
+5. Return the Github response as a response to the handler.
+6. Finally, to start the server on the default port, call `serve` with the
    handler.
 
 Now run the server. Note that you need to give both network and write
