@@ -1,11 +1,17 @@
 # How to Deploy Deno on Kinsta
 
-[Kinsta Application Hosting](https://kinsta.com/application-hosting) is a service that lets you build and deploy your web apps directly from your Git repository.
+[Kinsta Application Hosting](https://kinsta.com/application-hosting) is a
+service that lets you build and deploy your web apps directly from your Git
+repository.
 
 ## Preparing your application
-At **Kinsta**, we recommend using the [`deno-bin`](https://www.npmjs.com/package/deno-bin) package to run Deno applications.
+
+At **Kinsta**, we recommend using the
+[`deno-bin`](https://www.npmjs.com/package/deno-bin) package to run Deno
+applications.
 
 To do so, your `package.json` should look like this:
+
 ```json
 {
   "name": "deno app",
@@ -19,6 +25,7 @@ To do so, your `package.json` should look like this:
 ```
 
 ## Example application
+
 ```
 import { serve } from "https://deno.land/std@0.57.0/http/server.ts";
 import { parse } from 'https://deno.land/std@0.166.0/flags/mod.ts';
@@ -35,12 +42,17 @@ for await (const req of s) {
 }
 ```
 
-The application itself is self-explanatory. It's crucial not to hardcode the `PORT` but use the environmental variable **Kinsta** provides.
+The application itself is self-explanatory. It's crucial not to hardcode the
+`PORT` but use the environmental variable **Kinsta** provides.
 
-There is also a [repository](https://github.com/kinsta/hello-world-deno) that should help you to get started.
+There is also a [repository](https://github.com/kinsta/hello-world-deno) that
+should help you to get started.
+
 ## Deployment
 
-1. Register on [Kinsta Application Hosting](https://kinsta.com/signup/?product_type=app-db) or login directly to [My Kinsta](https://my.kinsta.com/) admin panel.
+1. Register on
+   [Kinsta Application Hosting](https://kinsta.com/signup/?product_type=app-db)
+   or login directly to [My Kinsta](https://my.kinsta.com/) admin panel.
 2. Go to the Applications tab.
 3. Connect your GitHub repository.
 4. Press the **Add service > Application button**.
