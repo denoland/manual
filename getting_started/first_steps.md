@@ -147,8 +147,6 @@ One of the most common usecases for Deno is building an HTTP Server.
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
 
-const port = 8080;
-
 const handler = async (request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
@@ -159,6 +157,7 @@ const handler = async (request: Request): Promise<Response> => {
       accept: "application/json",
     },
   });
+
   return new Response(resp.body, {
     status: resp.status,
     headers: {
@@ -178,7 +177,7 @@ Let's walk through what this program does.
    request that comes in. It must return a `Response`. The handler function can
    be asynchronous (it may return a `Promise`).
 3. Use `fetch` to fetch the url.
-4. Write the response to a local variable.
+4. Write the response body to a local file.
 5. Return the Github response as a response to the handler.
 6. Finally, to start the server on the default port, call `serve` with the
    handler.

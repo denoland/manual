@@ -35,7 +35,7 @@ Here is a list of web platform APIs Deno implements:
 - [`WebGPU`](https://gpuweb.github.io/gpuweb/explainer/?)
 
 You can find the Deno reference for these APIs
-[here](https://deno.land/api@v$CLI_VERSION).
+[here](https://deno.land/api@$CLI_VERSION).
 
 ## `fetch` API
 

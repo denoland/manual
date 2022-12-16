@@ -18,7 +18,7 @@ Deno.bench("URL parsing", () => {
 Secondly, run the benchmark using the `deno bench` subcommand.
 
 ```sh
-deno bench --unstable url_bench.ts
+deno bench url_bench.ts
 cpu: Apple M1 Max
 runtime: deno 1.21.0 (aarch64-apple-darwin)
 
@@ -115,7 +115,7 @@ Deno.bench("performance.now()", { group: "timing" }, () => {
 ```
 
 ```shellsesssion
-$ deno bench --unstable time_bench.ts
+$ deno bench time_bench.ts
 cpu: Apple M1 Max
 runtime: deno 1.21.0 (aarch64-apple-darwin)
 

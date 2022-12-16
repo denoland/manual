@@ -87,7 +87,7 @@ export const resolvers = {
 };
 ```
 
-With the later, we pass the arguments from the client into a function to match
+With the latter, we pass the arguments from the client into a function to match
 the name to a name in our dataset.
 
 ## main.ts
