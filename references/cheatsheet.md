@@ -2,7 +2,8 @@
 
 | Node.js                                | Deno                                           |
 | -------------------------------------- | ---------------------------------------------- |
-| `node file.js`                         | `deno run file.ts`                             |
+| `node file.js`                         | `deno run file.js`                             |
+| `ts-node file.ts`                      | `deno run file.ts`                             |
 | `npm i -g`                             | `deno install`                                 |
 | `npm i` / `npm install`                | _n/a_ ¹                                        |
 | `npm run`                              | `deno task`                                    |
