@@ -51,6 +51,8 @@ Start the script by calling it like any other command:
 
 - `-S` splits the command into arguments.
 
+- End the file name in `.ts` for the script to be interpreted as TypeScript.
+
 <!----------------------------------------------------------------------------->
 
 [Deno.env]: /api?s=Deno.env
