@@ -53,6 +53,8 @@ Start the script by calling it like any other command:
 
 - End the file name in `.ts` for the script to be interpreted as TypeScript.
 
+- Future plans include supporting the command-line option `--ext <type>`, relieving this naming restriction. See [denoland/deno#5088](https://github.com/denoland/deno/issues/5088).
+
 <!----------------------------------------------------------------------------->
 
 [Deno.env]: /api?s=Deno.env
