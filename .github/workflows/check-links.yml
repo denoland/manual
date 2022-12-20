@@ -2,16 +2,17 @@ name: check-links
 
 on:
   push:
-    branches: [main]
+    branches: main
+  pull_request:
+    branches: main
   schedule:
     - cron: '0 0 * * *' # every day at midnight
-
 jobs:
   broken-links:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Check Markdown Links
-        uses:  ruzickap/action-my-markdown-link-checker@v1
+        uses: ruzickap/action-my-markdown-link-checker@v1
         with:
           config_file: .github/.mlc_config.json
