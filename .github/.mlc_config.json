@@ -12,7 +12,12 @@
     },
     {
       "pattern": [
-        "https://deno.land/images/schematic_v0.2.png"
+        "^https://deno.land/images/schematic_v0.2.png"
+      ]
+    },
+    {
+      "pattern": [
+        "^https://kinsta.com/signup/"
       ]
     },
     {
