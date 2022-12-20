@@ -75,8 +75,6 @@ const p = Deno.run({
   stderr: "piped",
 });
 
-const { code } = await p.status();
-
 // Reading the outputs closes their pipes
 const [{ code }, rawOutput, rawError] = await Promise.all([
   p.status(),
