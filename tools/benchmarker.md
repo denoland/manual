@@ -46,7 +46,7 @@ Deno.bench(function helloWorld3() {
   new URL("https://deno.land");
 });
 
-// Longer form: test definition.
+// Longer form: bench definition.
 Deno.bench({
   name: "hello world #2",
   fn: () => {
@@ -59,7 +59,7 @@ Deno.bench("hello world #4", { permissions: { read: true } }, () => {
   new URL("https://deno.land");
 });
 
-// Similar to longer form, with test function as a second argument.
+// Similar to longer form, with bench function as a second argument.
 Deno.bench(
   { name: "hello world #5", permissions: { read: true } },
   () => {
@@ -67,7 +67,7 @@ Deno.bench(
   },
 );
 
-// Similar to longer form, with a named test function as a second argument.
+// Similar to longer form, with a named bench function as a second argument.
 Deno.bench({ permissions: { read: true } }, function helloWorld6() {
   new URL("https://deno.land");
 });
@@ -162,7 +162,7 @@ deno bench my_bench.ts
 
 ```shell
 # Pass additional arguments to the bench file
-deno bench my_test.ts -- -e --foo --bar
+deno bench my_bench.ts -- -e --foo --bar
 ```
 
 `deno bench` uses the same permission model as `deno run` and therefore will
@@ -229,7 +229,7 @@ Within the benches themselves, you have two options for filtering.
 
 Sometimes you want to ignore benches based on some sort of condition (for
 example you only want a benchmark to run on Windows). For this you can use the
-`ignore` boolean in the bench definition. If it is set to true the test will be
+`ignore` boolean in the bench definition. If it is set to true the bench will be
 skipped.
 
 ```ts
