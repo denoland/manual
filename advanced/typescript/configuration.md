@@ -50,6 +50,7 @@ and any other notes about that option:
 | `jsxFragmentFactory`             | `"React.Fragment"`      |                                                                                                                                           |
 | `keyofStringsOnly`               | `false`                 |                                                                                                                                           |
 | `lib`                            | `[ "deno.window" ]`     | The default for this varies based on other settings in Deno. If it is supplied, it overrides the default. See below for more information. |
+| `noErrorTruncation`              | `false`                 |                                                                                                                                           |
 | `noFallthroughCasesInSwitch`     | `false`                 |                                                                                                                                           |
 | `noImplicitAny`                  | `true`                  |                                                                                                                                           |
 | `noImplicitReturns`              | `false`                 |                                                                                                                                           |
