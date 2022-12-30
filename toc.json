@@ -164,7 +164,10 @@
       "os_signals": "OS Signals",
       "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
-      "hashbang": "Hashbang",
+      "hashbang": {
+        "name": "Hashbang",
+        "redirectFrom": ["/examples/shebang"]
+      },
       "chat_app": "Chat App",
       "word_finder": "Word Finder"
     }
