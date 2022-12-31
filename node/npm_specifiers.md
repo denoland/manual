@@ -47,7 +47,7 @@ console.log("listening on http://localhost:3000/");
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run --A main.ts
+$ deno run -A main.ts
 listening on http://localhost:3000/
 ```
 
