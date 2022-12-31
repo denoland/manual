@@ -1,4 +1,4 @@
-# Making Scripts Executable With #!Shebang
+# Making Scripts Executable With a Hashbang (Shebang)
 
 ## Concepts
 
@@ -10,6 +10,8 @@
 Making Deno scripts executable can be useful if you want to make, for example,
 small tools.
 
+Note: Hashbangs do not work on Windows.
+
 ## Example
 
 In this program we give the context permission to access the environment
@@ -19,7 +21,7 @@ variables and print the Deno installation path.
 #!/usr/bin/env -S deno run --allow-env
 
 /**
- *  shebang.ts
+ *  hashbang.ts
  */
 
 const path = Deno.env.get("DENO_INSTALL");
@@ -34,7 +36,7 @@ You may require to give the script execution permissions.
 #### Linux
 
 ```shell
-sudo chmod +x shebang.ts
+sudo chmod +x hashbang.ts
 ```
 
 ### Execute
@@ -42,12 +44,12 @@ sudo chmod +x shebang.ts
 Start the script by calling it like any other command:
 
 ```shell
-./shebang.ts
+./hashbang.ts
 ```
 
 ## Details
 
-- A shebang has to be placed in the first line.
+- A hashbang has to be placed in the first line.
 
 - `-S` splits the command into arguments.
 
