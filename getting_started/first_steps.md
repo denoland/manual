@@ -112,19 +112,17 @@ In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
-  await copy(file, Deno.stdout);
-  file.close();
+  await file.readable.pipeTo(Deno.stdout.writable);
 }
 ```
 
-The `copy()` function here actually makes no more than the necessary
-kernel→userspace→kernel copies. That is, the same memory from which data is read
-from the file, is written to stdout. This illustrates a general design goal for
-I/O streams in Deno.
+The `ReadableStream.pipeTo(writable)` method here actually makes no more than
+the necessary kernel→userspace→kernel copies. That is, the same memory from
+which data is read from the file, is written to stdout. This illustrates a
+general design goal for I/O streams in Deno.
 
 Again, here, we need to give --allow-read access to the program.
 
