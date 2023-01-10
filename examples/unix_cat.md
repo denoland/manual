@@ -5,9 +5,11 @@
 - Use the Deno runtime API to output the contents of a file to the console.
 - [Deno.args](/api?s=Deno.args) accesses the command line arguments.
 - [Deno.open](/api?s=Deno.open) is used to get a handle to a file.
-- [copy](https://deno.land/std@$STD_VERSION/streams/conversion.ts?s=copy) is
-  used to transfer data from the file to the output stream.
-- Files should be closed when you are finished with them
+- [Deno.stdout.writable](/api?s=Deno.stdout.writable) is used to get a writable
+  stream to the console standard output.
+- [Deno.FsFile.readable](/api?s=Deno.FsFile#prop_readable) is used to get a
+  readable stream from the file. (This readable stream closes the file when it
+  is finished reading, so it is not necessary to close the file explicitly.)
 - Modules can be run directly from remote URLs.
 
 ## Example
@@ -19,11 +21,9 @@ is opened, and printed to stdout (e.g. the console).
 /**
  * cat.ts
  */
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 for (const filename of Deno.args) {
   const file = await Deno.open(filename);
-  await copy(file, Deno.stdout);
-  file.close();
+  await file.readable.pipeTo(Deno.stdout.writable);
 }
 ```
 

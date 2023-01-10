@@ -95,7 +95,10 @@
     "name": "npm Modules",
     "children": {
       "npm_specifiers": "Using npm Packages with npm Specifiers",
-      "cdns": "Using npm Packages Via CDNs",
+      "cdns": {
+        "name": "Using npm Packages Via CDNs",
+        "redirectFrom": ["/npm_nodejs/cdns"]
+      },
       "std_node": "The std/node Library",
       "import_maps": "Using Import Maps",
       "how_to_with_npm": {
@@ -164,7 +167,10 @@
       "os_signals": "OS Signals",
       "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
-      "hashbang": "Hashbang",
+      "hashbang": {
+        "name": "Hashbang",
+        "redirectFrom": ["/examples/shebang"]
+      },
       "chat_app": "Chat App",
       "word_finder": "Word Finder"
     }

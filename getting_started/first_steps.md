@@ -112,19 +112,17 @@ In this program each command-line argument is assumed to be a filename, the file
 is opened, and printed to stdout.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const filenames = Deno.args;
 for (const filename of filenames) {
   const file = await Deno.open(filename);
-  await copy(file, Deno.stdout);
-  file.close();
+  await file.readable.pipeTo(Deno.stdout.writable);
 }
 ```
 
-The `copy()` function here actually makes no more than the necessary
-kernel→userspace→kernel copies. That is, the same memory from which data is read
-from the file, is written to stdout. This illustrates a general design goal for
-I/O streams in Deno.
+The `ReadableStream.pipeTo(writable)` method here actually makes no more than
+the necessary kernel→userspace→kernel copies. That is, the same memory from
+which data is read from the file, is written to stdout. This illustrates a
+general design goal for I/O streams in Deno.
 
 Again, here, we need to give --allow-read access to the program.
 
@@ -147,8 +145,6 @@ One of the most common usecases for Deno is building an HTTP Server.
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
 
-const port = 8080;
-
 const handler = async (request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
@@ -159,6 +155,7 @@ const handler = async (request: Request): Promise<Response> => {
       accept: "application/json",
     },
   });
+
   return new Response(resp.body, {
     status: resp.status,
     headers: {
@@ -174,20 +171,13 @@ serve(handler);
 Let's walk through what this program does.
 
 1. Import the http server from `std/http` (standard library)
-2. Import a third party module, `url_join`, which is hosted at
-   [deno.land/x](https://deno.land/x). (Since it can be unwieldy to import URLs
-   everywhere, best practice is actually to import and re-export your external
-   libraries into a central `deps.ts` file. For more details read
-   [here](https://deno.land/manual@v1.12.2/linking_to_external_code#it-seems-unwieldy-to-import-urls-everywhere)).
-3. HTTP servers need a handler function. This function is called for every
+2. HTTP servers need a handler function. This function is called for every
    request that comes in. It must return a `Response`. The handler function can
    be asynchronous (it may return a `Promise`).
-4. In the handler function, use `url_join` to join together a complex Github
-   url.
-5. Use `fetch` to fetch the url.
-6. Write the response body to a local file.
-7. Return the Github response as a response to the handler.
-8. Finally, to start the server on the default port, call `serve` with the
+3. Use `fetch` to fetch the url.
+4. Write the response body to a local file.
+5. Return the Github response as a response to the handler.
+6. Finally, to start the server on the default port, call `serve` with the
    handler.
 
 Now run the server. Note that you need to give both network and write

@@ -92,7 +92,8 @@ CLI flags:
   tags and will only use rules from `include`. Defaults to "recommended".
 
 - `--rules-exclude` - List of rule names that will be excluded from configured
-  tag sets. If the same rule is in `include` it will be run.
+  tag sets. Even if the same rule is in `include` it will be excluded; in other
+  words, `--rules-exclude` has higher precedence over `--rules-include`.
 
-- `--rules-include` - List of rule names that will be run. Even if the same rule
-  is in `exclude` it will be run.
+- `--rules-include` - List of rule names that will be run. If the same rule is
+  in `exclude` it will be excluded.
