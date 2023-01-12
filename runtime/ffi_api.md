@@ -2,7 +2,7 @@
 
 As of Deno 1.13 and later, the FFI (foreign function interface) API allows users
 to call libraries written in native languages that support the C ABIs (C/C++,
-Rust, Zig, etc.) using `Deno.dlopen`.
+Rust, Zig, V, etc.) using `Deno.dlopen`.
 
 ## Usage
 
