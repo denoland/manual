@@ -66,7 +66,7 @@ deno run -A npm:prisma@^4.5 db push
 After that's complete, we'll need to generate a Prisma client for Data Proxy:
 
 ```shell, ignore
-deno run -A npm:prisma@^4.5 generate --data-proxy
+deno run -A --unstable npm:prisma@^4.5 generate --data-proxy
 ```
 
 ## Setup Prisma Data Platform
