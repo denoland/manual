@@ -125,9 +125,14 @@ filters after a `--`:
 
 ```shell
 cd test_util/wpt/
-# Rebase to retain our modifications
-git rebase origin/master
-git push denoland
+git fetch origin
+git checkout origin/epochs/daily
+cd ../../
+git add ./test_util/wpt
 ```
 
 All contributors will need to rerun `./tools/wpt.ts setup` after this.
+
+Since upgrading WPT usually requires updating the expectations to cover all
+sorts of upstream changes, it's best to do that as a separate PR, rather than as
+part of a PR that implements a fix or feature.
