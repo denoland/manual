@@ -126,7 +126,7 @@ filters after a `--`:
 ```shell
 cd test_util/wpt/
 git fetch origin
-git checkout origin/master
+git checkout origin/epochs/daily
 cd ../../
 git add ./test_util/wpt
 ```
