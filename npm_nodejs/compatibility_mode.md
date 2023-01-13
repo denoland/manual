@@ -1,20 +1,20 @@
 ## Node.js compability mode
 
-Starting with v1.15 Deno provides Node compatiblity mode that makes it possible
+Starting with v1.15 Deno provides Node compatibility mode that makes it possible
 to run a subset of programs authored for Node.js directly in Deno. Compatiblity
 mode can be activated by passing `--compat` flag in CLI.
 
-> ⚠️ Using compatiblity mode currently requires the `--unstable` flag. If you
+> ⚠️ Using compatibility mode currently requires the `--unstable` flag. If you
 > intend to use CJS modules, the `--allow-read` flag is needed as well.
 
-> ⚠️ Package management is currently out of scope for Node.js compatiblity mode.
+> ⚠️ Package management is currently out of scope for Node.js compatibility mode.
 > For the time being we suggest to keep using your current solution (`npm`,
 > `yarn`, `pnpm`).
 
 ### Example
 
 [`eslint`](https://eslint.org/) is a very popular tool used by most of Node.js
-projects. Let's run `eslint` using Deno in Node.js compatiblity mode. Assuming
+projects. Let's run `eslint` using Deno in Node.js compatibility mode. Assuming
 that `eslint` is already installed locally (either using `npm install eslint` or
 `yarn install eslint`) we can do so like:
 
