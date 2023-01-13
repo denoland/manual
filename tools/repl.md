@@ -1,12 +1,11 @@
-# Read-eval-print-loop
+# Read-Eval-Print-Loop
 
 `deno repl` starts a read-eval-print-loop, which lets you interactively build up
 program state in the global context, it is especially useful for quick
 prototyping and checking snippets of code.
 
-> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
-> code is not type-checked, instead it is transpiled to JavaScript behind the
-> scenes.
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript code
+> is not type-checked, instead it is transpiled to JavaScript behind the scenes.
 
 > ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
 > export declarations. It means that you can paste code containing
@@ -161,3 +160,4 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 | Meta-T                | Transpose words                                                                                  |
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
+| Ctrl-S                | Insert a new line                                                                                |

@@ -1,13 +1,13 @@
 # Handle OS Signals
 
-> ⚠️ Handling OS signals is currently not available on Windows.
+> ⚠️ Windows only supports listening for SIGINT and SIGBREAK as of Deno v1.23.
 
 ## Concepts
 
-- [Deno.addSignalListener()](https://doc.deno.land/deno/stable/~/Deno.addSignalListener)
-  can be used to capture and monitor OS signals.
-- [Deno.removeSignalListener()](https://doc.deno.land/deno/stable/~/Deno.removeSignalListener)
-  can be used to stop watching the signal.
+- [Deno.addSignalListener()](/api?s=Deno.addSignalListener) can be used to
+  capture and monitor OS signals.
+- [Deno.removeSignalListener()](/api?s=Deno.removeSignalListener) can be used to
+  stop watching the signal.
 
 ## Set up an OS signal listener
 

@@ -1,4 +1,4 @@
-# Fetch data
+# Fetch Data
 
 ## Concepts
 
@@ -6,7 +6,7 @@
   [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 - Deno is secure by default, meaning explicit permission must be granted to
   access the network.
-- See also: Deno's [permissions](../getting_started/permissions.md) model.
+- See also: Deno's [permissions](../basics/permissions.md) model.
 
 ## Overview
 
@@ -54,9 +54,12 @@ try {
 ## Files and Streams
 
 Like in browsers, sending and receiving large files is possible thanks to the
-[Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API). The
-standard library's [streams module](https://deno.land/std@$STD_VERSION/streams/)
-can be used to convert a Deno file into a writable or readable stream.
+[Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API).
+[`Deno.FsFile`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile) API provides
+two properties:
+[`readable`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile#prop_readable) and
+[`writable`](https://deno.land/api@$CLI_VERSION?s=Deno.FsFile#prop_writable),
+which can be used to convert a Deno file into a writable or readable stream.
 
 **Command:** `deno run --allow-read --allow-write --allow-net fetch_file.ts`
 
@@ -64,26 +67,20 @@ can be used to convert a Deno file into a writable or readable stream.
 /**
  * Receiving a file
  */
-import { writableStreamFromWriter } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
-
 const fileResponse = await fetch("https://deno.land/logo.svg");
 
 if (fileResponse.body) {
   const file = await Deno.open("./logo.svg", { write: true, create: true });
-  const writableStream = writableStreamFromWriter(file);
-  await fileResponse.body.pipeTo(writableStream);
+  await fileResponse.body.pipeTo(file.writable);
 }
 
 /**
  * Sending a file
  */
-import { readableStreamFromReader } from "https://deno.land/std@$STD_VERSION/streams/mod.ts";
-
 const file = await Deno.open("./logo.svg", { read: true });
-const readableStream = readableStreamFromReader(file);
 
 await fetch("https://example.com/", {
   method: "POST",
-  body: readableStream,
+  body: file.readable,
 });
 ```

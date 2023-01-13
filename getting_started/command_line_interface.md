@@ -1,4 +1,4 @@
-## Command line interface
+# Command Line Interface
 
 Deno is a command line program. You should be familiar with some simple commands
 having followed the examples thus far and already understand the basics of shell
@@ -29,7 +29,7 @@ deno bundle --help
 
 Detailed guides for each subcommand can be found [here](../tools.md).
 
-### Script source
+## Script source
 
 Deno can grab the scripts from multiple sources, a filename, a url, and '-' to
 read the file from stdin. The latter is useful for integration with other
@@ -41,7 +41,7 @@ deno run https://mydomain.com/main.ts
 cat main.ts | deno run -
 ```
 
-### Script arguments
+## Script arguments
 
 Separately from the Deno runtime flags, you can pass user-space arguments to the
 script you are running by specifying them **after** the script name:
@@ -85,7 +85,7 @@ However:
 There exist logical groups of flags that are shared between related subcommands.
 We discuss these below.
 
-### Watch mode
+## Watch mode
 
 You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
 `deno fmt` to enable the built-in file watcher. The files that are watched
@@ -100,33 +100,32 @@ depend on the subcommand used:
 Whenever one of the watched files is changed on disk, the program will
 automatically be restarted / formatted / tested / bundled.
 
-```
+```shell
 deno run --watch main.ts
 deno test --watch
 deno fmt --watch
 ```
 
-### Integrity flags (lock files)
+## Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
 `deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
 
-```
+```terminal
 --lock <FILE>    Check the specified lock file
 --lock-write     Write lock file. Use with --lock.
 ```
 
-Find out more about these
-[here](../linking_to_external_code/integrity_checking.md).
+Find out more about these [here](../basics/modules/integrity_checking.md).
 
-### Cache and compilation flags
+## Cache and compilation flags
 
 Affect commands which can populate the cache: `deno cache`, `deno run`,
 `deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
 above, this includes those which affect module resolution, compilation
 configuration etc.
 
-```
+```terminal
 --config <FILE>               Load configuration file
 --import-map <FILE>           Load import map file
 --no-remote                   Do not resolve remote modules
@@ -134,20 +133,53 @@ configuration etc.
 --unstable                    Enable unstable APIs
 ```
 
-### Runtime flags
+## Runtime flags
 
 Affect commands which execute user code: `deno run` and `deno test`. These
 include all of the above as well as the following.
 
-#### Permission flags
+### Type checking flags
 
-These are listed [here](./permissions.md#permissions-list).
+You can type-check your code (without executing it) using the command:
 
-#### Other runtime flags
+```shell
+> deno check main.ts
+```
+
+You can also type-check your code before execution by using the `--check`
+argument to deno run:
+
+```shell
+> deno run --check main.ts
+```
+
+This flag affects `deno run`, `deno eval`, `deno repl` and `deno cache`. The
+following table describes the type-checking behavior of various subcommands.
+Here "Local" means that only errors from local code will induce type-errors,
+modules imported from https URLs (remote) may have type errors that are not
+reported. (To turn on type-checking for all modules, use `--check=all`.)
+
+| Subcommand     | Type checking mode |
+| -------------- | ------------------ |
+| `deno bench`   | 📁 Local           |
+| `deno bundle`  | 📁 Local           |
+| `deno cache`   | ❌ None            |
+| `deno check`   | 📁 Local           |
+| `deno compile` | 📁 Local           |
+| `deno eval`    | ❌ None            |
+| `deno repl`    | ❌ None            |
+| `deno run`     | ❌ None            |
+| `deno test`    | 📁 Local           |
+
+### Permission flags
+
+These are listed [here](../basics/permissions.md#permissions-list).
+
+### Other runtime flags
 
 More flags which affect the execution environment.
 
-```
+```terminal
 --cached-only                Require that remote dependencies are already cached
 --inspect=<HOST:PORT>        activate inspector on host:port ...
 --inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
@@ -155,4 +187,16 @@ More flags which affect the execution environment.
 --prompt                     Fallback to prompt if required permission wasn't passed
 --seed <NUMBER>              Seed Math.random()
 --v8-flags=<v8-flags>        Set V8 command line options. For help: ...
+```
+
+## Autocomplete
+
+You can get IDE-style autocompletions for Deno with [Fig](https://fig.io/)
+<a href="https://fig.io/" target="_blank"><img src="https://fig.io/badges/Logo.svg" width="15" height="15"/></a>.
+It works in bash, zsh, and fish.
+
+To install, run:
+
+```shell
+brew install fig
 ```

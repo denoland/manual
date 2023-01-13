@@ -1,22 +1,22 @@
-## HTTP Server APIs
+# HTTP Server APIs
 
-As of Deno 1.9 and later, _native_ HTTP server APIs were introduced which allow
-users to create robust and performant web servers in Deno.
+Deno currently has three HTTP Server APIs:
 
-The API tries to leverage as much of the web standards as is possible as well as
-tries to be simple and straightforward.
+- [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts):
+  part of the standard library, high-level.
+- [`Deno.serve`](https://deno.land/api@$CLI_VERSION?unstable&s=Deno.serve):
+  native, _higher-level_, supports only http/1.1, but is fast, unstable.
+- [`Deno.serveHttp`](https://deno.land/api@$CLI_VERSION?s=Deno.serveHttp):
+  native, _low-level_, supports http/2, stable.
 
-> ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
-> flag.
+## `serve` from `std/http`
 
-- [A "Hello World" server](#a-"hello-world"-server)
+- [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
 - [Responding with a response](#responding-with-a-response)
-- [WebSocket support](#websocket-support)
 - [HTTPS support](#https-support)
 - [HTTP/2 support](#http2-support)
-- [Automatic body compression](#automatic-body-compression)
-- [Lower level APIs](#lower-level-http-server-apis)
+- [Serving WebSockets](#serving-websockets)
 
 ### A "Hello World" server
 
@@ -139,61 +139,16 @@ function handler(req: Request): Response {
 }
 ```
 
-> ℹ️ Note the `cancel` function here. This is called when the client hangs up
-> the connection. This is important to make sure that you handle this case, as
+> ℹ️ Note the `cancel` function here. This is called when the client hangs up the
+> connection. This is important to make sure that you handle this case, as
 > otherwise the server will keep queuing up messages forever, and eventually run
 > out of memory.
 
-> ⚠️ Beware that the response body stream is "cancelled" when the client hangs
-> up the connection. Make sure to handle this case. This can surface itself as
-> an error in a `write()` call on a `WritableStream` object that is attached to
-> the response body `ReadableStream` object (for example through a
+> ⚠️ Beware that the response body stream is "cancelled" when the client hangs up
+> the connection. Make sure to handle this case. This can surface itself as an
+> error in a `write()` call on a `WritableStream` object that is attached to the
+> response body `ReadableStream` object (for example through a
 > `TransformStream`).
-
-### WebSocket support
-
-Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to
-handle WebSocket endpoints on your HTTP servers.
-
-To upgrade an incoming `Request` to a WebSocket you use the
-`Deno.upgradeWebSocket` function. This returns an object consisting of a
-`Response` and a web standard `WebSocket` object. This response must be returned
-from the handler for the upgrade to happen. If this is not done, no WebSocket
-upgrade will take place.
-
-Because the WebSocket protocol is symmetrical, the `WebSocket` object is
-identical to the one that can be used for client side communication.
-Documentation for it can be found
-[on MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
-
-> ℹ️ We are aware that this API can be challenging to use, and are planning to
-> switch to
-> [`WebSocketStream`](https://github.com/ricea/websocketstream-explainer/blob/master/README.md)
-> once it is stabilized and ready for use.
-
-```ts
-function handler(req: Request): Response {
-  const upgrade = req.headers.get("upgrade") || "";
-  let response, socket: WebSocket;
-  try {
-    ({ response, socket } = Deno.upgradeWebSocket(req));
-  } catch {
-    return new Response("request isn't trying to upgrade to websocket.");
-  }
-  socket.onopen = () => console.log("socket opened");
-  socket.onmessage = (e) => {
-    console.log("socket message:", e.data);
-    socket.send(new Date().toString());
-  };
-  socket.onerror = (e) => console.log("socket errored:", e);
-  socket.onclose = () => console.log("socket closed");
-  return response;
-}
-```
-
-WebSockets are only supported on HTTP/1.1 for now. The connection the WebSocket
-was created on can not be used for HTTP traffic after a WebSocket upgrade has
-been performed.
 
 ### HTTPS support
 
@@ -217,75 +172,318 @@ serveTls(handler, {
 
 ### HTTP/2 support
 
-HTTP/2 support it "automatic" when using the _native_ APIs with Deno. You just
+HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
 need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
 seamlessly.
 
-### Automatic body compression
+## `Deno.serveHttp`
 
-As of Deno 1.20, the HTTP server has built in automatic compression of response
-bodies. When a response is sent to a client, Deno determines if the response
-body can be safely compressed. This compression happens within the internals of
-Deno, so it is fast and efficient.
+We generally recommnend that you use the `serve` API described above, as it
+handles all of the intricacies of parallel requests on a single connection,
+error handling, and so on. However, if you are interested creating your own
+robust and performant web servers in Deno, lower-level, _native_ HTTP server
+APIs are available as of Deno 1.9 and later.
 
-Currently Deno supports gzip and brotli compression. A body is automatically
-compressed if the following conditions are true:
+> ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
+> flag.
 
-- The request has an
-  [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
-  header which indicates the requestor supports `br` for brotli or `gzip`. Deno
-  will respect the preference of the
-  [quality value](https://developer.mozilla.org/en-US/docs/Glossary/Quality_values)
-  in the header.
-- The response includes a
-  [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
-  which is considered compressible. (The list is derived from
-  [`jshttp/mime-db`](https://github.com/jshttp/mime-db/blob/master/db.json) with
-  the actual list in the
-  [code](https://github.com/denoland/deno/blob/$CLI_VERSION/ext/http/compressible.rs).)
-- The response body is greater than 20 bytes.
+> ⚠️ You should probably not be using this API, as it is not easy to get right.
+> Use the `serve` API in the `std/http` library instead.
 
-When the response body is compressed, Deno will set the
-[`Content-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
-header to reflect the encoding as well as ensure the
-[`Vary`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) header
-is adjusted or added to indicate what request headers affected the response.
+### Listening for a connection
 
-#### When is compression skipped?
+In order to accept requests, first you need to listen for a connection on a
+network port. To do this in Deno, you use `Deno.listen()`:
 
-In addition to the logic above, there are a few other reasons why a response
-won't be compressed automatically:
+```ts
+const server = Deno.listen({ port: 8080 });
+```
 
-- The response body is a stream. Currently only _static_ response bodies are
-  supported. We will add streaming support in the future.
-- The response contains a `Content-Encoding` header. This indicates your server
-  has done some form of encoding already.
-- The response contains a
-  [`Content-Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
-  header. This indicates that your server is responding to a range request,
-  where the bytes and ranges are negotiated outside of the control of the
-  internals to Deno.
-- The response has a
-  [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
-  header which contains a
-  [`no-transform`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#other)
-  value. This indicates that your server doesn't want Deno or any downstream
-  proxies to modify the response.
+> ℹ️ When supplying a port, Deno assumes you are going to listen on a TCP socket
+> as well as bind to the localhost. You can specify `transport: "tcp"` to be
+> more explicit as well as provide an IP address or hostname in the `hostname`
+> property as well.
 
-#### What happens to an `ETag` header?
+If there is an issue with opening the network port, `Deno.listen()` will throw,
+so often in a server sense, you will want to wrap it in the `try ... catch`
+block in order to handle exceptions, like the port already being in use.
 
-When you set an
-[`ETag`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) that is
-not a weak validator and the body is compressed, Deno will change this to a weak
-validator (`W/`). This is to ensure the proper behavior of clients and
-downstream proxy services when validating the "freshness" of the content of the
-response body.
+You can also listen for a TLS connection (e.g. HTTPS) using `Deno.listenTls()`:
 
-### Lower level HTTP server APIs
+```ts
+const server = Deno.listenTls({
+  port: 8443,
+  certFile: "localhost.crt",
+  keyFile: "localhost.key",
+  alpnProtocols: ["h2", "http/1.1"],
+});
+```
 
-This chapter focuses only on the high level HTTP server APIs. You should
-probably use this API, as it handles all of the intricacies of parallel requests
-on a single connection, error handling, and so on.
+The `certFile` and `keyFile` options are required and point to the appropriate
+certificate and key files for the server. They are relative to the CWD for Deno.
+The `alpnProtocols` property is optional, but if you want to be able to support
+HTTP/2 on the server, you add the protocols here, as the protocol negotiation
+happens during the TLS negotiation with the client and server.
 
-If you do want to learn more about the low level HTTP server APIs though, you
-can [read more about them here](./http_server_apis_low_level).
+> ℹ️ Generating SSL certificates is outside of the scope of this documentation.
+> There are many resources on the web which address this.
+
+### Handling connections
+
+Once we are listening for a connection, we need to handle the connection. The
+return value of `Deno.listen()` or `Deno.listenTls()` is a `Deno.Listener` which
+is an async iterable which yields up `Deno.Conn` connections as well as provide
+a couple methods for handling connections.
+
+To use it as an async iterable we would do something like this:
+
+```ts
+const server = Deno.listen({ port: 8080 });
+
+for await (const conn of server) {
+  // ...handle the connection...
+}
+```
+
+Every connection made would yield up a `Deno.Conn` assigned to `conn`. Then
+further processing can be applied to the connection.
+
+There is also the `.accept()` method on the listener which can be used:
+
+```ts
+const server = Deno.listen({ port: 8080 });
+
+while (true) {
+  try {
+    const conn = await server.accept();
+    // ... handle the connection ...
+  } catch (err) {
+    // The listener has closed
+    break;
+  }
+}
+```
+
+Whether using the async iterator or the `.accept()` method, exceptions can be
+thrown and robust production code should handle these using `try ... catch`
+blocks. Especially when it comes to accepting TLS connections, there can be many
+conditions, like invalid or unknown certificates which can be surfaced on the
+listener and might need handling in the user code.
+
+A listener also has a `.close()` method which can be used to close the listener.
+
+### Serving HTTP
+
+Once a connection is accepted, you can use `Deno.serveHttp()` to handle HTTP
+requests and responses on the connection. `Deno.serveHttp()` returns a
+`Deno.HttpConn`. A `Deno.HttpConn` is like a `Deno.Listener` in that requests
+the connection receives from the client are asynchronously yielded up as a
+`Deno.RequestEvent`.
+
+To deal with HTTP requests as async iterable it would look something like this:
+
+```ts
+const server = Deno.listen({ port: 8080 });
+
+for await (const conn of server) {
+  (async () => {
+    const httpConn = Deno.serveHttp(conn);
+    for await (const requestEvent of httpConn) {
+      // ... handle requestEvent ...
+    }
+  })();
+}
+```
+
+The `Deno.HttpConn` also has the method `.nextRequest()` which can be used to
+await the next request. It would look something like this:
+
+```ts
+const server = Deno.listen({ port: 8080 });
+
+while (true) {
+  try {
+    const conn = await server.accept();
+    (async () => {
+      const httpConn = Deno.serveHttp(conn);
+      while (true) {
+        try {
+          const requestEvent = await httpConn.nextRequest();
+          // ... handle requestEvent ...
+        } catch (err) {
+          // the connection has finished
+          break;
+        }
+      }
+    })();
+  } catch (err) {
+    // The listener has closed
+    break;
+  }
+}
+```
+
+Note that in both cases we are using an IIFE to create an inner function to deal
+with each connection. If we awaited the HTTP requests in the same function scope
+as the one we were receiving the connections, we would be blocking accepting
+additional connections, which would make it seem that our server was "frozen".
+In practice, it might make more sense to have a separate function all together:
+
+```ts
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    // ... handle requestEvent
+  }
+}
+
+const server = Deno.listen({ port: 8080 });
+
+for await (const conn of server) {
+  handle(conn);
+}
+```
+
+In the examples from this point on, we will focus on what would occur within an
+example `handle()` function and remove the listening and connection
+"boilerplate".
+
+#### HTTP Requests and Responses
+
+HTTP requests and responses in Deno are essentially the inverse of web standard
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). The
+Deno HTTP Server API and the Fetch API leverage the
+[`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) and
+[`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response) object
+classes. So if you are familiar with the Fetch API you just need to flip them
+around in your mind and now it is a server API.
+
+As mentioned above, a `Deno.HttpConn` asynchronously yields up
+`Deno.RequestEvent`s. These request events contain a `.request` property and a
+`.respondWith()` method.
+
+The `.request` property is an instance of the `Request` class with the
+information about the request. For example, if we wanted to know what URL path
+was being requested, we would do something like this:
+
+```ts
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    const url = new URL(requestEvent.request.url);
+    console.log(`path: ${url.pathname}`);
+  }
+}
+```
+
+The `.respondWith()` method is how we complete a request. The method takes
+either a `Response` object or a `Promise` which resolves with a `Response`
+object. Responding with a basic "hello world" would look like this:
+
+```ts
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    await requestEvent.respondWith(
+      new Response("hello world", {
+        status: 200,
+      }),
+    );
+  }
+}
+```
+
+Note that we awaited the `.respondWith()` method. It isn't required, but in
+practice any errors in processing the response will cause the promise returned
+from the method to be rejected, like if the client disconnected before all the
+response could be sent. While there may not be anything your application needs
+to do, not handling the rejection will cause an "unhandled rejection" to occur
+which will terminate the Deno process, which isn't so good for a server. In
+addition, you might want to await the promise returned in order to determine
+when to do any cleanup from for the request/response cycle.
+
+The web standard `Response` object is pretty powerful, allowing easy creation of
+complex and rich responses to a client, and Deno strives to provide a `Response`
+object that as closely matches the web standard as possible, so if you are
+wondering how to send a particular response, checkout the documentation for the
+web standard
+[`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response).
+
+### HTTP/2 Support
+
+HTTP/2 support is effectively transparent within the Deno runtime. Typically
+HTTP/2 is negotiated between a client and a server during the TLS connection
+setup via
+[ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation). To
+enable this, you need to provide the protocols you want to support when you
+start listening via the `alpnProtocols` property. This will enable the
+negotiation to occur when the connection is made. For example:
+
+```ts
+const server = Deno.listenTls({
+  port: 8443,
+  certFile: "localhost.crt",
+  keyFile: "localhost.key",
+  alpnProtocols: ["h2", "http/1.1"],
+});
+```
+
+The protocols are provided in order of preference. In practice, the only two
+protocols that are supported currently are HTTP/2 and HTTP/1.1 which are
+expressed as `h2` and `http/1.1`.
+
+Currently Deno does not support upgrading a plain-text HTTP/1.1 connection to an
+HTTP/2 cleartext connection via the `Upgrade` header (see:
+[#10275](https://github.com/denoland/deno/issues/10275)), so therefore HTTP/2
+support is only available via a TLS/HTTPS connection.
+
+### Serving WebSockets
+
+Deno can upgrade incoming HTTP requests to a WebSocket. This allows you to
+handle WebSocket endpoints on your HTTP servers.
+
+To upgrade an incoming `Request` to a WebSocket you use the
+`Deno.upgradeWebSocket` function. This returns an object consisting of a
+`Response` and a web standard `WebSocket` object. The returned response should
+be used to respond to the incoming request using the `respondWith` method. Only
+once `respondWith` is called with the returned response, the WebSocket is
+activated and can be used.
+
+Because the WebSocket protocol is symmetrical, the `WebSocket` object is
+identical to the one that can be used for client side communication.
+Documentation for it can be found
+[on MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+
+> Note: We are aware that this API can be challenging to use, and are planning
+> to switch to
+> [`WebSocketStream`](https://github.com/ricea/websocketstream-explainer/blob/master/README.md)
+> once it is stabilized and ready for use.
+
+```ts
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    await requestEvent.respondWith(handleReq(requestEvent.request));
+  }
+}
+
+function handleReq(req: Request): Response {
+  const upgrade = req.headers.get("upgrade") || "";
+  if (upgrade.toLowerCase() != "websocket") {
+    return new Response("request isn't trying to upgrade to websocket.");
+  }
+  const { socket, response } = Deno.upgradeWebSocket(req);
+  socket.onopen = () => console.log("socket opened");
+  socket.onmessage = (e) => {
+    console.log("socket message:", e.data);
+    socket.send(new Date().toString());
+  };
+  socket.onerror = (e) => console.log("socket errored:", e);
+  socket.onclose = () => console.log("socket closed");
+  return response;
+}
+```
+
+WebSockets are only supported on HTTP/1.1 for now. The connection the WebSocket
+was created on can not be used for HTTP traffic after a WebSocket upgrade has
+been performed.

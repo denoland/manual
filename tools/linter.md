@@ -1,4 +1,4 @@
-## Linter
+# Linter
 
 Deno ships with a built-in code linter for JavaScript and TypeScript.
 
@@ -17,14 +17,14 @@ cat file.ts | deno lint -
 
 For more detail, run `deno lint --help`.
 
-### Available rules
+## Available rules
 
 For a complete list of supported rules visit
 [the deno_lint rule documentation](https://lint.deno.land).
 
-### Ignore directives
+## Ignore directives
 
-#### Files
+### Files
 
 To ignore whole file `// deno-lint-ignore-file` directive should placed at the
 top of the file:
@@ -65,7 +65,7 @@ function foo(): any {
 }
 ```
 
-#### Diagnostics
+### Diagnostics
 
 To ignore certain diagnostic `// deno-lint-ignore <codes...>` directive should
 be placed before offending line. Specifying ignored rule name is required:
@@ -82,7 +82,7 @@ function bar(a: any) {
 }
 ```
 
-### Configuration
+## Configuration
 
 Starting with Deno v1.14 a linter can be customized using either
 [a configuration file](../getting_started/configuration_file.md) or following
@@ -92,7 +92,8 @@ CLI flags:
   tags and will only use rules from `include`. Defaults to "recommended".
 
 - `--rules-exclude` - List of rule names that will be excluded from configured
-  tag sets. If the same rule is in `include` it will be run.
+  tag sets. Even if the same rule is in `include` it will be excluded; in other
+  words, `--rules-exclude` has higher precedence over `--rules-include`.
 
-- `--rules-include` - List of rule names that will be run. Even if the same rule
-  is in `exclude` it will be run.
+- `--rules-include` - List of rule names that will be run. If the same rule is
+  in `exclude` it will be excluded.

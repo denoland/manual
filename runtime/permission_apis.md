@@ -1,4 +1,4 @@
-## Permission APIs
+# Permission APIs
 
 Permissions are granted from the CLI when running the `deno` command. User code
 will often assume its own set of required permissions, but there is no guarantee
@@ -7,7 +7,7 @@ during execution that the set of _granted_ permissions will align with this.
 In some cases, ensuring a fault-tolerant program requires a way to interact with
 the permission system at runtime.
 
-### Permission descriptors
+## Permission descriptors
 
 On the CLI, read permission for `/foo/bar` is represented as
 `--allow-read=/foo/bar`. In runtime JS, it is represented as the following:
@@ -35,11 +35,10 @@ const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 const desc5 = { name: "hrtime" } as const;
 ```
 
-> ⚠️ See
-> [`PermissionDescriptor`](https://doc.deno.land/deno/stable/~/Deno.PermissionDescriptor)
-> in API reference for more details.
+> ⚠️ See [`PermissionDescriptor`](/api?s=Deno.PermissionDescriptor) in API
+> reference for more details.
 
-### Query permissions
+## Query permissions
 
 Check, by descriptor, if a permission is granted or not.
 
@@ -59,7 +58,7 @@ console.log(await Deno.permissions.query(desc3));
 // PermissionStatus { state: "prompt" }
 ```
 
-### Permission states
+## Permission states
 
 A permission state can be either "granted", "prompt" or "denied". Permissions
 which have been granted from the CLI will query to `{ state: "granted" }`. Those
@@ -67,7 +66,7 @@ which have not been granted query to `{ state: "prompt" }` by default, while
 `{ state: "denied" }` reserved for those which have been explicitly refused.
 This will come up in [Request permissions](#request-permissions).
 
-### Permission strength
+## Permission strength
 
 The intuitive understanding behind the result of the second query in
 [Query permissions](#query-permissions) is that read access was granted to
@@ -92,7 +91,7 @@ const desc3 = { name: "net", host: "127.0.0.1" } as const;
 const desc4 = { name: "net", host: "127.0.0.1:8000" } as const;
 ```
 
-### Request permissions
+## Request permissions
 
 Request an ungranted permission from the user via CLI prompt.
 
@@ -123,7 +122,7 @@ request will behave like a query and just return the current status. This
 prevents prompts both for already granted permissions and previously denied
 requests.
 
-### Revoke permissions
+## Revoke permissions
 
 Downgrade a permission from "granted" to "prompt".
 
@@ -135,18 +134,22 @@ console.log(await Deno.permissions.revoke(desc));
 // PermissionStatus { state: "prompt" }
 ```
 
-However, what happens when you try to revoke a permission which is _partial_ to
-one granted on the CLI?
+What happens when you try to revoke a permission which is _partial_ to one
+granted on the CLI?
 
 ```ts
 // deno run --allow-read=/foo main.ts
 
 const desc = { name: "read", path: "/foo/bar" } as const;
 console.log(await Deno.permissions.revoke(desc));
-// PermissionStatus { state: "granted" }
+// PermissionStatus { state: "prompt" }
+const cliDesc = { name: "read", path: "/foo" } as const;
+console.log(await Deno.permissions.revoke(cliDesc));
+// PermissionStatus { state: "prompt" }
 ```
 
-It was not revoked.
+The CLI-granted permission, which implies the revoked permission, was also
+revoked.
 
 To understand this behaviour, imagine that Deno stores an internal set of
 _explicitly granted permission descriptors_. Specifying `--allow-read=/foo,/bar`
@@ -171,20 +174,10 @@ to:
 ```
 
 Deno's permission revocation algorithm works by removing every element from this
-set which the argument permission descriptor is _stronger than_. So to ensure
-`desc` is no longer granted, pass an argument descriptor _stronger than_
-whichever _explicitly granted permission descriptor_ is _stronger than_ `desc`.
+set which is _stronger than_ the argument permission descriptor.
 
-```ts
-// deno run --allow-read=/foo main.ts
-
-const desc = { name: "read", path: "/foo/bar" } as const;
-console.log(await Deno.permissions.revoke(desc)); // Insufficient.
-// PermissionStatus { state: "granted" }
-
-const strongDesc = { name: "read", path: "/foo" } as const;
-await Deno.permissions.revoke(strongDesc); // Good.
-
-console.log(await Deno.permissions.query(desc));
-// PermissionStatus { state: "prompt" }
-```
+Deno does not allow "fragmented" permission states, where some strong permission
+is granted with exclusions of weak permissions implied by it. Such a system
+would prove increasingly complex and unpredictable as you factor in a wider
+variety of use cases and the `"denied"` state. This is a calculated trade-off of
+granularity for security.
