@@ -56,40 +56,59 @@ console.log(totalCost(45, 27, 1.15));
  */
 ```
 
-## Remote Import
+## Importing Libraries
 
 In the local import example above an `add` and `multiply` method are imported
 from a locally stored arithmetic module. The same functionality can be created
-by importing `add` and `multiply` methods from a remote module too.
+by importing `add` and `multiply` methods from a remotely hosted library too.
 
-In this case the Ramda module is referenced, including the version number. Also
-note a JavaScript module is imported directly into a TypeScript module, Deno has
-no problem handling this.
+Deno can import libraries from multiple sources:
 
-**Command:** `deno run ./remote.ts`
+- `deno:` is code originally written for Deno or browsers, usually in TypeScript
+- `npm:` is existing code written for Node or browsers
+- `https:` is code hosted on any web server (gist, unpkg.com, etc.)
+
+`deno:` modules are written for Deno and will work out of the box. These modules
+are hosted on https://deno.land/x. This is the recommended way to share code in
+Deno.
+
+`npm:` specifiers allow importing code written originally for Node from the
+[npm](https://npmjs.org) registry. Generally this code will work out of the
+box - if it doesn't, please
+[open an issue](https://github.com/denoland/deno/issues/new).
+
+`https:` specifiers allow importing code just like in the browser. This is
+useful to share one off scripts - for example, in a GitHub gist.
 
 ```ts
-/**
- * remote.ts
- */
-import {
-  add,
-  multiply,
-} from "https://x.nest.land/ramda@0.27.0/source/index.js";
+import { serve } from "deno:std@0.173.0/http/server.ts";
 
-function totalCost(outbound: number, inbound: number, tax: number): number {
-  return multiply(add(outbound, inbound), tax);
-}
+import chalk from "npm:chalk@^5";
 
-console.log(totalCost(19, 31, 1.2));
-console.log(totalCost(45, 27, 1.15));
+import { add } from "https://gist.githubusercontent.com/ry/6f05bb1c5ee248841de5cbc6a2294e9a/raw/f653cb2ca8bc9719f09db2a34a368ed50ebdef76/add.ts";
+```
 
-/**
- * Output
- *
- * 60
- * 82.8
- */
+Both `deno:` and `npm:` specifiers can include a version constraint. When Deno
+encounters these constraints, it will resolve each package to the latest version
+that satisfies all constraints.
+
+The syntax for `deno:` and `npm:` specifiers is:
+
+```
+deno:<package>[@<version>][/<path>]
+npm:<package>[@<version>][/<path>]
+```
+
+In this example, is_odd module from deno.land/x is referenced:
+
+**Command:** `deno run ./foo.ts`
+
+```ts
+// foo.ts
+import { isOdd } from "deno:is_odd";
+
+console.log(isOdd(19)); // true
+console.log(isOdd(42)); // false
 ```
 
 ## Export
@@ -102,9 +121,6 @@ To do this just add the keyword `export` to the beginning of the function
 signature as is shown below.
 
 ```ts
-/**
- * arithmetic.ts
- */
 export function add(a: number, b: number): number {
   return a + b;
 }
@@ -119,56 +135,52 @@ inside external modules must be exported. Either by prepending them with the
 `export` keyword or including them in an export statement at the bottom of the
 file.
 
+## Managing dependencies
+
+Deno supports the [import map]() standard for mapping bare specifiers (like
+`"oak"`) to fully resolved specifiers (like `"deno:oak@11"`). This allows one to
+manage dependencies and their versions centrally.
+
+In Deno, the `deno.json` config file also can be an import map.
+
+```json
+// deno.json
+{
+  "imports": {
+    "chalk": "npm:chalk@^1.0",
+    "cowsay": "npm:chalk@^1.0",
+    "dax": "deno:dax@~0.23/mod.ts"
+  }
+}
+```
+
+```ts
+// main.ts
+import chalk from "chalk";
+import cowsay from "cowsay";
+import $ from "dax";
+
+const data = await $`echo hello`.text();
+const message = cowsay.getMessage(data);
+
+console.log(chalk.green(message));
+```
+
+For managing dependencies using an import map in libraries, see the
+[_Advanced: Publishing Modules_ section](../advanced/publishing_modules).
+
 ## FAQ
 
 ### How do I import a specific version of a module?
 
-Specify the version in the URL. For example, this URL fully specifies the code
-being run: `https://unpkg.com/liltest@0.0.5/dist/liltest.js`.
-
-### It seems unwieldy to import URLs everywhere.
-
-> What if one of the URLs links to a subtly different version of a library?
-
-> Isn't it error prone to maintain URLs everywhere in a large project?
-
-The solution is to import and re-export your external libraries in a central
-`deps.ts` file (which serves the same purpose as Node's `package.json` file).
-For example, let's say you were using the above assertion library across a large
-project. Rather than importing
-`"https://deno.land/std@$STD_VERSION/testing/asserts.ts"` everywhere, you could
-create a `deps.ts` file that exports the third-party code:
-
-**deps.ts**
+For `deno:` and `npm:` modules, you can specify the version in the specifier:
 
 ```ts
-export {
-  assert,
-  assertEquals,
-  assertStringIncludes,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { serve } from "deno:std@0.173/http/server.ts";
+
+import chalk from "npm:chalk@^5";
 ```
 
-And throughout the same project, you can import from the `deps.ts` and avoid
-having many references to the same URL:
-
-```ts, ignore
-import { assertEquals, runTests, test } from "./deps.ts";
-```
-
-This design circumvents a plethora of complexity spawned by package management
-software, centralized code repositories, and superfluous file formats.
-
-### How can I trust a URL that may change?
-
-By using a lock file (with the `--lock` command line flag), you can ensure that
-the code pulled from a URL is the same as it was during initial development. You
-can learn more about this [here](./modules/integrity_checking.md).
-
-### But what if the host of the URL goes down? The source won't be available.
-
-This, like the above, is a problem faced by _any_ remote dependency system.
-Relying on external servers is convenient for development but brittle in
-production. Production software should always vendor its dependencies. In Node
-this is done by checking `node_modules` into source control. In Deno this is
-done by using the [`deno vendor`](../tools/vendor.md) subcommand.
+If you use `http` specifiers, you specify the version in the URL. For example,
+this URL fully specifies the code being run:
+`https://unpkg.com/liltest@0.0.5/dist/liltest.js`.
