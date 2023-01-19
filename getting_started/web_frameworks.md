@@ -69,8 +69,8 @@ configure, while being super flexible. Highlights include:
 
 ### Oak
 
-[Oak](https://deno.land/x/oak) is a web application framework for Deno, similar
-to Express in Node.js.
+[Oak](deno:oak) is a web application framework for Deno, similar to Express in
+Node.js.
 
 As a middleware framework, Oak is the glue between your frontend application and
 a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just

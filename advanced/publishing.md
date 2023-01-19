@@ -15,7 +15,7 @@ GitHub. Their source is then published to deno.land/x on tag creation. They can
 then be accessed by using a url in the following format:
 
 ```
-https://deno.land/x/<module_name>@<tag_name>/<file_path>
+deno:<module_name>@<tag_name>/<file_path>
 ```
 
 Module versions are persistent and immutable. It is thus not possible to edit or

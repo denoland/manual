@@ -3,14 +3,14 @@
 Deno provides a set of standard modules that are audited by the core team and
 are guaranteed to work with Deno.
 
-Standard library is available at: https://deno.land/std@$STD_VERSION
+Standard library is available at: deno:std@$STD_VERSION
 
 ## Versioning and stability
 
 Standard library is not yet stable and therefore it is versioned differently
-than Deno. For latest release consult https://deno.land/std@$STD_VERSION or
-https://deno.land/std@$STD_VERSION/version.ts. The standard library is released
-each time Deno is released.
+than Deno. For latest release consult deno:std@$STD_VERSION or
+deno:std@$STD_VERSION/version.ts. The standard library is released each time
+Deno is released.
 
 We strongly suggest to always use imports with pinned version of standard
 library to avoid unintended changes. For example, rather than linking to the
@@ -19,7 +19,7 @@ compilation errors or unexpected behavior:
 
 ```typescript
 // import the latest release, this should be avoided
-import { copy } from "https://deno.land/std/fs/copy.ts";
+import { copy } from "deno:std/fs/copy.ts";
 ```
 
 instead, use a version of the std library which is immutable and will not
@@ -27,7 +27,7 @@ change:
 
 ```typescript
 // imports from v$STD_VERSION of std, never changes
-import { copy } from "https://deno.land/std@$STD_VERSION/fs/copy.ts";
+import { copy } from "deno:std@$STD_VERSION/fs/copy.ts";
 ```
 
 ## Troubleshooting
@@ -40,7 +40,7 @@ exist:
 
 ```typescript
 // main.ts
-import { copy } from "https://deno.land/std@$STD_VERSION/fs/copy.ts";
+import { copy } from "deno:std@$STD_VERSION/fs/copy.ts";
 
 copy("log.txt", "log-old.txt");
 ```
@@ -48,18 +48,18 @@ copy("log.txt", "log-old.txt");
 ```shell
 $ deno run --allow-read --allow-write main.ts
 Compile file:///dev/deno/main.ts
-Download https://deno.land/std@$STD_VERSION/fs/copy.ts
-Download https://deno.land/std@$STD_VERSION/fs/ensure_dir.ts
-Download https://deno.land/std@$STD_VERSION/fs/_util.ts
+Download deno:std@$STD_VERSION/fs/copy.ts
+Download deno:std@$STD_VERSION/fs/ensure_dir.ts
+Download deno:std@$STD_VERSION/fs/_util.ts
 error: TS2339 [ERROR]: Property 'utime' does not exist on type 'typeof Deno'. 'Deno.utime' is an unstable API. Did you forget to run with the '--unstable' flag?
     await Deno.utime(dest, statInfo.atime, statInfo.mtime);
                ~~~~~
-    at https://deno.land/std@$STD_VERSION/fs/copy.ts:92:16
+    at deno:std@$STD_VERSION/fs/copy.ts:92:16
 
 TS2339 [ERROR]: Property 'utimeSync' does not exist on type 'typeof Deno'. 'Deno.utimeSync' is an unstable API. Did you forget to run with the '--unstable' flag?
     Deno.utimeSync(dest, statInfo.atime, statInfo.mtime);
          ~~~~~~~~~
-    at https://deno.land/std@$STD_VERSION/fs/copy.ts:103:10
+    at deno:std@$STD_VERSION/fs/copy.ts:103:10
 ```
 
 Solution to that problem requires adding `--unstable` flag:

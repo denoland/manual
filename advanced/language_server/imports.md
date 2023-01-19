@@ -98,7 +98,7 @@ required properties:
   specifiers are constructed for this registry.
 
 [There is a JSON Schema document which defines this
-schema available as part of the CLI's source code.](https://deno.land/x/deno/cli/schemas/registry-completions.v2.json)
+schema available as part of the CLI's source code.](deno:deno/cli/schemas/registry-completions.v2.json)
 
 While the v2 supports more features than v1 did, they were introduced in a
 non-breaking way, and the language server automatically handles v1 or v2

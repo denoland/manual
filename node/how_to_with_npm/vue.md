@@ -49,8 +49,8 @@ into your `api/data.json`.
 Then, let's update `api/main.ts`:
 
 ```ts, ignore
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
-import { oakCors } from "https://deno.land/x/cors/mod.ts";
+import { Application, Router } from "deno:oak/mod.ts";
+import { oakCors } from "deno:cors/mod.ts";
 import data from "./data.json" assert { type: "json" };
 
 const router = new Router();
@@ -80,8 +80,8 @@ app.use(router.allowedMethods());
 await app.listen({ port: 8000 });
 ```
 
-This is a very simple API server using [`oak`](https://deno.land/x/oak) that
-will return dinosaur information based on the route. Let's start the API server:
+This is a very simple API server using [`oak`](deno:oak) that will return
+dinosaur information based on the route. Let's start the API server:
 
 ```shell, ignore
 deno run --allow-env --allow-net api/main.ts

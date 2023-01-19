@@ -4,10 +4,10 @@
 Deno, which includes all dependencies of the specified input. For example:
 
 ```bash
-deno bundle https://deno.land/std@$STD_VERSION/examples/colors.ts colors.bundle.js
-Bundle https://deno.land/std@$STD_VERSION/examples/colors.ts
-Download https://deno.land/std@$STD_VERSION/examples/colors.ts
-Download https://deno.land/std@$STD_VERSION/fmt/colors.ts
+deno bundle deno:std@$STD_VERSION/examples/colors.ts colors.bundle.js
+Bundle deno:std@$STD_VERSION/examples/colors.ts
+Download deno:std@$STD_VERSION/examples/colors.ts
+Download deno:std@$STD_VERSION/fmt/colors.ts
 Emit "colors.bundle.js" (9.83KB)
 ```
 

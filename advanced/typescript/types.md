@@ -137,7 +137,7 @@ means it requires an extension, and is relative to the module referencing it. It
 can be a fully qualified URL as well:
 
 ```ts, ignore
-/// <reference types="https://deno.land/x/pkg@1.0.0/types.d.ts" />
+/// <reference types="deno:pkg@1.0.0/types.d.ts" />
 ```
 
 ### Using a configuration file
@@ -151,7 +151,7 @@ example:
   "compilerOptions": {
     "types": [
       "./types.d.ts",
-      "https://deno.land/x/pkg@1.0.0/types.d.ts",
+      "deno:pkg@1.0.0/types.d.ts",
       "/Users/me/pkg/types.d.ts"
     ]
   }

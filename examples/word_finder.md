@@ -130,17 +130,17 @@ export function search(pattern, dictionary) {
 
 ## Running a Deno Server
 
-[Oak](https://deno.land/x/oak@v11.1.0) is a framework that lets you easily setup
-a server in Deno (analogous to Javascript’s Express) and we’ll be using it to
-host our application. Our server will use our search function to populate our
-HTML template with data and then return the customized HTML back to the viewer.
-We can conveniently rely on the `/usr/share/dict/words` file as our dictionary
+[Oak](deno:oak@v11.1.0) is a framework that lets you easily setup a server in
+Deno (analogous to Javascript’s Express) and we’ll be using it to host our
+application. Our server will use our search function to populate our HTML
+template with data and then return the customized HTML back to the viewer. We
+can conveniently rely on the `/usr/share/dict/words` file as our dictionary
 which is a standard file present on most Unix-like operating systems.
 
 ```jsx, ignore
 // server.js
 
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "deno:oak/mod.ts";
 import { search } from "./search.js";
 import { renderHtml } from "./render.js";
 

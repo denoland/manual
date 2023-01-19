@@ -20,7 +20,7 @@ To focus on the deployment, our app will simply be a `main.ts` file that returns
 a string as an HTTP response:
 
 ```ts, ignore
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application } from "deno:oak/mod.ts";
 
 const app = new Application();
 

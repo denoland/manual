@@ -319,7 +319,7 @@ test myTestFunction ... ok
 Example of test:
 
 ```ts, ignore
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
 import { foo } from "./mod.ts";
 
 Deno.test("myTestFunction", function () {
@@ -352,9 +352,9 @@ export function foo(): string {
 
 #### Do not depend on external code.
 
-`https://deno.land/std/` is intended to be baseline functionality that all Deno
-programs can rely on. We want to guarantee to users that this code does not
-include potentially unreviewed third-party code.
+`deno:std/` is intended to be baseline functionality that all Deno programs can
+rely on. We want to guarantee to users that this code does not include
+potentially unreviewed third-party code.
 
 #### Document and maintain browser compatibility.
 

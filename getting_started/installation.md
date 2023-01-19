@@ -14,7 +14,7 @@ scripts to download and install the binary.
 Using Shell (macOS and Linux):
 
 ```shell
-curl -fsSL https://deno.land/x/install/install.sh | sh
+curl -fsSL deno:install/install.sh | sh
 ```
 
 Using PowerShell (Windows):

@@ -115,12 +115,12 @@ window.onload = () => {
 
 ## Chat Server
 
-[oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
-we’ll be using to set up our server. Our server will return the plain
-`index.html` file previously shown when the user first navigates to the site.
-Our server also exposes a `ws_endpoint/` endpoint which the chat clients will
-use to create their web socket connection. Note that the client’s initial HTTP
-connection is converted into a WebSocket connection by the server via HTTP’s
+[oak](deno:oak@v11.1.0) is the Deno middleware framework that we’ll be using to
+set up our server. Our server will return the plain `index.html` file previously
+shown when the user first navigates to the site. Our server also exposes a
+`ws_endpoint/` endpoint which the chat clients will use to create their web
+socket connection. Note that the client’s initial HTTP connection is converted
+into a WebSocket connection by the server via HTTP’s
 [protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism).
 Our server will maintain web socket connections with each active client and tell
 them which users are currently active. Our server will also broadcast a message
@@ -130,7 +130,7 @@ display it.
 ```jsx
 // server.js
 
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "deno:oak/mod.ts";
 
 const connectedClients = new Map();
 

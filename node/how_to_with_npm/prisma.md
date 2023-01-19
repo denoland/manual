@@ -101,7 +101,7 @@ And in `./prisma/seed.ts`:
 
 ```ts, ignore
 import { Prisma, PrismaClient } from "../generated/client/deno/edge.ts";
-import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";
+import { config } from "deno:std@0.163.0/dotenv/mod.ts";
 
 const envVars = await config();
 
@@ -155,8 +155,8 @@ After doing so, your Prisma dashboard should show the new dinosaurs:
 
 ## Create your API routes
 
-We'll use [`oak`](https://deno.land/x/oak) to create the API routes. Let's keep
-them simple for now.
+We'll use [`oak`](deno:oak) to create the API routes. Let's keep them simple for
+now.
 
 Let's create a `main.ts` file:
 
@@ -168,8 +168,8 @@ Then, in your `main.ts` file:
 
 ```ts, ignore
 import { PrismaClient } from "./generated/client/deno/edge.ts";
-import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";
+import { Application, Router } from "deno:oak@v11.1.0/mod.ts";
+import { config } from "deno:std@0.163.0/dotenv/mod.ts";
 
 const envVars = await config();
 

@@ -1,7 +1,7 @@
 {
   "imports": {
-    "https://deno.land/std@$STD_VERSION/": "https://deno.land/std/",
-    "https://deno.land/x/mongo@LATEST_VERSION/": "https://deno.land/x/mongo/",
+    "deno:std@$STD_VERSION/": "deno:std/",
+    "deno:mongo@LATEST_VERSION/": "deno:mongo/",
     "jsdom": "https://esm.sh/jsdom"
   }
 }

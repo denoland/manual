@@ -4,7 +4,7 @@
 self-contained executable.
 
 ```
-> deno compile https://deno.land/std/examples/welcome.ts
+> deno compile deno:std/examples/welcome.ts
 ```
 
 If you omit the `OUT` parameter, the name of the executable file will be
@@ -17,14 +17,14 @@ execute the script must be specified at compilation time. This includes
 permission flags.
 
 ```
-> deno compile --allow-read --allow-net https://deno.land/std/http/file_server.ts
+> deno compile --allow-read --allow-net deno:std/http/file_server.ts
 ```
 
 [Script arguments](../getting_started/command_line_interface.md#script-arguments)
 can be partially embedded.
 
 ```
-> deno compile --allow-read --allow-net https://deno.land/std/http/file_server.ts -p 8080
+> deno compile --allow-read --allow-net deno:std/http/file_server.ts -p 8080
 > ./file_server --help
 ```
 

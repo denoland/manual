@@ -30,5 +30,5 @@ for (const filename of Deno.args) {
 To run the program:
 
 ```shell
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
+deno run --allow-read deno:std@$STD_VERSION/examples/cat.ts /etc/passwd
 ```

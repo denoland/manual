@@ -13,7 +13,7 @@ Example:
 ```json
 {
   "imports": {
-    "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
+    "fmt/": "deno:std@$STD_VERSION/fmt/"
   }
 }
 ```

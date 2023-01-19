@@ -33,7 +33,7 @@ function from the standard library. Then, import the configuration using the
 `config` function.
 
 ```ts
-import { config } from "https://deno.land/std/dotenv/mod.ts";
+import { config } from "deno:std/dotenv/mod.ts";
 
 const configData = await config();
 const password = configData["PASSWORD"];
@@ -45,5 +45,5 @@ console.log(password);
 ## `std/flags`
 
 The Deno standard library has a
-[`std/flags` module](https://deno.land/std@$STD_VERSION/flags/README.md?source=)
-for parsing command line arguments.
+[`std/flags` module](deno:std@$STD_VERSION/flags/README.md?source=) for parsing
+command line arguments.

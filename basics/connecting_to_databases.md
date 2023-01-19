@@ -8,13 +8,12 @@ They are hosted at Deno's third-party module site
 
 ## MySQL
 
-[deno_mysql](https://deno.land/x/mysql) is a MySQL and MariaDB database driver
-for Deno.
+[deno_mysql](deno:mysql) is a MySQL and MariaDB database driver for Deno.
 
 ### Connect to MySQL with deno_mysql
 
 ```ts, ignore
-import { Client } from "https://deno.land/x/mysql/mod.ts";
+import { Client } from "deno:mysql/mod.ts";
 
 const client = await new Client().connect({
   hostname: "127.0.0.1",
@@ -26,26 +25,25 @@ const client = await new Client().connect({
 
 ## Postgres
 
-[postgresjs](https://deno.land/x/postgresjs) is a full featured Postgres client
-for Node.js and Deno.
+[postgresjs](deno:postgresjs) is a full featured Postgres client for Node.js and
+Deno.
 
 ### Connect to Postgres with postgresjs
 
 ```js, ignore
-import postgres from "https://deno.land/x/postgresjs/mod.js";
+import postgres from "deno:postgresjs/mod.js";
 
 const sql = postgres("postgres://username:password@host:port/database");
 ```
 
 ## MongoDB
 
-[deno_mongo](https://deno.land/x/mongo) is a MongoDB database driver developed
-for Deno.
+[deno_mongo](deno:mongo) is a MongoDB database driver developed for Deno.
 
 ### Connect to MongoDB with deno_mongo
 
 ```ts, ignore
-import { MongoClient } from "https://deno.land/x/mongo@LATEST_VERSION/mod.ts";
+import { MongoClient } from "deno:mongo@LATEST_VERSION/mod.ts";
 
 const client = new MongoClient();
 
@@ -82,11 +80,11 @@ There are two primary solutions to connect to SQLite in Deno:
 
 ### Connect to SQLite with the FFI Module
 
-[sqlite3](https://deno.land/x/sqlite3) provides JavaScript bindings to the
-SQLite3 C API, using [Deno FFI](../runtime/ffi_api.md).
+[sqlite3](deno:sqlite3) provides JavaScript bindings to the SQLite3 C API, using
+[Deno FFI](../runtime/ffi_api.md).
 
 ```ts, ignore
-import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
+import { Database } from "deno:sqlite3@LATEST_VERSION/mod.ts";
 
 const db = new Database("test.db");
 
@@ -95,12 +93,12 @@ db.close();
 
 ### Connect to SQLite with the WASM-Optimized Module
 
-[sqlite](https://deno.land/x/sqlite) is a SQLite module for JavaScript and
-TypeScript. The wrapper made specifically for Deno and uses a version of SQLite3
-compiled to WebAssembly (WASM).
+[sqlite](deno:sqlite) is a SQLite module for JavaScript and TypeScript. The
+wrapper made specifically for Deno and uses a version of SQLite3 compiled to
+WebAssembly (WASM).
 
 ```ts, ignore
-import { DB } from "https://deno.land/x/sqlite/mod.ts";
+import { DB } from "deno:sqlite/mod.ts";
 
 const db = new DB("test.db");
 
@@ -187,7 +185,7 @@ Deno supports multiple ORMs, including Prisma and DenoDB.
 
 ### DenoDB
 
-[Denodb](https://deno.land/x/denodb) is a Deno-specific ORM.
+[Denodb](deno:denodb) is a Deno-specific ORM.
 
 #### Connect to DenoDB
 
@@ -197,7 +195,7 @@ import {
   DataTypes,
   Model,
   PostgresConnector,
-} from "https://deno.land/x/denodb/mod.ts";
+} from "deno:denodb/mod.ts";
 
 const connection = new PostgresConnector({
   host: "...",
@@ -218,16 +216,16 @@ applications can query for data.
 
 ### Server
 
-You can use [gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware
-for Deno, to run a GraphQL API server in Deno.
+You can use [gql](deno:gql), an universal GraphQL HTTP middleware for Deno, to
+run a GraphQL API server in Deno.
 
 #### Run a GraphQL API server with gql
 
 ```ts, ignore
-import { Server } from "https://deno.land/std@$STD_VERSION/http/server.ts";
-import { GraphQLHTTP } from "https://deno.land/x/gql/mod.ts";
-import { makeExecutableSchema } from "https://deno.land/x/graphql_tools@0.0.2/mod.ts";
-import { gql } from "https://deno.land/x/graphql_tag@0.0.1/mod.ts";
+import { Server } from "deno:std@$STD_VERSION/http/server.ts";
+import { GraphQLHTTP } from "deno:gql/mod.ts";
+import { makeExecutableSchema } from "deno:graphql_tools@0.0.2/mod.ts";
+import { gql } from "deno:graphql_tag@0.0.1/mod.ts";
 
 const typeDefs = gql`
   type Query {

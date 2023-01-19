@@ -2,8 +2,8 @@
   "imports": {
     "@algolia/requester-fetch": "https://esm.sh/@algolia/requester-fetch@4.14.2?pin=v90",
     "algoliasearch": "https://esm.sh/algoliasearch@4.14.2?pin=v90",
-    "dax": "https://deno.land/x/dax@0.11.0/mod.ts",
-    "markdown_records": "https://deno.land/x/markdown_records@0.2.0/mod.ts",
-    "std/": "https://deno.land/std@0.153.0/"
+    "dax": "deno:dax@0.11.0/mod.ts",
+    "markdown_records": "deno:markdown_records@0.2.0/mod.ts",
+    "std/": "deno:std@0.153.0/"
   }
 }

@@ -23,7 +23,7 @@ With such import map loaded...
 ```json
 {
   "imports": {
-    "fresh": "https://deno.land/x/fresh@1.0.1/dev.ts"
+    "fresh": "deno:fresh@1.0.1/dev.ts"
   }
 }
 ```
@@ -37,5 +37,5 @@ console.log(import.meta.resolve("fresh"));
 
 ```sh
 $ deno run resolve.js
-https://deno.land/x/fresh@1.0.1/dev.ts
+deno:fresh@1.0.1/dev.ts
 ```

@@ -4,7 +4,7 @@ If you want to parse CSS to a abstract syntax tree (AST) then there are two
 solutions you might want to consider:
 
 - [reworkcss/css](https://github.com/reworkcss/css)
-- [deno_css](https://deno.land/x/css)
+- [deno_css](deno:css)
 
 `reworkcss/css` was written originally for Node.js but work well when consumed
 from a CDN. Importing from `esm.sh` also automatically combines the type
@@ -27,7 +27,7 @@ Then we will stringify the modified CSS AST and output it to the console:
 
 ```ts, ignore
 import * as css from "https://esm.sh/css@3.0.0";
-import { assert } from "https://deno.land/std@0.132.0/testing/asserts.ts";
+import { assert } from "deno:std@0.132.0/testing/asserts.ts";
 
 declare global {
   interface AbortSignal {
@@ -57,7 +57,7 @@ In this example, we will parse some CSS into an AST and log out the `background`
 declaration of the `body` rule to the console.
 
 ```ts
-import * as css from "https://deno.land/x/css@0.3.0/mod.ts";
+import * as css from "deno:css@0.3.0/mod.ts";
 
 const ast = css.parse(`
 body {

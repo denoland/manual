@@ -148,7 +148,7 @@ Additionally to the above make sure that:
 If you are submitting a PR to this manual, make sure that all imports of the
 standard library have the numeric version replaced with "$STD_VERSION".
 
-For the latest version go [here](https://deno.land/std@0.154.0/version.ts).
+For the latest version go [here](deno:std@0.154.0/version.ts).
 
 ## Documenting APIs
 

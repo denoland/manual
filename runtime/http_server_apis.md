@@ -2,8 +2,8 @@
 
 Deno currently has three HTTP Server APIs:
 
-- [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts):
-  part of the standard library, high-level.
+- [`serve` in the `std/http` module](deno:std@$STD_VERSION/http/server.ts): part
+  of the standard library, high-level.
 - [`Deno.serve`](https://deno.land/api@$CLI_VERSION?unstable&s=Deno.serve):
   native, _higher-level_, supports only http/1.1, but is fast, unstable.
 - [`Deno.serveHttp`](https://deno.land/api@$CLI_VERSION?s=Deno.serveHttp):
@@ -21,9 +21,9 @@ Deno currently has three HTTP Server APIs:
 ### A "Hello World" server
 
 To start a HTTP server on a given port, you can use the `serve` function from
-[`std/http`](https://deno.land/std@$STD_VERSION/http). This function takes a
-handler function that will be called for each incoming request, and is expected
-to return a response (or a promise resolving to a response).
+[`std/http`](deno:std@$STD_VERSION/http). This function takes a handler function
+that will be called for each incoming request, and is expected to return a
+response (or a promise resolving to a response).
 
 Here is an example of a handler function that returns a "Hello, World!" response
 for each request:
@@ -38,11 +38,11 @@ function handler(req: Request): Response {
 > `async` function.
 
 To then listen on a port and handle requests you need to call the `serve`
-function from the `https://deno.land/std@$STD_VERSION/http/server.ts` module,
-passing in the handler as the first argument:
+function from the `deno:std@$STD_VERSION/http/server.ts` module, passing in the
+handler as the first argument:
 
 ```js
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+import { serve } from "deno:std@$STD_VERSION/http/server.ts";
 
 serve(handler);
 ```
@@ -51,7 +51,7 @@ By default `serve` will listen on port `8000`, but this can be changed by
 passing in a port number in the second argument options bag:
 
 ```js
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+import { serve } from "deno:std@$STD_VERSION/http/server.ts";
 
 // To listen on port 4242.
 serve(handler, { port: 4242 });
@@ -155,13 +155,13 @@ function handler(req: Request): Response {
 > ℹ️ To use HTTPS, you will need a valid TLS certificate and a private key for
 > your server.
 
-To use HTTPS, use `serveTls` from the
-`https://deno.land/std@$STD_VERSION/http/server.ts` module instead of `serve`.
-This takes two extra arguments in the options bag: `certFile` and `keyFile`.
-These are paths to the certificate and key files, respectively.
+To use HTTPS, use `serveTls` from the `deno:std@$STD_VERSION/http/server.ts`
+module instead of `serve`. This takes two extra arguments in the options bag:
+`certFile` and `keyFile`. These are paths to the certificate and key files,
+respectively.
 
 ```js
-import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+import { serveTls } from "deno:std@$STD_VERSION/http/server.ts";
 
 serveTls(handler, {
   port: 443,

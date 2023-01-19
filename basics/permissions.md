@@ -61,7 +61,7 @@ This example restricts file system access by allowing read-only access to the
 attempting to read a file in the `/etc` directory:
 
 ```shell
-$ deno run --allow-read=/usr https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
+$ deno run --allow-read=/usr deno:std@$STD_VERSION/examples/cat.ts /etc/passwd
 error: Uncaught PermissionDenied: read access to "/etc/passwd", run again with the --allow-read flag
 ► $deno$/dispatch_json.ts:40:11
     at DenoError ($deno$/errors.ts:20:5)
@@ -72,7 +72,7 @@ Try it out again with the correct permissions by allowing access to `/etc`
 instead:
 
 ```shell
-deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
+deno run --allow-read=/etc deno:std@$STD_VERSION/examples/cat.ts /etc/passwd
 ```
 
 `--allow-write` works the same as `--allow-read`.

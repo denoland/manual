@@ -33,7 +33,7 @@ deno run --no-remote --import-map=vendor/import_map.json main.ts
 Note that you may specify multiple modules and remote modules when vendoring.
 
 ```shell
-deno vendor main.ts test.deps.ts https://deno.land/std/path/mod.ts
+deno vendor main.ts test.deps.ts deno:std/path/mod.ts
 ```
 
 Run `deno vendor --help` for more details.

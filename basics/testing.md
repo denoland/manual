@@ -10,7 +10,7 @@ Firstly, let's create a file `url_test.ts` and register a test case using
 
 ```ts
 // url_test.ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
 
 Deno.test("url test", () => {
   const url = new URL("./foo.js", "https://deno.land/");
@@ -36,7 +36,7 @@ switching between the forms (eg. when you need to quickly focus a single test
 for debugging, using `only: true` option):
 
 ```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
 
 // Compact form: name and function
 Deno.test("hello world #1", () => {
@@ -87,7 +87,7 @@ You can also test asynchronous code by passing a test function that returns a
 promise. For this you can use the `async` keyword when defining a function:
 
 ```ts
-import { delay } from "https://deno.land/std@$STD_VERSION/async/delay.ts";
+import { delay } from "deno:std@$STD_VERSION/async/delay.ts";
 
 Deno.test("async hello world", async () => {
   const x = 1 + 2;
@@ -107,8 +107,8 @@ The test steps API provides a way to report distinct steps within a test and do
 setup and teardown code within that test.
 
 ```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
-import { Client } from "https://deno.land/x/postgres@v0.15.0/mod.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
+import { Client } from "deno:postgres@v0.15.0/mod.ts";
 
 interface User {
   id: number;
@@ -412,9 +412,9 @@ Deno's test runner works with popular testing libraries like
 
 For example integration see:
 
-- https://deno.land/std@$STD_VERSION/testing/chai_example.ts
-- https://deno.land/std@$STD_VERSION/testing/sinon_example.ts
-- https://deno.land/std@$STD_VERSION/testing/fast_check_example.ts
+- deno:std@$STD_VERSION/testing/chai_example.ts
+- deno:std@$STD_VERSION/testing/sinon_example.ts
+- deno:std@$STD_VERSION/testing/fast_check_example.ts
 
 ### Example: spying on a function with Sinon
 
@@ -445,7 +445,7 @@ around `bar` and call `foo(spy)` in the testing code:
 
 ```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
 import { bar, foo } from "./my_file.js";
 
 Deno.test("calls bar during execution of foo", () => {
@@ -485,7 +485,7 @@ And then `import` in a test file:
 
 ```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "deno:std@$STD_VERSION/testing/asserts.ts";
 import { foo, funcs } from "./my_file.js";
 
 Deno.test("calls bar during execution of foo", () => {

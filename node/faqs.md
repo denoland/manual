@@ -22,44 +22,6 @@ the types from the `@types/node` package:
 /// <reference types="npm:@types/node">
 ```
 
-### When using CDNs
-
-If you are getting this error when not using npm specifiers and instead while
-importing from npm CDNs, then you can import the `@types/node` types from a CDN
-as well.
-
-For example from UNPKG it would look something like this:
-
-```ts, ignore
-import type {} from "https://unpkg.com/@types/node/index.d.ts";
-```
-
-Or from esm.sh:
-
-```ts, ignore
-import type {} from "https://esm.sh/@types/node/index.d.ts";
-```
-
-Or from Skypack:
-
-```ts, ignore
-import type {} from "https://cdn.skypack.dev/@types/node/index.d.ts";
-```
-
-You could also try to provide only specifically what the 3rd party package is
-missing. For example the package `@aws-sdk/client-dynamodb` has a dependency on
-the `NodeJS.ProcessEnv` type in its type definitions. In one of the modules of
-your project that imports it as a dependency, you could put something like this
-in there which will solve the problem:
-
-```ts, ignore
-declare global {
-  namespace NodeJS {
-    type ProcessEnv = Record<string, string>;
-  }
-}
-```
-
 ## Getting type errors like cannot find `document` or `HTMLElement`
 
 The library you are using has dependencies on the DOM. This is common for

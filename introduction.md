@@ -20,9 +20,8 @@ It's built on V8, Rust, and Tokio.
   ([`deno lint`](./tools/linter.md)), a test runner
   ([`deno test`](./basics/testing.md)), and a
   [language server for your editor](./getting_started/setup_your_environment.md#using-an-editoride).
-- Has
-  [a set of reviewed (audited) standard modules](https://deno.land/std@$STD_VERSION)
-  that are guaranteed to work with Deno.
+- Has [a set of reviewed (audited) standard modules](deno:std@$STD_VERSION) that
+  are guaranteed to work with Deno.
 - Can [bundle](./tools/bundler.md) scripts into a single JavaScript file or
   [executable](./tools/compiler.md).
 - Supports the use of [existing npm modules](./node.md)

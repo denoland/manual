@@ -68,7 +68,7 @@ Then navigate to `http://localhost:8080/` in a browser.
 **webserver.ts**:
 
 ```ts
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
+import { serve } from "deno:std@$STD_VERSION/http/server.ts";
 
 const port = 8080;
 

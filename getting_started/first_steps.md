@@ -32,11 +32,11 @@ deno run first_steps.ts
 ```
 
 Deno also has the ability to execute scripts from URLs. Deno
-[hosts a library](https://deno.land/std@0.103.0/examples) of example code, one
-of which is a `Hello World` program. To run that hosted code, do:
+[hosts a library](deno:std@0.103.0/examples) of example code, one of which is a
+`Hello World` program. To run that hosted code, do:
 
 ```shell
-deno run https://deno.land/std@0.103.0/examples/welcome.ts
+deno run deno:std@0.103.0/examples/welcome.ts
 ```
 
 ## Making an HTTP request
@@ -79,7 +79,7 @@ deno run first_steps.ts https://yirenlu.com/
 or, from URL:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run deno:std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
 You will see this program returns an error regarding network access so what did
@@ -96,7 +96,7 @@ deno run --allow-net=yirenlu.com first_steps.ts https://yirenlu.com/
 or, from URL:
 
 ```shell
-deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run --allow-net=example.com deno:std@$STD_VERSION/examples/curl.ts https://example.com
 ```
 
 ## Reading a file
@@ -130,10 +130,10 @@ Try the program:
 
 ```shell
 # macOS / Linux
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/hosts
+deno run --allow-read deno:std@$STD_VERSION/examples/cat.ts /etc/hosts
 
 # Windows
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
+deno run --allow-read deno:std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
 ## Putting it all together in an HTTP server
@@ -143,7 +143,7 @@ One of the most common usecases for Deno is building an HTTP Server.
 **http_server.ts**
 
 ```ts
-import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
+import { serve } from "deno:std@0.157.0/http/server.ts";
 
 const handler = async (request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {

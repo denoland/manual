@@ -68,7 +68,7 @@ const p = Deno.run({
     "deno",
     "run",
     "--allow-read",
-    "https://deno.land/std@$STD_VERSION/examples/cat.ts",
+    "deno:std@$STD_VERSION/examples/cat.ts",
     ...fileNames,
   ],
   stdout: "piped",
@@ -115,7 +115,7 @@ This example is the equivalent of running `yes &> ./process_output` in bash.
  * subprocess_piping_to_file.ts
  */
 
-import { mergeReadableStreams } from "https://deno.land/std@$STD_VERSION/streams/merge.ts";
+import { mergeReadableStreams } from "deno:std@$STD_VERSION/streams/merge.ts";
 
 // create the file to attach the process to
 const file = await Deno.open("./process_output.txt", {
