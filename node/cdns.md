@@ -4,7 +4,7 @@ Most developers currently use npm modules in Deno by importing them using one of
 many CDNs. You can reference the CDN URL in your Deno TS code or directly in
 your browser as an ES Module. These CDN URLs are reusable - they also provide
 instructions on how to be used in Deno, the browser, etc. Sometimes you need a
-URL flag to indicate that that you need a Deno-specific module.
+URL flag to indicate that you need a Deno-specific module.
 
 **Starting with Deno release 1.28**, Deno also offers stabilized support for
 [npm specifiers](./npm_specifiers.md), which are a new way of using npm modules
