@@ -95,11 +95,11 @@
     }
   },
   "node": {
-    "name": "npm Modules",
+    "name": "Node and npm Modules",
     "children": {
-      "npm_specifiers": "Using npm Packages with npm Specifiers",
+      "npm_specifiers": "npm specifiers",
       "cdns": {
-        "name": "Using npm Packages Via CDNs",
+        "name": "npm via CDNs",
         "redirectFrom": ["/npm_nodejs/cdns"]
       },
       "node_specifiers": {
