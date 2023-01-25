@@ -19,9 +19,9 @@ and setting it to `true` to help ensure that your code can be properly handled
 by Deno.
 
 One of the ways to deal with the extension and the lack of Node.js non-standard
-resolution logic is to use [import maps](../../node/import_maps.md) which would
-allow you to specify "packages" of bare specifiers which then Deno could resolve
-and load.
+resolution logic is to use [import maps](../../basics/import_maps.md) which
+would allow you to specify "packages" of bare specifiers which then Deno could
+resolve and load.
 
 ## What version(s) of TypeScript does Deno support?
 
@@ -48,8 +48,8 @@ to use `--no-check` to skip type checking all together.
 
 In addition you can utilize `@ts-ignore` to _ignore_ a specific error in code
 that you control. You can also replace whole dependencies, using
-[import maps](../../node/import_maps.md), for situations where a dependency of a
-dependency isn't being maintained or has some sort of breaking change you want
+[import maps](../../basics/import_maps.md), for situations where a dependency of
+a dependency isn't being maintained or has some sort of breaking change you want
 to bypass while waiting for it to be updated.
 
 ## How do I write code that works in Deno and a browser, but still type checks?

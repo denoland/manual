@@ -6,25 +6,116 @@ compiler, formatter and linter.
 The configuration file supports `.json` and `.jsonc` extensions.
 [Since v1.18](https://deno.com/blog/v1.18#auto-discovery-of-the-config-file),
 Deno will automatically detect `deno.json` or `deno.jsonc` configuration file if
-it's in your current working directory (or parent directories). To manually tell
-Deno to use a specific configuration file pass `--config path/to/file.json`
-flag.
+it's in your current working directory or parent directories. (`--config` flag
+can be used to specify a different configuration file.)
 
-> ⚠️ Starting with Deno v1.22 you can disable automatic detection of the
-> configuration file, by passing `--no-config`.
+> ⚠️ Before Deno v1.23 you needed to supply an explicit `--config` flag.
 
-> ⚠️ Starting with Deno v1.30 you can treat the configuration file as an import
-> map by providing `imports` and `scopes` objects.
+## `imports` and `scopes`
 
-Note that using a configuration file is not required now, and will not be
-required in the future. Deno still works best with the default options and no
-configuration file. All options specified in the configuration file can also be
-set using command line flags (for example `--options-use-tabs` for `deno fmt`).
-Using the configuration file should be considered an "as needed" feature, not
-something every user should be reaching to as the first thing when setting up a
-project.
+Since version 1.30, the `deno.json` configuration file acts as an
+[import map](../basics/import_maps.md) for resolving bare specifiers.
 
-## Examples
+```jsonc
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.174.0/"
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
+
+See [the import map section](../basics/import_maps.md) for more information on
+import maps.
+
+Then your script can use the bare specifier `std`:
+
+```js, ignore
+import { assertEquals } from "std/testing/assert.ts";
+
+assertEquals(1, 2);
+```
+
+The top-level `deno.json` option `importMap` along with the `--importmap` flag
+can be used to specify the import map in other files.
+
+## `tasks`
+
+Similar to `package.json`'s `script` field. Essentially short cuts for command
+line invocations.
+
+```json
+{
+  "tasks": {
+    "start": "deno run -A --watch=static/,routes/,data/ dev.ts"
+  }
+}
+```
+
+Using `deno task start` will run the command. See also
+[`deno task`](../tools/task_runner.md).
+
+## `lint`
+
+Configuration for [`deno lint`](../tools/linter.md).
+
+```json
+{
+  "lint": {
+    "files": {
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
+    },
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["ban-untagged-todo"],
+      "exclude": ["no-unused-vars"]
+    }
+  }
+}
+```
+
+## `fmt`
+
+Configuration for [`deno fmt`](../tools/formatter.md)
+
+```json
+{
+  "fmt": {
+    "files": {
+      "include": ["src/"],
+      "exclude": ["src/testdata/"]
+    },
+    "options": {
+      "useTabs": true,
+      "lineWidth": 80,
+      "indentWidth": 4,
+      "singleQuote": true,
+      "proseWrap": "preserve"
+    }
+  }
+}
+```
+
+## `lock`
+
+Used to specify a different file name for the lockfile. By default deno will use
+`deno.lock` and place it alongside the configuration file.
+
+## `compilerOptions`
+
+`deno.json` can also act as a TypeScript configuration file and supports
+[most of the TS compiler options](https://www.typescriptlang.org/tsconfig).
+
+Deno encourages users to use the default TypeScript configuration to help
+sharing code.
+
+See also
+[Configuring TypeScript in Deno](../advanced/typescript/configuration.md).
+
+## Full example
 
 ```json
 {
@@ -33,7 +124,6 @@ project.
     "lib": ["deno.window"],
     "strict": true
   },
-  "importMap": "import_map.json",
   "lint": {
     "files": {
       "include": ["src/"],
@@ -63,26 +153,6 @@ project.
     "files": {
       "include": ["src/"],
       "exclude": ["src/testdata/"]
-    }
-  }
-}
-```
-
-### Using configuration file as an import map
-
-```jsonc
-{
-  "tasks": {
-    "dev": "deno run --watch main.ts"
-  },
-  "imports": {
-    "std/": "https://deno.land/std@0.174.0/"
-  },
-  "scopes": {
-    // Use "old" version of standard library for source code inside "legacy/"
-    // directory
-    "legacy/": {
-      "std/": "https://deno.land/std@0.120.0/"
     }
   }
 }

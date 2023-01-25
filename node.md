@@ -21,6 +21,6 @@ Some other scenarios you may run into covered in this chapter:
   use the [`std/node`](./node/node_specifiers.md) modules of the Deno standard
   library to "polyfill" the built-in modules of Node.
 - If you want to use "bare specifiers" (specifiers without an absolute or
-  relative path to them), you can use [import maps](./node/import_maps.md) to
+  relative path to them), you can use [import maps](./basics/import_maps.md) to
   map the bare specifiers to packages in Deno without needing to use a package
   manager.

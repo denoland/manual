@@ -33,16 +33,19 @@
           "private": {
             "name": "Private Modules",
             "redirectFrom": ["/linking_to_external_code/private"]
-          },
-          "import_maps": {
-            "name": "Import Maps",
-            "redirectFrom": ["/linking_to_external_code/import_maps"]
           }
         }
       },
       "standard_library": {
         "name": "Standard Library",
         "redirectFrom": ["/standard_library"]
+      },
+      "import_maps": {
+        "name": "Import Maps",
+        "redirectFrom": [
+          "/linking_to_external_code/import_maps",
+          "/node/import_maps"
+        ]
       },
       "permissions": {
         "name": "Permissions",
@@ -92,18 +95,17 @@
     }
   },
   "node": {
-    "name": "npm Modules",
+    "name": "Node and npm Modules",
     "children": {
-      "npm_specifiers": "Using npm Packages with npm Specifiers",
+      "npm_specifiers": "npm specifiers",
       "cdns": {
-        "name": "Using npm Packages Via CDNs",
+        "name": "npm via CDNs",
         "redirectFrom": ["/npm_nodejs/cdns"]
       },
       "node_specifiers": {
-        "name": "Using Node.js Built-in Modules with Node Specifiers",
+        "name": "Built-in Node Modules",
         "redirectFrom": "/node/std_node"
       },
-      "import_maps": "Using Import Maps",
       "how_to_with_npm": {
         "name": "How To guides with npm",
         "children": {
