@@ -9,7 +9,7 @@ Deno will automatically detect `deno.json` or `deno.jsonc` configuration file if
 it's in your current working directory or parent directories. (`--config` flag
 can be used to specify a different configuration file.)
 
-> ⚠️ Before Deno v1.23 you can needed to supply an explicit `--config` flag.
+> ⚠️ Before Deno v1.23 you needed to supply an explicit `--config` flag.
 
 ## `imports` and `scopes`
 
