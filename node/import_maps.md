@@ -15,6 +15,10 @@ To bridge this gap, Deno supports
 web-platform standard that allows you to use bare specifiers with Deno without
 having to install the Node.js package locally.
 
+> ⚠️ Starting with Deno v1.30 you can specify `imports` and `scopes`
+> configuration directly in
+> [the configuration file](../getting_started/configuration_file.md).
+
 So if we want to do the following in our code:
 
 ```ts, ignore
