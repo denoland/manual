@@ -2,8 +2,8 @@
 
 Since version 1.28, Deno has native support for import npm packages. This is
 done by importing using `npm:` specifiers. `npm:` imports have a higher chance
-of compatibility than importing from CDNs, particularly if the modules depend
-on artifact files in their package.
+of compatibility than importing from CDNs, particularly if the modules depend on
+artifact files in their package.
 
 It is important to emphasize that even though this feature was stabilized for
 use with `deno run` and some other sub commands in Deno 1.28, it is still under
