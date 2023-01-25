@@ -1,4 +1,4 @@
-# Built-in Node Modules
+# Built-in Node modules
 
 Deno supports using Node.js built-in modules such as
 [fs](https://nodejs.org/api/fs.html#file-system),
