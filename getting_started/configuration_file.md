@@ -13,6 +13,9 @@ flag.
 > ⚠️ Starting with Deno v1.22 you can disable automatic detection of the
 > configuration file, by passing `--no-config`.
 
+> ⚠️ Starting with Deno v1.30 you can treat the configuration file as an import
+> map by providing `imports` and `scopes` objects.
+
 Note that using a configuration file is not required now, and will not be
 required in the future. Deno still works best with the default options and no
 configuration file. All options specified in the configuration file can also be
@@ -21,7 +24,7 @@ Using the configuration file should be considered an "as needed" feature, not
 something every user should be reaching to as the first thing when setting up a
 project.
 
-## Example
+## Examples
 
 ```json
 {
@@ -60,6 +63,26 @@ project.
       "include": ["src/"],
       "exclude": ["src/testdata/"]
     }
+  }
+}
+```
+
+### Using configuration file as an import map
+
+```jsonc
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.174.0/"
+  },
+  "scopes": {
+    // Use "old" version of standard library for source code inside "legacy/"
+    // directory
+    "legacy/": {
+      "std/": "https://deno.land/std@0.120.0/"
+    }
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
   }
 }
 ```
