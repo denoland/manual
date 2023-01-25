@@ -26,7 +26,7 @@ The `deno.json` file can act as an
 
 Then your script can use the bare specifier `std`:
 
-```js
+```js, ignore
 import { assertEquals } from "std/testing/assert.ts";
 
 assertEquals(1, 2);
