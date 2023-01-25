@@ -18,7 +18,7 @@ you run into issues, you can always fall back to using a CDN.
 Some other scenarios you may run into covered in this chapter:
 
 - If you are trying to use your own or private code that was written for Node,
-  use the [`std/node`](./node/std_node.md) modules of the Deno standard library
+  use the [`std/node`](./node/node_specifiers.md) modules of the Deno standard library
   to "polyfill" the built-in modules of Node.
 - If you want to use "bare specifiers" (specifiers without an absolute or
   relative path to them), you can use [import maps](./node/import_maps.md) to
