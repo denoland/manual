@@ -6,10 +6,11 @@ packages available on the [npm](https://npmjs.com/) registry.
 
 There are currently two ways to do this:
 
-- Using [npm specifiers](./node/npm_specifiers.md)
+- Using [npm specifiers](./node/npm_specifiers.md) and
+  [node specifiers](./node/node_specifiers.md)
 - Using [CDNs](./node/cdns.md)
 
-We recommend npm specifiers, but they are a new feature, and although
+We recommend npm and node specifiers, but they are a new feature, and although
 stabilized, they are
 [still a work in progress](https://github.com/denoland/deno/issues/15960). If
 you run into issues, you can always fall back to using a CDN.
