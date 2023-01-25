@@ -13,7 +13,7 @@ resolution. Deno, on the other hand, uses the
 [import map](https://github.com/WICG/import-maps) standard to do this.
 
 To make the above `import lodash from "lodash"` work, add the following to the
-`deno.json` configuration file.
+[`deno.json` configuration file](../getting_started/configuration_file.md).
 
 ```json
 {
@@ -25,7 +25,7 @@ To make the above `import lodash from "lodash"` work, add the following to the
 
 The `deno.json` file is auto-discovered and acts (among other things) as an
 import map.
-[Read more about `deno.json` here](../getting_started/configuration_file).
+[Read more about `deno.json` here](../getting_started/configuration_file.md).
 
 This also works with npm specifiers. Instead of the above, we could have also
 written something similar in our `deno.json` configuration file:
