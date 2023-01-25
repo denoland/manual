@@ -13,16 +13,29 @@ can be used to specify a different configuration file.)
 
 ## `imports` and `scopes`
 
-The `deno.json` file can act as an
-[import map](https://github.com/WICG/import-maps) for resolving bar specifiers.
+The `deno.json` file can act as an [import map](../basics/import_maps.md) for
+resolving bar specifiers.
 
-```json
+```jsonc
 {
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
   "imports": {
     "std/": "https://deno.land/std@0.174.0/"
+  },
+  "scopes": {
+    // Use "old" version of standard library for source code inside "legacy/"
+    // directory
+    "legacy/": {
+      "std/": "https://deno.land/std@0.120.0/"
+    }
   }
 }
 ```
+
+See [the import map section](../basics/import_maps.md) for more information
+about imort maps.
 
 Then your script can use the bare specifier `std`:
 
@@ -118,7 +131,6 @@ sharing code.
     "lib": ["deno.window"],
     "strict": true
   },
-  "importMap": "import_map.json",
   "lint": {
     "files": {
       "include": ["src/"],
@@ -139,6 +151,7 @@ sharing code.
       "useTabs": true,
       "lineWidth": 80,
       "indentWidth": 4,
+      "semiColons": false,
       "singleQuote": true,
       "proseWrap": "preserve"
     }
