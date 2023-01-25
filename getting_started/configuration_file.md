@@ -71,6 +71,9 @@ project.
 
 ```jsonc
 {
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  },
   "imports": {
     "std/": "https://deno.land/std@0.174.0/"
   },
@@ -80,9 +83,6 @@ project.
     "legacy/": {
       "std/": "https://deno.land/std@0.120.0/"
     }
-  },
-  "tasks": {
-    "dev": "deno run --watch main.ts"
   }
 }
 ```
