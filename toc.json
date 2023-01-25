@@ -99,7 +99,10 @@
         "name": "Using npm Packages Via CDNs",
         "redirectFrom": ["/npm_nodejs/cdns"]
       },
-      "std_node": "The std/node Library",
+      "node_specifiers": {
+        "name": "Using Node.js Built-in Modules with Node Specifiers",
+        "redirectFrom": "/node/std_node"
+      },
       "import_maps": "Using Import Maps",
       "how_to_with_npm": {
         "name": "How To guides with npm",
