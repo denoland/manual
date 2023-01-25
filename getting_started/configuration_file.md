@@ -51,6 +51,7 @@ project.
       "useTabs": true,
       "lineWidth": 80,
       "indentWidth": 4,
+      "semiColons": false,
       "singleQuote": true,
       "proseWrap": "preserve"
     }

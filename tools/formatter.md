@@ -68,6 +68,8 @@ CLI flags:
 - `--options-indent-width` - The number of characters for an indent. Defaults
   to 2.
 
+- `--options-no-semicolons` - To not use semicolons except where necessary.
+
 - `--options-single-quote` - Whether to use single quote. Defaults to false
   (using double quote).
 
