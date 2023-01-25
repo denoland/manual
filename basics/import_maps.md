@@ -1,6 +1,6 @@
 # Import Maps
 
-In order for Deno to resolve a *bare specifier* like `"react"` or `"lodash"`, it
+In order for Deno to resolve a _bare specifier_ like `"react"` or `"lodash"`, it
 needs to be told where to look for it. Does `"lodash"` refer to an npm module or
 does it map to an https URL?
 
@@ -9,19 +9,11 @@ import lodash from "lodash";
 ```
 
 Node and npm use `package.json` and the `node_modules` folder to do this
-resolution.
-
-Deno, on the other hand, uses the
+resolution. Deno, on the other hand, uses the
 [import map](https://github.com/WICG/import-maps) standard to do this.
 
-So if we want to do the following in our code:
-
-```ts, ignore
-import lodash from "lodash";
-```
-
-To make the above `import lodash from "lodash"` work, we simply add the
-following to the `deno.json` configuration file.
+To make the above `import lodash from "lodash"` work, add the following to the
+`deno.json` configuration file.
 
 ```json
 {
@@ -33,7 +25,7 @@ following to the `deno.json` configuration file.
 
 The `deno.json` file is auto-discovered and acts (among other things) as an
 import map.
-[Read more about `deno.json` here](/getting_started/configuration_file).
+[Read more about `deno.json` here](../getting_started/configuration_file).
 
 This also works with npm specifiers. Instead of the above, we could have also
 written something similar in our `deno.json` configuration file:
