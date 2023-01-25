@@ -58,7 +58,7 @@ Using `deno task start` will run the command.
 
 ## `lint`
 
-Configuration for `deno lint`.
+Configuration for [`deno lint`](../tools/linter.md).
 
 ```json
 {
@@ -78,7 +78,7 @@ Configuration for `deno lint`.
 
 ## `fmt`
 
-Configuration for `deno fmt`
+Configuration for [`deno fmt`](../tools/formatter.md)
 
 ```json
 {
@@ -98,10 +98,6 @@ Configuration for `deno fmt`
 }
 ```
 
-## `test` and `bench`
-
-TODO!
-
 ## `lock`
 
 Used to specify a different file name for the lockfile. By default deno will use
@@ -114,6 +110,9 @@ Used to specify a different file name for the lockfile. By default deno will use
 
 Deno encourages users to use the default TypeScript configuration to help
 sharing code.
+
+See also
+[Configuring TypeScript in Deno](../advanced/typescript/configuration.md).
 
 ## Full example
 
