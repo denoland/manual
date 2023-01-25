@@ -33,16 +33,19 @@
           "private": {
             "name": "Private Modules",
             "redirectFrom": ["/linking_to_external_code/private"]
-          },
-          "import_maps": {
-            "name": "Import Maps",
-            "redirectFrom": ["/linking_to_external_code/import_maps"]
           }
         }
       },
       "standard_library": {
         "name": "Standard Library",
         "redirectFrom": ["/standard_library"]
+      },
+      "import_maps": {
+        "name": "Import Maps",
+        "redirectFrom": [
+          "/linking_to_external_code/import_maps",
+          "/node/import_maps"
+        ]
       },
       "permissions": {
         "name": "Permissions",
@@ -103,7 +106,6 @@
         "name": "Using Node.js Built-in Modules with Node Specifiers",
         "redirectFrom": "/node/std_node"
       },
-      "import_maps": "Using Import Maps",
       "how_to_with_npm": {
         "name": "How To guides with npm",
         "children": {
