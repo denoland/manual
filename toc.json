@@ -103,7 +103,7 @@
         "redirectFrom": ["/npm_nodejs/cdns"]
       },
       "node_specifiers": {
-        "name": "Using Node.js Built-in Modules with Node Specifiers",
+        "name": "Built-in Node Modules",
         "redirectFrom": "/node/std_node"
       },
       "how_to_with_npm": {
