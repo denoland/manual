@@ -54,7 +54,8 @@ line invocations.
 }
 ```
 
-Using `deno task start` will run the command.
+Using `deno task start` will run the command. See also
+[`deno task`](../tools/task_runner.md).
 
 ## `lint`
 
