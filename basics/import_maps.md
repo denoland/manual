@@ -1,6 +1,6 @@
 # Import Maps
 
-In order for Deno to resolve a /bare specifier/ like `"react"` or `"lodash"`, it
+In order for Deno to resolve a *bare specifier* like `"react"` or `"lodash"`, it
 needs to be told where to look for it. Does `"lodash"` refer to an npm module or
 does it map to an https URL?
 
@@ -20,7 +20,8 @@ So if we want to do the following in our code:
 import lodash from "lodash";
 ```
 
-We simply add the following to the `deno.json` configuration file.
+To make the above `import lodash from "lodash"` work, we simply add the
+following to the `deno.json` configuration file.
 
 ```json
 {
