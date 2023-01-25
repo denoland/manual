@@ -14,7 +14,7 @@ can be used to specify a different configuration file.)
 ## `imports` and `scopes`
 
 Since version 1.30, the `deno.json` configuration file acts as an
-[import map](../basics/import_maps.md) for resolving bar specifiers.
+[import map](../basics/import_maps.md) for resolving bare specifiers.
 
 ```jsonc
 {
