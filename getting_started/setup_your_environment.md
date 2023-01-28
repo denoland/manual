@@ -69,7 +69,9 @@ instructions to enable the
 Note that if you also have `tsserver` as an LSP client, you may run into issues
 where both `tsserver` and `denols` are attached to your current buffer. To
 resolve this, make sure to set some unique `root_dir` for both `tsserver` and
-`denols`. Here is an example of such a configuration:
+`denols`. You may also need to set `single_file_support` to `false` for `tsserver`
+to stop it from running in `single file mode`.
+Here is an example of such a configuration:
 
 ```lua
 nvim_lsp.denols.setup {
@@ -80,6 +82,7 @@ nvim_lsp.denols.setup {
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
+  single_file_support = false
 }
 ```
 
