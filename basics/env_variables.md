@@ -33,7 +33,7 @@ function from the standard library. Then, import the configuration using the
 `config` function.
 
 ```ts
-import { config } from "https://deno.land/std/dotenv/mod.ts";
+import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 const configData = await config();
 const password = configData["PASSWORD"];
