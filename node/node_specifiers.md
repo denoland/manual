@@ -9,7 +9,7 @@ Deno supports using Node.js built-in modules such as
 ```ts, ignore
 import { readFileSync } from "node:fs";
 
-console.log(fs.readFileSync("deno.json", { encoding: "utf8" }));
+console.log(readFileSync("deno.json", { encoding: "utf8" }));
 ```
 
 Take note that importing via a bare specifier (ex.
