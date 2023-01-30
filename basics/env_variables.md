@@ -28,15 +28,14 @@ Let's say you have an `.env` file that looks like this:
 PASSWORD=Geheimnis
 ```
 
-To access the environment variables in the `.env` file, import the config
-function from the standard library. Then, import the configuration using the
-`config` function.
+To access the environment variables in the `.env` file, import the `load`
+function from the standard library. Then, import the configuration using it.
 
 ```ts
-import { config } from "https://deno.land/x/dotenv/mod.ts";
+import { load } from "https://deno.land/std/dotenv/mod.ts";
 
-const configData = await config();
-const password = configData["PASSWORD"];
+const env = await load();
+const password = env["PASSWORD"];
 
 console.log(password);
 // "Geheimnis"
