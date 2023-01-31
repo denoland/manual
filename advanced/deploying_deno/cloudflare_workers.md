@@ -83,7 +83,7 @@ After you add both to your `.denoflare` config, let's try pushing it to
 Cloudflare:
 
 ```
-denoflare push main.ts
+denoflare push main
 ```
 
 Next, you can view your new function in your Cloudflare account:
