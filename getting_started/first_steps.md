@@ -164,7 +164,6 @@ const handler = async (request: Request): Promise<Response> => {
   });
 };
 
-console.log("Listening on http://localhost:8000");
 serve(handler);
 ```
 
@@ -175,16 +174,14 @@ Let's walk through what this program does.
    request that comes in. It must return a `Response`. The handler function can
    be asynchronous (it may return a `Promise`).
 3. Use `fetch` to fetch the url.
-4. Write the response body to a local file.
-5. Return the Github response as a response to the handler.
-6. Finally, to start the server on the default port, call `serve` with the
+4. Return the GitHub response as a response to the handler.
+5. Finally, to start the server on the default port, call `serve` with the
    handler.
 
-Now run the server. Note that you need to give both network and write
-permissions.
+Now run the server. Note that you need to give network permissions.
 
 ```shell
-deno run --allow-net --allow-write http_server.ts
+deno run --allow-net http_server.ts
 ```
 
 With the server listening on port `8000`, make a GET request to that endpoint.
@@ -193,7 +190,7 @@ With the server listening on port `8000`, make a GET request to that endpoint.
 curl http://localhost:8000
 ```
 
-You will see a JSON response from the Deno Github page.
+You will see a JSON response from the Deno GitHub page.w2qa
 
 ## More examples
 
