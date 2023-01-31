@@ -17,7 +17,7 @@ In order to deploy Deno to Cloudflare, we'll use this community created CLI
 
 ```shell, ignore
 deno install --unstable --allow-read --allow-net --allow-env --allow-run --name denoflare --force \
-https://raw.githubusercontent.com/skymethod/denoflare/v0.5.10/cli/cli.ts
+https://raw.githubusercontent.com/skymethod/denoflare/v0.5.11/cli/cli.ts
 ```
 
 ## Create your function
@@ -39,7 +39,7 @@ that exposes a `fetch` function, which returns a `Response` object.
 You can test this locally by running:
 
 ```shell, ignore
-denoflare push /absolute/path/to/your/main.ts
+denoflare serve main.ts
 ```
 
 If you go to `localhost:8080` in your browser, you'll see the response will say:
@@ -54,7 +54,7 @@ The next step is to create a `.denoflare` config file. In it, let's add:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.10/common/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.5.11/common/config.schema.json",
   "scripts": {
     "main": {
       "path": "/absolute/path/to/main.ts",
@@ -83,7 +83,7 @@ After you add both to your `.denoflare` config, let's try pushing it to
 Cloudflare:
 
 ```
-denoflare push main
+denoflare push main.ts
 ```
 
 Next, you can view your new function in your Cloudflare account:
