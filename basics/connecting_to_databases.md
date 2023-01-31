@@ -187,7 +187,7 @@ Deno supports multiple ORMs, including Prisma and DenoDB.
 
 ### DenoDB
 
-[Denodb](https://deno.land/x/denodb) is a Deno-specific ORM.
+[DenoDB](https://deno.land/x/denodb) is a Deno-specific ORM.
 
 #### Connect to DenoDB
 
