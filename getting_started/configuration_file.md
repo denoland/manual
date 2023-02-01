@@ -1,13 +1,13 @@
 # Configuration File
 
-Deno supports a configuration file that allows you to customize the built-in TypeScript
-compiler, formatter, and linter.
+Deno supports a configuration file that allows you to customize the built-in
+TypeScript compiler, formatter, and linter.
 
 The configuration file supports `.json` and `.jsonc` extensions.
 [Since v1.18](https://deno.com/blog/v1.18#auto-discovery-of-the-config-file),
-Deno will automatically detect a `deno.json` or `deno.jsonc` configuration file if
-it's in your current working directory or parent directories. The `--config` flag
-can be used to specify a different configuration file.
+Deno will automatically detect a `deno.json` or `deno.jsonc` configuration file
+if it's in your current working directory or parent directories. The `--config`
+flag can be used to specify a different configuration file.
 
 > ⚠️ Before Deno v1.23 you needed to supply an explicit `--config` flag.
 
@@ -160,6 +160,6 @@ See also
 
 ## JSON schema
 
-A JSON schema file is available for editors to provide autocompletion. The file is
-versioned and available at:
+A JSON schema file is available for editors to provide autocompletion. The file
+is versioned and available at:
 https://deno.land/x/deno/cli/schemas/config-file.v1.json
