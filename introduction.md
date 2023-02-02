@@ -56,6 +56,10 @@ have been historically written with Bash or Python.
 - Keep V8 concepts out of user land.
 - Serve HTTP efficiently.
 
+## Explicit Non-Goals
+
+- (Things Deno specifically will not do...)
+
 ## Other key behaviors
 
 - Fetch and cache remote code upon first execution, and never update it until
