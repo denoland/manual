@@ -137,8 +137,8 @@ You can specify multiple groups in the same file.
 To run a benchmark, call `deno bench` with the file that contains your bench
 function. You can also omit the file name, in which case all benchmarks in the
 current directory (recursively) that match the glob
-`{*_,*.,}bench.{ts, tsx, mts, js, mjs, jsx}` will be run. If you pass
-a directory, all files in the directory that match this glob will be run.
+`{*_,*.,}bench.{ts, tsx, mts, js, mjs, jsx}` will be run. If you pass a
+directory, all files in the directory that match this glob will be run.
 
 The glob expands to:
 
