@@ -101,7 +101,7 @@ perform against a "baseline" case.
 
 In this example we'll check how performant is `Date.now()` compared to
 `performance.now()`, to do that we'll mark the first case as a "baseline" using
-`Deno.BechnDefintion.baseline` option:
+`Deno.BenchDefinition.baseline` option:
 
 ```ts, ignore
 // time_bench.ts
