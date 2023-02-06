@@ -238,14 +238,14 @@ Notes:
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
 current directory (recursively) that match the glob
-`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass a
+`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx}` will be run. If you pass a
 directory, all files in the directory that match this glob will be run.
 
 The glob expands to:
 
-- files named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+- files named `test.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `.test.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `_test.{ts, tsx, mts, js, mjs, jsx}`
 
 ```shell
 # Run all tests in the current directory and all sub-directories
