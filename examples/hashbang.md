@@ -36,7 +36,7 @@ You may require to give the script execution permissions.
 #### Linux
 
 ```shell
-sudo chmod +x hashbang.ts
+chmod +x hashbang.ts
 ```
 
 ### Execute
