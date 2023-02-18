@@ -102,7 +102,7 @@ deno run --allow-net=deno.land:80 fetch.js
 # An IPv4 address on port 443
 deno run --allow-net=1.1.1.1:443 fetch.js
 
-# An ipv6 address, all ports allowed
+# An IPv6 address, all ports allowed
 deno run --allow-net=[2606:4700:4700::1111] fetch.js
 ```
 
