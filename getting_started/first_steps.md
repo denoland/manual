@@ -145,7 +145,7 @@ One of the most common usecases for Deno is building an HTTP Server.
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
 
-const handler = async (request: Request): Promise<Response> => {
+const handler = async (_request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {
     // The init object here has an headers object containing a
     // header that indicates what type of response we accept.
