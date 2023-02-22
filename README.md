@@ -1,17 +1,21 @@
 # Deno Manual
 
-This repository is the official documentation for Deno.
-
-Manual is available at: https://deno.land/manual
+This repository is the official documentation for Deno, and it's available at:
+https://deno.land/manual
 
 ## Contributing
 
-Clone `dotland` project next to this manual project. The below commands start
-the local `deno.land` website with the local manual contents. You can preview
-how it's rendered.
+1. Clone this project and `dotland` in the same parent folder:
 
 ```
+git clone https://github.com/denoland/manual.git
 git clone https://github.com/denoland/dotland.git
+```
+
+2. Move into the `dotland` folder, and run the following command to start the
+   local `deno.land` website with the local manual contents:
+
+```
 cd dotland
 MANUAL_PATH=../manual deno task start
 ```
