@@ -28,4 +28,4 @@ anyway.
 Support for importing Node.js built-in modules is implemented in Deno std's
 Node.js compatibility layer. Documentation on which modules are implemented or
 not can be found in its repository:
-https://github.com/denoland/deno_std/tree/main/node#deno-nodejs-compatibility
+https://github.com/denoland/deno/blob/main/ext/node/polyfills/README.md
