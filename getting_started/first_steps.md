@@ -140,7 +140,7 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Win
 
 One of the most common use cases for Deno is building an HTTP Server.
 
-**http_server.ts**
+Create a new file called `http_server.ts` and copy and paste the code below:
 
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
