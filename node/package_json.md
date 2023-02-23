@@ -23,7 +23,7 @@ ancestor directory.
 
 **main.ts**
 
-```ts
+```ts, ignore
 import chalk from "chalk";
 
 console.log(chalk.green("Hello from Deno!"));
