@@ -107,6 +107,7 @@
         "name": "Built-in Node Modules",
         "redirectFrom": "/node/std_node"
       },
+      "package_json": "package.json",
       "how_to_with_npm": {
         "name": "How To guides with npm",
         "children": {

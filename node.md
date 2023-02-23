@@ -15,6 +15,11 @@ stabilized, they are
 [still a work in progress](https://github.com/denoland/deno/issues/15960). If
 you run into issues, you can always fall back to using a CDN.
 
+For migrating Node projects to Deno, Deno also supports reading package.json
+files:
+
+- [package.json Compatibility](./node/package_json.md)
+
 Some other scenarios you may run into covered in this chapter:
 
 - If you are trying to use your own or private code that was written for Node,

@@ -261,3 +261,33 @@ Deno.bench({
   },
 });
 ```
+
+## JSON output
+
+To retrieve the output as JSON, use the `--json` flag:
+
+```
+$ deno bench --json bench_me.js
+{
+  "runtime": "Deno/1.31.0 x86_64-apple-darwin",
+  "cpu": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+  "benches": [
+    "origin": "file:///dev/bench_me.js",
+    "group": null,
+    "name": "Deno.UnsafePointerView#getUint32",
+    "baseline": false,
+    "result": {
+      "ok": {
+        "n": 49,
+        "min": 1251.9348,
+        "max": 1441.2696,
+        "avg": 1308.7523755102038,
+        "p75": 1324.1055,
+        "p99": 1441.2696,
+        "p995": 1441.2696,
+        "p999": 1441.2696
+      }
+    }
+  ]
+}
+```

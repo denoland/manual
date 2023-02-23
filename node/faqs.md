@@ -1,17 +1,5 @@
 # Frequently Asked Questions
 
-## Getting errors when type checking like `cannot find namespace NodeJS`
-
-One of the modules you are using has type definitions that depend upon the
-NodeJS global namespace, but those types don't include the NodeJS global
-namespace in their types.
-
-The quickest fix is to skip type checking. You can do this by using the
-`--no-check` flag.
-
-Skipping type checking might not be acceptable though. You could try to load the
-Node types yourself.
-
 ### When using npm specifiers
 
 If you are getting this error while using npm specifiers, then add a triple
