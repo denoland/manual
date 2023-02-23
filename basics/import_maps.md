@@ -84,9 +84,13 @@ import map's URL or file path.
 
 ## Overriding imports
 
-The other situation where import maps can be very useful is to override imports in specific modules.
+The other situation where import maps can be very useful is to override imports
+in specific modules.
 
-Let's say you want to override the deno_std import from 0.177.0 to the latest in all of your imported modules, but for the `https://deno.land/x/example` module you want to use files in a local `patched` directory. You can do this by using a scope in the import map that looks something like this:
+Let's say you want to override the deno_std import from 0.177.0 to the latest in
+all of your imported modules, but for the `https://deno.land/x/example` module
+you want to use files in a local `patched` directory. You can do this by using a
+scope in the import map that looks something like this:
 
 ```json
 {
