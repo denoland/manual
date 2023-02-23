@@ -42,8 +42,8 @@ deno run https://deno.land/std@0.103.0/examples/welcome.ts
 ## Making an HTTP request
 
 Many programs use HTTP requests to fetch data from a web server. Let's write a
-small program that fetches a file and prints its contents out to the terminal. Just
-like in the browser you can use the web standard
+small program that fetches a file and prints its contents out to the terminal.
+Just like in the browser you can use the web standard
 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
 make HTTP calls.
 
@@ -108,8 +108,8 @@ in the `Deno` global. You can find documentation for these built-in APIs here at
 Filesystem APIs for example do not have a web standard form, so Deno provides
 its own API.
 
-In this program, each command-line argument is assumed to be a filename, the file
-is opened, and printed to stdout.
+In this program, each command-line argument is assumed to be a filename, the
+file is opened, and printed to stdout.
 
 ```ts
 const filenames = Deno.args;
