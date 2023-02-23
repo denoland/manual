@@ -89,7 +89,7 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 const result = await fetch("https://deno.land/");
 ```
 
-This is an example of how to allow network access to specific hostnames or ip
+This is an example of how to allow network access to specific hostnames or IP
 addresses, optionally locked to a specified port:
 
 ```shell
@@ -99,17 +99,17 @@ deno run --allow-net=github.com,deno.land fetch.js
 # A hostname at port 80:
 deno run --allow-net=deno.land:80 fetch.js
 
-# An ipv4 address on port 443
+# An IPv4 address on port 443
 deno run --allow-net=1.1.1.1:443 fetch.js
 
-# A ipv6 address, all ports allowed
+# An IPv6 address, all ports allowed
 deno run --allow-net=[2606:4700:4700::1111] fetch.js
 ```
 
 If `fetch.js` tries to establish network connections to any hostname or IP not
 explicitly allowed, the relevant call will throw an exception.
 
-Allow net calls to any hostname/ip:
+Allow net calls to any hostname/IP:
 
 ```shell
 deno run --allow-net fetch.js
