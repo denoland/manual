@@ -44,7 +44,8 @@
         "name": "Import Maps",
         "redirectFrom": [
           "/linking_to_external_code/import_maps",
-          "/node/import_maps"
+          "/node/import_maps",
+          "/basics/modules/import_maps"
         ]
       },
       "permissions": {

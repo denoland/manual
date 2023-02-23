@@ -10,7 +10,7 @@ import lodash from "lodash";
 
 Node and npm use `package.json` and the `node_modules` folder to do this
 resolution. Deno, on the other hand, uses the
-[import map](https://github.com/WICG/import-maps) standard to do this.
+[import map](https://github.com/WICG/import-maps) standard.
 
 To make the above `import lodash from "lodash"` work, add the following to the
 [`deno.json` configuration file](../getting_started/configuration_file.md).
@@ -18,7 +18,7 @@ To make the above `import lodash from "lodash"` work, add the following to the
 ```json
 {
   "imports": {
-    "lodash": "https://esm.sh/lodash"
+    "lodash": "https://esm.sh/lodash@4.17.21"
   }
 }
 ```
@@ -38,29 +38,82 @@ written something similar in our `deno.json` configuration file:
 }
 ```
 
-## Overriding imports
+## Example - Using deno_std's fmt module via `fmt/`
 
-The other situation where import maps can be very useful is when you have tried
-your best to import a npm package, but keep getting errors. For example you are
-using an npm package which has a dependency on some code that just doesn't work
-under Deno, and you want to substitute another module that "polyfills" the
-incompatible APIs.
-
-Let's say we have a package that is using a version of the built-in `"fs"`
-module. We want to replace it with a local module when the scope is
-`https://deno.land/x/example`, but then we want to use the std library
-replacement module for `"fs"` for all other code. To do this, we can create an
-import map that looks something like this:
+**import_map.json**
 
 ```json
 {
   "imports": {
-    "fs": "https://deno.land/std@$STD_VERSION/node/fs.ts"
+    "fmt/": "https://deno.land/std@$STD_VERSION/fmt/"
+  }
+}
+```
+
+**color.ts**
+
+```ts, ignore
+import { red } from "fmt/colors.ts";
+
+console.log(red("hello world"));
+```
+
+## Example - Using project root for absolute imports
+
+To use your project root for absolute imports:
+
+**import_map.json**
+
+```jsonc
+{
+  "imports": {
+    "/": "./",
+    "./": "./"
+  }
+}
+```
+
+**main.ts**
+
+```ts, ignore
+import { MyUtil } from "/util.ts";
+```
+
+This causes import specifiers starting with `/` to be resolved relative to the
+import map's URL or file path.
+
+## Overriding imports
+
+The other situation where import maps can be very useful is to override imports
+in specific modules.
+
+Let's say you want to override the deno_std import from 0.177.0 to the latest in
+all of your imported modules, but for the `https://deno.land/x/example` module
+you want to use files in a local `patched` directory. You can do this by using a
+scope in the import map that looks something like this:
+
+```json
+{
+  "imports": {
+    "https://deno.land/std@0.177.0/": "https://deno.land/std@$STD_VERSION/"
   },
   "scopes": {
     "https://deno.land/x/example": {
-      "fs": "./patched/fs.ts"
+      "https://deno.land/std@0.177.0/": "./patched/"
     }
   }
 }
 ```
+
+## Import Maps are for Applications
+
+It is important to note that import map configuration files are
+[only applied for Deno applications][scope], not in the various libraries that
+your application code may import. This lets you, the application author, have
+final say about what versions of libraries get included in your project.
+
+If you are developing a library, you should instead prefer to use the `deps.ts`
+pattern discussed in [Managing Dependencies].
+
+[scope]: https://github.com/WICG/import-maps#scope
+[Managing Dependencies]: ../examples/manage_dependencies.md
