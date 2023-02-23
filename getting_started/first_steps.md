@@ -16,14 +16,14 @@ use modern features wherever possible.
 Browser compatibility means a `Hello World` program in Deno is the same as the
 one you can run in the browser.
 
-Create file locally called `first_steps.ts` and copy and paste the code line
+Create a file locally called `first_steps.ts` and copy and paste the code line
 below:
 
 ```ts
 console.log("Welcome to Deno!");
 ```
 
-## Running Deno Programs
+## Running Deno programs
 
 Now to run the program from the terminal:
 
@@ -41,9 +41,9 @@ deno run https://deno.land/std@0.103.0/examples/welcome.ts
 
 ## Making an HTTP request
 
-Many programs use HTTP requests to fetch data from a webserver. Let's write a
-small program that fetches a file and prints its contents out to terminal. Just
-like in the browser you can use the web standard
+Many programs use HTTP requests to fetch data from a web server. Let's write a
+small program that fetches a file and prints its contents out to the terminal.
+Just like in the browser you can use the web standard
 [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) API to
 make HTTP calls.
 
@@ -61,7 +61,7 @@ Let's walk through what this application does:
 
 1. We get the first argument passed to the application, and store it in the
    `url` constant.
-2. We make a request to the url specified, await the response, and store it in
+2. We make a request to the URL specified, await the response, and store it in
    the `res` constant.
 3. We parse the response body as an
    [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer),
@@ -84,7 +84,7 @@ deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
 
 You will see this program returns an error regarding network access so what did
 we do wrong? You might remember from the introduction that Deno is a runtime
-which is secure by default. This means you need to explicitly give programs the
+that is secure by default. This means you need to explicitly give programs
 permission to do certain 'privileged' actions, such as access the network.
 
 Try it out again with the correct permission flag:
@@ -101,15 +101,15 @@ deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/cur
 
 ## Reading a file
 
-Deno also provides APIs which do not come from the web. These are all contained
+Deno also provides APIs that do not come from the web. These are all contained
 in the `Deno` global. You can find documentation for these built-in APIs here at
 [`/api`](/api).
 
 Filesystem APIs for example do not have a web standard form, so Deno provides
 its own API.
 
-In this program each command-line argument is assumed to be a filename, the file
-is opened, and printed to stdout.
+In this program, each command-line argument is assumed to be a filename, the
+file is opened, and printed to stdout.
 
 ```ts
 const filenames = Deno.args;
@@ -121,7 +121,7 @@ for (const filename of filenames) {
 
 The `ReadableStream.pipeTo(writable)` method here actually makes no more than
 the necessary kernel→userspace→kernel copies. That is, the same memory from
-which data is read from the file, is written to stdout. This illustrates a
+which data is read from the file is written to stdout. This illustrates a
 general design goal for I/O streams in Deno.
 
 Again, here, we need to give --allow-read access to the program.
@@ -138,9 +138,9 @@ deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Win
 
 ## Putting it all together in an HTTP server
 
-One of the most common usecases for Deno is building an HTTP Server.
+One of the most common use cases for Deno is building an HTTP Server.
 
-**http_server.ts**
+Create a new file called `http_server.ts` and copy and paste the code below:
 
 ```ts
 import { serve } from "https://deno.land/std@0.157.0/http/server.ts";
