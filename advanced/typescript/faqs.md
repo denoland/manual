@@ -74,11 +74,7 @@ problem.
 
 When people started transpiling TypeScript without `tsc`, these type directed
 emits became a problem, since the likes of Babel simply try to erase the types
-without needing to understand the types to direct the emit. In the internals of
-Deno we have started to use a Rust based emitter which allows us to optionally
-skip type checking and generates the bundles for things like `deno bundle`. Like
-all transpilers, it doesn't care about the types, it just tries to erase them.
-This means in certain situations we cannot support those type directed emits.
+without needing to understand the types to direct the emit.
 
 So instead of trying to get every user to understand when and how we could
 support the type directed emits, we made the decision to disable the use of them

@@ -167,9 +167,9 @@ sure to tell Deno to use this file by specifying `--config=path/to/file` flag.
 
 When Deno loads a TypeScript module in a web worker, it will automatically type
 check the module and its dependencies against the Deno web worker library. This
-can present a challenge in other contexts like `deno cache`, `deno bundle`, or
-in editors. There are a couple of ways to instruct Deno to use the worker
-libraries instead of the standard Deno libraries.
+can present a challenge in other contexts like `deno cache` or in editors. There
+are a couple of ways to instruct Deno to use the worker libraries instead of the
+standard Deno libraries.
 
 ### Using triple-slash directives
 

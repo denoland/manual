@@ -1,3 +1,5 @@
+# WARNING: `deno bundle` has been deprecated and will be removed in some future release. Use esbuild instead.
+
 # Bundling
 
 `deno bundle [URL]` will output a single JavaScript file for consumption in
