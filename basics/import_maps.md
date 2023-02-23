@@ -116,4 +116,4 @@ If you are developing a library, you should instead prefer to use the `deps.ts`
 pattern discussed in [Managing Dependencies].
 
 [scope]: https://github.com/WICG/import-maps#scope
-[Managing Dependencies]: ../../examples/manage_dependencies.md
+[Managing Dependencies]: ../examples/manage_dependencies.md
