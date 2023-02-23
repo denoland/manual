@@ -18,7 +18,7 @@ you run into issues, you can always fall back to using a CDN.
 For migrating Node projects to Deno, Deno also supports reading package.json
 files:
 
-- [package.json Compatibility](./node_package_json.md)
+- [package.json Compatibility](./node/package_json.md)
 
 Some other scenarios you may run into covered in this chapter:
 
