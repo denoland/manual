@@ -106,9 +106,7 @@ to be able to retrieve type definitions for the package/module. See
 [Using `X-TypeScript-Types` header](../advanced/typescript/types.md#using-x-typescript-types-header)
 in this manual for more details on how this works.
 
-The CDN is also a good choice for people who develop in mainland China, as the
-hosting of the CDN is specifically designed to work with "the great firewall of
-China". esm.sh also provides information on
+esm.sh also provides information on
 [self hosting the CDN](https://github.com/ije/esm.sh/blob/main/HOSTING.md).
 
 Check out the [esm.sh homepage](https://esm.sh/) for more detailed information
