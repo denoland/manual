@@ -67,7 +67,7 @@ To use your project root for absolute imports:
 ```jsonc
 {
   "imports": {
-    "/": "./",
+    "~/": "./",
     "./": "./"
   }
 }
@@ -76,10 +76,10 @@ To use your project root for absolute imports:
 **main.ts**
 
 ```ts, ignore
-import { MyUtil } from "/util.ts";
+import { MyUtil } from "~/util.ts";
 ```
 
-This causes import specifiers starting with `/` to be resolved relative to the
+This causes import specifiers starting with `~/` to be resolved relative to the
 import map's URL or file path.
 
 ## Overriding imports
