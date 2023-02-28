@@ -1,14 +1,14 @@
 {
   "introduction": "Introduction",
   "getting_started": {
-    "name": "Getting Started",
+    "name": "Getting started",
     "children": {
       "installation": "Installation",
-      "setup_your_environment": "Set Up Your Environment",
-      "first_steps": "First Steps",
-      "command_line_interface": "Command Line Interface",
-      "configuration_file": "Configuration File",
-      "web_frameworks": "Web Frameworks"
+      "setup_your_environment": "Set up your environment",
+      "first_steps": "First steps",
+      "command_line_interface": "Command line interface",
+      "configuration_file": "Configuration file",
+      "web_frameworks": "Web frameworks"
     }
   },
   "basics": {
@@ -96,20 +96,20 @@
     }
   },
   "node": {
-    "name": "Node and npm Modules",
+    "name": "Node and npm modules",
     "children": {
-      "npm_specifiers": "npm specifiers",
+      "npm_specifiers": "npm: specifiers",
+      "node_specifiers": {
+        "name": "node: specifiers",
+        "redirectFrom": "/node/std_node"
+      },
+      "package_json": "package.json",
       "cdns": {
         "name": "npm via CDNs",
         "redirectFrom": ["/npm_nodejs/cdns"]
       },
-      "node_specifiers": {
-        "name": "Built-in Node Modules",
-        "redirectFrom": "/node/std_node"
-      },
-      "package_json": "package.json",
       "how_to_with_npm": {
-        "name": "How To guides with npm",
+        "name": "How to guides with npm",
         "children": {
           "prisma": "Prisma",
           "mongoose": "Mongoose",
@@ -122,7 +122,7 @@
           "express": "Express"
         }
       },
-      "faqs": "Frequently Asked Questions"
+      "faqs": "Frequently asked questions"
     }
   },
   "runtime": {

@@ -1,9 +1,9 @@
-# package.json Compatibility
+# package.json compatibility
 
-To help migrate projects to only using a _deno.json_ file, no configuration file
-at all, or to use Deno in existing Node applications, Deno supports resolving
-dependencies based on a package.json file in the current or ancestor
-directories.
+Deno supports resolving dependencies based on a `package.json` file in the
+current or ancestor directories. This is similar to how Node.js resolves
+dependencies. We recommend using import maps with `deno.json` which is explained
+[here](../basics/import_maps.md).
 
 **package.json**
 

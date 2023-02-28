@@ -1,18 +1,7 @@
-# npm specifiers
+# `npm:` specifiers
 
-Since version 1.28, Deno has native support for import npm packages. This is
-done by importing using `npm:` specifiers. `npm:` imports have a higher chance
-of compatibility than importing from CDNs, particularly if the modules depend on
-artifact files in their package.
-
-It is important to emphasize that even though this feature was stabilized for
-use with `deno run` and some other sub commands in Deno 1.28, it is still under
-development and doesn't work in some scenarios (ex. with `deno vendor`). You're
-likely to find scenarios where something doesn't work. Please report these
-problems to the [issue tracker](https://github.com/denoland/deno/issues). We'll
-be working hard to improve the compatibility layer and user experience in the
-near future. You can follow
-[issue 15960](https://github.com/denoland/deno/issues/15960) for updates.
+Since version 1.28, Deno has native support for importing npm packages. This is
+done by importing using `npm:` specifiers.
 
 The way these work is best described with an example:
 
@@ -30,9 +19,8 @@ npm:<package-name>[@<version-requirement>][/<sub-path>]
 
 Another example with express:
 
-```ts, ignore
-// main.ts
-// @deno-types="npm:@types/express@^4.17"
+```js, ignore
+// main.js
 import express from "npm:express@^4.17";
 const app = express();
 
@@ -47,22 +35,21 @@ console.log("listening on http://localhost:3000/");
 Then doing the following will start a simple express server:
 
 ```sh
-$ deno run -A main.ts
+$ deno run -A main.js
 listening on http://localhost:3000/
 ```
 
 When doing this, no `npm install` is necessary and no `node_modules` folder is
 created. These packages are also subject to the same permissions as Deno
-applications. At the moment though, there are some unnecessary permissions that
-get asked for, but in the future the above program will only require network
-permissions.
+applications.
 
-These specifiers currently work with `deno run`, `deno check`, `deno info`,
-`deno install`, `deno lsp`, `deno repl`, `deno test`, and `deno bench`, but do
-not with `deno bundle`, `deno compile` and `deno vendor` at the moment.
+These specifiers currently work with all `deno` subcommands, except
+`deno compile` and `deno vendor`.
 
-npm package binaries can be executed from the command line without an npm
-install using a specifier in the following format:
+## npm executable scripts
+
+npm packages with `bin` entries can be executed from the command line without an
+`npm install` using a specifier in the following format:
 
 ```ts, ignore
 npm:<package-name>[@<version-requirement>][/<binary-name>]
@@ -80,6 +67,7 @@ $ deno run --allow-env --allow-read npm:cowsay@1.5.0 Hello there!
             (__)\       )\/\
                 ||----w |
                 ||     ||
+
 $ deno run --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
  ______________
 ( What to eat? )
