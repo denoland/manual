@@ -1,4 +1,4 @@
-# WARNING: `deno bundle` has been deprecated and will be removed in some future release. Use esbuild instead.
+# WARNING: `deno bundle` has been deprecated and will be removed in some future release. Use [deno_emit](https://github.com/denoland/deno_emit), [esbuild](https://esbuild.github.io/) or [rollup](https://rollupjs.org) instead.
 
 # Bundling
 
