@@ -50,36 +50,29 @@ make HTTP calls.
 In the `first_steps.ts` file you created above, paste the code below:
 
 ```ts
-const url = Deno.args[0];
-const res = await fetch(url);
-
-const body = new Uint8Array(await res.arrayBuffer());
-await Deno.stdout.write(body);
+const res = await fetch("https://deno.land");
+const body = await res.text();
+console.log(body);
 ```
 
 Let's walk through what this application does:
 
-1. We get the first argument passed to the application, and store it in the
-   `url` constant.
-2. We make a request to the URL specified, await the response, and store it in
-   the `res` constant.
-3. We parse the response body as an
-   [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer),
-   await the response, and convert it into a
-   [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
-   to store in the `body` constant.
-4. We write the contents of the `body` constant to `stdout`.
+1. We make a request to the `https://deno.land`, await the response, and store
+   it in the `res` constant.
+1. We parse the response body as a text and store in the `body` constant.
+1. We write the contents of the `body` constant to the console.
 
 Try it out:
 
 ```shell
-deno run first_steps.ts https://yirenlu.com/
+deno run first_steps.ts
 ```
 
-or, from URL:
+Or, try this script hosted at
+`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
 ```
 
 You will see this program returns an error regarding network access so what did
@@ -90,13 +83,14 @@ permission to do certain 'privileged' actions, such as access the network.
 Try it out again with the correct permission flag:
 
 ```shell
-deno run --allow-net=yirenlu.com first_steps.ts https://yirenlu.com/
+deno run --allow-net=deno.land first_steps.ts
 ```
 
-or, from URL:
+Or, try this script hosted at
+`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run --allow-net=example.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://example.com
+deno run --allow-net=deno.land https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
 ```
 
 ## Reading a file

@@ -1,4 +1,4 @@
-# Built-in Node modules
+# `node:` specifiers
 
 Deno supports using Node.js built-in modules such as
 [fs](https://nodejs.org/api/fs.html#file-system),
@@ -20,12 +20,4 @@ with the `node:` prefix. Additionally the LSP provides a quick fix to update to
 a `node:` specifier.
 
 If you are using code both with Deno and Node.js, the `node:` scheme will work
-in both runtimes and it's recommended to update to them for your Node.js code
-anyway.
-
-## Node.js compatibility layer
-
-Support for importing Node.js built-in modules is implemented in Deno std's
-Node.js compatibility layer. Documentation on which modules are implemented or
-not can be found in its repository:
-https://github.com/denoland/deno/blob/main/ext/node/polyfills/README.md
+in both runtimes and it's recommended to update to them for your Node.js code.
