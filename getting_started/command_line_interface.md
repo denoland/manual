@@ -109,7 +109,7 @@ deno fmt --watch
 ## Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
-`deno run`, `deno test`, `deno compile`, `deno doc`, and `deno compile`.
+`deno run`, `deno test`, `deno doc`, and `deno compile`.
 
 ```terminal
 --lock <FILE>    Check the specified lock file
