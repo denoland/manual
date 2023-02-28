@@ -3,7 +3,7 @@
 Deno supports resolving dependencies based on a `package.json` file in the
 current or ancestor directories. This is similar to how Node.js resolves
 dependencies. We recommend using import maps with `deno.json` which is explained
-[here](../basics/import_maps).
+[here](../basics/import_maps.md).
 
 **package.json**
 
