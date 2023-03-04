@@ -22,7 +22,7 @@ information from the user to query our API. The second is Redis. We can grab the
 node package for Redis using the `npm:` modifier:
 
 ```tsx, ignore
-import { Server } from "https://deno.land/std@0.148.0/http/server.ts";
+import { Server } from "https://deno.land/std@0.178.0/http/server.ts";
 import { createClient } from "npm:redis@^4.5";
 ```
 

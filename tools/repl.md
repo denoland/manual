@@ -50,14 +50,14 @@ into the REPL. This is useful for importing some code you commonly use in the
 REPL, or modifying the runtime in some way:
 
 ```
-$ deno repl --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
-Deno 1.14.3
+$ deno repl --eval --allow-net 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
+Deno 1.31.0
 exit using ctrl+d or close()
 > assert(true)
 undefined
 > assert(false)
 Uncaught AssertionError
-    at assert (https://deno.land/std@0.110.0/testing/asserts.ts:224:11)
+    at assert (https://deno.land/std@0.178.0/testing/asserts.ts:141:11)
     at <anonymous>:2:1
 ```
 

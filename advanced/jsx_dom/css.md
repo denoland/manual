@@ -27,7 +27,7 @@ Then we will stringify the modified CSS AST and output it to the console:
 
 ```ts, ignore
 import * as css from "https://esm.sh/css@3.0.0";
-import { assert } from "https://deno.land/std@0.132.0/testing/asserts.ts";
+import { assert } from "https://deno.land/std@0.178.0/testing/asserts.ts";
 
 declare global {
   interface AbortSignal {
