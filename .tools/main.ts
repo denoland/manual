@@ -48,7 +48,7 @@ function mergeHierarchy(
   }
   if (
     docHierarchy[docHierarchy.length - 1].toLowerCase() ===
-    recordHierarchy[0]?.toLowerCase()
+      recordHierarchy[0]?.toLowerCase()
   ) {
     recordHierarchy.shift();
   }
