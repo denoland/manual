@@ -2,7 +2,7 @@ import { createFetchRequester } from "@algolia/requester-fetch";
 import algoliasearch from "algoliasearch";
 import dax from "dax";
 import { MarkdownRecord, toRecords } from "markdown_records";
-import { config } from "std/dotenv/mod.ts";
+import { load } from "std/dotenv/mod.ts";
 
 interface Section {
   name: string;
@@ -48,7 +48,7 @@ function mergeHierarchy(
   }
   if (
     docHierarchy[docHierarchy.length - 1].toLowerCase() ===
-      recordHierarchy[0]?.toLowerCase()
+    recordHierarchy[0]?.toLowerCase()
   ) {
     recordHierarchy.shift();
   }
@@ -118,7 +118,7 @@ for (const [id, section] of Object.entries(toc)) {
 
 dax.logStep(`Uploading ${searchRecords.length} search records to algolia...`);
 
-await config({ export: true });
+await load({ export: true });
 const appId = Deno.env.get("ALGOLIA_APP_ID") ?? "";
 const apiKey = Deno.env.get("ALGOLIA_API_KEY") ?? "";
 const requester = createFetchRequester();

@@ -32,11 +32,11 @@ deno run first_steps.ts
 ```
 
 Deno also has the ability to execute scripts from URLs. Deno
-[hosts a library](https://deno.land/std@0.178.0/examples) of example code, one
-of which is a `Hello World` program. To run that hosted code, do:
+[hosts a library](https://deno.land/std@$STD_VERSION/examples) of example code,
+one of which is a `Hello World` program. To run that hosted code, do:
 
 ```shell
-deno run https://deno.land/std@0.178.0/examples/welcome.ts
+deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
 ```
 
 ## Making an HTTP request
@@ -137,7 +137,7 @@ One of the most common use cases for Deno is building an HTTP Server.
 Create a new file called `http_server.ts` and copy and paste the code below:
 
 ```ts
-import { serve } from "https://deno.land/std@0.178.0/http/server.ts";
+import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 const handler = async (_request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {

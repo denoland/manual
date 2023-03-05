@@ -95,11 +95,11 @@ scope in the import map that looks something like this:
 ```json
 {
   "imports": {
-    "https://deno.land/std@0.178.0/": "https://deno.land/std@$STD_VERSION/"
+    "https://deno.land/std@0.177.0/": "https://deno.land/std@$STD_VERSION/"
   },
   "scopes": {
     "https://deno.land/x/example": {
-      "https://deno.land/std@0.178.0/": "./patched/"
+      "https://deno.land/std@0.177.0/": "./patched/"
     }
   }
 }
