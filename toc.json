@@ -163,7 +163,6 @@
     "name": "Examples",
     "children": {
       "hello_world": "Hello World",
-      "manage_dependencies": "Manage Dependencies",
       "fetch_data": "Fetch Data",
       "read_write_files": "Read and Write Files",
       "unix_cat": "Unix cat Program",

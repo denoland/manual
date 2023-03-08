@@ -6,7 +6,6 @@ more about the runtime.
 ## Basic
 
 - [Hello World](./examples/hello_world.md)
-- [Manage Dependencies](./examples/manage_dependencies.md)
 - [Fetch Data](./examples/fetch_data.md)
 - [Read and Write Files](./examples/read_write_files.md)
 - [Hashbang](./examples/hashbang.md)

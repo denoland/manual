@@ -112,8 +112,4 @@ It is important to note that import map configuration files are
 your application code may import. This lets you, the application author, have
 final say about what versions of libraries get included in your project.
 
-If you are developing a library, you should instead prefer to use the `deps.ts`
-pattern discussed in [Managing Dependencies].
-
 [scope]: https://github.com/WICG/import-maps#scope
-[Managing Dependencies]: ../examples/manage_dependencies.md
