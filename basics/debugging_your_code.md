@@ -8,7 +8,7 @@ To activate debugging capabilities run Deno with the `--inspect`,
 `--inspect-wait` or `--inspect-brk` flags.
 
 The `--inspect` flag allows attaching the debugger at any point in time,
-`--inspect-wait` will wait for debugget to attach and start executing code,
+`--inspect-wait` will wait for debugger to attach and start executing code,
 while `--inspect-brk` will wait for the debugger to attach and will pause
 execution on the first line of code.
 
