@@ -23,7 +23,7 @@ is opened, and printed to stdout (e.g. the console).
  */
 for (const filename of Deno.args) {
   const file = await Deno.open(filename);
-  await file.readable.pipeTo(Deno.stdout.writable);
+  await file.readable.pipeTo(Deno.stdout.writable, { preventClose: true });
 }
 ```
 
