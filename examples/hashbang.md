@@ -59,7 +59,18 @@ Start the script by calling it like any other command:
   relieving this naming restriction. See
   [denoland/deno#5088](https://github.com/denoland/deno/issues/5088).
 
-<!----------------------------------------------------------------------------->
+## Using with `--ext` flag
+
+You may wish to not use an extension for your script's filename. In this case,
+you can supply one by using the `--ext` flag:
+
+```shell, ignore
+$ cat my_script
+#!/usr/bin/env -S deno run --allow-env --ext=js
+console.log("Hello!");
+$ ./my_script
+Hello!
+```
 
 [Deno.env]: /api?s=Deno.env
 [env]: https://www.man7.org/linux/man-pages/man1/env.1.html
