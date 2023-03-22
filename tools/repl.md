@@ -164,5 +164,6 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 
 ## `DENO_REPL_HISTORY`
 
-You can use `DENO_REPL_HISTORY` environmental variable to control where Deno stores the REPL history file.
-You can set it to an empty value, Deno will not store the history file.
+You can use `DENO_REPL_HISTORY` environmental variable to control where Deno
+stores the REPL history file. You can set it to an empty value, Deno will not
+store the history file.
