@@ -59,7 +59,7 @@ Start the script by calling it like any other command:
   relieving this naming restriction. See
   [denoland/deno#5088](https://github.com/denoland/deno/issues/5088).
 
-## Using with `--ext` flag
+## Using hashbang in files with no extension
 
 You may wish to not use an extension for your script's filename. In this case,
 you can supply one by using the `--ext` flag:
