@@ -1,5 +1,7 @@
 # Experimental support for the WebGPU API
 
+> ⚠️ WebGPU was temporarily removed in Deno 1.32.
+
 The WebGPU API gives developers a low level, high performance, cross
 architecture way to program GPU hardware from JavaScript. It is the effective
 successor to WebGL on the Web. The spec has not yet been finalized, but support
@@ -17,7 +19,7 @@ webgpu-examples [repository](https://github.com/denoland/webgpu-examples).
 Here is a basic example that demonstrates accessing an attached GPU device, and
 reading out the name and supported features:
 
-```typescript
+```typescript, ignore
 /// Run with `deno run --unstable https://deno.com/v1.8/webgpu_discover.ts`
 
 // Try to get an adapter from the user agent.
@@ -37,7 +39,7 @@ This [example](https://github.com/denoland/webgpu-examples/tree/main/capture)
 shows how to capture an image by rendering it to a texture, copying the texture
 to a buffer, and retrieving it from the buffer.
 
-```typescript
+```typescript, ignore
 import {
   copyToBuffer,
   createCapture,
