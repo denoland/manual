@@ -105,7 +105,7 @@ npm package's types. To load these you must add a types reference directive to
 the `@types/node` package:
 
 ```ts, ignore
-/// <reference types="npm:@types/node">
+/// <reference types="npm:@types/node" />
 ```
 
 Note that it is fine to not specify a version for this in most cases because

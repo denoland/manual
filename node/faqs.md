@@ -7,7 +7,7 @@ slash types reference directive to your main entry point, specifying to include
 the types from the `@types/node` package:
 
 ```ts, ignore
-/// <reference types="npm:@types/node">
+/// <reference types="npm:@types/node" />
 ```
 
 ### When using CDNs
