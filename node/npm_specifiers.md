@@ -79,7 +79,7 @@ $ deno run --allow-env --allow-read npm:cowsay@1.5.0/cowthink What to eat?
                 ||     ||
 ```
 
-## TypeScript Types
+## TypeScript types
 
 Many packages ship with types out of the box, you can import those and use them
 with types easily:
@@ -97,6 +97,20 @@ package:
 // @deno-types="npm:@types/express@^4.17"
 import express from "npm:express@^4.17";
 ```
+
+### Including Node types
+
+Node ships with many built-in types like `Buffer` that might be referenced in an
+npm package's types. To load these you must add a types reference directive to
+the `@types/node` package:
+
+```ts, ignore
+/// <reference types="npm:@types/node" />
+```
+
+Note that it is fine to not specify a version for this in most cases because
+Deno will try to keep it in sync with its internal Node code, but you can always
+override the version used if necessary.
 
 ## `--node-modules-dir` flag
 
