@@ -161,3 +161,9 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
 | Ctrl-S                | Insert a new line                                                                                |
+
+## `DENO_REPL_HISTORY`
+
+You can use `DENO_REPL_HISTORY` environmental variable to control where Deno
+stores the REPL history file. You can set it to an empty value, Deno will not
+store the history file.
