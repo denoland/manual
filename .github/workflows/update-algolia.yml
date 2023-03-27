@@ -1,0 +1,19 @@
+name: main
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  update-algolia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Deno
+        uses: denoland/setup-deno@v1.0.0
+
+      - name: Update Algolia
+        working-directory: ./.tools
+        run: deno task update
