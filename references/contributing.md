@@ -115,7 +115,7 @@ Examples of bad PR title:
 2. Ensure there is a related issue and it is referenced in the PR text.
 3. Ensure there are tests that cover the changes.
 
-### Submitting a PR to [`deno`](https://github.com/denoland/deno)
+## Submitting a PR to [`deno`](https://github.com/denoland/deno)
 
 Additionally to the above make sure that:
 
