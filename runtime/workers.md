@@ -165,7 +165,7 @@ the `deno.permissions` option in the worker API.
     deno: {
       permissions: {
         net: [
-          "https://deno.land/",
+          "deno.land",
         ],
         read: [
           new URL("./file_1.txt", import.meta.url),
