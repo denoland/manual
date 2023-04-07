@@ -41,6 +41,12 @@ Using [Homebrew](https://formulae.brew.sh/formula/deno) (macOS):
 brew install deno
 ```
 
+Using [MacPorts](https://ports.macports.org/port/deno/) (macOS):
+
+```shell
+sudo port install deno
+```
+
 Using [Nix](https://nixos.org/download.html) (macOS and Linux):
 
 ```shell
