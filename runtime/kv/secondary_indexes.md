@@ -1,4 +1,4 @@
-# Secondary Indexes in Deno KV
+# Secondary Indexes
 
 Key-value stores like Deno KV organize data as collections of key-value pairs,
 where each unique key is associated with a single value. This structure enables
