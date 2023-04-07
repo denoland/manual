@@ -138,19 +138,6 @@ if (res) {
 - Monotonically increasing
 - Comparisons
 
-### Operations
-
-- Brief overview of get/set/delete
-- Explanation of list
-  - Different types of selectors
-  - When to use which
-  - Reverse ordering
-  - Size limits
-- Atomic operations
-  - Checks
-  - Ordering of mutations
-  - sum/min/max mutations
-
 ### Consistency
 
 - What is eventual vs strong consistency
