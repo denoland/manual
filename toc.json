@@ -138,6 +138,7 @@
       "kv": {
         "name": "Deno KV API",
         "children": {
+          "transactions": "Transactions",
           "secondary_indexes": "Secondary indexes"
         }
       },

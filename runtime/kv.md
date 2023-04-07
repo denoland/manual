@@ -109,13 +109,6 @@ if (res) {
 
 ## Patterns
 
-
-### Transactions
-
-- Faking interactive transactions with atomics
-- Commit / rollback
-- Retries
-
 ### Pagination
 
 - How to use cursors
