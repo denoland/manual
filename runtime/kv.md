@@ -107,7 +107,28 @@ if (res) {
 }
 ```
 
-## Patterns
+## More
+
+> The KV docs are not yet complete.
+
+### Reference
+
+- [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
+- [Key Space][./kv/key_space.md]
+- [Operations][./kv/operations.md]
+- Consistency (TODO)
+- Limits (TODO)
+- Performance (TODO)
+- Backups & durability (TODO)
+
+### Patterns
+
+- [Transactions](./kv/transactions.md)
+- [Secondary Indexes](./kv/secondary_indexes.md)
+- Real-time data (TODO)
+- Counters (TODO)
+
+<!--
 
 ### Pagination
 
@@ -149,3 +170,5 @@ if (res) {
   - uses sqlite
   - where is this stored
   - how to restore
+
+-->
