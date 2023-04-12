@@ -6,7 +6,7 @@ below.
 If you want to better understand how JSX and Deno interface under the hood, read
 on [here](../advanced/jsx_dom).
 
-Note:: Fresh and Aleph.js provide a framework for developing React-like
+Note: Fresh and Aleph.js provide a framework for developing React-like
 websites, but use an alternative foundational technology, Preact to provide a
 better, more performant experience.
 
