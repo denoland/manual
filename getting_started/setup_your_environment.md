@@ -393,6 +393,8 @@ There are several environment variables which can impact the behavior of Deno:
 - `DENO_NO_PACKAGE_JSON` - Set to disable auto-resolution of package.json files.
 - `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
   passing `--no-prompt` on invocation).
+- `DENO_NO_UPDATE_CHECK` - Set to disable checking if a newer Deno version is
+  available.
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
   [Proxies](../basics/modules/proxies.md) section for more information.

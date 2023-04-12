@@ -88,10 +88,10 @@ async function travelToC(
       content = await Deno.readTextFile(`../${fullId}.md`);
     } catch (err) {
       dax.logError(`Error attempting to read "/${fullId}.md".`);
-      console.log(parents, id, section, err);
+      console.log(parents, fullId, section, err);
       continue;
     }
-    const docPath = `/manual/${id}`;
+    const docPath = `/manual/${fullId}`;
     const nameHierarchy = fullHierachy.map(([name, _]) => name);
     dax.logLight(`  generating "${docPath}"...`);
     const records = (await toRecords(content))
