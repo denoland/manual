@@ -67,9 +67,9 @@ The list operation may optionally be given a `limit` to limit the number of keys
 returned.
 
 List operations can be performed using the
-[`Deno.Kv.prototype.list<string>(selector, options?)`][list] method. This method returns
-a `Deno.KvListIterator` that can be used to iterate over the keys returned. This
-is an async iterator, and can be used with `for await` loops.
+[`Deno.Kv.prototype.list<string>(selector, options?)`][list] method. This method
+returns a `Deno.KvListIterator` that can be used to iterate over the keys
+returned. This is an async iterator, and can be used with `for await` loops.
 
 ```ts,ignore
 // Return all users
