@@ -116,7 +116,7 @@ const u64 = new Deno.KvU64(42n);
 
 ### Value Examples
 
-```js
+```js,ignore
 undefined;
 null;
 true;

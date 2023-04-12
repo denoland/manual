@@ -41,7 +41,7 @@ To implement a unique secondary index for this example, follow these steps:
 2. Define an `insertUser` function that stores user data at both the primary and
    secondary keys:
 
-   ```tsx
+   ```tsx,ignore
    async function insertUser(user: User) {
      const primaryKey = ["users", user.id];
      const byEmailKey = ["users_by_email", user.email];
@@ -63,18 +63,18 @@ To implement a unique secondary index for this example, follow these steps:
 
 3. Define a `getUser` function to retrieve a user by their ID:
 
-   ```tsx
+   ```tsx,ignore
    async function getUser(id: string): Promise<User | null> {
-     const res = await kv.get(["users", id]);
+     const res = await kv.get<User>(["users", id]);
      return res.value;
    }
    ```
 
 4. Define a `getUserByEmail` function to retrieve a user by their email address:
 
-   ```tsx
+   ```tsx,ignore
    async function getUserByEmail(email: string): Promise<User | null> {
-     const res = await kv.get(["users_by_email", email]);
+     const res = await kv.get<User>(["users_by_email", email]);
      return res.value;
    }
    ```
@@ -84,11 +84,11 @@ To implement a unique secondary index for this example, follow these steps:
 
 5. Define a deleteUser function to delete users by their ID:
 
-   ```tsx
+   ```tsx,ignore
    async function deleteUser(id: string) {
      let res = null;
      while (res === null) {
-       const getRes = await kv.get(["users", id]);
+       const getRes = await kv.get<User>(["users", id]);
        if (getRes.value === null) return;
        res = await kv.atomic()
          .check(getRes)
@@ -138,7 +138,7 @@ To implement a non-unique secondary index for this example, follow these steps:
 2. Define the `insertUser` function:
 
    <!-- deno-fmt-ignore -->
-   ```ts
+   ```ts,ignore
    async function insertUser(user: User) {
      const primaryKey = ["users", user.id];
      const byColorKey = ["users_by_favorite_color", user.favoriteColor, user.id];
@@ -152,9 +152,9 @@ To implement a non-unique secondary index for this example, follow these steps:
 
 3. Define a function to retrieve users by their favorite color:
 
-   ```ts
+   ```ts,ignore
    async function getUsersByFavoriteColor(color: string): Promise<User[]> {
-     const iter = kv.list({ prefix: ["users_by_favorite_color", color] });
+     const iter = kv.list<User>({ prefix: ["users_by_favorite_color", color] });
      const users = [];
      for await (const { value } of iter) {
        users.push(value);

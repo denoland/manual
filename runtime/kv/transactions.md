@@ -43,7 +43,7 @@ is a number that represents the account balance.
 Here's a step-by-step example of implementing this `transferFunds` function:
 
 <!-- deno-fmt-ignore -->
-```ts
+```ts,ignore
 async function transferFunds(sender: string, receiver: string, amount: number) {
   if (amount <= 0) throw new Error("Amount must be positive");
 

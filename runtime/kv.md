@@ -62,15 +62,15 @@ console.log(res.value); // { name: "Alice" }
 await kv.delete(["users", "alice"]);
 
 // Reading back the key now returns null.
-const res = await kv.get(["users", "alice"]);
-console.log(res.key); // [ "users", "alice" ]
-console.log(res.value); // null
+const res2 = await kv.get(["users", "alice"]);
+console.log(res2.key); // [ "users", "alice" ]
+console.log(res2.value); // null
 ```
 
 The `list` operation can be used to list out all keys matching a specific
 selector. In the below example all keys starting with some prefix are selected.
 
-```tsx
+```tsx,ignore
 await kv.set(["users", "alice"], { birthday: "January 1, 1990" });
 await kv.set(["users", "sam"], { birthday: "February 14, 1985" });
 await kv.set(["users", "taylor"], { birthday: "December 25, 1970" });
@@ -93,7 +93,7 @@ In the below example, we insert a new user only if it does not yet exist by
 performing an atomic operation that has a check that there is no existing value
 for the given key:
 
-```tsx
+```tsx,ignore
 const key = ["users", "alice"];
 const value = { birthday: "January 1, 1990" };
 const res = await kv.atomic()

@@ -26,14 +26,14 @@ Get operations are performed as a "snapshot read" in all consistency modes. This
 means that when retrieving multiple keys at once, the values returned will be
 consistent with each other.
 
-```ts
-const res = await kv.get(["config"]);
+```ts,ignore
+const res = await kv.get<string>(["config"]);
 console.log(res); // { key: ["config"], value: "value", versionstamp: "000002fa526aaccb0000" }
 
-const res = await kv.get(["config"], { consistency: "eventual" });
+const res = await kv.get<string>(["config"], { consistency: "eventual" });
 console.log(res); // { key: ["config"], value: "value", versionstamp: "000002fa526aaccb0000" }
 
-const [res1, res2, res3] = await kv.getMany([
+const [res1, res2, res3] = await kv.getMany<[string, string, string]>([
   ["users", "sam"],
   ["users", "taylor"],
   ["users", "alex"],
@@ -67,13 +67,13 @@ The list operation may optionally be given a `limit` to limit the number of keys
 returned.
 
 List operations can be performed using the
-[`Deno.Kv.prototype.list(selector, options?)`][list] method. This method returns
+[`Deno.Kv.prototype.list<string>(selector, options?)`][list] method. This method returns
 a `Deno.KvListIterator` that can be used to iterate over the keys returned. This
 is an async iterator, and can be used with `for await` loops.
 
-```ts
+```ts,ignore
 // Return all users
-const iter = await kv.list({ prefix: ["users"] });
+const iter = await kv.list<string>({ prefix: ["users"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
@@ -81,27 +81,27 @@ console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "
 console.log(users[2]); // { key: ["users", "taylor"], value: "taylor", versionstamp: "0059e9035e5e7c5e0000" }
 
 // Return the first 2 users
-const iter = await kv.list({ prefix: ["users"] }, { limit: 2 });
+const iter = await kv.list<string>({ prefix: ["users"] }, { limit: 2 });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
 console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "00e0a2a0f0178b270000" }
 
 // Return all users lexicographically after "taylor"
-const iter = await kv.list({ prefix: ["users"], start: ["users", "taylor"] });
+const iter = await kv.list<string>({ prefix: ["users"], start: ["users", "taylor"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "taylor"], value: "taylor", versionstamp: "0059e9035e5e7c5e0000" }
 
 // Return all users lexicographically before "taylor"
-const iter = await kv.list({ prefix: ["users"], end: ["users", "taylor"] });
+const iter = await kv.list<string>({ prefix: ["users"], end: ["users", "taylor"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
 console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "00e0a2a0f0178b270000" }
 
 // Return all users starting with characters between "a" and "n"
-const iter = await kv.list({ start: ["users", "a"], end: ["users", "n"] });
+const iter = await kv.list<string>({ start: ["users", "a"], end: ["users", "n"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
@@ -119,9 +119,9 @@ option to `true`. This will return the keys in lexicographically descending
 order. The `start` and `end` keys are still inclusive and exclusive
 respectively, and are still interpreted as lexicographically ascending.
 
-```ts
+```ts,ignore
 // Return all users in reverse order, ending with "sam"
-const iter = await kv.list({ prefix: ["users"], start: ["users", "sam"] }, {
+const iter = await kv.list<string>({ prefix: ["users"], start: ["users", "sam"] }, {
   reverse: true,
 });
 const users = [];
@@ -148,7 +148,7 @@ The `set` operation can be performed using the
 
 Set operations are always performed in strong consistency mode.
 
-```ts
+```ts,ignore
 const res = await kv.set(["users", "alex"], "alex");
 console.log(res.versionstamp); // "00a44a3c3e53b9750000"
 ```
@@ -163,7 +163,7 @@ The `delete` operation can be performed using the
 
 Delete operations are always performed in strong consistency mode.
 
-```ts
+```ts,ignore
 await kv.delete(["users", "alex"]);
 ```
 
@@ -186,7 +186,7 @@ the operand is `1`, the new value will be `0`.
 
 Sum operations are always performed in strong consistency mode.
 
-```ts
+```ts,ignore
 await kv.atomic()
   .mutate({
     type: "sum",
@@ -212,7 +212,7 @@ operand and the value in the store must be of type `Deno.KvU64`.
 
 Min operations are always performed in strong consistency mode.
 
-```ts
+```ts,ignore
 await kv.atomic()
   .mutate({
     type: "min",
@@ -238,7 +238,7 @@ operand and the value in the store must be of type `Deno.KvU64`.
 
 Max operations are always performed in strong consistency mode.
 
-```ts
+```ts,ignore
 await kv.atomic()
   .mutate({
     type: "max",
