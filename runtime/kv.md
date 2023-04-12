@@ -26,8 +26,8 @@ modes are available to enable different performance tradeoffs.
 > Deno updates. We recommend that you backup your data regularly and consider
 > storing data in a secondary store for the time being.
 
-> 🌐 Deno KV is available in open beta for Deno Deploy customers.
-> [Join the waitlist](https://deno.com/kv).
+<!-- > 🌐 Deno KV is available in closed beta for Deno Deploy customers.
+> [Join the waitlist](https://deno.com/kv). -->
 
 ## Getting started
 
@@ -124,19 +124,6 @@ if (res) {
 - Using KvU64 to count things
 
 ## Reference
-
-### Key space
-
-- Valid keys
-- Lexical ordering of keys
-- Valid values and serialization
-- KvU64
-
-### Key versioning
-
-- What are version stamps?
-- Monotonically increasing
-- Comparisons
 
 ### Consistency
 
