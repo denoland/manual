@@ -144,19 +144,31 @@ new Deno.KvU64(42n);
 
 ## Versionstamp
 
-// todo
+All data in the Deno KV key-space is versioned. Every time a value is inserted
+or modified, a versionstamp is assigned to it. Versionstamps are monotonically
+increasing, non-sequential, 12 byte values that represent the time that the
+value was modified. Versionstamps do not represent real time, but rather the
+order in which the values were modified.
 
-- All data in the KV store is versioned
-- Versionstamps are 12 byte hex strings
-- Versionstamps are monotonically increasing, but not necessarily sequential
-- Versionstamps can be compared for "staleness" (e.g. if a versionstamp is
-  greater than another versionstamp, then it is newer)
-- All operations that happen in one transaction will assign the same
-  versionstamp to all of the data that is modified
+Because versionstamps are monotonically increasing, they can be used to
+determine wether a given value is newer or older than another value. This can be
+done by comparing the versionstamps of the two values. If versionstamp A is
+greater than versionstamp B, then value A was modified more recently than value
+B.
+
+```js
+versionstampA > versionstampB;
+"000002fa526aaccb0000" > "000002fa526aacc90000"; // true
+```
+
+All data modified by a single transaction are assigned the same versionstamp.
+This means that if two `set` operations are performed in the same atomic
+operation, then the versionstamp of the new values will be the same.
 
 Versionstamps are used to implement optimistic concurrency control. Atomic
-operations can have checks on the versionstamp of the data they are operating
-on. If the versionstamp of the data is not what is expected, then the
-transaction will fail and the operation will not be applied.
+operations can contain checks that ensure that the versionstamp of the data they
+are operating on matches a versionstamp passed to the operation. If the
+versionstamp of the data is not the same as the versionstamp passed to the
+operation, then the transaction will fail and the operation will not be applied.
 
 [structured clone algorithm]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
