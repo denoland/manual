@@ -53,6 +53,13 @@ Using [Nix](https://nixos.org/download.html) (macOS and Linux):
 nix-shell -p deno
 ```
 
+Using [asdf](https://asdf-vm.com/) (macOS and Linux):
+
+```shell
+asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
+asdf install deno latest
+```
+
 Build and install from source using [Cargo](https://crates.io/crates/deno):
 
 ```shell
