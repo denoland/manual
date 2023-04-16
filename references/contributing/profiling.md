@@ -1090,5 +1090,5 @@ Options:
 Particularly useful ones:
 
 ```
---async-stack-trace
+--async-stack-traces
 ```
