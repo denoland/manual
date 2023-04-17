@@ -408,7 +408,7 @@ deno test --fail-fast
 
 Deno's test runner works with popular testing libraries like
 [Chai](https://www.chaijs.com/), [Sinon.JS](https://sinonjs.org/) or
-[fast-check](https://dubzzz.github.io/fast-check.github.com/).
+[fast-check](https://fast-check.dev/).
 
 For example integration see:
 
