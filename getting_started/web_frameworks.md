@@ -90,7 +90,7 @@ a basic router, JSON parser, middlewares, plugins, etc.
 
 Focusing on native JS features with no dependencies outside of the Deno std library makes Peko flexible, entensible and lightning fast whilst providing rich features such as static-file handlers and cryptography utilities. 
 
-There are full-stack example apps to help newcomers get started + a companion repository of community-made modules for common app requirements such as:
+There are full-stack example apps to help newcomers get started along with a companion repository of community-made modules for common app requirements such as:
 
 - bundling/transpiling TS for the browser
 - server-side rendering React apps
