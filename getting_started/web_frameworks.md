@@ -96,4 +96,3 @@ There are full-stack example apps to help newcomers get started along with a com
 - server-side rendering React apps
 - interacting with Google Cloud Platform
 - optimizing image assets
-- and more!
