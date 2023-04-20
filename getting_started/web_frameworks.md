@@ -86,7 +86,7 @@ a basic router, JSON parser, middlewares, plugins, etc.
 
 ### Peko
 
-Peko](https://peko.deno.dev/) is a server/routing framework for Deno with a
+[Peko](https://peko.deno.dev/) is a server/routing framework for Deno with a
 functional API and a library of handlers, middleware and utility classes.
 
 Focusing on native JS features with no dependencies outside of the Deno std
