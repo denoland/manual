@@ -19,10 +19,10 @@ deno --help
 
 Deno's CLI is subcommand-based. The above commands should show you a list of
 subcommands supported, such as `deno compile`. To see subcommand-specific help,
-for example for `bundle`, you can similarly run one of:
+for example for `compile`, you can similarly run one of:
 
 ```shell
-deno help bundle
+deno help compile
 deno compile -h
 deno compile --help
 ```
