@@ -114,8 +114,8 @@ if (res) {
 ### Reference
 
 - [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
-- [Key Space][./kv/key_space.md]
-- [Operations][./kv/operations.md]
+- [Key Space](./kv/key_space.md)
+- [Operations](./kv/operations.md)
 - Consistency (TODO)
 - Limits (TODO)
 - Performance (TODO)
