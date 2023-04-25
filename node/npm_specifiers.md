@@ -3,7 +3,8 @@
 Since version 1.28, Deno has native support for importing npm packages. This is
 done by importing using `npm:` specifiers.
 
-The way these work is best described with an example:
+The way these work is best described with an example that you can run with
+`deno run --allow-env`:
 
 ```ts, ignore
 import chalk from "npm:chalk@5";
