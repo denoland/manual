@@ -140,7 +140,8 @@
         "children": {
           "operations": "Operations",
           "transactions": "Transactions",
-          "secondary_indexes": "Secondary indexes"
+          "secondary_indexes": "Secondary indexes",
+          "key_space": "Key Space"
         }
       },
       "location_api": "Location API",
