@@ -397,15 +397,17 @@ class MyClass {
 
 #### Naming convention
 
-Use `camelCase` for functions. Use `PascalCase` for classes, types, interfaces,
-and enums. Use `UPPER_SNAKE_CASE` for static items, such as `string`, `number`,
-`bigint`, `boolean`, `RegExp`, arrays of static items, records of static keys
-and values, etc.
+Use `camelCase` for functions, methods, fields, and local variables. Use
+`PascalCase` for classes, types, interfaces, and enums. Use `UPPER_SNAKE_CASE`
+for static top-level items, such as `string`, `number`, `bigint`, `boolean`,
+`RegExp`, arrays of static items, records of static keys and values, etc.
 
 Good:
 
 ```ts
 function generateKey() {}
+
+let currentValue = 0;
 
 class KeyObject {}
 
@@ -428,6 +430,8 @@ Bad:
 ```ts
 function generate_key() {}
 
+let current_value = 0;
+
 function GenerateKey() {}
 
 class keyObject {}
@@ -439,7 +443,7 @@ enum keyType {
   privateKey,
 }
 
-const keyVersion = "1.0.0";
+const key_version = "1.0.0";
 
 const key_maxLength = 4294967295;
 
@@ -447,7 +451,7 @@ const KeyPattern = /^[0-9a-f]+$/;
 ```
 
 When the names are in `camelCase` or `PascalCase`, always follow the rules of
-them even when the part of API name is acronyms.
+them even when the parts of them are acronyms.
 
 Note: Web APIs use uppercase acronyms (`JSON`, `URL`, `URL.createObjectURL()`
 etc.). Deno Standard Library does not follow this convention.
