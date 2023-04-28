@@ -397,9 +397,64 @@ class MyClass {
 
 #### Naming convention
 
-Always use camel or pascal case. Some Web APIs use uppercase acronyms (`JSON`,
-`URL`, `URL.createObjectURL()` etc.). Deno does not follow this convention and
-also uses camel or pascal case.
+Use `camelCase` for functions, methods, fields, and local variables. Use
+`PascalCase` for classes, types, interfaces, and enums. Use `UPPER_SNAKE_CASE`
+for static top-level items, such as `string`, `number`, `bigint`, `boolean`,
+`RegExp`, arrays of static items, records of static keys and values, etc.
+
+Good:
+
+```ts
+function generateKey() {}
+
+let currentValue = 0;
+
+class KeyObject {}
+
+type SharedKey = {};
+
+enum KeyType {
+  PublicKey,
+  PrivateKey,
+}
+
+const KEY_VERSION = "1.0.0";
+
+const KEY_MAX_LENGTH = 4294967295;
+
+const KEY_PATTERN = /^[0-9a-f]+$/;
+```
+
+Bad:
+
+```ts
+function generate_key() {}
+
+let current_value = 0;
+
+function GenerateKey() {}
+
+class keyObject {}
+
+type sharedKey = {};
+
+enum keyType {
+  publicKey,
+  privateKey,
+}
+
+const key_version = "1.0.0";
+
+const key_maxLength = 4294967295;
+
+const KeyPattern = /^[0-9a-f]+$/;
+```
+
+When the names are in `camelCase` or `PascalCase`, always follow the rules of
+them even when the parts of them are acronyms.
+
+Note: Web APIs use uppercase acronyms (`JSON`, `URL`, `URL.createObjectURL()`
+etc.). Deno Standard Library does not follow this convention.
 
 Good:
 
