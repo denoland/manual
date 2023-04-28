@@ -1,8 +1,17 @@
 # Deno KV's Key Space
 
-- Deno KV is a key value store
-- Key space is a flat namespace of key+value+versionstamp pairs
-- The versionstamp represents when a value was inserted / modified
+> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
+> our best to ensure data durability, data loss is possible, especially around
+> Deno updates. We recommend that you backup your data regularly and consider
+> storing data in a secondary store for the time being.
+
+> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+
+Deno KV is a key value store. The key space is a flat namespace of
+key+value+versionstamp pairs. Keys are sequences of key parts, which allow
+modeling of hierarchical data. Values are arbitrary JavaScript objects.
+Versionstamps represent when a value was inserted / modified.
 
 ## Keys
 

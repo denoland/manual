@@ -1,6 +1,15 @@
 # Operations
 
-The Deno KV API provides a set of operations that can be performed on the store.
+> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
+> our best to ensure data durability, data loss is possible, especially around
+> Deno updates. We recommend that you backup your data regularly and consider
+> storing data in a secondary store for the time being.
+
+> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+
+The Deno KV API provides a set of operations that can be performed on the key
+space.
 
 There are two operations that read data from the store, and five operations that
 write data to the store.
