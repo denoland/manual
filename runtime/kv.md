@@ -26,8 +26,8 @@ modes are available to enable different performance tradeoffs.
 > Deno updates. We recommend that you backup your data regularly and consider
 > storing data in a secondary store for the time being.
 
-<!-- > 🌐 Deno KV is available in closed beta for Deno Deploy customers.
-> [Join the waitlist](https://deno.com/kv). -->
+🌐 Deno KV is available in closed beta for Deno Deploy.
+[Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
 
 ## Getting started
 
@@ -114,8 +114,8 @@ if (res) {
 ### Reference
 
 - [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
-- [Key Space][./kv/key_space.md]
-- [Operations][./kv/operations.md]
+- [Key Space](./kv/key_space.md)
+- [Operations](./kv/operations.md)
 - Consistency (TODO)
 - Limits (TODO)
 - Performance (TODO)

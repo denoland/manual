@@ -136,11 +136,12 @@
       "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
       "kv": {
-        "name": "Deno KV API",
+        "name": "Deno KV",
         "children": {
           "operations": "Operations",
           "transactions": "Transactions",
-          "secondary_indexes": "Secondary indexes"
+          "secondary_indexes": "Secondary indexes",
+          "key_space": "Key Space"
         }
       },
       "location_api": "Location API",
