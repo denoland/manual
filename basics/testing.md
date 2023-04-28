@@ -330,12 +330,10 @@ For example, if you want to only test `src/fetch_test.ts` and
 ```json
 {
   "test": {
-    "files": {
-      "include": [
-        "src/fetch_test.ts",
-        "src/signal_test.ts"
-      ]
-    }
+    "include": [
+      "src/fetch_test.ts",
+      "src/signal_test.ts"
+    ]
   }
 }
 ```
@@ -345,9 +343,7 @@ Or more likely:
 ```json
 {
   "test": {
-    "files": {
-      "exclude": ["out/"]
-    }
+    "exclude": ["out/"]
   }
 }
 ```

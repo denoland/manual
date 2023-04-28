@@ -64,10 +64,8 @@ Configuration for [`deno lint`](../tools/linter.md).
 ```json
 {
   "lint": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    },
+    "include": ["src/"],
+    "exclude": ["src/testdata/"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -84,17 +82,13 @@ Configuration for [`deno fmt`](../tools/formatter.md)
 ```json
 {
   "fmt": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    },
-    "options": {
-      "useTabs": true,
-      "lineWidth": 80,
-      "indentWidth": 4,
-      "singleQuote": true,
-      "proseWrap": "preserve"
-    }
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": ["src/testdata/"]
   }
 }
 ```
@@ -125,10 +119,8 @@ See also
     "strict": true
   },
   "lint": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    },
+    "include": ["src/"],
+    "exclude": ["src/testdata/"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -136,24 +128,18 @@ See also
     }
   },
   "fmt": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    },
-    "options": {
-      "useTabs": true,
-      "lineWidth": 80,
-      "indentWidth": 4,
-      "semiColons": false,
-      "singleQuote": true,
-      "proseWrap": "preserve"
-    }
+    "useTabs": true,
+    "lineWidth": 80,
+    "indentWidth": 4,
+    "semiColons": false,
+    "singleQuote": true,
+    "proseWrap": "preserve",
+    "include": ["src/"],
+    "exclude": ["src/testdata/"]
   },
   "test": {
-    "files": {
-      "include": ["src/"],
-      "exclude": ["src/testdata/"]
-    }
+    "include": ["src/"],
+    "exclude": ["src/testdata/"]
   }
 }
 ```
