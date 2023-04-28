@@ -327,6 +327,8 @@ box on Windows, Mac, and Linux.
   outputs stdin.
 - [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the
   shell to exit.
+- [`unset`](https://man7.org/linux/man-pages/man1/unset.1p.html) - Unsets
+  environment variables.
 - [`xargs`](https://man7.org/linux/man-pages/man1/xargs.1p.html) - Builds
   arguments from stdin and executes a command.
 
