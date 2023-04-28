@@ -54,7 +54,7 @@ passing in a port number in the second argument options bag:
 import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 // To listen on port 4242.
-serve(handler, { port: 4242 });
+serve({ port: 4242 }, handler);
 ```
 
 This same options bag can also be used to configure some other options, such as
