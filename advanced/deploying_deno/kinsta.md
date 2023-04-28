@@ -33,7 +33,7 @@ import { parse } from "https://deno.land/std@$STD_VERSION/flags/mod.ts";
 const { args } = Deno;
 const argPort = parse(args).port ? Number(parse(args).port) : 8000;
 
-serve((_req) => new Response("Hello, world"), { port: argPort });
+serve({ port: argPort }, (_req) => new Response("Hello, world"));
 ```
 
 The application itself is self-explanatory. It's crucial not to hardcode the
