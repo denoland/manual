@@ -26,8 +26,8 @@ modes are available to enable different performance tradeoffs.
 > Deno updates. We recommend that you backup your data regularly and consider
 > storing data in a secondary store for the time being.
 
-🌐 Deno KV is available in closed beta for Deno Deploy.
-[Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
 
 ## Getting started
 
@@ -100,7 +100,7 @@ const res = await kv.atomic()
   .check({ key, versionstamp: null }) // `null` versionstamps mean 'no value'
   .set(key, value)
   .commit();
-if (res) {
+if (res.ok) {
   console.log("User did not yet exist. Inserted!");
 } else {
   console.log("User already exists.");

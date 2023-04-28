@@ -1,5 +1,13 @@
 # Transactions
 
+> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
+> our best to ensure data durability, data loss is possible, especially around
+> Deno updates. We recommend that you backup your data regularly and consider
+> storing data in a secondary store for the time being.
+
+> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+
 > A database transaction, in the context of a key-value store like Deno KV,
 > refers to a sequence of data manipulation operations executed as a single,
 > atomic unit of work to ensure data consistency, integrity, and durability.
@@ -52,8 +60,8 @@ async function transferFunds(sender: string, receiver: string, amount: number) {
   const receiverKey = ["account", receiver];
 
   // Retry the transaction until it succeeds.
-  let res = null;
-  while (res === null) {
+  let res = { ok: false };
+  while (!res.ok) {
     // Read the current balance of both accounts.
     const [senderRes, receiverRes] = await kv.getMany([senderKey, receiverKey]);
     if (senderRes.value === null) throw new Error(`Account ${sender} not found`);
@@ -73,9 +81,9 @@ async function transferFunds(sender: string, receiver: string, amount: number) {
     const newSenderBalance = senderBalance - amount;
     const newReceiverBalance = receiverBalance + amount;
 
-    // Attempt to commit the transaction. `res` is null if the transaction fails
-    // to commit due to a check failure (i.e. the versionstamp for a key has
-    // changed)
+    // Attempt to commit the transaction. `res` returns an object with
+    // `ok: false` if the transaction fails to commit due to a check failure
+    // (i.e. the versionstamp for a key has changed)
     res = await kv.atomic()
       .check(senderKey) // Ensure the sender's balance hasn't changed.
       .check(receiverKey) // Ensure the receiver's balance hasn't changed.

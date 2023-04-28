@@ -1,5 +1,13 @@
 # Secondary Indexes
 
+> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
+> our best to ensure data durability, data loss is possible, especially around
+> Deno updates. We recommend that you backup your data regularly and consider
+> storing data in a secondary store for the time being.
+
+> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+
 Key-value stores like Deno KV organize data as collections of key-value pairs,
 where each unique key is associated with a single value. This structure enables
 easy retrieval of values based on their keys but does not allow for querying
@@ -51,7 +59,7 @@ To implement a unique secondary index for this example, follow these steps:
        .set(primaryKey, user)
        .set(byEmailKey, user)
        .commit();
-     if (res === null) {
+     if (!res.ok) {
        throw new TypeError("User with ID or email already exists");
      }
    }
@@ -86,8 +94,8 @@ To implement a unique secondary index for this example, follow these steps:
 
    ```tsx,ignore
    async function deleteUser(id: string) {
-     let res = null;
-     while (res === null) {
+     let res = { ok: false };
+     while (!res.ok) {
        const getRes = await kv.get<User>(["users", id]);
        if (getRes.value === null) return;
        res = await kv.atomic()
