@@ -77,8 +77,8 @@ async function transferFunds(sender: string, receiver: string, amount: number) {
     // to commit due to a check failure (i.e. the versionstamp for a key has
     // changed)
     res = await kv.atomic()
-      .check(senderKey) // Ensure the sender's balance hasn't changed.
-      .check(receiverKey) // Ensure the receiver's balance hasn't changed.
+      .check(senderRes) // Ensure the sender's balance hasn't changed.
+      .check(receiverRes) // Ensure the receiver's balance hasn't changed.
       .set(senderKey, newSenderBalance) // Update the sender's balance.
       .set(receiverKey, newReceiverBalance) // Update the receiver's balance.
       .commit();
