@@ -66,7 +66,7 @@ deno run -A npm:prisma@^4.5 db push
 After that's complete, we'll need to generate a Prisma client for Data Proxy:
 
 ```shell, ignore
-deno run -A npm:prisma@^4.5 generate --data-proxy
+deno run -A --unstable npm:prisma@^4.5 generate --data-proxy
 ```
 
 ## Setup Prisma Data Platform
@@ -101,9 +101,9 @@ And in `./prisma/seed.ts`:
 
 ```ts, ignore
 import { Prisma, PrismaClient } from "../generated/client/deno/edge.ts";
-import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";
+import { load } from "https://deno.land/std@$STD_VERSION/dotenv/mod.ts";
 
-const envVars = await config();
+const envVars = await load();
 
 const prisma = new PrismaClient({
   datasources: {
@@ -169,9 +169,9 @@ Then, in your `main.ts` file:
 ```ts, ignore
 import { PrismaClient } from "./generated/client/deno/edge.ts";
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
-import { config } from "https://deno.land/std@0.163.0/dotenv/mod.ts";
+import { load } from "https://deno.land/std@$STD_VERSION/dotenv/mod.ts";
 
-const envVars = await config();
+const envVars = await load();
 
 /**
  * Initialize.

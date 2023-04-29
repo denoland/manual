@@ -172,12 +172,12 @@ needs to be updated, which can be achieved by using a lockfile and by using the
 `hashFiles` function provided by GitHub Actions:
 
 ```yaml
-key: ${{ hashFiles('lock.json') }}
+key: ${{ hashFiles('deno.lock') }}
 ```
 
 To make this work you will also need a have a lockfile in your Deno project,
 which is discussed in detail [here](../basics/modules/integrity_checking.md).
-Now, if the contents of `lock.json` are changed, a new cache will be made and
+Now, if the contents of `deno.lock` are changed, a new cache will be made and
 used in subsequent pipeline runs thereafter.
 
 To demonstrate, let's say you have a project that uses the logger from
@@ -191,7 +191,7 @@ In order to increment this version, you can update the `import` statement and
 then reload the cache and update the lockfile locally:
 
 ```
-deno cache --reload --lock=lock.json --lock-write deps.ts
+deno cache --reload --lock=deno.lock --lock-write deps.ts
 ```
 
 You should see changes in the lockfile's contents after running this. When this
@@ -208,5 +208,5 @@ to add a variable to the cache key name, which can be stored as a GitHub secret
 and can be changed if a new cache is needed:
 
 ```yaml
-key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('lock.json') }}
+key: ${{ secrets.CACHE_VERSION }}-${{ hashFiles('deno.lock') }}
 ```

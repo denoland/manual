@@ -238,14 +238,14 @@ Notes:
 To run the test, call `deno test` with the file that contains your test
 function. You can also omit the file name, in which case all tests in the
 current directory (recursively) that match the glob
-`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass a
+`{*_,*.,}test.{ts, tsx, mts, js, mjs, jsx}` will be run. If you pass a
 directory, all files in the directory that match this glob will be run.
 
 The glob expands to:
 
-- files named `test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `.test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `_test.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+- files named `test.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `.test.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `_test.{ts, tsx, mts, js, mjs, jsx}`
 
 ```shell
 # Run all tests in the current directory and all sub-directories
@@ -330,12 +330,10 @@ For example, if you want to only test `src/fetch_test.ts` and
 ```json
 {
   "test": {
-    "files": {
-      "include": [
-        "src/fetch_test.ts",
-        "src/signal_test.ts"
-      ]
-    }
+    "include": [
+      "src/fetch_test.ts",
+      "src/signal_test.ts"
+    ]
   }
 }
 ```
@@ -345,9 +343,7 @@ Or more likely:
 ```json
 {
   "test": {
-    "files": {
-      "exclude": ["out/"]
-    }
+    "exclude": ["out/"]
   }
 }
 ```
@@ -408,7 +404,7 @@ deno test --fail-fast
 
 Deno's test runner works with popular testing libraries like
 [Chai](https://www.chaijs.com/), [Sinon.JS](https://sinonjs.org/) or
-[fast-check](https://dubzzz.github.io/fast-check.github.com/).
+[fast-check](https://fast-check.dev/).
 
 For example integration see:
 

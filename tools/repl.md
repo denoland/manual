@@ -4,9 +4,8 @@
 program state in the global context, it is especially useful for quick
 prototyping and checking snippets of code.
 
-> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript
-> code is not type-checked, instead it is transpiled to JavaScript behind the
-> scenes.
+> ⚠️ Deno REPL supports JavaScript as well as TypeScript, however TypeScript code
+> is not type-checked, instead it is transpiled to JavaScript behind the scenes.
 
 > ⚠️ To make it easier to copy-paste code samples, Deno REPL supports import and
 > export declarations. It means that you can paste code containing
@@ -51,14 +50,14 @@ into the REPL. This is useful for importing some code you commonly use in the
 REPL, or modifying the runtime in some way:
 
 ```
-$ deno repl --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
-Deno 1.14.3
+$ deno repl --allow-net --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
+Deno 1.31.0
 exit using ctrl+d or close()
 > assert(true)
 undefined
 > assert(false)
 Uncaught AssertionError
-    at assert (https://deno.land/std@0.110.0/testing/asserts.ts:224:11)
+    at assert (https://deno.land/std@0.178.0/testing/asserts.ts:141:11)
     at <anonymous>:2:1
 ```
 
@@ -162,3 +161,9 @@ readTextFileSync  readFileSync      readDir           readLink          readAllS
 | Meta-U                | Upper-case the next word                                                                         |
 | Meta-Y                | See Ctrl-Y                                                                                       |
 | Ctrl-S                | Insert a new line                                                                                |
+
+## `DENO_REPL_HISTORY`
+
+You can use `DENO_REPL_HISTORY` environmental variable to control where Deno
+stores the REPL history file. You can set it to an empty value, Deno will not
+store the history file.

@@ -115,7 +115,7 @@ Examples of bad PR title:
 2. Ensure there is a related issue and it is referenced in the PR text.
 3. Ensure there are tests that cover the changes.
 
-### Submitting a PR to [`deno`](https://github.com/denoland/deno)
+## Submitting a PR to [`deno`](https://github.com/denoland/deno)
 
 Additionally to the above make sure that:
 
@@ -148,7 +148,7 @@ Additionally to the above make sure that:
 If you are submitting a PR to this manual, make sure that all imports of the
 standard library have the numeric version replaced with "$STD_VERSION".
 
-For the latest version go [here](https://deno.land/std@0.154.0/version.ts).
+For the latest version go [here](https://deno.land/std@0.178.0/version.ts).
 
 ## Documenting APIs
 

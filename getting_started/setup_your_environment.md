@@ -69,7 +69,9 @@ instructions to enable the
 Note that if you also have `tsserver` as an LSP client, you may run into issues
 where both `tsserver` and `denols` are attached to your current buffer. To
 resolve this, make sure to set some unique `root_dir` for both `tsserver` and
-`denols`. Here is an example of such a configuration:
+`denols`. You may also need to set `single_file_support` to `false` for
+`tsserver` to prevent it from running in `single file mode`. Here is an example
+of such a configuration:
 
 ```lua
 nvim_lsp.denols.setup {
@@ -80,6 +82,7 @@ nvim_lsp.denols.setup {
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   root_dir = nvim_lsp.util.root_pattern("package.json"),
+  single_file_support = false
 }
 ```
 
@@ -387,8 +390,11 @@ There are several environment variables which can impact the behavior of Deno:
   then under the `deno` path.
 - `DENO_INSTALL_ROOT` - When using `deno install` where the installed scripts
   are stored. This defaults to `$HOME/.deno/bin`.
+- `DENO_NO_PACKAGE_JSON` - Set to disable auto-resolution of package.json files.
 - `DENO_NO_PROMPT` - Set to disable permission prompts on access (alternative to
   passing `--no-prompt` on invocation).
+- `DENO_NO_UPDATE_CHECK` - Set to disable checking if a newer Deno version is
+  available.
 - `DENO_WEBGPU_TRACE` - The directory to use for WebGPU traces.
 - `HTTP_PROXY` - The proxy address to use for HTTP requests. See the
   [Proxies](../basics/modules/proxies.md) section for more information.

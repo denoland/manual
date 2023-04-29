@@ -32,10 +32,9 @@ Here is a list of web platform APIs Deno implements:
 - [Web Storage API](./web_storage_api.md)
 - [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
-- [`WebGPU`](https://gpuweb.github.io/gpuweb/explainer/?)
 
 You can find the Deno reference for these APIs
-[here](https://deno.land/api@v$CLI_VERSION).
+[here](https://deno.land/api@$CLI_VERSION).
 
 ## `fetch` API
 

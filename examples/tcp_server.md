@@ -4,13 +4,12 @@ This is an example of a server which accepts connections on port 8080, and
 returns to the client anything it sends.
 
 ```ts
-import { copy } from "https://deno.land/std@$STD_VERSION/streams/conversion.ts";
 const hostname = "0.0.0.0";
 const port = 8080;
 const listener = Deno.listen({ hostname, port });
 console.log(`Listening on ${hostname}:${port}`);
 for await (const conn of listener) {
-  copy(conn, conn);
+  conn.readable.pipeTo(conn.writable);
 }
 ```
 
@@ -35,6 +34,6 @@ hello world
 hello world
 ```
 
-Like the `cat.ts` example, the `copy()` function here also does not make
-unnecessary memory copies. It receives a packet from the kernel and sends it
-back, without further complexity.
+Like the `cat.ts` example, the `pipeTo(writable)` method does not make a copy of
+the data. The data is directly written from the readable stream to the writable
+stream.

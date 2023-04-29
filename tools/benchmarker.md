@@ -46,7 +46,7 @@ Deno.bench(function helloWorld3() {
   new URL("https://deno.land");
 });
 
-// Longer form: test definition.
+// Longer form: bench definition.
 Deno.bench({
   name: "hello world #2",
   fn: () => {
@@ -59,7 +59,7 @@ Deno.bench("hello world #4", { permissions: { read: true } }, () => {
   new URL("https://deno.land");
 });
 
-// Similar to longer form, with test function as a second argument.
+// Similar to longer form, with bench function as a second argument.
 Deno.bench(
   { name: "hello world #5", permissions: { read: true } },
   () => {
@@ -67,7 +67,7 @@ Deno.bench(
   },
 );
 
-// Similar to longer form, with a named test function as a second argument.
+// Similar to longer form, with a named bench function as a second argument.
 Deno.bench({ permissions: { read: true } }, function helloWorld6() {
   new URL("https://deno.land");
 });
@@ -101,7 +101,7 @@ perform against a "baseline" case.
 
 In this example we'll check how performant is `Date.now()` compared to
 `performance.now()`, to do that we'll mark the first case as a "baseline" using
-`Deno.BechnDefintion.baseline` option:
+`Deno.BenchDefinition.baseline` option:
 
 ```ts, ignore
 // time_bench.ts
@@ -137,14 +137,14 @@ You can specify multiple groups in the same file.
 To run a benchmark, call `deno bench` with the file that contains your bench
 function. You can also omit the file name, in which case all benchmarks in the
 current directory (recursively) that match the glob
-`{*_,*.,}bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}` will be run. If you pass
-a directory, all files in the directory that match this glob will be run.
+`{*_,*.,}bench.{ts, tsx, mts, js, mjs, jsx}` will be run. If you pass a
+directory, all files in the directory that match this glob will be run.
 
 The glob expands to:
 
-- files named `bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `.bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`,
-- or files ending with `_bench.{ts, tsx, mts, js, mjs, jsx, cjs, cts}`
+- files named `bench.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `.bench.{ts, tsx, mts, js, mjs, jsx}`,
+- or files ending with `_bench.{ts, tsx, mts, js, mjs, jsx}`
 
 ```shell
 # Run all benches in the current directory and all sub-directories
@@ -162,7 +162,7 @@ deno bench my_bench.ts
 
 ```shell
 # Pass additional arguments to the bench file
-deno bench my_test.ts -- -e --foo --bar
+deno bench my_bench.ts -- -e --foo --bar
 ```
 
 `deno bench` uses the same permission model as `deno run` and therefore will
@@ -229,7 +229,7 @@ Within the benches themselves, you have two options for filtering.
 
 Sometimes you want to ignore benches based on some sort of condition (for
 example you only want a benchmark to run on Windows). For this you can use the
-`ignore` boolean in the bench definition. If it is set to true the test will be
+`ignore` boolean in the bench definition. If it is set to true the bench will be
 skipped.
 
 ```ts
@@ -260,4 +260,34 @@ Deno.bench({
     // bench complicated stuff
   },
 });
+```
+
+## JSON output
+
+To retrieve the output as JSON, use the `--json` flag:
+
+```
+$ deno bench --json bench_me.js
+{
+  "runtime": "Deno/1.31.0 x86_64-apple-darwin",
+  "cpu": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+  "benches": [
+    "origin": "file:///dev/bench_me.js",
+    "group": null,
+    "name": "Deno.UnsafePointerView#getUint32",
+    "baseline": false,
+    "result": {
+      "ok": {
+        "n": 49,
+        "min": 1251.9348,
+        "max": 1441.2696,
+        "avg": 1308.7523755102038,
+        "p75": 1324.1055,
+        "p99": 1441.2696,
+        "p995": 1441.2696,
+        "p999": 1441.2696
+      }
+    }
+  ]
+}
 ```

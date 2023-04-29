@@ -1,14 +1,14 @@
 {
   "introduction": "Introduction",
   "getting_started": {
-    "name": "Getting Started",
+    "name": "Getting started",
     "children": {
       "installation": "Installation",
-      "setup_your_environment": "Set Up Your Environment",
-      "first_steps": "First Steps",
-      "command_line_interface": "Command Line Interface",
-      "configuration_file": "Configuration File",
-      "web_frameworks": "Web Frameworks"
+      "setup_your_environment": "Set up your environment",
+      "first_steps": "First steps",
+      "command_line_interface": "Command line interface",
+      "configuration_file": "Configuration file",
+      "web_frameworks": "Web frameworks"
     }
   },
   "basics": {
@@ -33,16 +33,20 @@
           "private": {
             "name": "Private Modules",
             "redirectFrom": ["/linking_to_external_code/private"]
-          },
-          "import_maps": {
-            "name": "Import Maps",
-            "redirectFrom": ["/linking_to_external_code/import_maps"]
           }
         }
       },
       "standard_library": {
         "name": "Standard Library",
         "redirectFrom": ["/standard_library"]
+      },
+      "import_maps": {
+        "name": "Import Maps",
+        "redirectFrom": [
+          "/linking_to_external_code/import_maps",
+          "/node/import_maps",
+          "/basics/modules/import_maps"
+        ]
       },
       "permissions": {
         "name": "Permissions",
@@ -92,14 +96,20 @@
     }
   },
   "node": {
-    "name": "npm Modules",
+    "name": "Node and npm modules",
     "children": {
-      "npm_specifiers": "Using npm Packages with npm Specifiers",
-      "cdns": "Using npm Packages Via CDNs",
-      "std_node": "The std/node Library",
-      "import_maps": "Using Import Maps",
+      "npm_specifiers": "npm: specifiers",
+      "node_specifiers": {
+        "name": "node: specifiers",
+        "redirectFrom": "/node/std_node"
+      },
+      "package_json": "package.json",
+      "cdns": {
+        "name": "npm via CDNs",
+        "redirectFrom": ["/npm_nodejs/cdns"]
+      },
       "how_to_with_npm": {
-        "name": "How To guides with npm",
+        "name": "How to guides with npm",
         "children": {
           "prisma": "Prisma",
           "mongoose": "Mongoose",
@@ -112,7 +122,7 @@
           "express": "Express"
         }
       },
-      "faqs": "Frequently Asked Questions"
+      "faqs": "Frequently asked questions"
     }
   },
   "runtime": {
@@ -125,6 +135,15 @@
       "permission_apis": "Permission APIs",
       "web_platform_apis": "Web Platform APIs",
       "http_server_apis": "HTTP Server APIs",
+      "kv": {
+        "name": "Deno KV",
+        "children": {
+          "operations": "Operations",
+          "transactions": "Transactions",
+          "secondary_indexes": "Secondary indexes",
+          "key_space": "Key Space"
+        }
+      },
       "location_api": "Location API",
       "web_storage_api": "Web Storage API",
       "workers": "Workers",
@@ -164,7 +183,10 @@
       "os_signals": "OS Signals",
       "file_system_events": "File System Events",
       "module_metadata": "Module Metadata",
-      "hashbang": "Hashbang",
+      "hashbang": {
+        "name": "Hashbang",
+        "redirectFrom": ["/examples/shebang"]
+      },
       "chat_app": "Chat App",
       "word_finder": "Word Finder"
     }

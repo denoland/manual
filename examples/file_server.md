@@ -42,7 +42,7 @@ async function handleHttp(conn: Deno.Conn) {
       // If the file cannot be opened, return a "404 Not Found" response
       const notFoundResponse = new Response("404 Not Found", { status: 404 });
       await requestEvent.respondWith(notFoundResponse);
-      return;
+      continue;
     }
 
     // Build a readable stream so the file doesn't have to be fully loaded into

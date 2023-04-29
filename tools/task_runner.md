@@ -327,6 +327,8 @@ box on Windows, Mac, and Linux.
   outputs stdin.
 - [`exit`](https://man7.org/linux/man-pages/man1/exit.1p.html) - Causes the
   shell to exit.
+- [`unset`](https://man7.org/linux/man-pages/man1/unset.1p.html) - Unsets
+  environment variables.
 - [`xargs`](https://man7.org/linux/man-pages/man1/xargs.1p.html) - Builds
   arguments from stdin and executes a command.
 
@@ -338,3 +340,11 @@ additional commands that should be supported out of the box, then please
 Note that if you wish to execute any of these commands in a non-cross platform
 way on Mac or Linux, then you may do so by running it through `sh`:
 `sh -c <command>` (ex. `sh -c cp source destination`).
+
+## package.json support
+
+`deno task` falls back to reading from the `"scripts"` entries in a package.json
+file if it is discovered. Note that Deno does not respect or support any npm
+life cycle events like `preinstall` or `postinstall`—you must explicitly run the
+script entries you want to run (ex.
+`deno cache main.ts && deno task postinstall`).

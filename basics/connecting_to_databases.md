@@ -83,7 +83,7 @@ There are two primary solutions to connect to SQLite in Deno:
 ### Connect to SQLite with the FFI Module
 
 [sqlite3](https://deno.land/x/sqlite3) provides JavaScript bindings to the
-SQLite3 C API, using Deno FFI.
+SQLite3 C API, using [Deno FFI](../runtime/ffi_api.md).
 
 ```ts, ignore
 import { Database } from "https://deno.land/x/sqlite3@LATEST_VERSION/mod.ts";
@@ -96,7 +96,7 @@ db.close();
 ### Connect to SQLite with the WASM-Optimized Module
 
 [sqlite](https://deno.land/x/sqlite) is a SQLite module for JavaScript and
-TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3
+TypeScript. The wrapper made specifically for Deno and uses a version of SQLite3
 compiled to WebAssembly (WASM).
 
 ```ts, ignore
@@ -112,7 +112,7 @@ db.close();
 To connect to Firebase with Deno, import the
 [firestore npm module](https://firebase.google.com/docs/firestore/quickstart)
 with the [skypak CDN](https://www.skypack.dev/). To learn more about using npm
-modules in Deno via CDN read [here](../node/cdns.md)
+modules in Deno with a CDN, see [Using npm packages with CDNs](../node/cdns.md).
 
 ### Connect to Firebase with the firestore npm module
 
@@ -155,7 +155,7 @@ const auth = getAuth(app);
 To connect to Supabase with Deno, import the
 [supabase-js npm module](https://supabase.com/docs/reference/javascript) with
 the [esm.sh CDN](https://esm.sh/). To learn more about using npm modules in Deno
-via CDN read [here](../node/cdns.md)
+with a CDN, see [Using npm packages with CDNs](../node/cdns.md).
 
 ### Connect to Supabase with the supabase-js npm module
 
@@ -179,17 +179,15 @@ const supabase = createClient(
 
 ## ORMs
 
-The idea with ORMs (object relational mapping) is to define your data models as
-classes that can be persisted to a database. The classes and their instances
-then provide you with a programmatic API to read and write data in the database.
+Object-Relational Mappings (ORM) define your data models as classes that you can
+persist to a database. You can read and write data in your database through
+instances of these classes.
 
-Deno has support for a number of popular ORMs, including Prisma and DenoDB.
+Deno supports multiple ORMs, including Prisma and DenoDB.
 
 ### DenoDB
 
-[Denodb](https://deno.land/x/denodb) is a Deno-specific ORM database. ORM
-(object-relational mapping) databases allow instances of classes to be persisted
-to a database.
+[DenoDB](https://deno.land/x/denodb) is a Deno-specific ORM.
 
 #### Connect to DenoDB
 
@@ -213,17 +211,17 @@ const db = new Database(connection);
 
 ## GraphQL
 
-GraphQL is an API query language that is often used to compose disparate data
-sources into client centric APIs. To set up a GraphQL API, you first need to set
-up a GraphQL server. This server exposes your data as a GraphQL API that your
-client applications can query for data.
+GraphQL is an API query language often used to compose disparate data sources
+into client-centric APIs. To set up a GraphQL API, you should first set up a
+GraphQL server. This server exposes your data as a GraphQL API that your client
+applications can query for data.
 
-### Server (GQL)
+### Server
 
-The simplest way to run a GraphQL API server in Deno is to use
-[gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware for Deno.
+You can use [gql](https://deno.land/x/gql), an universal GraphQL HTTP middleware
+for Deno, to run a GraphQL API server in Deno.
 
-#### Run a GraphQL API Server with gql
+#### Run a GraphQL API server with gql
 
 ```ts, ignore
 import { Server } from "https://deno.land/std@$STD_VERSION/http/server.ts";

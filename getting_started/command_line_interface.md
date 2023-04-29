@@ -18,13 +18,13 @@ deno --help
 ```
 
 Deno's CLI is subcommand-based. The above commands should show you a list of
-subcommands supported, such as `deno bundle`. To see subcommand-specific help,
-for example for `bundle`, you can similarly run one of:
+subcommands supported, such as `deno compile`. To see subcommand-specific help,
+for example for `compile`, you can similarly run one of:
 
 ```shell
-deno help bundle
-deno bundle -h
-deno bundle --help
+deno help compile
+deno compile -h
+deno compile --help
 ```
 
 Detailed guides for each subcommand can be found [here](../tools.md).
@@ -87,11 +87,11 @@ We discuss these below.
 
 ## Watch mode
 
-You can supply the `--watch` flag to `deno run`, `deno test`, `deno bundle`, and
-`deno fmt` to enable the built-in file watcher. The files that are watched
+You can supply the `--watch` flag to `deno run`, `deno test`, `deno compile`,
+and `deno fmt` to enable the built-in file watcher. The files that are watched
 depend on the subcommand used:
 
-- for `deno run`, `deno test`, and `deno bundle` the entrypoint, and all local
+- for `deno run`, `deno test`, and `deno compile` the entrypoint, and all local
   files the entrypoint(s) statically import(s) will be watched.
 - for `deno fmt` all local files and directories specified as command line
   arguments (or the working directory if no specific files/directories is
@@ -109,7 +109,7 @@ deno fmt --watch
 ## Integrity flags (lock files)
 
 Affect commands which can download resources to the cache: `deno cache`,
-`deno run`, `deno test`, `deno bundle`, `deno doc`, and `deno compile`.
+`deno run`, `deno test`, `deno doc`, and `deno compile`.
 
 ```terminal
 --lock <FILE>    Check the specified lock file
@@ -121,9 +121,8 @@ Find out more about these [here](../basics/modules/integrity_checking.md).
 ## Cache and compilation flags
 
 Affect commands which can populate the cache: `deno cache`, `deno run`,
-`deno test`, `deno bundle`, `deno doc`, and `deno compile`. As well as the flags
-above, this includes those which affect module resolution, compilation
-configuration etc.
+`deno test`, `deno doc`, and `deno compile`. As well as the flags above, this
+includes those which affect module resolution, compilation configuration etc.
 
 ```terminal
 --config <FILE>               Load configuration file
@@ -162,7 +161,6 @@ reported. (To turn on type-checking for all modules, use `--check=all`.)
 | Subcommand     | Type checking mode |
 | -------------- | ------------------ |
 | `deno bench`   | 📁 Local           |
-| `deno bundle`  | 📁 Local           |
 | `deno cache`   | ❌ None            |
 | `deno check`   | 📁 Local           |
 | `deno compile` | 📁 Local           |
@@ -183,8 +181,21 @@ More flags which affect the execution environment.
 --cached-only                Require that remote dependencies are already cached
 --inspect=<HOST:PORT>        activate inspector on host:port ...
 --inspect-brk=<HOST:PORT>    activate inspector on host:port and break at ...
+--inspect-wait=<HOST:PORT>   activate inspector on host:port and wait for ...
 --location <HREF>            Value of 'globalThis.location' used by some web APIs
 --prompt                     Fallback to prompt if required permission wasn't passed
 --seed <NUMBER>              Seed Math.random()
 --v8-flags=<v8-flags>        Set V8 command line options. For help: ...
+```
+
+## Autocomplete
+
+You can get IDE-style autocompletions for Deno with [Fig](https://fig.io/)
+<a href="https://fig.io/" target="_blank"><img src="https://fig.io/badges/Logo.svg" width="15" height="15"/></a>.
+It works in bash, zsh, and fish.
+
+To install, run:
+
+```shell
+brew install fig
 ```

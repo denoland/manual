@@ -4,17 +4,19 @@ Deno supports the [V8 Inspector Protocol](https://v8.dev/docs/inspector) used by
 Chrome, Edge and Node.js. This makes it possible to debug Deno programs using
 Chrome DevTools or other clients that support the protocol (for example VSCode).
 
-To activate debugging capabilities run Deno with the `--inspect` or
-`--inspect-brk` flags.
+To activate debugging capabilities run Deno with the `--inspect`,
+`--inspect-wait` or `--inspect-brk` flags.
 
-The `--inspect` flag allows attaching the debugger at any point in time, while
-`--inspect-brk` will wait for the debugger to attach and will pause execution on
-the first line of code.
+The `--inspect` flag allows attaching the debugger at any point in time,
+`--inspect-wait` will wait for debugger to attach and start executing code,
+while `--inspect-brk` will wait for the debugger to attach and will pause
+execution on the first line of code.
 
 > ⚠️ If you use `--inspect` flag, the code will start executing immediately. If
 > your program is short, you might not have enough time to connect the debugger
 > before the program finishes execution. In such cases, try running with
-> `--inspect-brk` flag instead, or add a timeout at the end of your code.
+> `--inspect-wait` or `--inspect-brk` flag instead, or add a timeout at the end
+> of your code.
 
 ## Chrome Devtools
 

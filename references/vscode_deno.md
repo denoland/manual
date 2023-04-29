@@ -87,10 +87,10 @@ section for more information on how to use the Deno linter.
 
 ### Using import maps
 
-It is possible to use [import maps](../basics/modules/import_maps.md) in the
-editor. The option _Deno: Import Map_ (or `deno.importMap` if manually editing)
-should be set to the value of the import map file. If the path is a relative
-path, it will be resolved relative to the root of the workspace.
+It is possible to use [import maps](../basics/import_maps.md) in the editor. The
+option _Deno: Import Map_ (or `deno.importMap` if manually editing) should be
+set to the value of the import map file. If the path is a relative path, it will
+be resolved relative to the root of the workspace.
 
 ### Using a configuration file
 
@@ -230,7 +230,15 @@ CodeLens: Test_/`deno.codeLens.test` setting.
 
 ## Using the debugger
 
-[TBC]
+The extension provides integration with the built-in VSCode debugger. You can
+generate a configuration by: going to `Run and Debug` panel, clicking
+`create a launch.json file` and selecting `Deno` option from the available
+debugger options.
+
+By default, the configuration will use `--inspect-wait` flag if the configured
+Deno version is greater than 1.29, or `--inspect-brk` for versions older than
+1.29. This ensures that the debugger has a chance to connect to your program and
+register all the breakpoints specified in the code.
 
 ## Tasks
 

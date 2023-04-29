@@ -41,10 +41,29 @@ Using [Homebrew](https://formulae.brew.sh/formula/deno) (macOS):
 brew install deno
 ```
 
+Using [MacPorts](https://ports.macports.org/port/deno/) (macOS):
+
+```shell
+sudo port install deno
+```
+
 Using [Nix](https://nixos.org/download.html) (macOS and Linux):
 
 ```shell
 nix-shell -p deno
+```
+
+Using [asdf](https://asdf-vm.com/) (macOS and Linux):
+
+```shell
+asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
+asdf install deno latest
+
+# To install globally
+asdf global deno latest
+
+# To install locally (current project only)
+asdf local deno latest
 ```
 
 Build and install from source using [Cargo](https://crates.io/crates/deno):

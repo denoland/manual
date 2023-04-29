@@ -2,17 +2,14 @@ import { createFetchRequester } from "@algolia/requester-fetch";
 import algoliasearch from "algoliasearch";
 import dax from "dax";
 import { MarkdownRecord, toRecords } from "markdown_records";
-import { config } from "std/dotenv/mod.ts";
+import { load } from "std/dotenv/mod.ts";
+import toc from "../toc.json" assert { type: "json" };
 
-interface Section {
-  name: string;
-  children?: {
-    [child: string]: string;
-  };
-}
-
-interface TableOfContents {
-  [section: string]: Section;
+export interface TableOfContents {
+  [slug: string]: {
+    name: string;
+    children?: TableOfContents;
+  } | string;
 }
 
 const MANUAL_INDEX = "manual";
@@ -20,9 +17,6 @@ const MANUAL_INDEX = "manual";
 dax.logStep("Generate manual search records...");
 
 dax.logStep("Parsing manual toc...");
-
-const toc: TableOfContents =
-  (await import("../toc.json", { assert: { type: "json" } })).default;
 
 dax.logLight(`  ${Object.keys(toc).length} sections in toc.`);
 
@@ -81,44 +75,39 @@ function markdownToSearch(
 
 let searchRecords: SearchRecord[] = [];
 
-for (const [id, section] of Object.entries(toc)) {
-  let content: string;
-  try {
-    content = await Deno.readTextFile(`../${id}.md`);
-  } catch (err) {
-    dax.logError(`Error attempting to read "/${id}.md".`);
-    console.log(err);
-    continue;
-  }
-  const docPath = `/manual/${id}`;
-  const hierarchy = [section.name];
-  dax.logLight(`  generating "${docPath}"...`);
-  const records = (await toRecords(content))
-    .map((record, i) => markdownToSearch(hierarchy, docPath, record, i));
-  searchRecords = searchRecords.concat(records);
-  if (section.children) {
-    for (const [childId, child] of Object.entries(section.children)) {
-      let content: string;
-      try {
-        content = await Deno.readTextFile(`../${id}/${childId}.md`);
-      } catch (err) {
-        dax.logError(`Error attempting to read "/${id}/${childId}.md".`);
-        console.log(err);
-        continue;
-      }
-      const docPath = `/manual/${id}/${childId}`;
-      const hierarchy = [section.name, child];
-      dax.logLight(`  generating "${docPath}"...`);
-      const records = (await toRecords(content))
-        .map((record, i) => markdownToSearch(hierarchy, docPath, record, i));
-      searchRecords = searchRecords.concat(records);
+async function travelToC(
+  table: TableOfContents,
+  parents: [name: string, id: string][],
+) {
+  for (const [id, section] of Object.entries(table)) {
+    const name = typeof section === "string" ? section : section.name;
+    const fullHierachy: [string, string][] = [...parents, [name, id]];
+    let content: string;
+    const fullId = fullHierachy.map(([_, id]) => id).join("/");
+    try {
+      content = await Deno.readTextFile(`../${fullId}.md`);
+    } catch (err) {
+      dax.logError(`Error attempting to read "/${fullId}.md".`);
+      console.log(parents, fullId, section, err);
+      continue;
+    }
+    const docPath = `/manual/${fullId}`;
+    const nameHierarchy = fullHierachy.map(([name, _]) => name);
+    dax.logLight(`  generating "${docPath}"...`);
+    const records = (await toRecords(content))
+      .map((record, i) => markdownToSearch(nameHierarchy, docPath, record, i));
+    searchRecords = searchRecords.concat(records);
+
+    if (typeof section !== "string" && section.children) {
+      await travelToC(section.children, fullHierachy);
     }
   }
 }
 
+await travelToC(toc, []);
 dax.logStep(`Uploading ${searchRecords.length} search records to algolia...`);
 
-await config({ export: true });
+await load({ export: true });
 const appId = Deno.env.get("ALGOLIA_APP_ID") ?? "";
 const apiKey = Deno.env.get("ALGOLIA_API_KEY") ?? "";
 const requester = createFetchRequester();
