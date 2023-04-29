@@ -2,7 +2,8 @@
 
 ## Concepts
 
-- Deno is capable of spawning a subprocess via [Deno.Command](/api?s=Deno.Command).
+- Deno is capable of spawning a subprocess via
+  [Deno.Command](/api?s=Deno.Command).
 - `--allow-run` permission is required to spawn a subprocess.
 - Spawned subprocesses do not run in a security sandbox.
 - Communicate with the subprocess via the [stdin](/api?s=Deno.stdin),
@@ -30,7 +31,7 @@ const { code, stdout, stderr } = await command.output();
 
 console.assert(code === 0);
 console.assert("world\n" === new TextDecoder().decode(stderr));
-console.log(new TextDecoder().decode(stdout))
+console.log(new TextDecoder().decode(stdout));
 ```
 
 Run it:
@@ -48,9 +49,9 @@ permissions as if you were to run the command from the command line yourself.
 
 ## Communicating with subprocesses
 
-By default when you use `Deno.Command()` the subprocess inherits `stdin`, `stdout`
-and `stderr` of the parent process. If you want to communicate with started
-subprocess you can use `"piped"` option.
+By default when you use `Deno.Command()` the subprocess inherits `stdin`,
+`stdout` and `stderr` of the parent process. If you want to communicate with
+started a subprocess you must use the `"piped"` option.
 
 ## Piping to files
 
@@ -71,12 +72,12 @@ const file = await Deno.open("./process_output.txt", {
 });
 
 // start the process
-const command = new Deno.Command('yes', {
+const command = new Deno.Command("yes", {
   stdout: "piped",
   stderr: "piped",
 });
 
-const process = command.spawn()
+const process = command.spawn();
 
 // example of combining stdout and stderr while sending to a file
 const joined = mergeReadableStreams(
