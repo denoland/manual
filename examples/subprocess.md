@@ -62,7 +62,7 @@ This example is the equivalent of running `yes &> ./process_output` in bash.
  * subprocess_piping_to_file.ts
  */
 
-import { mergeReadableStreams } from "https://deno.land/std@0.185.0/streams/merge_readable_streams.ts";
+import { mergeReadableStreams } from "https://deno.land/std@$STD_VERSION/streams/merge_readable_streams.ts";
 
 // create the file to attach the process to
 const file = await Deno.open("./process_output.txt", {
