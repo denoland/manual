@@ -59,9 +59,9 @@ associated values and versionstamps for these keys are also returned. There are
 2 different selectors that can be used to filter the keys matched.
 
 The `prefix` selector matches all keys that start with the given prefix key
-parts. The prefix selector may optionally be given a `start` OR `end` key to
-limit the range of keys returned. The `start` key is inclusive, and the `end`
-key is exclusive.
+parts, but not inclusive of an exact match of the key. The prefix selector may
+optionally be given a `start` OR `end` key to limit the range of keys returned.
+The `start` key is inclusive, and the `end` key is exclusive.
 
 The `range` selector matches all keys that are lexographically between the given
 `start` and `end` keys. The `start` key is inclusive, and the `end` key is
