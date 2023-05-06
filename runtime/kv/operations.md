@@ -82,7 +82,7 @@ returned. This is an async iterator, and can be used with `for await` loops.
 
 ```ts,ignore
 // Return all users
-const iter = await kv.list<string>({ prefix: ["users"] });
+const iter = kv.list<string>({ prefix: ["users"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
@@ -90,27 +90,27 @@ console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "
 console.log(users[2]); // { key: ["users", "taylor"], value: "taylor", versionstamp: "0059e9035e5e7c5e0000" }
 
 // Return the first 2 users
-const iter = await kv.list<string>({ prefix: ["users"] }, { limit: 2 });
+const iter = kv.list<string>({ prefix: ["users"] }, { limit: 2 });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
 console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "00e0a2a0f0178b270000" }
 
 // Return all users lexicographically after "taylor"
-const iter = await kv.list<string>({ prefix: ["users"], start: ["users", "taylor"] });
+const iter = kv.list<string>({ prefix: ["users"], start: ["users", "taylor"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "taylor"], value: "taylor", versionstamp: "0059e9035e5e7c5e0000" }
 
 // Return all users lexicographically before "taylor"
-const iter = await kv.list<string>({ prefix: ["users"], end: ["users", "taylor"] });
+const iter = kv.list<string>({ prefix: ["users"], end: ["users", "taylor"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
 console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "00e0a2a0f0178b270000" }
 
 // Return all users starting with characters between "a" and "n"
-const iter = await kv.list<string>({ start: ["users", "a"], end: ["users", "n"] });
+const iter = kv.list<string>({ start: ["users", "a"], end: ["users", "n"] });
 const users = [];
 for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
@@ -130,7 +130,7 @@ respectively, and are still interpreted as lexicographically ascending.
 
 ```ts,ignore
 // Return all users in reverse order, ending with "sam"
-const iter = await kv.list<string>({ prefix: ["users"], start: ["users", "sam"] }, {
+const iter = kv.list<string>({ prefix: ["users"], start: ["users", "sam"] }, {
   reverse: true,
 });
 const users = [];
