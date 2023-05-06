@@ -83,14 +83,14 @@ permission to do certain 'privileged' actions, such as access the network.
 Try it out again with the correct permission flag:
 
 ```shell
-deno run --allow-net=deno.land first_steps.ts
+deno run --allow-net=deno.land,deno.com first_steps.ts
 ```
 
 Or, try this script hosted at
 `https://deno.land/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run --allow-net=deno.land https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run --allow-net=deno.land,deno.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
 ```
 
 ## Reading a file
