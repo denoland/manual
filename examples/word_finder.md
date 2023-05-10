@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-In this tutorial we’ll create a simple Word Finder web application using Deno.
+In this tutorial we'll create a simple Word Finder web application using Deno.
 No prior knowledge of Deno is required.
 
 ## Introduction
@@ -10,10 +10,10 @@ No prior knowledge of Deno is required.
 Our Word Finder application will take a pattern string provided by the user and
 return all words in the English dictionary that match the pattern. The pattern
 can include alphabetical characters as well as `_` and `?`. The `?` can stand
-for any letter that isn’t present in the pattern. `_` can stand for any letter.
+for any letter that isn't present in the pattern. `_` can stand for any letter.
 
-For example, the pattern `c?t` matches “cat” and “cut”. The pattern `go?d`
-matches the words “goad” and “gold” (but not “good”).
+For example, the pattern `c?t` matches "cat" and "cut". The pattern `go?d`
+matches the words "goad" and "gold" (but not "good").
 
 ![Untitled](../images/word_finder.png)
 
@@ -131,7 +131,7 @@ export function search(pattern, dictionary) {
 ## Running a Deno Server
 
 [Oak](https://deno.land/x/oak@v11.1.0) is a framework that lets you easily setup
-a server in Deno (analogous to JavaScript’s Express) and we’ll be using it to
+a server in Deno (analogous to JavaScript's Express) and we'll be using it to
 host our application. Our server will use our search function to populate our
 HTML template with data and then return the customized HTML back to the viewer.
 We can conveniently rely on the `/usr/share/dict/words` file as our dictionary

@@ -6,7 +6,7 @@ from the command line.
 
 [View source here.](https://github.com/denoland/examples/tree/main/with-planetscale)
 
-We’ll use the Planetscale serverless driver, `@planetscale/database`, to work
+We'll use the Planetscale serverless driver, `@planetscale/database`, to work
 with Deno. First we want to create `main.ts` and import the connect method from
 this package:
 
@@ -20,7 +20,7 @@ The connection requires three credentials: host, username, and password. These
 are database-specific, so we first need to create a database in Planetscale. You
 can do that by following the initial instructions
 [here](https://planetscale.com/docs/tutorials/planetscale-quick-start-guide).
-Don’t worry about adding the schema—we can do that through
+Don't worry about adding the schema—we can do that through
 `@planetscale/database`.
 
 Once you have created the database, head to Overview, click "Connect", and
@@ -72,7 +72,7 @@ await conn.execute(
 
 ## Querying Planetscale
 
-We can use same `conn.execute()` to also write our queries. Let’s get a list of
+We can use same `conn.execute()` to also write our queries. Let's get a list of
 all our dinosaurs:
 
 ```tsx, ignore
