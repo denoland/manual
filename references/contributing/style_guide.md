@@ -70,8 +70,8 @@ filenames, it suggests that they can be left out of the module specifier when
 they cannot. This is confusing.
 
 If a directory of code needs a default entry point, use the filename `mod.ts`.
-The filename `mod.ts` follows Rust’s convention, is shorter than `index.ts`, and
-doesn’t come with any preconceived notions about how it might work.
+The filename `mod.ts` follows Rust's convention, is shorter than `index.ts`, and
+doesn't come with any preconceived notions about how it might work.
 
 ### Exported functions: max 2 args, put the rest into an options object.
 

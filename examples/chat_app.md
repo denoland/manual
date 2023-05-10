@@ -1,6 +1,6 @@
 ## Introduction
 
-In this tutorial we’ll create a simple chat app using Deno. Our chat app will
+In this tutorial we'll create a simple chat app using Deno. Our chat app will
 allow multiple chat clients connected to the same backend to send group messages
 through web sockets. After a client chooses a username, they can then start
 sending group messages to other online clients. Each client also displays the
@@ -42,7 +42,7 @@ detail later)
 
 ## **WebSocket** Primer
 
-We will rely on Deno’s native support for web sockets when building our client
+We will rely on Deno's native support for web sockets when building our client
 and server. A
 [web socket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) is a
 bidirectional communication channel that allows the both the client and server
@@ -56,7 +56,7 @@ messages and user logins without constantly polling.
 The chat client `app.js` runs in the browser and listens for updates from our
 server and then manipulates the DOM. Specifically our client is listening for
 new messages and the list of currently active users. We need to add event
-handlers to our client’s web socket to specify what happens when our clients
+handlers to our client's web socket to specify what happens when our clients
 receives a new message or event.
 
 ```jsx
@@ -116,11 +116,11 @@ window.onload = () => {
 ## Chat Server
 
 [oak](https://deno.land/x/oak@v11.1.0) is the Deno middleware framework that
-we’ll be using to set up our server. Our server will return the plain
+we'll be using to set up our server. Our server will return the plain
 `index.html` file previously shown when the user first navigates to the site.
 Our server also exposes a `ws_endpoint/` endpoint which the chat clients will
-use to create their web socket connection. Note that the client’s initial HTTP
-connection is converted into a WebSocket connection by the server via HTTP’s
+use to create their web socket connection. Note that the client's initial HTTP
+connection is converted into a WebSocket connection by the server via HTTP's
 [protocol upgrade mechanism](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism).
 Our server will maintain web socket connections with each active client and tell
 them which users are currently active. Our server will also broadcast a message

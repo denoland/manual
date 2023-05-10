@@ -6,20 +6,20 @@ then connect any GraphQL client to it to receive the data and take advantage of
 GraphQL benefits, such as type-checking and efficient fetching.
 
 We're going to get a simple Apollo server up and running that will allow us to
-query some local data. We’re only going to need three files for this:
+query some local data. We're only going to need three files for this:
 
 1. `schema.ts` to set up our data model
-2. `resolvers.ts` to set up how we’re going to populate the data fields in our
+2. `resolvers.ts` to set up how we're going to populate the data fields in our
    schema
 3. Our `main.ts` where the server is going to launch
 
-We’ll start by creating them:
+We'll start by creating them:
 
 ```shell, ignore
 touch schema.ts resolvers.ts main.ts
 ```
 
-Let’s go through setting up each.
+Let's go through setting up each.
 
 [View source here.](https://github.com/denoland/examples/tree/main/with-apollo)
 
@@ -38,7 +38,7 @@ special **Query** type in GraphQL. We have two queries:
 - `dinosaur` which takes in the `name` of a dinosaur as an argument and returns
   information about that one type of dinosaur.
 
-We’re going to export all this within our `typeDefs` type definitions, variable:
+We're going to export all this within our `typeDefs` type definitions, variable:
 
 ```tsx, ignore
 export const typeDefs = `
@@ -56,7 +56,7 @@ export const typeDefs = `
 
 If we wanted to write data, this is also where we would describe the
 **Mutation** to do so. Mutations are how you write data with GraphQL. Because we
-are using a static dataset here, we won’t be writing anything.
+are using a static dataset here, we won't be writing anything.
 
 ## resolvers.ts
 
@@ -92,7 +92,7 @@ the name to a name in our dataset.
 
 ## main.ts
 
-In our `main.ts` we’re going to import the `ApolloServer` as well as `graphql`
+In our `main.ts` we're going to import the `ApolloServer` as well as `graphql`
 and our `typeDefs` from the schema and our resolvers:
 
 ```tsx, ignore
