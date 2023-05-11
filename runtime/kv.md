@@ -107,11 +107,40 @@ if (res.ok) {
 }
 ```
 
-## More
+## Examples
 
-> The KV docs are not yet complete.
+**Multi-player Tic-Tac-Toe**
 
-### Reference
+- GitHub authentication
+- Saved user state
+- Real-time sync using BroadcastChannel
+- [Source code](https://github.com/denoland/tic-tac-toe)
+- [Live preview](https://tic-tac-toe-game.deno.dev/)
+
+**Pixelpage**
+
+- Persistent canvas state
+- Multi-user collaboration
+- Real-time sync using BroadcastChannel
+- [Source code](https://github.com/denoland/pixelpage)
+- [Live preview](https://pixelpage.deno.dev/)
+
+**Todo list**
+
+- Zod schema validation
+- Built using Fresh
+- Real-time collaboration using BroadcastChannel
+- [Source code](https://github.com/denoland/showcase_todo)
+- [Live preview](https://showcase-todo.deno.dev/)
+
+**Sketch book**
+
+- Stores drawings in KV
+- GitHub authentication
+- [Source code](https://github.com/hashrock/kv-sketchbook)
+- [Live preview](https://hashrock-kv-sketchbook.deno.dev/)
+
+## Reference
 
 - [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
 - [Key Space](./kv/key_space.md)
@@ -121,7 +150,7 @@ if (res.ok) {
 - Performance (TODO)
 - Backups & durability (TODO)
 
-### Patterns
+## Patterns
 
 - [Transactions](./kv/transactions.md)
 - [Secondary Indexes](./kv/secondary_indexes.md)
