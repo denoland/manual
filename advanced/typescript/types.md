@@ -241,12 +241,12 @@ declarations just like they provide bundles of JavaScript as ESM.
 
 There are CDNs which host JavaScript modules that integrate well with Deno.
 
-- [esm.sh](https://esm.sh) is a CDN which provides type declarations
-  (via the `X-TypeScript-Types` header).
+- [esm.sh](https://esm.sh) is a CDN which provides type declarations (via the
+  `X-TypeScript-Types` header).
 - [Skypack.dev](https://docs.skypack.dev/skypack-cdn/code/deno) is another CDN
   which also provides type declarations (via the `X-TypeScript-Types` header)
-  when you append `?dts` as a query string to your remote module import statements.
-  Here's an example:
+  when you append `?dts` as a query string to your remote module import
+  statements. Here's an example:
 
   ```ts
   import React from "https://cdn.skypack.dev/react?dts";
