@@ -241,8 +241,8 @@ declarations just like they provide bundles of JavaScript as ESM.
 
 There are CDNs which host JavaScript modules that integrate well with Deno.
 
-- [esm.sh](https://esm.sh) is a CDN which provides type declarations (via the
-  `X-TypeScript-Types` header) by default. It can be disabled by appending
+- [esm.sh](https://esm.sh) is a CDN which provides type declarations by default
+  (via the `X-TypeScript-Types` header). It can be disabled by appending
   `?no-dts` to the import URL:
 
   ```ts
