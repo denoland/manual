@@ -141,7 +141,7 @@ retrieve dinosaur name and description.
 
 ## Update Vue components
 
-In `Dinosaurs.vue`, we'll three things:
+In `Dinosaurs.vue`, we'll do three things:
 
 - send a `GET` request to our API and return that as `dinosaurs`
 - iterate through `dinosaurs` and render each `dinosaur` in `<router-link>` that
