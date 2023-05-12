@@ -5,8 +5,8 @@ as a message broker, or for streaming data.
 
 [View source here.](https://github.com/denoland/examples/tree/main/with-redis)
 
-Here we’re going to set up Redis to cache data from an API call to speed up any
-subsequent requests for that data. We’re going to:
+Here we're going to set up Redis to cache data from an API call to speed up any
+subsequent requests for that data. We're going to:
 
 - Set up a Redis client to save data from every API call in memory
 - Set up a Deno server so we can easily request certain data
@@ -17,7 +17,7 @@ We can do this within a single file, `main.ts`.
 
 ## Connecting to a Redis client
 
-We need two modules. The first is the Deno server. We’ll use this to get the
+We need two modules. The first is the Deno server. We'll use this to get the
 information from the user to query our API. The second is Redis. We can grab the
 node package for Redis using the `npm:` modifier:
 
@@ -50,7 +50,7 @@ our server with a Github username in the URL pathname, such as
 
 Parsing out the pathname and calling the Github API will take place inside a
 handler function in our server. We strip the leading slash so we are left with a
-variable we can pass to the Github API as a username. We’ll then pass the
+variable we can pass to the Github API as a username. We'll then pass the
 response back to the user.
 
 ```tsx, ignore
@@ -75,18 +75,18 @@ const server = new Server({
 server.listenAndServe();
 ```
 
-We’ll run this with:
+We'll run this with:
 
 ```tsx, ignore
 deno run --allow-net main.ts
 ```
 
 If we then go to [http://localhost:3000/ry](http://localhost:3000/ry) in
-Postman, we’ll get the Github response:
+Postman, we'll get the Github response:
 
 ![uncached-redis-body.png](../../images/how-to/redis/uncached-redis-body.png)
 
-Let’s cache this response using Redis.
+Let's cache this response using Redis.
 
 ## Checking the cache
 
@@ -105,11 +105,11 @@ cached user:
 const cached_user = await client.get(username);
 ```
 
-This returns null if the key doesn’t exist. So we can use it in some flow
-control. When we get the username, we’ll initially check whether we already have
-that user in the cache. If we do we’ll serve the cached result. If not, we’ll
+This returns null if the key doesn't exist. So we can use it in some flow
+control. When we get the username, we'll initially check whether we already have
+that user in the cache. If we do we'll serve the cached result. If not, we'll
 call the Github API to get the user, cache it, the serve the API result. In both
-cases, we’ll add a custom header to show which version we’re serving:
+cases, we'll add a custom header to show which version we're serving:
 
 ```tsx, ignore
 const server = new Server({
@@ -144,7 +144,7 @@ const server = new Server({
 server.listenAndServe();
 ```
 
-Running this first time gives us the same response as above, and we’ll see the
+Running this first time gives us the same response as above, and we'll see the
 `is-cached` header set to `false`:
 
 ![uncached-redis-header.png](../../images/how-to/redis/uncached-redis-header.png)

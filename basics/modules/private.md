@@ -34,7 +34,7 @@ DENO_AUTH_TOKENS=username:password@deno.land
 And multiple tokens would look like this:
 
 ```sh
-DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land;f1e2d3c4b5a6@example.com:8080,username:password@deno.land
+DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land;f1e2d3c4b5a6@example.com:8080;username:password@deno.land
 ```
 
 When Deno goes to fetch a remote module, where the hostname matches the hostname
