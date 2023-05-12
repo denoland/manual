@@ -101,7 +101,7 @@ To implement a unique secondary index for this example, follow these steps:
        res = await kv.atomic()
          .check(getRes)
          .delete(["users", id])
-         .delete(["users_by_email", res.value.email])
+         .delete(["users_by_email", getRes.value.email])
          .commit();
      }
    }
