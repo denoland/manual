@@ -44,9 +44,6 @@ When doing this, no `npm install` is necessary and no `node_modules` folder is
 created. These packages are also subject to the same permissions as Deno
 applications.
 
-These specifiers currently work with all `deno` subcommands, except
-`deno vendor`.
-
 ## npm executable scripts
 
 npm packages with `bin` entries can be executed from the command line without an
