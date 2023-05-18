@@ -45,7 +45,7 @@ created. These packages are also subject to the same permissions as Deno
 applications.
 
 These specifiers currently work with all `deno` subcommands, except
-`deno compile` and `deno vendor`.
+`deno vendor`.
 
 ## npm executable scripts
 
