@@ -293,11 +293,21 @@ deno run main.ts &> /dev/null
 
 Note that redirecting input and multiple redirects are currently not supported.
 
-### Future syntax
+### Glob expansion
 
-We are planning to support
-[glob expansion](https://github.com/denoland/deno_task_shell/issues/6) in the
-future.
+Glob expansion is supported in Deno 1.34 and above. This allows for specifying
+globs to match files in a cross platform way.
+
+```
+# match .ts files in the current and descendant directories
+echo **/*.ts
+# match .ts files in the current directory
+echo *.ts
+# match files that start with "data", have a single number, then end with .csv
+echo data[0-9].csv
+```
+
+The supported glob characters are `*`, `?`, and `[`/`]`.
 
 ## Built-in commands
 
