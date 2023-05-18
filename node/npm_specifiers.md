@@ -144,6 +144,9 @@ folder structure to npm.
 Note that this is all done automatically when calling deno run and there is no
 separate install command necessary.
 
+Alternatively, if you wish to disable the creation of a `node_modules` directory
+entirely, you can set this flag to false like so: `--node-modules-dir=false`.
+
 In the case where you want to modify the contents of the `node_modules`
 directory before execution, you can run `deno cache` with `--node-modules-dir`,
 modify the contents, then run the script.
