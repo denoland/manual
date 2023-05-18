@@ -145,7 +145,9 @@ Note that this is all done automatically when calling deno run and there is no
 separate install command necessary.
 
 Alternatively, if you wish to disable the creation of a `node_modules` directory
-entirely, you can set this flag to false like so: `--node-modules-dir=false`.
+entirely, you can set this flag to false (ex. `--node-modules-dir=false`) or add
+a `"nodeModulesDir": false` entry to your deno.json configuration file to make
+the setting apply to the entire directory tree.
 
 In the case where you want to modify the contents of the `node_modules`
 directory before execution, you can run `deno cache` with `--node-modules-dir`,
