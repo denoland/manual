@@ -38,6 +38,8 @@ import { assertEquals } from "std/testing/assert.ts";
 assertEquals(1, 2);
 ```
 
+> If you're getting sythax errors in your code editor, try restarting it.
+
 The top-level `deno.json` option `importMap` along with the `--importmap` flag
 can be used to specify the import map in other files.
 
