@@ -98,6 +98,10 @@ Configuration for [`deno fmt`](../tools/formatter.md)
 Used to specify a different file name for the lockfile. By default deno will use
 `deno.lock` and place it alongside the configuration file.
 
+## `nodeModulesDir`
+
+Used to enable or disable the `node_modules` directory when using npm packages.
+
 ## `compilerOptions`
 
 `deno.json` can also act as a TypeScript configuration file and supports
@@ -137,9 +141,17 @@ See also
     "include": ["src/"],
     "exclude": ["src/testdata/"]
   },
+  "lock": false,
+  "nodeModulesDir": true,
   "test": {
     "include": ["src/"],
     "exclude": ["src/testdata/"]
+  },
+  "tasks": {
+    "start": "deno run --allow-read main.ts"
+  },
+  "imports": {
+    "oak": "https://deno.land/x/oak@v12.4.0/mod.ts"
   }
 }
 ```
