@@ -14,13 +14,13 @@ scripts to download and install the binary.
 Using Shell (macOS and Linux):
 
 ```shell
-curl -fsSL https://deno.land/x/install/install.sh | sh
+curl -fsSL https://deno.com/x/install/install.sh | sh
 ```
 
 Using PowerShell (Windows):
 
 ```shell
-irm https://deno.land/install.ps1 | iex
+irm https://deno.com/install.ps1 | iex
 ```
 
 Using [Scoop](https://scoop.sh/) (Windows):

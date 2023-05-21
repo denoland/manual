@@ -50,15 +50,15 @@ make HTTP calls.
 In the `first_steps.ts` file you created above, paste the code below:
 
 ```ts
-const res = await fetch("https://deno.land");
+const res = await fetch("https://deno.com");
 const body = await res.text();
 console.log(body);
 ```
 
 Let's walk through what this application does:
 
-1. We make a request to the `https://deno.land`, await the response, and store
-   it in the `res` constant.
+1. We make a request to the `https://deno.com`, await the response, and store it
+   in the `res` constant.
 1. We parse the response body as a text and store in the `body` constant.
 1. We write the contents of the `body` constant to the console.
 
@@ -72,7 +72,7 @@ Or, try this script hosted at
 `https://deno.land/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.com
 ```
 
 You will see this program returns an error regarding network access so what did
@@ -83,14 +83,14 @@ permission to do certain 'privileged' actions, such as access the network.
 Try it out again with the correct permission flag:
 
 ```shell
-deno run --allow-net=deno.land first_steps.ts
+deno run --allow-net=deno.com first_steps.ts
 ```
 
 Or, try this script hosted at
-`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
+`https://deno.com/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run --allow-net=deno.land https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run --allow-net=deno.com https://deno.com/std@$STD_VERSION/examples/curl.ts https://deno.com
 ```
 
 ## Reading a file

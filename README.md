@@ -1,7 +1,7 @@
 # Deno Manual
 
 This repository is the official documentation for Deno, and it's available at:
-https://deno.land/manual
+https://deno.com/manual
 
 ## Contributing
 
@@ -23,7 +23,7 @@ MANUAL_PATH=../manual deno task start
 When opening a PR, make sure the code is formatted correctly. To format the
 code:
 
-1. Install Deno (https://deno.land/#installation)
+1. Install Deno (https://deno.com/#installation)
 2. Run `deno fmt` at the root of this repository
 
 Before creating new pages, open an issue and discuss the proposed changes.
