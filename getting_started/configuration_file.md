@@ -11,6 +11,10 @@ flag can be used to specify a different configuration file.
 
 > ⚠️ Before Deno v1.23 you needed to supply an explicit `--config` flag.
 
+> ⚠️ Starting with Deno v1.34 globs are supported in `include` and `exclude`
+> fields. You can use `*` to match any number of characters, `?` to match a
+> single character, and `**` to match any number of directories.
+
 ## `imports` and `scopes`
 
 Since version 1.30, the `deno.json` configuration file acts as an
@@ -65,7 +69,7 @@ Configuration for [`deno lint`](../tools/linter.md).
 {
   "lint": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -88,7 +92,7 @@ Configuration for [`deno fmt`](../tools/formatter.md)
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   }
 }
 ```
@@ -124,7 +128,7 @@ See also
   },
   "lint": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -139,13 +143,13 @@ See also
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   },
   "lock": false,
   "nodeModulesDir": true,
   "test": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   },
   "tasks": {
     "start": "deno run --allow-read main.ts"
