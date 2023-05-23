@@ -69,7 +69,7 @@ Configuration for [`deno lint`](../tools/linter.md).
 {
   "lint": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -92,7 +92,7 @@ Configuration for [`deno fmt`](../tools/formatter.md)
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   }
 }
 ```
@@ -128,7 +128,7 @@ See also
   },
   "lint": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"],
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"],
     "rules": {
       "tags": ["recommended"],
       "include": ["ban-untagged-todo"],
@@ -143,13 +143,13 @@ See also
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   },
   "lock": false,
   "nodeModulesDir": true,
   "test": {
     "include": ["src/"],
-    "exclude": ["src/testdata/"]
+    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
   },
   "tasks": {
     "start": "deno run --allow-read main.ts"
