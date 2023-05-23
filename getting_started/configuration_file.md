@@ -11,6 +11,10 @@ flag can be used to specify a different configuration file.
 
 > ⚠️ Before Deno v1.23 you needed to supply an explicit `--config` flag.
 
+> ⚠️ Starting with Deno v1.34 globs are supported in `include` and `exclude`
+> fields. You can use `*` to match any number of characters, `?` to match a
+> single character, and `**` to match any number of directories.
+
 ## `imports` and `scopes`
 
 Since version 1.30, the `deno.json` configuration file acts as an
