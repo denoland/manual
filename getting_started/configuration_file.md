@@ -89,6 +89,7 @@ Configuration for [`deno fmt`](../tools/formatter.md)
     "useTabs": true,
     "lineWidth": 80,
     "indentWidth": 4,
+    "semiColons": true,
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],
