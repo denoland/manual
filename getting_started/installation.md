@@ -23,6 +23,12 @@ Using PowerShell (Windows):
 irm https://deno.land/install.ps1 | iex
 ```
 
+Using [Winget](https://winget.run) (Windows):
+
+```shell
+winget install -e --id DenoLand.Deno
+```
+
 Using [Scoop](https://scoop.sh/) (Windows):
 
 ```shell
