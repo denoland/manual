@@ -57,8 +57,8 @@ console.log(body);
 
 Let's walk through what this application does:
 
-1. We make a request to the `https://deno.com`, await the response, and store
-   it in the `res` constant.
+1. We make a request to the `https://deno.com`, await the response, and store it
+   in the `res` constant.
 1. We parse the response body as a text and store in the `body` constant.
 1. We write the contents of the `body` constant to the console.
 
