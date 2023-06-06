@@ -73,6 +73,12 @@ Languages: **Rust**
 
 Official Docker images for Deno.
 
+### [`fresh`](https://github.com/denoland/fresh)
+
+The next-gen web framework.
+
+Languages: **TypeScript**, TSX
+
 ## General remarks
 
 - Read the [style guide](./contributing/style_guide.md).
@@ -148,7 +154,14 @@ Additionally to the above make sure that:
 If you are submitting a PR to this manual, make sure that all imports of the
 standard library have the numeric version replaced with "$STD_VERSION".
 
-For the latest version go [here](https://deno.land/std@0.178.0/version.ts).
+For the latest version go [here](https://deno.land/std/version.ts).
+
+## Submitting a PR to [`fresh`](https://github.com/denoland/fresh)
+
+On top of the above, please ensure the following are run and successfully pass:
+1. `deno fmt --check` - this
+1. `deno lint`
+1. `deno test -A`
 
 ## Documenting APIs
 
