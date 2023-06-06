@@ -50,14 +50,14 @@ make HTTP calls.
 In the `first_steps.ts` file you created above, paste the code below:
 
 ```ts
-const res = await fetch("https://deno.land");
+const res = await fetch("https://deno.com");
 const body = await res.text();
 console.log(body);
 ```
 
 Let's walk through what this application does:
 
-1. We make a request to the `https://deno.land`, await the response, and store
+1. We make a request to the `https://deno.com`, await the response, and store
    it in the `res` constant.
 1. We parse the response body as a text and store in the `body` constant.
 1. We write the contents of the `body` constant to the console.
@@ -72,13 +72,13 @@ Or, try this script hosted at
 `https://deno.land/std@$STD_VERSION/examples/curl.ts`:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.com
 ```
 
 The program will display a prompt like this:
 
 ```shell
-┌ ⚠️  Deno requests net access to "deno.land".
+┌ ⚠️  Deno requests net access to "deno.com".
 ├ Requested by `fetch()` API.
 ├ Run again with --allow-net to bypass this prompt.
 └ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
@@ -92,14 +92,13 @@ You can answer 'y' to the prompt, or try it out again with the correct
 permission flag:
 
 ```shell
-deno run --allow-net=deno.land first_steps.ts
+deno run --allow-net=deno.com first_steps.ts
 ```
 
-Or, try this script hosted at
-`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
+Or, using the curl script:
 
 ```shell
-deno run --allow-net=deno.land https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run --allow-net=deno.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.com
 ```
 
 ## Reading a file
