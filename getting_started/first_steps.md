@@ -75,12 +75,21 @@ Or, try this script hosted at
 deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
 ```
 
-You will see this program returns an error regarding network access so what did
-we do wrong? You might remember from the introduction that Deno is a runtime
-that is secure by default. This means you need to explicitly give programs
-permission to do certain 'privileged' actions, such as access the network.
+The program will display a prompt like this:
 
-Try it out again with the correct permission flag:
+```shell
+┌ ⚠️  Deno requests net access to "deno.land".
+├ Requested by `fetch()` API.
+├ Run again with --allow-net to bypass this prompt.
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
+```
+
+You might remember from the introduction that Deno is a runtime that is secure
+by default. This means you need to explicitly give programs permission to do
+certain 'privileged' actions, such as access the network.
+
+You can answer 'y' to the prompt, or try it out again with the correct
+permission flag:
 
 ```shell
 deno run --allow-net=deno.land first_steps.ts
