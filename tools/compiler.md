@@ -38,3 +38,4 @@ target.
 ## Unavailable in executables
 
 - [Web Storage API](../runtime/web_storage_api.md)
+- [Web Worker API](../runtime/workers.md)
