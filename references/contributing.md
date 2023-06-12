@@ -158,7 +158,9 @@ For the latest version go [here](https://deno.land/std/version.ts).
 
 ## Submitting a PR to [`fresh`](https://github.com/denoland/fresh)
 
-On top of the above, please ensure the following are run and successfully pass:
+First, please be sure to
+[install Puppeteer](https://github.com/lucacasonato/deno-puppeteer#installation).
+Then, please ensure the following are run and successfully pass:
 
 1. `deno fmt --check` - this
 1. `deno lint`
