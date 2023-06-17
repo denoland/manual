@@ -137,14 +137,17 @@ See also
     }
   },
   "fmt": {
-    "useTabs": true,
-    "lineWidth": 80,
-    "indentWidth": 4,
-    "semiColons": false,
-    "singleQuote": true,
-    "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
+    "options": {
+      "lineWidth": 80,
+      "indentWidth": 4,
+      "semiColons": false,
+      "singleQuote": true,
+      "proseWrap": "preserve"
+    },
+    "files": {
+      "exclude": ["src/"],
+      "include": ["src/testdata/", "data/fixtures/**/*.ts"]
+    }
   },
   "lock": false,
   "nodeModulesDir": true,
