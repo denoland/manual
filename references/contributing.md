@@ -13,8 +13,7 @@ Repositories have different scopes, use different programming languages and have
 varying difficulty level when it comes to contributions.
 
 To help you decide which repository might be the best to start contributing
-(and/or falls into your interest), here's a short comparison (**languages in
-bold comprise most of the codebase**):
+(and/or falls into your interest), here's a short comparison (**codebases primarily comprise the languages in bold**):
 
 ### [`deno`](https://github.com/denoland/deno)
 
@@ -30,6 +29,12 @@ Languages: **Rust**, **JavaScript**
 The standard library for Deno.
 
 Languages: **TypeScript**, WebAssembly.
+
+### [`fresh`](https://github.com/denoland/fresh)
+
+The next-gen web framework.
+
+Languages: **TypeScript**, TSX
 
 ### [`dotland`](https://github.com/denoland/dotland)
 
@@ -73,12 +78,6 @@ Languages: **Rust**
 
 Official Docker images for Deno.
 
-### [`fresh`](https://github.com/denoland/fresh)
-
-The next-gen web framework.
-
-Languages: **TypeScript**, TSX
-
 ## General remarks
 
 - Read the [style guide](./contributing/style_guide.md).
@@ -87,13 +86,13 @@ Languages: **TypeScript**, TSX
 
 - Ask for help in the [community chat room](https://discord.gg/deno).
 
-- If you are going to work on an issue, mention so in the issue comments
+- If you are going to work on an issue, mention so in the issue's comments
   _before_ you start working on the issue.
 
 - If you are going to work on a new feature, create an issue and discuss with
   other contributors _before_ you start working on the feature; we appreciate
-  all contributions, but not all proposed features are getting accepted. We
-  don't want you to spend hours working on a code that might not be accepted.
+  all contributions but not all proposed features will be accepted. We
+  don't want you to spend hours working on code that might not be accepted.
 
 - Please be professional in the forums. We follow
   [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
@@ -118,7 +117,7 @@ Examples of bad PR title:
 - update docs
 - fix bugs
 
-2. Ensure there is a related issue and it is referenced in the PR text.
+2. Ensure there is a related issue and that it is referenced in the PR text.
 3. Ensure there are tests that cover the changes.
 
 ## Submitting a PR to [`deno`](https://github.com/denoland/deno)
