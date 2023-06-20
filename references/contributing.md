@@ -13,7 +13,8 @@ Repositories have different scopes, use different programming languages and have
 varying difficulty level when it comes to contributions.
 
 To help you decide which repository might be the best to start contributing
-(and/or falls into your interest), here's a short comparison (**codebases primarily comprise the languages in bold**):
+(and/or falls into your interest), here's a short comparison (**codebases
+primarily comprise the languages in bold**):
 
 ### [`deno`](https://github.com/denoland/deno)
 
@@ -91,8 +92,8 @@ Official Docker images for Deno.
 
 - If you are going to work on a new feature, create an issue and discuss with
   other contributors _before_ you start working on the feature; we appreciate
-  all contributions but not all proposed features will be accepted. We
-  don't want you to spend hours working on code that might not be accepted.
+  all contributions but not all proposed features will be accepted. We don't
+  want you to spend hours working on code that might not be accepted.
 
 - Please be professional in the forums. We follow
   [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
