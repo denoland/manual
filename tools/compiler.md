@@ -55,9 +55,9 @@ deno compile --include calc.ts --include better_calc.ts main.ts
 
 ## Workers
 
-Similarly to non-statically analyzable dynamic imports, code for workers is not
-included in the compiled executable by default. You must use the
-`--include <path>` flag to include the worker code.
+Similarly to non-statically analyzable dynamic imports, code for
+[workers]](../runtime/workers.md) is not included in the compiled executable by
+default. You must use the `--include <path>` flag to include the worker code.
 
 ```shell
 deno compile --include worker.ts main.ts
@@ -73,4 +73,3 @@ target.
 ## Unavailable in executables
 
 - [Web Storage API](../runtime/web_storage_api.md)
-- [Web Worker API](../runtime/workers.md)
