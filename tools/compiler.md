@@ -34,14 +34,14 @@ By default, statically analyzable dynamic imports (imports that have the string
 literal within the `import("...")` call expression) will be included in the
 output.
 
-```ts
+```ts, ignore
 // calculator.ts and its dependencies will be included in the binary
 const calculator = await import("./calculator.ts");
 ```
 
 But non-statically analyzable dynamic imports won't:
 
-```ts
+```ts, ignore
 const specifier = condition ? "./calc.ts" : "./better_calc.ts";
 const calculator = await import(specifier);
 ```
