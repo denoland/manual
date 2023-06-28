@@ -28,6 +28,31 @@ can be partially embedded.
 > ./file_server --help
 ```
 
+## Dynamic Imports
+
+By default, statically analyzable dynamic imports (imports that have the string
+literal within the `import("...")` call expression) will be included in the
+output.
+
+```ts
+// calculator.ts and its dependencies will be included in the binary
+const calculator = await import("./calculator.ts");
+```
+
+But non-statically analyzable dynamic imports won't:
+
+```ts
+const specifier = "./calculator.ts";
+const calculator = await import(specifier);
+```
+
+To include non-statically analyzable dynamic imports, specify an
+`--include <path>` flag.
+
+```shell
+deno compile --include calculator.ts --include my_other_path.ts main.ts
+```
+
 ## Cross Compilation
 
 You can compile binaries for other platforms by adding the `--target` CLI flag.
