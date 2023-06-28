@@ -56,7 +56,7 @@ deno compile --include calc.ts --include better_calc.ts main.ts
 ## Workers
 
 Similarly to non-statically analyzable dynamic imports, code for
-[workers]](../runtime/workers.md) is not included in the compiled executable by
+[workers](../runtime/workers.md) is not included in the compiled executable by
 default. You must use the `--include <path>` flag to include the worker code.
 
 ```shell
