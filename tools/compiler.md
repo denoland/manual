@@ -42,7 +42,7 @@ const calculator = await import("./calculator.ts");
 But non-statically analyzable dynamic imports won't:
 
 ```ts
-const specifier = condition ? "./calculator.ts" : "./better_calc.ts";
+const specifier = condition ? "./calc.ts" : "./better_calc.ts";
 const calculator = await import(specifier);
 ```
 
@@ -50,7 +50,17 @@ To include non-statically analyzable dynamic imports, specify an
 `--include <path>` flag.
 
 ```shell
-deno compile --include calculator.ts --include better_calc.ts main.ts
+deno compile --include calc.ts --include better_calc.ts main.ts
+```
+
+## Workers
+
+Similarly to non-statically analyzable dynamic imports, code for workers is not
+included in the compiled executable by default. You must use the
+`--include <path>` flag to include the worker code.
+
+```shell
+deno compile --include worker.ts main.ts
 ```
 
 ## Cross Compilation
