@@ -14,7 +14,7 @@ console.log(chalk.green("Hello!"));
 
 These npm specifiers have the following format:
 
-```ts, ignore
+```
 npm:<package-name>[@<version-requirement>][/<sub-path>]
 ```
 
@@ -49,7 +49,7 @@ applications.
 npm packages with `bin` entries can be executed from the command line without an
 `npm install` using a specifier in the following format:
 
-```ts, ignore
+```
 npm:<package-name>[@<version-requirement>][/<binary-name>]
 ```
 
