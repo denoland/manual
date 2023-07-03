@@ -17,10 +17,10 @@ $ deno run main.js
 ```
 
 When doing this, no `npm install` is necessary and no `node_modules` folder is
-created. These packages are also subject to the same permissions as Deno
-applications.
+created. These packages are also subject to the same
+[permissions](../basics/permissions.md) as other code in Deno.
 
-These npm specifiers have the following format:
+npm specifiers have the following format:
 
 ```
 npm:<package-name>[@<version-requirement>][/<sub-path>]
