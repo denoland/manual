@@ -22,31 +22,12 @@ These npm specifiers have the following format:
 npm:<package-name>[@<version-requirement>][/<sub-path>]
 ```
 
-Another example with express:
-
-```js, ignore
-// main.js
-import express from "npm:express@^4.17";
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
-app.listen(3000);
-console.log("listening on http://localhost:3000/");
-```
-
-Then doing the following will start a simple express server:
-
-```sh
-$ deno run -A main.js
-listening on http://localhost:3000/
-```
-
 When doing this, no `npm install` is necessary and no `node_modules` folder is
 created. These packages are also subject to the same permissions as Deno
 applications.
+
+For examples with popular libraries, please refer to our
+[how-to guides](./how_to_with_npm.md).
 
 ## npm executable scripts
 
