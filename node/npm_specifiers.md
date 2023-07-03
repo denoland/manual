@@ -29,39 +29,6 @@ npm:<package-name>[@<version-requirement>][/<sub-path>]
 For examples with popular libraries, please refer to our
 [how-to guides](./how_to_with_npm.md).
 
-## npm executable scripts
-
-npm packages with `bin` entries can be executed from the command line without an
-`npm install` using a specifier in the following format:
-
-```
-npm:<package-name>[@<version-requirement>][/<binary-name>]
-```
-
-For example:
-
-```sh
-$ deno run --allow-read npm:cowsay@1.5.0 Hello there!
- ______________
-< Hello there! >
- --------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-
-$ deno run --allow-read npm:cowsay@1.5.0/cowthink What to eat?
- ______________
-( What to eat? )
- --------------
-        o   ^__^
-         o  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-```
-
 ## TypeScript types
 
 Many packages ship with types out of the box, you can import those and use them
@@ -94,6 +61,39 @@ the `@types/node` package:
 Note that it is fine to not specify a version for this in most cases because
 Deno will try to keep it in sync with its internal Node code, but you can always
 override the version used if necessary.
+
+## npm executable scripts
+
+npm packages with `bin` entries can be executed from the command line without an
+`npm install` using a specifier in the following format:
+
+```
+npm:<package-name>[@<version-requirement>][/<binary-name>]
+```
+
+For example:
+
+```sh
+$ deno run --allow-read npm:cowsay@1.5.0 Hello there!
+ ______________
+< Hello there! >
+ --------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+$ deno run --allow-read npm:cowsay@1.5.0/cowthink What to eat?
+ ______________
+( What to eat? )
+ --------------
+        o   ^__^
+         o  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
 
 ## `--node-modules-dir` flag
 
