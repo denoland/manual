@@ -371,10 +371,10 @@ There are several environment variables which can impact the behavior of Deno:
 - `DENO_TLS_CA_STORE` - a list of certificate stores which will be used when
   establishing TLS connections. The available stores are `mozilla` and `system`.
   You can specify one, both or none. Certificate chains attempt to resolve in
-  the same order in which you specify them. The
-  default value is `mozilla`. The `mozilla` store will use the bundled Mozilla
-  certs provided by [`webpki-roots`](https://crates.io/crates/webpki-roots). The
-  `system` store will use your platform's
+  the same order in which you specify them. The default value is `mozilla`. The
+  `mozilla` store will use the bundled Mozilla certs provided by
+  [`webpki-roots`](https://crates.io/crates/webpki-roots). The `system` store
+  will use your platform's
   [native certificate store](https://crates.io/crates/rustls-native-certs). The
   exact set of Mozilla certs will depend on the version of Deno you are using.
   If you specify no certificate stores, then no trust will be given to any TLS
@@ -400,11 +400,11 @@ There are several environment variables which can impact the behavior of Deno:
   [Proxies](../basics/modules/proxies.md) section for more information.
 - `HTTPS_PROXY` - The proxy address to use for HTTPS requests. See the
   [Proxies](../basics/modules/proxies.md) section for more information.
-- `NO_COLOR` - If set, this will prevent the Deno CLI from sending ANSI color codes
-  when writing to stdout and stderr. See the website <https://no-color.org/> for
-  more information on this _de facto_ standard. The value of this flag can be
-  accessed at runtime without permission to read the environment variables by
-  checking the value of `Deno.noColor`.
+- `NO_COLOR` - If set, this will prevent the Deno CLI from sending ANSI color
+  codes when writing to stdout and stderr. See the website
+  <https://no-color.org/> for more information on this _de facto_ standard. The
+  value of this flag can be accessed at runtime without permission to read the
+  environment variables by checking the value of `Deno.noColor`.
 - `NO_PROXY` - Indicates hosts which should bypass the proxy set in the other
   environment variables. See the [Proxies](../basics/modules/proxies.md) section
   for more information.
