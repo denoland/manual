@@ -1,15 +1,19 @@
 # `npm:` specifiers
 
 Since version 1.28, Deno has native support for importing npm packages. This is
-done by importing using `npm:` specifiers.
-
-The way these work is best described with an example that you can run with
-`deno run --allow-env`:
+done by importing using `npm:` specifiers. For example the following code:
 
 ```ts, ignore
-import chalk from "npm:chalk@5";
+import { emojify } from "npm:node-emoji@2";
 
-console.log(chalk.green("Hello!"));
+console.log(emojify(":t-rex: :heart: NPM"));
+```
+
+Can be run with:
+
+```sh
+$ deno run main.js
+🦖 ❤️ NPM
 ```
 
 These npm specifiers have the following format:
