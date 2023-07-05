@@ -46,9 +46,9 @@ modules on the server.
 
 ## GitHub
 
-To access private repositories on GitHub, you would need to issue
-yourself a _personal access token_. You do this by logging into GitHub and going
-under _Settings -> Developer settings -> Personal access tokens_:
+To access private repositories on GitHub, you would need to issue yourself a
+_personal access token_. You do this by logging into GitHub and going under
+_Settings -> Developer settings -> Personal access tokens_:
 
 ![Personal access tokens settings on GitHub](../../images/private-pat.png)
 
