@@ -1,31 +1,31 @@
 # Private Modules and Repositories
 
-There maybe instances where you want to load a remote module that is located in
+There may be instances where you want to load a remote module that is located in
 a _private_ repository, like a private repository on GitHub.
 
 Deno supports sending bearer tokens when requesting a remote module. Bearer
-tokens are the predominant type of access token used with OAuth 2.0 and is
-broadly supported by hosting services (e.g. GitHub, Gitlab, BitBucket,
+tokens are the predominant type of access token used with OAuth 2.0, and are
+broadly supported by hosting services (e.g., GitHub, GitLab, Bitbucket,
 Cloudsmith, etc.).
 
 ## DENO_AUTH_TOKENS
 
 The Deno CLI will look for an environment variable named `DENO_AUTH_TOKENS` to
 determine what authentication tokens it should consider using when requesting
-remote modules. The value of the environment variable is in the format of a _n_
+remote modules. The value of the environment variable is in the format of _n_
 number of tokens deliminated by a semi-colon (`;`) where each token is either:
 
-- a bearer token in the format of `{token}@{hostname[:port]}`
+- a bearer token in the format of `{token}@{hostname[:port]}` or
 
 - basic auth data in the format of `{username}:{password}@{hostname[:port]}`
 
-For example a single token for would look something like this:
+For example, a single token for `deno.land` would look something like this:
 
 ```sh
 DENO_AUTH_TOKENS=a1b2c3d4e5f6@deno.land
 ```
 
-or
+or:
 
 ```sh
 DENO_AUTH_TOKENS=username:password@deno.land
@@ -46,9 +46,9 @@ modules on the server.
 
 ## GitHub
 
-To be able to access private repositories on GitHub, you would need to issue
-yourself a _personal access token_. You do this by logging into GitHub and going
-under _Settings -> Developer settings -> Personal access tokens_:
+To access private repositories on GitHub, you would need to issue yourself a
+_personal access token_. You do this by logging into GitHub and going under
+_Settings -> Developer settings -> Personal access tokens_:
 
 ![Personal access tokens settings on GitHub](../../images/private-pat.png)
 
