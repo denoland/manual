@@ -37,12 +37,6 @@ The next-gen web framework.
 
 Languages: **TypeScript**, TSX
 
-### [`dotland`](https://github.com/denoland/dotland)
-
-Frontend for official Deno webpage: https://deno.land/
-
-Languages: **TypeScript**, TSX, CSS
-
 ### [`deno_lint`](https://github.com/denoland/deno_lint)
 
 Linter that powers `deno lint` subcommand.
