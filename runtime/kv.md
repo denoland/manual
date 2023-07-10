@@ -140,6 +140,12 @@ if (res.ok) {
 - [Source code](https://github.com/hashrock/kv-sketchbook)
 - [Live preview](https://hashrock-kv-sketchbook.deno.dev/)
 
+**Deno KV OAuth**
+
+- High-level OAuth 2.0 powered by Deno KV
+- [Source code](https://github.com/denoland/deno_kv_oauth)
+- [Live preview](https://kv-oauth.deno.dev/)
+
 ## Reference
 
 - [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
