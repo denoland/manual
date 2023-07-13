@@ -16,16 +16,15 @@ integrity checking and lock files.
 Deno can store and check subresource integrity for modules using a small JSON
 file. To opt into a lock file, either:
 
-1. Create a `deno.json` file in the current or an ancestor directory, which will
-   automatically create an additive lockfile at `deno.lock`.
+1. Create a `deno.json` file in the current or an ancestor directory. Deno will
+   automatically create a lockfile at `deno.lock` in addition.
 2. Use the `--lock=deno.lock` to enable and specify lock file checking. To
    update or create a lock use `--lock=deno.lock --lock-write`. The
    `--lock=deno.lock` tells Deno what the lock file to use is, while the
    `--lock-write` is used to output dependency hashes to the lock file
    (`--lock-write` must be used in conjunction with `--lock`).
 
-A `deno.lock` might look like this, storing a hash of the file against the
-dependency:
+A `deno.lock` might look like this, storing a hash of the dependency:
 
 ```json
 {
@@ -38,14 +37,14 @@ dependency:
 
 ### Auto-generated lockfile
 
-As mentioned above, when a Deno configuration file is resolved (ex. `deno.json`)
-then an additive lockfile will be automatically generated. By default, the path
-of this lockfile will be `deno.lock`. You can change this path by updating your
-`deno.json` to specify this:
+As mentioned above, when a Deno configuration file is found (ex. `deno.json`)
+then an additional lockfile `deno.lock` will be automatically generated. By
+default, this lockfile will be put in the same directory as the configuration
+file. You can change this path in the configuration file:
 
 ```jsonc
 {
-  "lock": "./lock.file"
+  "lock": "./path/to/lock.file"
 }
 ```
 
@@ -95,7 +94,7 @@ deno test --allow-read src
 
 Like caching above, you can also use lock files during use of the `deno run` sub
 command, validating the integrity of any locked modules during the run. Remember
-that this only validates against dependencies previously added to the lock file.
+that this only validates dependencies previously added to the lock file.
 
 You can take this a step further as well by using the `--cached-only` flag to
 require that remote dependencies are already cached.
