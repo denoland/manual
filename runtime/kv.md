@@ -146,6 +146,14 @@ if (res.ok) {
 - [Source code](https://github.com/denoland/deno_kv_oauth)
 - [Live preview](https://kv-oauth.deno.dev/)
 
+**Deno SaaSKit**
+
+- Modern SaaS template built on Fresh.
+- [Hacker News](https://news.ycombinator.com/)-like demo entirely built on KV.
+- Uses Deno KV OAuth for GitHub OAuth 2.0 authentication
+- [Source code](https://github.com/denoland/saaskit)
+- [Live preview](https://hunt.deno.land/)
+
 ## Reference
 
 - [API Reference](https://deno.land/api?unstable&s=Deno.Kv)
