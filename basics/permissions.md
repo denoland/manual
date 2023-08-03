@@ -231,7 +231,7 @@ You can only limit the executables that are allowed; if permission is granted to
 execute it then any parameters can be passed. For example if you pass
 `--allow-run=cat` then the user can use `cat` to read any file.
 
-You can restrict certain executables to never be accessible by using
+You can restrict certain executables to never be accessible by using the
 `--deny-run` flag:
 
 ```shell
