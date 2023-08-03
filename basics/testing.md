@@ -415,10 +415,10 @@ You can specify the reporter to use with the `--reporter` flag.
 $ deno test
 
 # use dot reporter with concise output
-$ deno test --reporter dot
+$ deno test --reporter=dot
 
 # use JUnit reporter
-$ deno test --reporter junit
+$ deno test --reporter=junit
 ```
 
 You can also write the output of machine-readable JUnit report to a file, while
