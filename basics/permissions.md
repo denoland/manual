@@ -115,7 +115,7 @@ deno run --allow-read=/etc https://deno.land/std@$STD_VERSION/examples/cat.ts /e
 ```
 
 You can further restrict some subpaths to not be accesible, using `--deny-read`
-flag::
+flag:
 
 ```shell
 deno run --allow-read=/etc --deny-read=/etc/hosts https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/passwd
