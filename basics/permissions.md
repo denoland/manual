@@ -191,7 +191,7 @@ deno run --allow-env=HOME env.js
 > Note for Windows users: environment variables are case insensitive on Windows,
 > so Deno also matches them case insensitively (on Windows only).
 
-You can restrict certain env vars to never be accessible by using `--deny-env`
+You can restrict certain env vars to never be accessible by using the `--deny-env`
 flag:
 
 ```shell
