@@ -154,7 +154,7 @@ deno run --allow-net=1.1.1.1:443 fetch.js
 deno run --allow-net=[2606:4700:4700::1111] fetch.js
 ```
 
-You can restrict certain domains to never be accessible by using `--deny-net`
+You can restrict certain domains to never be accessible by using the `--deny-net`
 flag:
 
 ```shell
