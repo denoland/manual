@@ -154,8 +154,8 @@ deno run --allow-net=1.1.1.1:443 fetch.js
 deno run --allow-net=[2606:4700:4700::1111] fetch.js
 ```
 
-You can restrict certain domains to never be accessible by using the `--deny-net`
-flag:
+You can restrict certain domains to never be accessible by using the
+`--deny-net` flag:
 
 ```shell
 # Allow to make network connections to all addresses except myserver.com.
@@ -191,8 +191,8 @@ deno run --allow-env=HOME env.js
 > Note for Windows users: environment variables are case insensitive on Windows,
 > so Deno also matches them case insensitively (on Windows only).
 
-You can restrict certain env vars to never be accessible by using the `--deny-env`
-flag:
+You can restrict certain env vars to never be accessible by using the
+`--deny-env` flag:
 
 ```shell
 # Allow all environment variables except AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY.
