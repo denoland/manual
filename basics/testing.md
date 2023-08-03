@@ -400,6 +400,35 @@ failure, you can specify the `--fail-fast` flag when running the suite.
 deno test --fail-fast
 ```
 
+## Reporters
+
+Deno ships with three built-in reporters:
+
+- `pretty` (default)
+- `dot`
+- `junit`
+
+You can specify the reporter to use with the `--reporter` flag.
+
+```shell
+# use default pretty reporter
+$ deno test
+
+# use dot reporter with concise output
+$ deno test --reporter=dot
+
+# use JUnit reporter
+$ deno test --reporter=junit
+```
+
+You can also write the output of machine-readable JUnit report to a file, while
+still enjoying human-readable output in the terminal. In such situations specify
+`--junit-path` flag:
+
+```shell
+$ deno test --junit-path=./report.xml
+```
+
 ## Integration with testing libraries
 
 Deno's test runner works with popular testing libraries like
