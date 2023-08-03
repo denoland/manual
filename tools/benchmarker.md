@@ -97,22 +97,22 @@ To help with such situations you can `Deno.BenchContext.start` and
 you want to measure. Everything outside of the section between these two calls
 will be excluded from the measurement.
 
-```ts
+```ts, ignore
 import { readAll } from "https://deno.land/std@0.195.0/streams/mod.ts";
 
-Deno.bench("foo", async (t) => {
+Deno.bench("foo", async (b) => {
   // Open a file that we will act upon.
   const file = await Deno.open("a_big_data_file.txt");
 
   // Tell the benchmarking tool that this is the only section you want
   // to measure.
-  t.start();
+  b.start();
 
   // Now let's measure how long it takes to read all of the data from the file.
   await readAll(file);
 
   // End measurement here.
-  t.end();
+  b.end();
 
   // Now we can perform some potentially time-consuming teardown that will not
   // taint out benchmark results.
