@@ -23,13 +23,44 @@ This is the main repository that provides the `deno` CLI.
 If you want to fix a bug or add a new feature to `deno` this is the repository
 you want to contribute to.
 
-Languages: **Rust**, **JavaScript**
+Some systems, including a large part of the Node.js compatibility layer are
+implemented in JavaScript and TypeScript modules. These are a good place to
+start if you are looking to make your first contribution.
+
+While iterating on such modules it is recommended to include
+`--features __runtime_js_sources` in your `cargo` flags. This is a special
+development mode where the JS/TS sources are not included in the binary but read
+at runtime, meaning the binary will not have to be rebuilt if they are changed.
+
+```sh
+# cargo build
+cargo build --features __runtime_js_sources
+
+# cargo run -- run hello.ts
+cargo run --features __runtime_js_sources -- run hello.ts
+
+# cargo test integration::node_unit_tests::os_test
+cargo test --features __runtime_js_sources integration::node_unit_tests::os_test
+```
+
+Also remember to reference this feature flag in your editor settings. For VSCode
+users, combine the following into your workspace file:
+
+```json
+{
+  "settings": {
+    "rust-analyzer.cargo.features": ["__runtime_js_sources"]
+  }
+}
+```
+
+Languages: **Rust**, **JavaScript**, **TypeScript**
 
 ### [`deno_std`](https://github.com/denoland/deno_std)
 
 The standard library for Deno.
 
-Languages: **TypeScript**, WebAssembly.
+Languages: **TypeScript**, WebAssembly
 
 ### [`fresh`](https://github.com/denoland/fresh)
 
