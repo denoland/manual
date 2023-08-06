@@ -43,6 +43,17 @@ cargo run --features __runtime_js_sources -- run hello.ts
 cargo test --features __runtime_js_sources integration::node_unit_tests::os_test
 ```
 
+Also remember to reference this feature flag in your editor settings. For VSCode
+users, combine the following into your workspace file:
+
+```json
+{
+  "settings": {
+    "rust-analyzer.cargo.features": ["__runtime_js_sources"]
+  }
+}
+```
+
 Languages: **Rust**, **JavaScript**, **TypeScript**
 
 ### [`deno_std`](https://github.com/denoland/deno_std)
