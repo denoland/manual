@@ -148,7 +148,7 @@ Examples of bad PR title:
 
 ## Submitting a PR to [`deno`](https://github.com/denoland/deno)
 
-Additionally to the above make sure that:
+In addition to the above make sure that:
 
 1. `cargo test` passes - this will run full test suite for `deno` including unit
    tests, integration tests and Web Platform Tests
@@ -161,7 +161,7 @@ Additionally to the above make sure that:
 
 ## Submitting a PR to [`deno_std`](https://github.com/denoland/deno_std)
 
-Additionally to the above make sure that:
+In addition to the above make sure that:
 
 1. All of the code you wrote is in `TypeScript` (ie. don't use `JavaScript`)
 
