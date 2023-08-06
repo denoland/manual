@@ -64,7 +64,7 @@ Starting with Deno 1.36 following flags are available:
   user's operating system.
 - **--deny-hrtime** Disable high-resolution time measurement. High-resolution
   time can be used in timing attacks and fingerprinting.
-- **--allow-net=\<IP/HOSTNAME\>** Disable network access. You can specify an
+- **--deny-net=\<IP/HOSTNAME\>** Disable network access. You can specify an
   optional, comma-separated list of IP addresses or hostnames (optionally with
   ports) to provide a deny-list of network addresses. Any addresses specified
   here will be denied access, even if they are specified in --allow-net.
