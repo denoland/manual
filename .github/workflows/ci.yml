@@ -7,6 +7,17 @@ on:
     branches: [main]
 
 jobs:
+  typos:
+    name: spell-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - uses: crate-ci/typos@master
+        with:
+          config: ./typos.toml
+
   format:
     runs-on: ubuntu-latest
     steps:

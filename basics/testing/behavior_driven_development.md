@@ -59,7 +59,7 @@ sanitization options. They work in the same way.
 
 ## Permissions option
 
-Like `Deno.TestDefinition`, the `DescribeDefintion` and `ItDefinition` have a
+Like `Deno.TestDefinition`, the `DescribeDefinition` and `ItDefinition` have a
 `permissions` option. They specify the permissions that should be used to run an
 individual test case or test suite. Set this to `"inherit"` to keep the calling
 thread's permissions. Set this to `"none"` to revoke all permissions.
@@ -90,7 +90,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import { User } from "https://deno.land/std@$STD_VERSION/testing/bdd_examples/user.ts";
 
 Deno.test("User.users initially empty", () => {
@@ -135,7 +135,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   afterEach,
   beforeEach,
@@ -197,7 +197,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   describe,
   it,
@@ -257,7 +257,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   describe,
   it,
