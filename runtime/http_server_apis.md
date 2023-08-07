@@ -171,7 +171,7 @@ compressed if the following conditions are true:
 
 - The request has an
   [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
-  header which indicates the requestor supports `br` for brotli or `gzip`. Deno
+  header which indicates the requester supports `br` for Brotli or `gzip`. Deno
   will respect the preference of the
   [quality value](https://developer.mozilla.org/en-US/docs/Glossary/Quality_values)
   in the header.
