@@ -90,7 +90,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import { User } from "https://deno.land/std@$STD_VERSION/testing/bdd_examples/user.ts";
 
 Deno.test("User.users initially empty", () => {
@@ -135,7 +135,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   afterEach,
   beforeEach,
@@ -197,7 +197,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   describe,
   it,
@@ -257,7 +257,7 @@ import {
   assertEquals,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+} from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import {
   describe,
   it,
