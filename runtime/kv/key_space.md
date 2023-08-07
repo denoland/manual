@@ -84,22 +84,23 @@ of values within a type.
 ### Universally Unique Lexicographically Sortable Identifiers (ULIDs)
 
 Key part ordering allows keys consisting of timestamps and ID parts to be listed
-chronologically. Typically, you can use
+chronologically. Typically, you can generate a key using the following:
 [`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)
 and
 [`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID):
 
-```ts
-async function setUser(user: User) {
+```js
+async function setUser(user) {
   await kv.set(["users", Date.now(), crypto.randomUUID()], user);
 }
 ```
 
-```
+Run multiple times sequentially, this produces the following keys:
+
+```js
 ["users", 1691377037923, "8c72fa25-40ad-42ce-80b0-44f79bc7a09e"] // First user
-["users", 1691377037924, "8063f20c-8c2e-425e-a5ab-d61e7a717765"] // Second user
-["users", 1691377037925, "35310cea-58ba-4101-b09a-86232bf230b2"] // Third user
-…
+  ["users", 1691377037924, "8063f20c-8c2e-425e-a5ab-d61e7a717765"] // Second user
+  ["users", 1691377037925, "35310cea-58ba-4101-b09a-86232bf230b2"]; // Third user
 ```
 
 However, having the timestamp and ID represented within a single key part may be
@@ -108,29 +109,31 @@ more straightforward in some cases. You can use a
 to do this. This type of identifier encodes a UTC timestamp, is
 lexicographically sortable and is cryptographically random by default:
 
-```ts
+```js
 import { ulid } from "https://deno.land/x/ulid/mod.ts";
 
-async function setUser(user: User) {
+const kv = await Deno.openKv();
+
+async function setUser(user) {
   await kv.set(["users", ulid()], user);
 }
 ```
 
-```
+```js
 ["users", "01H76YTWK3YBV020S6MP69TBEQ"] // First user
-["users", "01H76YTWK4V82VFET9YTYDQ0NY"] // Second user
-["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"] // Third user
+  ["users", "01H76YTWK4V82VFET9YTYDQ0NY"] // Second user
+  ["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"]; // Third user
 ```
 
 Furthermore, you can generate ULIDs monotonically increasingly using a factory
 function:
 
-```ts
+```js
 import { monotonicFactory } from "https://deno.land/x/ulid/mod.ts";
 
 const ulid = monotonicFactory();
 
-async function setUser(user: User) {
+async function setUser(user) {
   await kv.set(["users", ulid()], user);
 }
 ```
