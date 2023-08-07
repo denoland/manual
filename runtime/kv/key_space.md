@@ -160,7 +160,7 @@ value was modified. Versionstamps do not represent real time, but rather the
 order in which the values were modified.
 
 Because versionstamps are monotonically increasing, they can be used to
-determine wether a given value is newer or older than another value. This can be
+determine whether a given value is newer or older than another value. This can be
 done by comparing the versionstamps of the two values. If versionstamp A is
 greater than versionstamp B, then value A was modified more recently than value
 B.
