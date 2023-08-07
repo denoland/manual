@@ -8,7 +8,7 @@ on:
 
 jobs:
   typos:
-    name: Check typos
+    name: spell-check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
