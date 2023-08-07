@@ -5,7 +5,7 @@ To help developers write tests the Deno standard library comes with a built-in
 be imported from `https://deno.land/std@$STD_VERSION/assert/mod.ts`.
 
 ```js
-import { assert } from "https://deno.land/std@$STD_VERSION/assert/assert.ts";
+import { assert } from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 
 Deno.test("Hello Test", () => {
   assert("Hello");
