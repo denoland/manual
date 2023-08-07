@@ -10,7 +10,7 @@ Firstly, let's create a file `url_test.ts` and register a test case using
 
 ```ts
 // url_test.ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/assert_equals.ts";
 
 Deno.test("url test", () => {
   const url = new URL("./foo.js", "https://deno.land/");
@@ -36,7 +36,7 @@ switching between the forms (eg. when you need to quickly focus a single test
 for debugging, using `only: true` option):
 
 ```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/assert_equals.ts";
 
 // Compact form: name and function
 Deno.test("hello world #1", () => {
@@ -107,7 +107,7 @@ The test steps API provides a way to report distinct steps within a test and do
 setup and teardown code within that test.
 
 ```ts
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/assert_equals.ts";
 import { Client } from "https://deno.land/x/postgres@v0.15.0/mod.ts";
 
 interface User {
@@ -470,7 +470,7 @@ around `bar` and call `foo(spy)` in the testing code:
 
 ```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/assert_equals.ts";
 import { bar, foo } from "./my_file.js";
 
 Deno.test("calls bar during execution of foo", () => {
@@ -510,7 +510,7 @@ And then `import` in a test file:
 
 ```js, ignore
 import sinon from "https://cdn.skypack.dev/sinon";
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/assert_equals.ts";
 import { foo, funcs } from "./my_file.js";
 
 Deno.test("calls bar during execution of foo", () => {

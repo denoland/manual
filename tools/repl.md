@@ -50,7 +50,7 @@ into the REPL. This is useful for importing some code you commonly use in the
 REPL, or modifying the runtime in some way:
 
 ```
-$ deno repl --allow-net --eval 'import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts"'
+$ deno repl --allow-net --eval 'import { assert } from "https://deno.land/std@0.178.0/testing/asserts.ts"'
 Deno 1.31.0
 exit using ctrl+d or close()
 > assert(true)
