@@ -81,6 +81,67 @@ of values within a type.
 ["teams", "engineering", "members", 1n]; // Member with ID 1n in the engineering team
 ```
 
+### Universally Unique Lexicographically Sortable Identifiers (ULIDs)
+
+Key part ordering allows keys consisting of timestamps and ID parts to be listed
+chronologically. Typically, you can use
+[`Date.now()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)
+and
+[`crypto.randomUUID()`](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID):
+
+```ts
+async function setUser(user: User) {
+  await kv.set(["users", Date.now(), crypto.randomUUID()], user);
+}
+```
+
+```
+["users", 1691377037923, "8c72fa25-40ad-42ce-80b0-44f79bc7a09e"] // First user
+["users", 1691377037924, "8063f20c-8c2e-425e-a5ab-d61e7a717765"] // Second user
+["users", 1691377037925, "35310cea-58ba-4101-b09a-86232bf230b2"] // Third user
+…
+```
+
+However, having the timestamp and ID represented within a single key part may be
+more straightforward in some cases. You can use a
+[Universally Unique Lexicographically Sortable Identifier (ULID)](https://github.com/ulid/spec)
+to do this. This type of identifier encodes a UTC timestamp, is
+lexicographically sortable and is cryptographically random by default:
+
+```ts
+import { ulid } from "https://deno.land/x/ulid/mod.ts";
+
+async function setUser(user: User) {
+  await kv.set(["users", ulid()], user);
+}
+```
+
+```
+["users", "01H76YTWK3YBV020S6MP69TBEQ"] // First user
+["users", "01H76YTWK4V82VFET9YTYDQ0NY"] // Second user
+["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"] // Third user
+```
+
+Furthermore, you can generate ULIDs monotonically increasingly using a factory
+function:
+
+```ts
+import { monotonicFactory } from "https://deno.land/x/ulid/mod.ts";
+
+const ulid = monotonicFactory();
+
+async function setUser(user: User) {
+  await kv.set(["users", ulid()], user);
+}
+```
+
+```
+// Strict ordering for the same timestamp by incrementing the least-significant random bit by 1
+["users", "01H76YTWK3YBV020S6MP69TBEQ"] // First user
+["users", "01H76YTWK3YBV020S6MP69TBER"] // Second user
+["users", "01H76YTWK3YBV020S6MP69TBES"] // Third user
+```
+
 ## Values
 
 Values in Deno KV can be arbitrary JavaScript values that are compatible with
