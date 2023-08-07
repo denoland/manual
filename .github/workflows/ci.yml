@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - uses: crate-ci/typos@master
         with:
-          config: ./.github/workflows/typos.toml
+          config: ./typos.toml
 
   format:
     runs-on: ubuntu-latest
