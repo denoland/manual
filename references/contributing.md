@@ -185,11 +185,7 @@ For the latest version go [here](https://deno.land/std/version.ts).
 
 First, please be sure to
 [install Puppeteer](https://github.com/lucacasonato/deno-puppeteer#installation).
-Then, please ensure the following are run and successfully pass:
-
-1. `deno fmt --check`
-1. `deno lint`
-1. `deno test -A`
+Then, please ensure `deno task ok` is run and successfully passes.
 
 ## Documenting APIs
 
