@@ -120,9 +120,9 @@ async function setUser(user) {
 ```
 
 ```js
-["users", "01H76YTWK3YBV020S6MP69TBEQ"] // First user
-  ["users", "01H76YTWK4V82VFET9YTYDQ0NY"] // Second user
-  ["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"]; // Third user
+["users", "01H76YTWK3YBV020S6MP69TBEQ"]; // First user
+["users", "01H76YTWK4V82VFET9YTYDQ0NY"]; // Second user
+["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"]; // Third user
 ```
 
 Furthermore, you can generate ULIDs monotonically increasingly using a factory
@@ -138,11 +138,11 @@ async function setUser(user) {
 }
 ```
 
-```
+```js
 // Strict ordering for the same timestamp by incrementing the least-significant random bit by 1
-["users", "01H76YTWK3YBV020S6MP69TBEQ"] // First user
-["users", "01H76YTWK3YBV020S6MP69TBER"] // Second user
-["users", "01H76YTWK3YBV020S6MP69TBES"] // Third user
+["users", "01H76YTWK3YBV020S6MP69TBEQ"]; // First user
+["users", "01H76YTWK3YBV020S6MP69TBER"]; // Second user
+["users", "01H76YTWK3YBV020S6MP69TBES"]; // Third user
 ```
 
 ## Values
