@@ -138,7 +138,7 @@ async function setUser(user) {
 }
 ```
 
-```js
+```ts
 // Strict ordering for the same timestamp by incrementing the least-significant random bit by 1
 ["users", "01H76YTWK3YBV020S6MP69TBEQ"]; // First user
 ["users", "01H76YTWK3YBV020S6MP69TBER"]; // Second user
