@@ -97,10 +97,10 @@ async function setUser(user) {
 
 Run multiple times sequentially, this produces the following keys:
 
-```js
-["users", 1691377037923, "8c72fa25-40ad-42ce-80b0-44f79bc7a09e"] // First user
-  ["users", 1691377037924, "8063f20c-8c2e-425e-a5ab-d61e7a717765"] // Second user
-  ["users", 1691377037925, "35310cea-58ba-4101-b09a-86232bf230b2"]; // Third user
+```ts
+["users", 1691377037923, "8c72fa25-40ad-42ce-80b0-44f79bc7a09e"]; // First user
+["users", 1691377037924, "8063f20c-8c2e-425e-a5ab-d61e7a717765"]; // Second user
+["users", 1691377037925, "35310cea-58ba-4101-b09a-86232bf230b2"]; // Third user
 ```
 
 However, having the timestamp and ID represented within a single key part may be
@@ -109,7 +109,7 @@ more straightforward in some cases. You can use a
 to do this. This type of identifier encodes a UTC timestamp, is
 lexicographically sortable and is cryptographically random by default:
 
-```js
+```ts
 import { ulid } from "https://deno.land/x/ulid/mod.ts";
 
 const kv = await Deno.openKv();
@@ -119,7 +119,7 @@ async function setUser(user) {
 }
 ```
 
-```js
+```ts
 ["users", "01H76YTWK3YBV020S6MP69TBEQ"]; // First user
 ["users", "01H76YTWK4V82VFET9YTYDQ0NY"]; // Second user
 ["users", "01H76YTWK5DM1G9TFR0Y5SCZQV"]; // Third user
