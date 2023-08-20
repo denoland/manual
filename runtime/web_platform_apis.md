@@ -80,6 +80,7 @@ You can find documentation about this API on
 - The `set-cookie` header is not concatenated when iterated over in the
   `headers` iterator. This behaviour is in the
   [process of being specified](https://github.com/whatwg/fetch/pull/1346).
+- `Event.timeStamp` property is always set to `0`.
 
 ## Fetching local files
 
