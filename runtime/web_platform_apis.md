@@ -130,6 +130,7 @@ You can find documentation about this API on
 
 - Events do not bubble, because Deno does not have a DOM hierarchy, so there is
   no tree for Events to bubble/capture through.
+- `timeStamp` property is always set to `0`.
 
 ---
 
