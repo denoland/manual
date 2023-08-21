@@ -55,7 +55,7 @@ module.
 
 Replace `require` statements with an `import`, like so:
 
-```js
+```
 import addNumbers from "./add_numbers.js";
 ```
 
@@ -87,7 +87,7 @@ could be imported with "bare specifiers". Consider the Node program below with a
 
 **`index.mjs`**
 
-```js
+```
 import * as os from "os";
 console.log(os.cpus());
 ```
