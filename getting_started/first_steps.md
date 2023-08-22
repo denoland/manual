@@ -68,8 +68,7 @@ Try it out:
 deno run first_steps.ts
 ```
 
-Or, try this script hosted at
-`https://deno.land/std@0.198.0/examples/curl.ts`:
+Or, try this script hosted at `https://deno.land/std@0.198.0/examples/curl.ts`:
 
 ```shell
 deno run https://deno.land/std@0.198.0/examples/curl.ts https://deno.com
