@@ -1,18 +1,27 @@
 # Built-In Tooling
 
-Deno provides some built-in tooling that is useful when working with JavaScript
-and TypeScript:
+Deno ships with a robust toolchain so you can start building immediately without
+needing to setup a disparate set of tooling.
 
-- [start new project (`deno init`)](./tools/init.md)
-- [benchmarker (`deno bench`)](./tools/benchmarker.md)
-- [bundler (`deno bundle`)](./tools/bundler.md)
-- [compiling executables (`deno compile`)](./tools/compiler.md)
-- [installer (`deno install`)](./tools/script_installer.md)
-- [dependency inspector (`deno info`)](./tools/dependency_inspector.md)
-- [documentation generator (`deno doc`)](./tools/documentation_generator.md)
-- [formatter (`deno fmt`)](./tools/formatter.md)
-- [linter (`deno lint`)](./tools/linter.md)
-- [repl (`deno repl`)](./tools/repl.md)
-- [task runner (`deno task`)](./tools/task_runner.md)
-- [test runner (`deno test`)](./basics/testing.md)
-- [vendoring dependencies (`deno vendor`)](./tools/vendor.md)
+Deno's modern tooling is categorized below:
+
+## Develop
+
+- [start a new project: `deno init`](./tools/init.md)
+- [linter: `deno lint`](./tools/linter.md)
+- [formatter: `deno fmt`](./tools/formatter.md)
+- [typechecker: `deno check`](/advanced/typescript/overview#type-checking)
+- [task runner: `deno task`](./tools/task_runner.md)
+- [generate documentation: `deno doc`](./tools/documentation_generator.md)
+- [inspect dependencies: `deno info`](./tools/dependency_inspector.md)
+- [vendor dependencies: `deno vendor`](./tools/vendor.md)
+
+## Test
+
+- [test runner: `deno test`](./basics/testing.md)
+- [benchmark: `deno bench`](./tools/benchmarker.md)
+
+## Distribute
+
+- [compile to a single executable: `deno compile`](./tools/compiler.md)
+- [installer: `deno install`](./tools/script_installer.md)

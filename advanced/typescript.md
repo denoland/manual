@@ -1,6 +1,13 @@
 # Using TypeScript
 
-In this chapter we will discuss:
+Deno not only supports TypeScript out of the box, but also treats TypeScript as
+a first class language. This means the developer experience when authoring and
+importing TypeScript will be as easy and straightforward as that of JavaScript.
+
+You can run or import TypeScript without installing anything more than the Deno
+CLI.
+
+In this chapter, we'll discuss:
 
 - [Overview of TypeScript in Deno](./typescript/overview.md)
 - [Configuring TypeScript in Deno](./typescript/configuration.md)

@@ -11,8 +11,8 @@ It's built on V8, Rust, and Tokio.
 - Provides [web platform functionality](./runtime/web_platform_apis.md) and
   adopts web platform standards. For example using ES modules, web workers, and
   support `fetch()`.
-- Secure by default. No file, network, or environment access unless explicitly
-  enabled.
+- [Secure by default](./basics/permissions.md). No file, network, or environment
+  access unless explicitly enabled.
 - Supports [TypeScript](./advanced/typescript.md) out of the box.
 - Ships a single executable (`deno`).
 - Provides built-in [development tooling](./tools.md) like a code formatter
@@ -27,7 +27,7 @@ It's built on V8, Rust, and Tokio.
 
 ## Philosophy
 
-Deno aims to be a productive and secure scripting environment for the modern
+Deno aims to be a productive, secure, and performant web runtime for the modern
 programmer.
 
 Deno will always be distributed as a single executable. Given a URL to a Deno
