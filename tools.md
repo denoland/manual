@@ -10,7 +10,7 @@ Deno's modern tooling is categorized below:
 - [start a new project: `deno init`](./tools/init.md)
 - [linter: `deno lint`](./tools/linter.md)
 - [formatter: `deno fmt`](./tools/formatter.md)
-- [typechecker: `deno check`](./advanced/typescript/overview)
+- [typechecker: `deno check`](./advanced/typescript/overview.md#type-checking)
 - [task runner: `deno task`](./tools/task_runner.md)
 - [generate documentation: `deno doc`](./tools/documentation_generator.md)
 - [inspect dependencies: `deno info`](./tools/dependency_inspector.md)
