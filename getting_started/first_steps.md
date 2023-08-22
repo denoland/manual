@@ -36,7 +36,7 @@ Deno also has the ability to execute scripts from URLs. Deno
 one of which is a `Hello World` program. To run that hosted code, do:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
+deno run https://examples.deno.land/hello-world.ts
 ```
 
 ## Making an HTTP request
