@@ -68,11 +68,10 @@ Try it out:
 deno run first_steps.ts
 ```
 
-Or, try this script hosted at
-`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
+Or, try this script hosted at `https://deno.land/std@0.198.0/examples/curl.ts`:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.com
+deno run https://deno.land/std@0.198.0/examples/curl.ts https://deno.com
 ```
 
 The program will display a prompt like this:
@@ -98,7 +97,7 @@ deno run --allow-net=deno.com first_steps.ts
 Or, using the curl script:
 
 ```shell
-deno run --allow-net=deno.com https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.com
+deno run --allow-net=deno.com https://deno.land/std@0.198.0/examples/curl.ts https://deno.com
 ```
 
 ## Reading a file
@@ -132,10 +131,10 @@ Try the program:
 
 ```shell
 # macOS / Linux
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/hosts
+deno run --allow-read https://deno.land/std@0.198.0/examples/cat.ts /etc/hosts
 
 # Windows
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
+deno run --allow-read https://deno.land/std@0.198.0/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
 ## Putting it all together in an HTTP server
