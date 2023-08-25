@@ -1,7 +1,7 @@
 # Using Web Platform APIs
 
 One way Deno simplifies web and cloud development is by using Web Platform APIs
-(like `fetch`) over proprietary APIs. This means If you've ever built for the
+(like `fetch`) over proprietary APIs. This means if you've ever built for the
 browser, you're likely already familiar with Deno, and if you're learning Deno,
 you're also investing in your knowledge of the web.
 
