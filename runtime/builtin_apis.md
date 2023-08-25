@@ -78,4 +78,4 @@ The Deno runtime comes with
 
 Refer to the links below for code samples of how to create a subprocess.
 
-- [Creating a subprocess (`Deno.run`)](../examples/subprocess.md)
+- [Creating a subprocess (`Deno.Command`)](../examples/subprocess.md)
