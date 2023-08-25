@@ -27,7 +27,7 @@ It's built on V8, Rust, and Tokio.
 
 ## Philosophy
 
-Deno aims to be a productive, secure, and performant web runtime for the modern
+Deno aims to be a productive, secure, and performant runtime for the modern
 programmer.
 
 Deno will always be distributed as a single executable. Given a URL to a Deno
