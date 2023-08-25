@@ -7,7 +7,7 @@ you're also investing in your knowledge of the web.
 
 ## Supported APIs
 
-Here's a partial list of supported web platform APIs Deno implements:
+Here's a partial list of supported web platform APIs in Deno:
 
 - [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 - [BroadcastChannel](https://developer.mozilla.org/en-US/docs/Web/API/BroadcastChannel)
@@ -35,8 +35,8 @@ Here's a partial list of supported web platform APIs Deno implements:
 - [`WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 
 You can find the Deno reference for these APIs
-[here](https://deno.land/api@$CLI_VERSION). To check if an API is available in
-Deno, click on
+[here](https://deno.land/api@$CLI_VERSION). To check if a Web Platform API is
+available in Deno, click on
 [the interface on MDN](https://developer.mozilla.org/en-US/docs/Web/API#interfaces)
 and refer to
 [its Browser Compatibility table](https://developer.mozilla.org/en-US/docs/Web/API/AbortController#browser_compatibility)
