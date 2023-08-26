@@ -4,6 +4,18 @@ Deno is secure by default. Therefore, unless you specifically enable it, a
 program run with Deno has no file, network, or environment access. Access to
 security sensitive functionality requires that permissions have been granted to
 an executing script through command line flags, or a runtime permission prompt.
+This is a major difference from Node, where dependencies are automatically
+granting full access to everything, introducing hidden vulnerabilities in your
+project.
+
+## Run untrusted code with confidence
+
+Since Deno provides no I/O access by default, it's useful for running untrusted
+code and auditing third-party code. If you're building or extending a platform
+that runs user generated code, you can use Deno for running third-party code
+securely and host this code through
+[Deno Subhosting](https://deno.com/subhosting) or any other cloud platform of
+your choice.
 
 For the following example `mod.ts` has been granted read-only access to the file
 system. It cannot write to the file system, or perform any other security
