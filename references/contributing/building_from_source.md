@@ -57,8 +57,8 @@ apt install --install-recommends -y clang-16 lld-16 cmake libglib2.0-dev
 **Mac**:
 
 Mac users must have the _XCode Command Line Tools_ installed.
-([XCode](https://developer.apple.com/xcode/) already includes the _XCode Command Line
-Tools_. Run `xcode-select --install` to install it without XCode.)
+([XCode](https://developer.apple.com/xcode/) already includes the _XCode Command
+Line Tools_. Run `xcode-select --install` to install it without XCode.)
 
 [CMake](https://cmake.org/) is also required, but does not ship with the
 _Command Line Tools_.
