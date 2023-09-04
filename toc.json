@@ -122,7 +122,8 @@
           "express": "Express"
         }
       },
-      "faqs": "Frequently asked questions"
+      "faqs": "Frequently asked questions",
+      "migrate": "Migrate from Node"
     }
   },
   "runtime": {
