@@ -5,7 +5,7 @@
 > Deno updates. We recommend that you backup your data regularly and consider
 > storing data in a secondary store for the time being.
 
-> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> 🌐 Deno KV is available for Deno Deploy.
 > [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
 
 Deno KV is a key value store. The key space is a flat namespace of

@@ -1,5 +1,13 @@
 # Deno KV
 
+> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
+> our best to ensure data durability, data loss is possible, especially around
+> Deno updates. We recommend that you backup your data regularly and consider
+> storing data in a secondary store for the time being.
+
+> 🌐 Deno KV is available for Deno Deploy.
+> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
+
 Since version 1.32, Deno has a built in key-value store that durably persists
 data on disk, allowing for data storage and access across service and system
 restarts.
@@ -20,14 +28,6 @@ This enables optimistic locking, enabling virtual asynchronous transactions.
 All writes to the KV store are strongly consistent and immediately durably
 persisted. Reads are strongly consistent by default, but alternative consistency
 modes are available to enable different performance tradeoffs.
-
-> ⚠️ Deno KV is currently **experimental** and **subject to change**. While we do
-> our best to ensure data durability, data loss is possible, especially around
-> Deno updates. We recommend that you backup your data regularly and consider
-> storing data in a secondary store for the time being.
-
-> 🌐 Deno KV is available in closed beta for Deno Deploy.
-> [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
 
 ## Getting started
 
