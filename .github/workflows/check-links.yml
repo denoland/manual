@@ -11,7 +11,7 @@ jobs:
   broken-links:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Check Markdown Links
         uses: ruzickap/action-my-markdown-link-checker@v1
         with:
