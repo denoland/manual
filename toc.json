@@ -142,7 +142,8 @@
           "operations": "Operations",
           "transactions": "Transactions",
           "secondary_indexes": "Secondary indexes",
-          "key_space": "Key Space"
+          "key_space": "Key Space",
+          "key_expiration": "Key Expiration"
         }
       },
       "location_api": "Location API",
