@@ -2,57 +2,88 @@
 
 // TODO: verify all links are correct
 
-- ✅ [assert](https://nodejs.org/api/assert.html)
+# [`node:assert`](https://nodejs.org/api/assert.html)
 
-- ℹ️ [assert/strict](https://nodejs.org/api/assert.html)
+✅
 
-- ℹ️ [async_hooks](https://nodejs.org/api/async_hooks.html)
+# [`node:assert/strict`](https://nodejs.org/api/assert.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:async_hooks`](https://nodejs.org/api/async_hooks.html)
+
+ℹ️ Partially polyfilled
 
 `AsyncLocalStorage` is supported. `AsyncResource`, `executionAsyncId`, and
 `createHook` are stubs that do nothing. // TODO: add an issue link if users need
 this API
 
-- ✅ [buffer](https://nodejs.org/api/buffer.html)
+# [`node:buffer`](https://nodejs.org/api/buffer.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ℹ️ [child_process](https://nodejs.org/api/child_process.html)
+# [`node:child_process`](https://nodejs.org/api/child_process.html)
 
-- ℹ️ [cluster](https://nodejs.org/api/cluster.html)
+ℹ️ Partially polyfilled
 
-- ℹ️ [console](https://nodejs.org/api/console.html)
+# [`node:cluster`](https://nodejs.org/api/cluster.html)
 
-- ✅ [constants](https://nodejs.org/api/constants.html)
+ℹ️ Partially polyfilled
 
-Fully polyfilled
+# [`node:console`](https://nodejs.org/api/console.html)
 
-- ℹ️ [crypto](https://nodejs.org/api/crypto.html)
+ℹ️ Partially polyfilled
 
-- ℹ️ [dgram](https://nodejs.org/api/dgram.html)
+# [`node:constants`](https://nodejs.org/api/constants.html)
 
-- ✅ [diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
+✅ Fully polyfilled
 
-- ℹ️ [dns](https://nodejs.org/api/dns.html)
+# [`node:crypto`](https://nodejs.org/api/crypto.html)
 
-- ✅ [events](https://nodejs.org/api/events.html)
+ℹ️ Partially polyfilled
 
-- ℹ️ [fs](https://nodejs.org/api/fs.html)
+# [`node:dgram`](https://nodejs.org/api/dgram.html)
 
-- ℹ️ [fs/promises](https://nodejs.org/api/fs.html)
+ℹ️ Partially polyfilled
 
-- ✅ / ℹ️ [http](https://nodejs.org/api/http.html)
+# [`node:diagnostics_channel`](https://nodejs.org/api/diagnostics_channel.html)
+
+✅
+
+# [`node:dns`](https://nodejs.org/api/dns.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:events`](https://nodejs.org/api/events.html)
+
+✅
+
+# [`node:fs`](https://nodejs.org/api/fs.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:fs/promises`](https://nodejs.org/api/fs.html)
+
+ℹ️ Partially polyfilled
+
+# ✅ `node:/ ℹ️ [http`](https://nodejs.org/api/http.html)
 
 `createConnection` option is currently not supported. // TODO: add an issue link
 if users need this API
 
-- ℹ️ [http2](https://nodejs.org/api/http2.html)
+# [`node:http2`](https://nodejs.org/api/http2.html)
+
+ℹ️ Partially polyfilled
 
 Partially polyfilled, major work in progress to enable `grpc-js`.
 
-- ℹ️ [https](https://nodejs.org/api/https.html) // TODO: add an issue link if
-  users need this API
+# [`node:https`](https://nodejs.org/api/https.html) // TODO: add an issue link if
 
-- ℹ️ [inspector](https://nodejs.org/api/inspector.html)
+ℹ️ users need this API
+
+# [`node:inspector`](https://nodejs.org/api/inspector.html)
+
+ℹ️ Partially polyfilled
 
 `console` is supported.
 
@@ -60,88 +91,114 @@ Other APIs are stubs and will throw an error. Due to security implications the
 Deno team does not plan to polyfill these APIs. // TODO: add an issue link if
 users need this API
 
-- ✅ [module](https://nodejs.org/api/module.html)
+# [`node:module`](https://nodejs.org/api/module.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ✅ [net](https://nodejs.org/api/net.html)
+# [`node:net`](https://nodejs.org/api/net.html)
 
-- ✅ [os](https://nodejs.org/api/os.html)
+✅
 
-Fully polyfilled
+# [`node:os`](https://nodejs.org/api/os.html)
 
-- ✅ [path](https://nodejs.org/api/path.html)
+✅ Fully polyfilled
 
-Fully polyfilled
+# [`node:path`](https://nodejs.org/api/path.html)
 
-- ✅ [path/posix](https://nodejs.org/api/path.html)
+✅ Fully polyfilled
 
-Fully polyfilled
+# [`node:path/posix`](https://nodejs.org/api/path.html)
 
-- ✅ [path/win32](https://nodejs.org/api/path.html)
+✅ Fully polyfilled
 
-Fully polyfilled
+# [`node:path/win32`](https://nodejs.org/api/path.html)
 
-- ✅ [perf_hooks](https://nodejs.org/api/perf_hooks.html)
+✅ Fully polyfilled
 
-Fully polyfilled
+# [`node:perf_hooks`](https://nodejs.org/api/perf_hooks.html)
 
-- ✅ / ℹ️ [process](https://nodejs.org/api/process.html)
+✅ Fully polyfilled
+
+# ✅ `node:/ ℹ️ [process`](https://nodejs.org/api/process.html)
 
 // TODO: Some APIs are stubs, check which...
 
-- ✅ [punycode](https://nodejs.org/api/punycode.html)
+# [`node:punycode`](https://nodejs.org/api/punycode.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ✅ [querystring](https://nodejs.org/api/querystring.html)
+# [`node:querystring`](https://nodejs.org/api/querystring.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ✅ [readline](https://nodejs.org/api/readline.html)
+# [`node:readline`](https://nodejs.org/api/readline.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ℹ️ [repl](https://nodejs.org/api/repl.html)
+# [`node:repl`](https://nodejs.org/api/repl.html)
+
+ℹ️ Partially polyfilled
 
 `builtinModules` and `_builtinLibs` are supported.
 
 Other APIs are stubs and will throw an error. // TODO: add an issue link if
 users need this API
 
-- ✅ [stream](https://nodejs.org/api/stream.html)
+# [`node:stream`](https://nodejs.org/api/stream.html)
 
-- ✅ [stream/promises](https://nodejs.org/api/stream.html)
+✅
 
-- ℹ️ [stream/web](https://nodejs.org/api/stream.html)
+# [`node:stream/promises`](https://nodejs.org/api/stream.html)
 
-- ✅ [string_decoder](https://nodejs.org/api/string_decoder.html)
+✅
 
-- ✅ [sys](https://nodejs.org/api/sys.html)
+# [`node:stream/web`](https://nodejs.org/api/stream.html)
 
-- ✅ [timers](https://nodejs.org/api/timers.html)
+ℹ️ Partially polyfilled
 
-Fully polyfilled
+# [`node:string_decoder`](https://nodejs.org/api/string_decoder.html)
 
-- ✅ [timers/promises](https://nodejs.org/api/timers.html)
+✅
 
-Fully polyfilled
+# [`node:sys`](https://nodejs.org/api/sys.html)
 
-- ❌ [tls](https://nodejs.org/api/tls.html)
+✅
 
-- ❌ [trace_events](https://nodejs.org/api/trace_events.html)
+# [`node:timers`](https://nodejs.org/api/timers.html)
 
-- ℹ️ [tty](https://nodejs.org/api/tty.html)
+✅ Fully polyfilled
 
-- ✅ [url](https://nodejs.org/api/url.html)
+# [`node:timers/promises`](https://nodejs.org/api/timers.html)
 
-Fully polyfilled
+✅ Fully polyfilled
 
-- ℹ️ [util](https://nodejs.org/api/util.html)
+# [`node:tls`](https://nodejs.org/api/tls.html)
 
-- ℹ️ [util/types](https://nodejs.org/api/util.html)
+❌
 
-- ℹ️ [v8](https://nodejs.org/api/v8.html)
+# [`node:trace_events`](https://nodejs.org/api/trace_events.html)
+
+❌
+
+# [`node:tty`](https://nodejs.org/api/tty.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:url`](https://nodejs.org/api/url.html)
+
+✅ Fully polyfilled
+
+# [`node:util`](https://nodejs.org/api/util.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:util/types`](https://nodejs.org/api/util.html)
+
+ℹ️ Partially polyfilled
+
+# [`node:v8`](https://nodejs.org/api/v8.html)
+
+ℹ️ Partially polyfilled
 
 `cachedDataVersionTag` and `getHeapStatistics` are supported.
 
@@ -152,19 +209,25 @@ be polyfilled, but due inherent lack of format stability between the V8
 versions, the Deno team is considering requiring a special flag to use them. //
 TODO: add an issue link if users need this API
 
-- ℹ️ [vm](https://nodejs.org/api/vm.html)
+# [`node:vm`](https://nodejs.org/api/vm.html)
+
+ℹ️ Partially polyfilled
 
 `runInThisContext` is supported.
 
 Other APIs are not polyfilled and will throw and error. // TODO: add an issue
 link if users need this API
 
-- ✅ [wasi](https://nodejs.org/api/wasi.html)
+# [`node:wasi`](https://nodejs.org/api/wasi.html)
 
-- ❌ [webcrypto](https://nodejs.org/api/webcrypto.html)
+✅
 
-- ✅ / ℹ️ [worker_threads](https://nodejs.org/api/worker_threads.html)
+# [`node:webcrypto`](https://nodejs.org/api/webcrypto.html)
 
-- ✅ [zlib](https://nodejs.org/api/zlib.html)
+❌
 
-Fully polyfilled
+# ✅ `node:/ ℹ️ [worker_threads`](https://nodejs.org/api/worker_threads.html)
+
+# [`node:zlib`](https://nodejs.org/api/zlib.html)
+
+✅ Fully polyfilled
