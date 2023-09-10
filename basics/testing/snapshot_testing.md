@@ -116,7 +116,10 @@ snapshot file.
 
 ```ts, ignore
 // example_test.ts
-import { assertSnapshot, serialize } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
+import {
+  assertSnapshot,
+  serialize,
+} from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
 import { stripColor } from "https://deno.land/std@$STD_VERSION/fmt/colors.ts";
 
 /**
@@ -211,7 +214,7 @@ Deno.test("isSnapshotMatch", async function (t): Promise<void> {
     example: 123,
   };
   await assertSnapshot(t, a, {
-    name: "Test Name"
+    name: "Test Name",
   });
 });
 ```

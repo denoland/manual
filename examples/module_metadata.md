@@ -47,7 +47,10 @@ function outputA() {
     "Is module A the main module via import.meta.main?",
     import.meta.main,
   );
-  console.log("Resolved specifier for ./module_b.ts", import.meta.resolve("./module_b.ts"));
+  console.log(
+    "Resolved specifier for ./module_b.ts",
+    import.meta.resolve("./module_b.ts"),
+  );
 }
 
 outputA();
