@@ -1,12 +1,20 @@
 ## Supported modules
 
+// TODO: verify all links are correct
+
 - ✅ [assert](https://nodejs.org/api/assert.html)
 
 - ⚠️ [assert/strict](https://nodejs.org/api/assert.html)
 
 - ⚠️ [async_hooks](https://nodejs.org/api/async_hooks.html)
 
+`AsyncLocalStorage` is supported. `AsyncResource`, `executionAsyncId`, and
+`createHook` are stubs that do nothing. // TODO: add an issue link if users need
+this API
+
 - ✅ [buffer](https://nodejs.org/api/buffer.html)
+
+Fully polyfilled
 
 - ⚠️ [child_process](https://nodejs.org/api/child_process.html)
 
@@ -14,13 +22,15 @@
 
 - ⚠️ [console](https://nodejs.org/api/console.html)
 
-- ⚠️ [constants](https://nodejs.org/api/constants.html)
+- ✅ [constants](https://nodejs.org/api/constants.html)
+
+Fully polyfilled
 
 - ⚠️ [crypto](https://nodejs.org/api/crypto.html)
 
 - ⚠️ [dgram](https://nodejs.org/api/dgram.html)
 
-- ⚠️ [diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
+- ✅ [diagnostics_channel](https://nodejs.org/api/diagnostics_channel.html)
 
 - ⚠️ [dns](https://nodejs.org/api/dns.html)
 
@@ -30,37 +40,74 @@
 
 - ⚠️ [fs/promises](https://nodejs.org/api/fs.html)
 
-- ⚠️ [http](https://nodejs.org/api/http.html)
+- ✅/⚠️ [http](https://nodejs.org/api/http.html)
 
-- ❌ [http2](https://nodejs.org/api/http2.html)
+`createConnection` option is currently not supported. // TODO: add an issue link
+if users need this API
 
-- ⚠️ [https](https://nodejs.org/api/https.html)
+- ⚠️ [http2](https://nodejs.org/api/http2.html)
+
+Partially polyfilled, major work in progress to enable `grpc-js`.
+
+- ⚠️ [https](https://nodejs.org/api/https.html) // TODO: add an issue link if
+  users need this API
 
 - ⚠️ [inspector](https://nodejs.org/api/inspector.html)
 
+`console` is supported.
+
+Other APIs are stubs and will throw an error. Due to security implications the
+Deno team does not plan to polyfill these APIs. // TODO: add an issue link if
+users need this API
+
 - ✅ [module](https://nodejs.org/api/module.html)
+
+Fully polyfilled
 
 - ✅ [net](https://nodejs.org/api/net.html)
 
-- ⚠️ [os](https://nodejs.org/api/os.html)
+- ✅ [os](https://nodejs.org/api/os.html)
+
+Fully polyfilled
 
 - ✅ [path](https://nodejs.org/api/path.html)
 
+Fully polyfilled
+
 - ✅ [path/posix](https://nodejs.org/api/path.html)
+
+Fully polyfilled
 
 - ✅ [path/win32](https://nodejs.org/api/path.html)
 
+Fully polyfilled
+
 - ✅ [perf_hooks](https://nodejs.org/api/perf_hooks.html)
 
-- ⚠️ [process](https://nodejs.org/api/process.html)
+Fully polyfilled
+
+- ✅/⚠️ [process](https://nodejs.org/api/process.html)
+
+// TODO: Some APIs are stubs, check which...
 
 - ✅ [punycode](https://nodejs.org/api/punycode.html)
 
+Fully polyfilled
+
 - ✅ [querystring](https://nodejs.org/api/querystring.html)
+
+Fully polyfilled
 
 - ✅ [readline](https://nodejs.org/api/readline.html)
 
+Fully polyfilled
+
 - ⚠️ [repl](https://nodejs.org/api/repl.html)
+
+`builtinModules` and `_builtinLibs` are supported.
+
+Other APIs are stubs and will throw an error. // TODO: add an issue link if
+users need this API
 
 - ✅ [stream](https://nodejs.org/api/stream.html)
 
@@ -74,7 +121,11 @@
 
 - ✅ [timers](https://nodejs.org/api/timers.html)
 
+Fully polyfilled
+
 - ✅ [timers/promises](https://nodejs.org/api/timers.html)
+
+Fully polyfilled
 
 - ❌ [tls](https://nodejs.org/api/tls.html)
 
@@ -84,18 +135,36 @@
 
 - ✅ [url](https://nodejs.org/api/url.html)
 
+Fully polyfilled
+
 - ⚠️ [util](https://nodejs.org/api/util.html)
 
 - ⚠️ [util/types](https://nodejs.org/api/util.html)
 
-- ❌ [v8](https://nodejs.org/api/v8.html)
+- ⚠️ [v8](https://nodejs.org/api/v8.html)
+
+`cachedDataVersionTag` and `getHeapStatistics` are supported.
+
+`setFlagsFromStrings` is a noop.
+
+Other APIs are not polyfilled and will throw and error. The other APIs _could_
+be polyfilled, but due inherent lack of format stability between the V8
+versions, the Deno team is considering requiring a special flag to use them. //
+TODO: add an issue link if users need this API
 
 - ⚠️ [vm](https://nodejs.org/api/vm.html)
+
+`runInThisContext` is supported.
+
+Other APIs are not polyfilled and will throw and error. // TODO: add an issue
+link if users need this API
 
 - ✅ [wasi](https://nodejs.org/api/wasi.html)
 
 - ❌ [webcrypto](https://nodejs.org/api/webcrypto.html)
 
-- ✅ [worker_threads](https://nodejs.org/api/worker_threads.html)
+- ✅/⚠️ [worker_threads](https://nodejs.org/api/worker_threads.html)
 
 - ✅ [zlib](https://nodejs.org/api/zlib.html)
+
+Fully polyfilled
