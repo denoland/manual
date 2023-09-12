@@ -1,6 +1,6 @@
 # Supported modules
 
-// TODO: verify all links are correct
+This is a list of Node APIs that Deno polyfills. If you run into an issue with an API listed here or with a package, please [open an issue](https://github.com/denoland/deno).
 
 ## Built-in modules
 
@@ -246,7 +246,7 @@ Other APIs are not polyfilled and will throw and error.
 
 ❌ Missing
 
-### ℹ️ [`node:worker_threads`](https://nodejs.org/api/worker_threads.html)
+### [`node:worker_threads`](https://nodejs.org/api/worker_threads.html)
 
 ℹ️ Partially polyfilled
 
@@ -260,306 +260,81 @@ Missing `Options.prototype.constructor`, `BrotliOptions.prototype.constructor`, 
 
 ## Globals
 
-### [`AbortController`](https://nodejs.org/api/globals.html#class-abortcontroller)
-
-✅ Fully polyfilled
-
-### [`AbortSignal`](https://nodejs.org/api/globals.html#class-abortsignal)
-
-✅ Fully polyfilled
-
-### [`Blob`](https://nodejs.org/api/globals.html#class-blob)
-
-✅ Fully polyfilled
-
-### [`Buffer`](https://nodejs.org/api/globals.html#class-buffer)
-
-✅ Fully polyfilled
-
-### [`ByteLengthQueuingStrategy`](https://nodejs.org/api/globals.html#class-bytelengthqueuingstrategy)
-
-✅ Fully polyfilled
-
-### [`__dirname`](https://nodejs.org/api/globals.html#__dirname)
-
-✅ Fully polyfilled
-
-### [`__filename`](https://nodejs.org/api/globals.html#__filename)
-
-✅ Fully polyfilled
-
-### [`atob`](https://nodejs.org/api/globals.html#atobdata)
-
-✅ Fully polyfilled
-
-### [`BroadcastChannel`](https://nodejs.org/api/globals.html#broadcastchannel)
-
-✅ Fully polyfilled
-
-### [`btoa`](https://nodejs.org/api/globals.html#btoadata)
-
-✅ Fully polyfilled
-
-### [`clearImmediate`](https://nodejs.org/api/globals.html#clearimmediateimmediateobject)
-
-✅ Fully polyfilled
-
-### [`clearInterval`](https://nodejs.org/api/globals.html#clearintervalintervalobject)
-
-✅ Fully polyfilled
-
-### [`clearTimeout`](https://nodejs.org/api/globals.html#cleartimeouttimeoutobject)
-
-✅ Fully polyfilled
-
-### [`CompressionStream`](CompressionStream)
-
-✅ Fully polyfilled
-
-### [`console`](https://nodejs.org/api/globals.html#console)
-
-✅ Fully polyfilled
-
-### [`CountQueuingStrategy`](https://nodejs.org/api/globals.html#class-countqueuingstrategy)
-
-✅ Fully polyfilled
-
-### [`Crypto`](https://nodejs.org/api/globals.html#crypto)
-
-✅ Fully polyfilled
-
-### [`Crypto`](https://nodejs.org/api/globals.html#crypto)
-
-✅ Fully polyfilled
-
-### [`CryptoKey`](https://nodejs.org/api/globals.html#cryptokey)
-
-✅ Fully polyfilled
-
-### [`CryptoKey`](https://nodejs.org/api/globals.html#cryptokey)
-
-✅ Fully polyfilled
-
-### [`CustomEvent`](https://nodejs.org/api/globals.html#customevent)
-
-✅ Fully polyfilled
-
-### [`CustomEvent`](https://nodejs.org/api/globals.html#customevent)
-
-✅ Fully polyfilled
-
-### [`DecompressionStream`](https://nodejs.org/api/globals.html#class-decompressionstream)
-
-✅ Fully polyfilled
-
-### [`Event`](https://nodejs.org/api/globals.html#event)
-
-✅ Fully polyfilled
-
-### [`EventTarget`](https://nodejs.org/api/globals.html#eventtarget)
-
-✅ Fully polyfilled
-
-### [`exports`](https://nodejs.org/api/globals.html#exports)
-
-✅ Fully polyfilled
-
-### [`fetch`](https://nodejs.org/api/globals.html#fetch)
-
-✅ Fully polyfilled
-
-### [`fetch`](https://nodejs.org/api/globals.html#fetch)
-
-✅ Fully polyfilled
-
-### [`File`](https://nodejs.org/api/globals.html#class-file)
-
-✅ Fully polyfilled
-
-### [`File`](https://nodejs.org/api/globals.html#class-file)
-
-✅ Fully polyfilled
-
-### [`FormData`](https://nodejs.org/api/globals.html#class-formdata)
-
-✅ Fully polyfilled
-
-### [`global`](https://nodejs.org/api/globals.html#global)
-
-✅ Fully polyfilled
-
-### [`Headers`](https://nodejs.org/api/globals.html#class-headers)
-
-✅ Fully polyfilled
-
-### [`MessageChannel`](https://nodejs.org/api/globals.html#messagechannel)
-
-✅ Fully polyfilled
-
-### [`MessageEvent`](https://nodejs.org/api/globals.html#messageevent)
-
-✅ Fully polyfilled
-
-### [`MessagePort`](https://nodejs.org/api/globals.html#messageport)
-
-✅ Fully polyfilled
-
-### [`module`](https://nodejs.org/api/globals.html#module)
-
-✅ Fully polyfilled
-
-### [`PerformanceEntry`](https://nodejs.org/api/globals.html#performanceentry)
-
-✅ Fully polyfilled
-
-### [`PerformanceMark`](https://nodejs.org/api/globals.html#performancemark)
-
-✅ Fully polyfilled
-
-### [`PerformanceMeasure`](https://nodejs.org/api/globals.html#performancemeasure)
-
-✅ Fully polyfilled
-
-### [`PerformanceObserver`](https://nodejs.org/api/globals.html#performanceobserver)
-
-✅ Fully polyfilled
-
-### [`PerformanceObserverEntryList`](https://nodejs.org/api/globals.html#performanceobserverentrylist)
-
-❌ Missing
-
-### [`PerformanceResourceTiming`](https://nodejs.org/api/globals.html#performanceresourcetiming)
-
-❌ Missing
-
-### [`performance`](https://nodejs.org/api/globals.html#performance)
-
-✅ Fully polyfilled
-
-### [`process`](https://nodejs.org/api/globals.html#process)
-
-✅ Fully polyfilled
-
-### [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)
-
-✅ Fully polyfilled
-
-### [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)
-
-✅ Fully polyfilled
-
-### [`ReadableByteStreamController`](https://nodejs.org/api/globals.html#class-readablebytestreamcontroller)
-
-✅ Fully polyfilled
-
-### [`ReadableStream`](https://nodejs.org/api/globals.html#class-readablestream)
-
-✅ Fully polyfilled
-
-### [`ReadableStreamBYOBReader`](https://nodejs.org/api/globals.html#class-readablestreambyobreader)
-
-✅ Fully polyfilled
-
-### [`ReadableStreamBYOBRequest`](https://nodejs.org/api/globals.html#class-readablestreambyobrequest)
-
-✅ Fully polyfilled
-
-### [`ReadableStreamDefaultController`](https://nodejs.org/api/globals.html#class-readablestreamdefaultcontroller)
-
-✅ Fully polyfilled
-
-### [`ReadableStreamDefaultReader`](https://nodejs.org/api/globals.html#class-readablestreamdefaultreader)
-
-✅ Fully polyfilled
-
-### [`require`](https://nodejs.org/api/globals.html#require)
-
-✅ Fully polyfilled
-
-### [`Response`](https://nodejs.org/api/globals.html#response)
-
-✅ Fully polyfilled
-
-### [`Request`](https://nodejs.org/api/globals.html#request)
-
-✅ Fully polyfilled
-
-### [`setImmediate`](https://nodejs.org/api/globals.html#setimmediatecallback-args)
-
-✅ Fully polyfilled
-
-### [`setInterval`](https://nodejs.org/api/globals.html#setintervalcallback-delay-args)
-
-✅ Fully polyfilled
-
-### [`setTimeout`](https://nodejs.org/api/globals.html#settimeoutcallback-delay-args)
-
-✅ Fully polyfilled
-
-### [`structuredClone`](https://nodejs.org/api/globals.html#structuredclonevalue-options)
-
-✅ Fully polyfilled
-
-### [`structuredClone`](https://nodejs.org/api/globals.html#structuredclonevalue-options)
-
-✅ Fully polyfilled
-
-### [`SubtleCrypto`](https://nodejs.org/api/globals.html#subtlecrypto)
-
-✅ Fully polyfilled
-
-### [`DOMException`](https://nodejs.org/api/globals.html#domexception)
-
-✅ Fully polyfilled
-
-### [`TextDecoder`](https://nodejs.org/api/globals.html#textdecoder)
-
-✅ Fully polyfilled
-
-### [`TextDecoderStream`](https://nodejs.org/api/globals.html#class-textdecoderstream)
-
-✅ Fully polyfilled
-
-### [`TextEncoder`](https://nodejs.org/api/globals.html#textencoder)
-
-✅ Fully polyfilled
-
-### [`TextEncoderStream`](https://nodejs.org/api/globals.html#class-textencoderstream)
-
-✅ Fully polyfilled
-
-### [`TransformStream`](https://nodejs.org/api/globals.html#class-transformstream)
-
-✅ Fully polyfilled
-
-### [`TransformStreamDefaultController`](https://nodejs.org/api/globals.html#class-transformstreamdefaultcontroller)
-
-✅ Fully polyfilled
-
-### [`URL`](https://nodejs.org/api/globals.html#url)
-
-✅ Fully polyfilled
-
-### [`URLSearchParams`](https://nodejs.org/api/globals.html#urlsearchparams)
-
-✅ Fully polyfilled
-
-### [`URLSearchParams`](https://nodejs.org/api/globals.html#urlsearchparams)
-
-✅ Fully polyfilled
-
-### [`WebAssembly`](https://nodejs.org/api/globals.html#webassembly)
-
-✅ Fully polyfilled
-
-### [`WritableStream`](https://nodejs.org/api/globals.html#class-writablestream)
-
-✅ Fully polyfilled
-
-### [`WritableStreamDefaultController`](https://nodejs.org/api/globals.html#class-writablestreamdefaultcontroller)
-
-✅ Fully polyfilled
-
-### [`WritableStreamDefaultWriter`](https://nodejs.org/api/globals.html#class-writablestreamdefaultwriter)
-
-✅ Fully polyfilled
+This is the list of Node globals that Deno supports.
+
+| Global name                                                                                                      | Status |
+| ---------------------------------------------------------------------------------------------------------------- | ------ |
+| [`AbortController`](https://nodejs.org/api/globals.html#class-abortcontroller)                                   | ✅     |
+| [`AbortSignal`](https://nodejs.org/api/globals.html#class-abortsignal)                                           | ✅     |
+| [`Blob`](https://nodejs.org/api/globals.html#class-blob)                                                         | ✅     |
+| [`Buffer`](https://nodejs.org/api/globals.html#class-buffer)                                                     | ✅     |
+| [`ByteLengthQueuingStrategy`](https://nodejs.org/api/globals.html#class-bytelengthqueuingstrategy)               | ✅     |
+| [`__dirname`](https://nodejs.org/api/globals.html#__dirname)                                                     | ✅     |
+| [`__filename`](https://nodejs.org/api/globals.html#__filename)                                                   | ✅     |
+| [`atob`](https://nodejs.org/api/globals.html#atobdata)                                                           | ✅     |
+| [`BroadcastChannel`](https://nodejs.org/api/globals.html#broadcastchannel)                                       | ✅     |
+| [`btoa`](https://nodejs.org/api/globals.html#btoadata)                                                           | ✅     |
+| [`clearImmediate`](https://nodejs.org/api/globals.html#clearimmediateimmediateobject)                            | ✅     |
+| [`clearInterval`](https://nodejs.org/api/globals.html#clearintervalintervalobject)                               | ✅     |
+| [`clearTimeout`](https://nodejs.org/api/globals.html#cleartimeouttimeoutobject)                                  | ✅     |
+| [`CompressionStream`](https://nodejs.org/api/globals.html#class-compressionstream)                               | ✅     |
+| [`console`](https://nodejs.org/api/globals.html#console)                                                         | ✅     |
+| [`CountQueuingStrategy`](https://nodejs.org/api/globals.html#class-countqueuingstrategy)                         | ✅     |
+| [`Crypto`](https://nodejs.org/api/globals.html#crypto)                                                           | ✅     |
+| [`CryptoKey`](https://nodejs.org/api/globals.html#cryptokey)                                                     | ✅     |
+| [`CustomEvent`](https://nodejs.org/api/globals.html#customevent)                                                 | ✅     |
+| [`CustomEvent`](https://nodejs.org/api/globals.html#customevent)                                                 | ✅     |
+| [`DecompressionStream`](https://nodejs.org/api/globals.html#class-decompressionstream)                           | ✅     |
+| [`Event`](https://nodejs.org/api/globals.html#event)                                                             | ✅     |
+| [`EventTarget`](https://nodejs.org/api/globals.html#eventtarget)                                                 | ✅     |
+| [`exports`](https://nodejs.org/api/globals.html#exports)                                                         | ✅     |
+| [`fetch`](https://nodejs.org/api/globals.html#fetch)                                                             | ✅     |
+| [`fetch`](https://nodejs.org/api/globals.html#fetch)                                                             | ✅     |
+| [`File`](https://nodejs.org/api/globals.html#class-file)                                                         | ✅     |
+| [`File`](https://nodejs.org/api/globals.html#class-file)                                                         | ✅     |
+| [`FormData`](https://nodejs.org/api/globals.html#class-formdata)                                                 | ✅     |
+| [`global`](https://nodejs.org/api/globals.html#global)                                                           | ✅     |
+| [`Headers`](https://nodejs.org/api/globals.html#class-headers)                                                   | ✅     |
+| [`MessageChannel`](https://nodejs.org/api/globals.html#messagechannel)                                           | ✅     |
+| [`MessageEvent`](https://nodejs.org/api/globals.html#messageevent)                                               | ✅     |
+| [`MessagePort`](https://nodejs.org/api/globals.html#messageport)                                                 | ✅     |
+| [`module`](https://nodejs.org/api/globals.html#module)                                                           | ✅     |
+| [`PerformanceEntry`](https://nodejs.org/api/globals.html#performanceentry)                                       | ✅     |
+| [`PerformanceMark`](https://nodejs.org/api/globals.html#performancemark)                                         | ✅     |
+| [`PerformanceMeasure`](https://nodejs.org/api/globals.html#performancemeasure)                                   | ✅     |
+| [`PerformanceObserver`](https://nodejs.org/api/globals.html#performanceobserver)                                 | ✅     |
+| [`PerformanceObserverEntryList`](https://nodejs.org/api/globals.html#performanceobserverentrylist)               | ❌     |
+| [`PerformanceResourceTiming`](https://nodejs.org/api/globals.html#performanceresourcetiming)                     | ❌     |
+| [`performance`](https://nodejs.org/api/globals.html#performance)                                                 | ✅     |
+| [`process`](https://nodejs.org/api/globals.html#process)                                                         | ✅     |
+| [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)                                   | ✅     |
+| [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)                                   | ✅     |
+| [`ReadableByteStreamController`](https://nodejs.org/api/globals.html#class-readablebytestreamcontroller)         | ✅     |
+| [`ReadableStream`](https://nodejs.org/api/globals.html#class-readablestream)                                     | ✅     |
+| [`ReadableStreamBYOBReader`](https://nodejs.org/api/globals.html#class-readablestreambyobreader)                 | ✅     |
+| [`ReadableStreamBYOBRequest`](https://nodejs.org/api/globals.html#class-readablestreambyobrequest)               | ✅     |
+| [`ReadableStreamDefaultController`](https://nodejs.org/api/globals.html#class-readablestreamdefaultcontroller)   | ✅     |
+| [`ReadableStreamDefaultReader`](https://nodejs.org/api/globals.html#class-readablestreamdefaultreader)           | ✅     |
+| [`require`](https://nodejs.org/api/globals.html#require)                                                         | ✅     |
+| [`Response`](https://nodejs.org/api/globals.html#response)                                                       | ✅     |
+| [`Request`](https://nodejs.org/api/globals.html#request)                                                         | ✅     |
+| [`setImmediate`](https://nodejs.org/api/globals.html#setimmediatecallback-args)                                  | ✅     |
+| [`setInterval`](https://nodejs.org/api/globals.html#setintervalcallback-delay-args)                              | ✅     |
+| [`setTimeout`](https://nodejs.org/api/globals.html#settimeoutcallback-delay-args)                                | ✅     |
+| [`structuredClone`](https://nodejs.org/api/globals.html#structuredclonevalue-options)                            | ✅     |
+| [`structuredClone`](https://nodejs.org/api/globals.html#structuredclonevalue-options)                            | ✅     |
+| [`SubtleCrypto`](https://nodejs.org/api/globals.html#subtlecrypto)                                               | ✅     |
+| [`DOMException`](https://nodejs.org/api/globals.html#domexception)                                               | ✅     |
+| [`TextDecoder`](https://nodejs.org/api/globals.html#textdecoder)                                                 | ✅     |
+| [`TextDecoderStream`](https://nodejs.org/api/globals.html#class-textdecoderstream)                               | ✅     |
+| [`TextEncoder`](https://nodejs.org/api/globals.html#textencoder)                                                 | ✅     |
+| [`TextEncoderStream`](https://nodejs.org/api/globals.html#class-textencoderstream)                               | ✅     |
+| [`TransformStream`](https://nodejs.org/api/globals.html#class-transformstream)                                   | ✅     |
+| [`TransformStreamDefaultController`](https://nodejs.org/api/globals.html#class-transformstreamdefaultcontroller) | ✅     |
+| [`URL`](https://nodejs.org/api/globals.html#url)                                                                 | ✅     |
+| [`URLSearchParams`](https://nodejs.org/api/globals.html#urlsearchparams)                                         | ✅     |
+| [`URLSearchParams`](https://nodejs.org/api/globals.html#urlsearchparams)                                         | ✅     |
+| [`WebAssembly`](https://nodejs.org/api/globals.html#webassembly)                                                 | ✅     |
+| [`WritableStream`](https://nodejs.org/api/globals.html#class-writablestream)                                     | ✅     |
+| [`WritableStreamDefaultController`](https://nodejs.org/api/globals.html#class-writablestreamdefaultcontroller)   | ✅     |
+| [`WritableStreamDefaultWriter`](https://nodejs.org/api/globals.html#class-writablestreamdefaultwriter)           | ✅     |
