@@ -1,6 +1,8 @@
 # Supported modules
 
-This is a list of Node APIs that Deno polyfills. If you run into an issue with an API listed here or with a package, please [open an issue](https://github.com/denoland/deno).
+This is a list of Node APIs that Deno polyfills. If you run into an issue with
+an API listed here or with a package, please
+[open an issue](https://github.com/denoland/deno).
 
 ## Built-in modules
 
@@ -27,7 +29,8 @@ This is a list of Node APIs that Deno polyfills. If you run into an issue with a
 
 ℹ️ Partially polyfilled
 
-The `ipc` and `overlapped` stdio option are missing. Passing file descriptors by an integer value is missing.
+The `ipc` and `overlapped` stdio option are missing. Passing file descriptors by
+an integer value is missing.
 
 ### [`node:cluster`](https://nodejs.org/api/cluster.html)
 
@@ -43,7 +46,14 @@ All exports are stubs that do nothing.
 
 ℹ️ Partially polyfilled
 
-Missing `Certificate` class, `crypto.Cipheriv.prototype.setAutoPadding`, `crypto.Decipheriv.prototype.setAutoPaddin`, `crypto.getCipherInfo`, `crypto.publicDecrypt`, `crypto.ECDH.prototype.convertKey`, `crypto.diffieHellman`, `x448` option for `generateKeyPair`, `crypto.KeyObject`, `safe`, `add` and `rem` options for `generatePrime`, `crypto.Sign.prototype.sign` and `crypto.Verify.prototype.verify` with non `BinaryLike` input, `crypto.secureHeapUsed`, `crypto.setEngine`, legacy methods of `crypto.X509Certificate`.
+Missing `Certificate` class, `crypto.Cipheriv.prototype.setAutoPadding`,
+`crypto.Decipheriv.prototype.setAutoPaddin`, `crypto.getCipherInfo`,
+`crypto.publicDecrypt`, `crypto.ECDH.prototype.convertKey`,
+`crypto.diffieHellman`, `x448` option for `generateKeyPair`, `crypto.KeyObject`,
+`safe`, `add` and `rem` options for `generatePrime`,
+`crypto.Sign.prototype.sign` and `crypto.Verify.prototype.verify` with non
+`BinaryLike` input, `crypto.secureHeapUsed`, `crypto.setEngine`, legacy methods
+of `crypto.X509Certificate`.
 
 ### [`node:dgram`](https://nodejs.org/api/dgram.html)
 
@@ -67,7 +77,9 @@ Missing `dns.resolve*` with `ttl` option
 
 ℹ️ Partially polyfilled
 
-Missing `utf16le`, `latin1` and `ucs2` encoding for `fs.writeFile` and `fs.writeFileSync`. Missing `Dirent.isBlockDevice`, `Dirent.isCharacterDevice`, `Dirent.isFIFO`, `Dirent.isSocket`, `FSWatcher.ref`, `FSWatcher.unref`.
+Missing `utf16le`, `latin1` and `ucs2` encoding for `fs.writeFile` and
+`fs.writeFileSync`. Missing `Dirent.isBlockDevice`, `Dirent.isCharacterDevice`,
+`Dirent.isFIFO`, `Dirent.isSocket`, `FSWatcher.ref`, `FSWatcher.unref`.
 
 ### [`node:fs/promises`](https://nodejs.org/api/fs.html)
 
@@ -132,13 +144,15 @@ Missing `net.Socket.prototype.constructor` with `fd` option
 
 ℹ️ Partially polyfilled
 
-Missing `perf_hooks.eventLoopUtilization`, `perf_hooks.timerify`, `perf_hooks.monitorEventLoopDelay`.
+Missing `perf_hooks.eventLoopUtilization`, `perf_hooks.timerify`,
+`perf_hooks.monitorEventLoopDelay`.
 
 ### [`node:process`](https://nodejs.org/api/process.html)
 
 ℹ️ Partially polyfilled
 
-Missing `disconnect`, `message`, `multipleResolves`, `rejectionHandled` and `worker` events.
+Missing `disconnect`, `message`, `multipleResolves`, `rejectionHandled` and
+`worker` events.
 
 ### [`node:punycode`](https://nodejs.org/api/punycode.html)
 
@@ -250,13 +264,16 @@ Other APIs are not polyfilled and will throw and error.
 
 ℹ️ Partially polyfilled
 
-Missing `parentPort.emit`, `parentPort.removeAllListeners`, `markAsUntransferable`, `moveMessagePortToContext`, `receiveMessageOnPort`, `Worker.prototype.getHeapSnapshot`
+Missing `parentPort.emit`, `parentPort.removeAllListeners`,
+`markAsUntransferable`, `moveMessagePortToContext`, `receiveMessageOnPort`,
+`Worker.prototype.getHeapSnapshot`
 
 ### [`node:zlib`](https://nodejs.org/api/zlib.html)
 
 ℹ️ Partially polyfilled
 
-Missing `Options.prototype.constructor`, `BrotliOptions.prototype.constructor`, `BrotliDecompress.prototype.constructor`, `ZlibBase.prototype.constructor`
+Missing `Options.prototype.constructor`, `BrotliOptions.prototype.constructor`,
+`BrotliDecompress.prototype.constructor`, `ZlibBase.prototype.constructor`
 
 ## Globals
 
