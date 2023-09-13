@@ -1,301 +1,810 @@
-# Supported modules
-
-This is a list of Node APIs that Deno polyfills. If you run into an issue with
-an API listed here or with a package, please
-[open an issue](https://github.com/denoland/deno).
-
-## Built-in modules
-
-### [`node:assert`](https://nodejs.org/api/assert.html)
-
-✅ Fully supported
-
-### [`node:assert/strict`](https://nodejs.org/api/assert.html)
-
-✅ Fully supported
-
-### [`node:async_hooks`](https://nodejs.org/api/async_hooks.html)
-
-ℹ️ Partially supported
-
-`AsyncLocalStorage` is supported. `AsyncResource`, `executionAsyncId`, and
-`createHook` are stubs that do nothing.
-
-### [`node:buffer`](https://nodejs.org/api/buffer.html)
-
-✅ Fully supported
-
-### [`node:child_process`](https://nodejs.org/api/child_process.html)
-
-ℹ️ Partially supported
-
-The `ipc` and `overlapped` stdio option are missing. Passing file descriptors by
-an integer value is missing.
-
-### [`node:cluster`](https://nodejs.org/api/cluster.html)
-
-❌ Missing
-
-All exports are stubs that do nothing.
-
-### [`node:console`](https://nodejs.org/api/console.html)
-
-✅ Fully supported
-
-### [`node:crypto`](https://nodejs.org/api/crypto.html)
-
-ℹ️ Partially supported
-
-Missing `Certificate` class, `crypto.Cipheriv.prototype.setAutoPadding`,
-`crypto.Decipheriv.prototype.setAutoPaddin`, `crypto.getCipherInfo`,
-`crypto.publicDecrypt`, `crypto.ECDH.prototype.convertKey`,
-`crypto.diffieHellman`, `x448` option for `generateKeyPair`, `crypto.KeyObject`,
-`safe`, `add` and `rem` options for `generatePrime`,
-`crypto.Sign.prototype.sign` and `crypto.Verify.prototype.verify` with non
-`BinaryLike` input, `crypto.secureHeapUsed`, `crypto.setEngine`, legacy methods
-of `crypto.X509Certificate`.
-
-### [`node:dgram`](https://nodejs.org/api/dgram.html)
-
-ℹ️ Partially supported
-
-### [`node:diagnostics_channel`](https://nodejs.org/api/diagnostics_channel.html)
-
-✅ Fully supported
-
-### [`node:dns`](https://nodejs.org/api/dns.html)
-
-ℹ️ Partially supported
-
-Missing `dns.resolve*` with `ttl` option
-
-### [`node:dns/promises`](https://nodejs.org/api/dns.html#dns-promises-api)
-
-ℹ️ Partially supported
-
-Missing `dns.promises.resolve*` with `ttl` option
-
-### [`node:domain`](https://nodejs.org/api/domain.html)
-
-❌ Missing
-
-All exports are stubs that do nothing.
-
-### [`node:events`](https://nodejs.org/api/events.html)
-
-✅ Fully supported
-
-### [`node:fs`](https://nodejs.org/api/fs.html)
-
-ℹ️ Partially supported
-
-Missing `utf16le`, `latin1` and `ucs2` encoding for `fs.writeFile` and
-`fs.writeFileSync`. Missing `Dirent.isBlockDevice`, `Dirent.isCharacterDevice`,
-`Dirent.isFIFO`, `Dirent.isSocket`, `FSWatcher.ref`, `FSWatcher.unref`.
-
-### [`node:fs/promises`](https://nodejs.org/api/fs.html)
-
-ℹ️ Partially supported
-
-Missing `lchmod`, `lchown`, `lutimes`.
-
-### [`node:http`](https://nodejs.org/api/http.html)
-
-ℹ️ Partially supported
-
-`createConnection` option is currently not supported.
-
-### [`node:http2`](https://nodejs.org/api/http2.html)
-
-ℹ️ Partially supported
-
-Partially supported, major work in progress to enable `grpc-js`.
-
-### [`node:https`](https://nodejs.org/api/https.html)
-
-ℹ️ Partially supported
-
-Missing `https.Server.opts.cert` and `https.Server.opts.key` array type
-
-### [`node:inspector`](https://nodejs.org/api/inspector.html)
-
-ℹ️ Partially supported
-
-`console` is supported.
-
-Other APIs are stubs and will throw an error. Due to security implications the
-Deno team does not plan to polyfill these APIs.
-
-### [`node:module`](https://nodejs.org/api/module.html)
-
-✅ Fully supported
-
-### [`node:net`](https://nodejs.org/api/net.html)
-
-ℹ️ Partially supported
-
-Missing `net.Socket.prototype.constructor` with `fd` option
-
-### [`node:os`](https://nodejs.org/api/os.html)
-
-✅ Fully supported
-
-### [`node:path`](https://nodejs.org/api/path.html)
-
-✅ Fully supported
-
-### [`node:path/posix`](https://nodejs.org/api/path.html)
-
-✅ Fully supported
-
-### [`node:path/win32`](https://nodejs.org/api/path.html)
-
-✅ Fully supported
-
-### [`node:perf_hooks`](https://nodejs.org/api/perf_hooks.html)
-
-ℹ️ Partially supported
-
-Missing `perf_hooks.eventLoopUtilization`, `perf_hooks.timerify`,
-`perf_hooks.monitorEventLoopDelay`.
-
-### [`node:process`](https://nodejs.org/api/process.html)
-
-ℹ️ Partially supported
-
-Missing `disconnect`, `message`, `multipleResolves`, `rejectionHandled` and
-`worker` events.
-
-### [`node:punycode`](https://nodejs.org/api/punycode.html)
-
-✅ Fully supported
-
-### [`node:querystring`](https://nodejs.org/api/querystring.html)
-
-✅ Fully supported
-
-### [`node:readline`](https://nodejs.org/api/readline.html)
-
-✅ Fully supported
-
-### [`node:repl`](https://nodejs.org/api/repl.html)
-
-ℹ️ Partially supported
-
-`builtinModules` and `_builtinLibs` are supported.
-
-Missing `REPLServer.prototype.constructor` and `start()`.
-
-### [`node:stream`](https://nodejs.org/api/stream.html)
-
-✅ Fully supported
-
-### [`node:stream/consumers`](https://nodejs.org/api/stream.html)
-
-✅ Fully supported
-
-### [`node:stream/promises`](https://nodejs.org/api/stream.html)
-
-✅ Fully supported
-
-### [`node:stream/web`](https://nodejs.org/api/stream.html)
-
-ℹ️ Partially supported
-
-### [`node:string_decoder`](https://nodejs.org/api/string_decoder.html)
-
-ℹ️ Partially supported
-
-Missing decoding of `ascii`, `latin1` and `utf16le` decoding options
-
-### [`node:sys`](https://nodejs.org/api/util.html)
-
-✅ Fully supported, see `node:util`
-
-### [`node:test](https://nodejs.org/api/test.html)
-
-ℹ️ Partially supported
-
-Currently only `test` API is supported.
-
-### [`node:timers`](https://nodejs.org/api/timers.html)
-
-✅ Fully supported
-
-### [`node:timers/promises`](https://nodejs.org/api/timers.html)
-
-✅ Fully supported
-
-### [`node:tls`](https://nodejs.org/api/tls.html)
-
-ℹ️ Partially supported
-
-Missing `createSecurePair`
-
-### [`node:trace_events`](https://nodejs.org/api/tracing.html)
-
-❌ Missing
-
-### [`node:tty`](https://nodejs.org/api/tty.html)
-
-ℹ️ Partially supported
-
-Missing `ReadStream` and `WriteStream` implementation.
-
-### [`node:url`](https://nodejs.org/api/url.html)
-
-✅ Fully supported
-
-### [`node:util`](https://nodejs.org/api/util.html)
-
-✅ Fully supported
-
-### [`node:util/types`](https://nodejs.org/api/util.html)
-
-✅ Fully supported
-
-### [`node:v8`](https://nodejs.org/api/v8.html)
-
-ℹ️ Partially supported
-
-`cachedDataVersionTag` and `getHeapStatistics` are supported.
-
-`setFlagsFromStrings` is a noop.
-
-Other APIs are not supported and will throw and error. The other APIs _could_ be
-polyfilled, but due inherent lack of format stability between the V8 versions,
-the Deno team is considering requiring a special flag to use them.
-
-### [`node:vm`](https://nodejs.org/api/vm.html)
-
-ℹ️ Partially supported
-
-`runInThisContext` is supported.
-
-Other APIs are not polyfilled and will throw and error.
-
-### [`node:wasi`](https://nodejs.org/api/wasi.html)
-
-❌ Missing
-
-### [`node:webcrypto`](https://nodejs.org/api/webcrypto.html)
-
-❌ Missing
-
-### [`node:worker_threads`](https://nodejs.org/api/worker_threads.html)
-
-ℹ️ Partially supported
-
-Missing `parentPort.emit`, `parentPort.removeAllListeners`,
-`markAsUntransferable`, `moveMessagePortToContext`, `receiveMessageOnPort`,
-`Worker.prototype.getHeapSnapshot`
-
-### [`node:zlib`](https://nodejs.org/api/zlib.html)
-
-ℹ️ Partially supported
-
-Missing `Options.prototype.constructor`, `BrotliOptions.prototype.constructor`,
-`BrotliDecompress.prototype.constructor`, `ZlibBase.prototype.constructor`
+# Support status for Node.js APIs and Globals
+
+Deno provides polyfills for a number of built-in Node.js modules and globals.
+Node compatibility is an ongoing project - help us identify gaps and let us know
+which modules you need by
+[opening an issue on GitHub](https://github.com/denoland/deno).
+
+### Built-in modules
+
+<table>
+
+<tr>
+  <th>Module</th>
+  <th>Support&nbsp;Level</th>
+  <th>Notes</th>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/assert.html">
+      <code>node:assert</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/assert.html">
+      <code>node:assert/strict</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/async_hooks.html">
+      <code>node:async_hooks</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <code>AsyncLocalStorage</code> is supported.
+    <code>AsyncResource</code>,
+    <code>executionAsyncId</code>, and
+    <code>createHook</code> are non-functional stubs.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/buffer.html">
+      <code>node:buffer</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/child_process.html">
+      <code>node:child_process</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    The <code>ipc</code> and <code>overlapped</code> stdio options are missing.
+    Passing file descriptors by an integer value is missing.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/cluster.html">
+      <code>node:cluster</code>
+    </a>
+  </td>
+  <td>
+    ❌ Missing
+  </td>
+  <td>
+    All exports are non-functional stubs.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/console.html">
+      <code>node:console</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/crypto.html">
+      <code>node:crypto</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    Missing <code>Certificate</code> class,
+    <code>crypto.Cipheriv.prototype.setAutoPadding</code>,
+    <code>crypto.Decipheriv.prototype.setAutoPadding</code>,
+    <code>crypto.getCipherInfo</code>, <code>crypto.publicDecrypt</code>,
+    <code>crypto.ECDH.prototype.convertKey</code>,
+    <code>crypto.diffieHellman</code>, <code>x448</code> option for
+    <code>generateKeyPair</code>, <code>crypto.KeyObject</code>,
+    <code>safe</code>, <code>add</code> and <code>rem</code> options for
+    <code>generatePrime</code>, <code>crypto.Sign.prototype.sign</code> and
+    <code>crypto.Verify.prototype.verify</code> with non <code>BinaryLike</code>
+    input, <code>crypto.secureHeapUsed</code>, <code>crypto.setEngine</code>,
+    legacy methods of <code>crypto.X509Certificate</code>.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/dgram.html">
+      <code>node:dgram</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/diagnostics_channel.html">
+      <code>node:diagnostics_channel</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/dns.html">
+      <code>node:dns</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>Missing <code>dns.resolve*</code> with <code>ttl</code> option.</p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/domain.html">
+      <code>node:domain</code>
+    </a>
+  </td>
+  <td>
+    ❌ Missing
+  </td>
+  <td>
+    All exports are non-functional stubs.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/events.html">
+      <code>node:events</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/fs.html">
+      <code>node:fs</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>utf16le</code>, <code>latin1</code> and <code>ucs2</code>
+      encoding for <code>fs.writeFile</code> and
+      <code>fs.writeFileSync</code>. Missing <code>Dirent.isBlockDevice</code>,
+      <code>Dirent.isCharacterDevice</code>,
+      <code>Dirent.isFIFO</code>, <code>Dirent.isSocket</code>,
+      <code>FSWatcher.ref</code>, <code>FSWatcher.unref</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/fs.html">
+      <code>node:fs/promises</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>lchmod</code>, <code>lchown</code>, <code>lutimes</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/http.html">
+      <code>node:http</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      <code>createConnection</code> option is currently not supported.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/http2.html">
+      <code>node:http2</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Partially supported, major work in progress to enable <code>grpc-js</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/https.html">
+      <code>node:https</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>https.Server.opts.cert</code> and
+      <code>https.Server.opts.key</code> array type.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/inspector.html">
+      <code>node:inspector</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      <code>console</code> is supported. Other APIs are stubs and will throw an
+      error. Due to security implications the Deno team does not plan to
+      polyfill these APIs.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/module.html">
+      <code>node:module</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/net.html">
+      <code>node:net</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>net.Socket.prototype.constructor</code> with <code>fd</code>
+      option.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/os.html">
+      <code>node:os</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/path.html">
+      <code>node:path</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/path.html">
+      <code>node:path/posix</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/path.html">
+      <code>node:path/win32</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/perf_hooks.html">
+      <code>node:perf_hooks</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>perf_hooks.eventLoopUtilization</code>,
+      <code>perf_hooks.timerify</code>,
+      <code>perf_hooks.monitorEventLoopDelay</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/process.html">
+      <code>node:process</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>disconnect</code>, <code>message</code>,
+      <code>multipleResolves</code>, <code>rejectionHandled</code> and
+      <code>worker</code> events.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/punycode.html">
+      <code>node:punycode</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/querystring.html">
+      <code>node:querystring</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/readline.html">
+      <code>node:readline</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/repl.html">
+      <code>node:repl</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      <code>builtinModules</code> and <code>_builtinLibs</code> are supported.
+      Missing <code>REPLServer.prototype.constructor</code> and
+      <code>start()</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/stream.html">
+      <code>node:stream</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/stream.html">
+      <code>node:stream/consumers</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/stream.html">
+      <code>node:stream/promises</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/stream.html">
+      <code>node:stream/web</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/string_decoder.html">
+      <code>node:string_decoder</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing decoding of <code>ascii</code>, <code>latin1</code> and
+      <code>utf16le</code> decoding options.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/util.html">
+      <code>node:sys</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+    <p>See <code>node:util</code>.
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/test.html">
+      <code>node:test</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Currently only <code>test</code> API is supported.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/timers.html">
+      <code>node:timers</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/timers.html">
+      <code>node:timers/promises</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/tls.html">
+      <code>node:tls</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>createSecurePair</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/trace_events.html">
+      <code>node:trace_events</code>
+    </a>
+  </td>
+  <td>
+    ❌ Missing
+  </td>
+  <td>
+    <p>
+      All exports are non-functional stubs.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/tty.html">
+      <code>node:tty</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>ReadStream</code> and <code>WriteStream</code>
+      implementation.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/url.html">
+      <code>node:url</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/util.html">
+      <code>node:util</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/util.html">
+      <code>node:util/types</code>
+    </a>
+  </td>
+  <td>
+    ✅ Full
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/v8.html">
+      <code>node:v8</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      <code>cachedDataVersionTag</code> and <code>getHeapStatistics</code> are
+      supported. <code>setFlagsFromStrings</code> is a noop. Other APIs are not
+      supported and will throw and error. The other APIs <em>could</em> be
+      polyfilled, but due inherent lack of format stability between the V8
+      versions, the Deno team is considering requiring a special flag to use
+      them.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/vm.html">
+      <code>node:vm</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      <code>runInThisContext</code> is supported. Other APIs are not polyfilled
+      and will throw and error.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/wasi.html">
+      <code>node:wasi</code>
+    </a>
+  </td>
+  <td>
+    ❌ Missing
+  </td>
+  <td>
+    <p>
+      All exports are non-functional stubs.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/webcrypto.html">
+      <code>node:webcrypto</code>
+    </a>
+  </td>
+  <td>
+    ❌ Missing
+  </td>
+  <td>
+    <p>
+      All exports are non-functional stubs.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/worker_threads.html">
+      <code>node:worker_threads</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>parentPort.emit</code>,
+      <code>parentPort.removeAllListeners</code>,
+      <code>markAsUntransferable</code>, <code>moveMessagePortToContext</code>,
+      <code>receiveMessageOnPort</code>,
+      <code>Worker.prototype.getHeapSnapshot</code>.
+    </p>
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <a href="https://nodejs.org/api/zlib.html">
+      <code>node:zlib</code>
+    </a>
+  </td>
+  <td>
+    ℹ️ Partial
+  </td>
+  <td>
+    <p>
+      Missing <code>Options.prototype.constructor</code>,
+      <code>BrotliOptions.prototype.constructor</code>,
+      <code>BrotliDecompress.prototype.constructor</code>,
+      <code>ZlibBase.prototype.constructor</code>.
+    </p>
+  </td>
+</tr>
+
+</table>
 
 ## Globals
 
