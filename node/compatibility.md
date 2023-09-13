@@ -625,7 +625,7 @@ which modules you need by
 
 <tr>
   <td>
-    <a href="https://nodejs.org/api/trace_events.html">
+    <a href="https://nodejs.org/api/tracing.html">
       <code>node:trace_events</code>
     </a>
   </td>
