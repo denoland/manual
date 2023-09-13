@@ -856,7 +856,6 @@ This is the list of Node globals that Deno supports.
 | [`performance`](https://nodejs.org/api/globals.html#performance)                                                 | ✅     |
 | [`process`](https://nodejs.org/api/globals.html#process)                                                         | ✅     |
 | [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)                                   | ✅     |
-| [`queueMicrotask`](https://nodejs.org/api/globals.html#queuemicrotaskcallback)                                   | ✅     |
 | [`ReadableByteStreamController`](https://nodejs.org/api/globals.html#class-readablebytestreamcontroller)         | ✅     |
 | [`ReadableStream`](https://nodejs.org/api/globals.html#class-readablestream)                                     | ✅     |
 | [`ReadableStreamBYOBReader`](https://nodejs.org/api/globals.html#class-readablestreambyobreader)                 | ✅     |
