@@ -69,6 +69,18 @@ of `crypto.X509Certificate`.
 
 Missing `dns.resolve*` with `ttl` option
 
+### [`node:dns/promises`](https://nodejs.org/api/dns.html#dns-promises-api)
+
+ℹ️ Partially supported
+
+Missing `dns.promises.resolve*` with `ttl` option
+
+### [`node:domain`](https://nodejs.org/api/domain.html)
+
+❌ Missing
+
+All exports are stubs that do nothing.
+
 ### [`node:events`](https://nodejs.org/api/events.html)
 
 ✅ Fully supported
@@ -178,6 +190,10 @@ Missing `REPLServer.prototype.constructor` and `start()`.
 
 ✅ Fully supported
 
+### [`node:stream/consumers`](https://nodejs.org/api/stream.html)
+
+✅ Fully supported
+
 ### [`node:stream/promises`](https://nodejs.org/api/stream.html)
 
 ✅ Fully supported
@@ -195,6 +211,12 @@ Missing decoding of `ascii`, `latin1` and `utf16le` decoding options
 ### [`node:sys`](https://nodejs.org/api/util.html)
 
 ✅ Fully supported, see `node:util`
+
+### [`node:test](https://nodejs.org/api/test.html)
+
+ℹ️ Partially supported
+
+Currently only `test` API is supported.
 
 ### [`node:timers`](https://nodejs.org/api/timers.html)
 
