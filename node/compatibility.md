@@ -192,9 +192,9 @@ Missing `REPLServer.prototype.constructor` and `start()`.
 
 Missing decoding of `ascii`, `latin1` and `utf16le` decoding options
 
-### [`node:sys`](https://nodejs.org/api/sys.html)
+### [`node:sys`](https://nodejs.org/api/util.html)
 
-✅ Fully polyfilled
+✅ Fully polyfilled, see `node:util`
 
 ### [`node:timers`](https://nodejs.org/api/timers.html)
 
