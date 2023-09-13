@@ -8,26 +8,26 @@ an API listed here or with a package, please
 
 ### [`node:assert`](https://nodejs.org/api/assert.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:assert/strict`](https://nodejs.org/api/assert.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:async_hooks`](https://nodejs.org/api/async_hooks.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `AsyncLocalStorage` is supported. `AsyncResource`, `executionAsyncId`, and
 `createHook` are stubs that do nothing.
 
 ### [`node:buffer`](https://nodejs.org/api/buffer.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:child_process`](https://nodejs.org/api/child_process.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 The `ipc` and `overlapped` stdio option are missing. Passing file descriptors by
 an integer value is missing.
@@ -40,11 +40,11 @@ All exports are stubs that do nothing.
 
 ### [`node:console`](https://nodejs.org/api/console.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:crypto`](https://nodejs.org/api/crypto.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `Certificate` class, `crypto.Cipheriv.prototype.setAutoPadding`,
 `crypto.Decipheriv.prototype.setAutoPaddin`, `crypto.getCipherInfo`,
@@ -57,25 +57,25 @@ of `crypto.X509Certificate`.
 
 ### [`node:dgram`](https://nodejs.org/api/dgram.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 ### [`node:diagnostics_channel`](https://nodejs.org/api/diagnostics_channel.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:dns`](https://nodejs.org/api/dns.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `dns.resolve*` with `ttl` option
 
 ### [`node:events`](https://nodejs.org/api/events.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:fs`](https://nodejs.org/api/fs.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `utf16le`, `latin1` and `ucs2` encoding for `fs.writeFile` and
 `fs.writeFileSync`. Missing `Dirent.isBlockDevice`, `Dirent.isCharacterDevice`,
@@ -83,31 +83,31 @@ Missing `utf16le`, `latin1` and `ucs2` encoding for `fs.writeFile` and
 
 ### [`node:fs/promises`](https://nodejs.org/api/fs.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `lchmod`, `lchown`, `lutimes`.
 
 ### [`node:http`](https://nodejs.org/api/http.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `createConnection` option is currently not supported.
 
 ### [`node:http2`](https://nodejs.org/api/http2.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
-Partially polyfilled, major work in progress to enable `grpc-js`.
+Partially supported, major work in progress to enable `grpc-js`.
 
 ### [`node:https`](https://nodejs.org/api/https.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `https.Server.opts.cert` and `https.Server.opts.key` array type
 
 ### [`node:inspector`](https://nodejs.org/api/inspector.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `console` is supported.
 
@@ -116,59 +116,59 @@ Deno team does not plan to polyfill these APIs.
 
 ### [`node:module`](https://nodejs.org/api/module.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:net`](https://nodejs.org/api/net.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `net.Socket.prototype.constructor` with `fd` option
 
 ### [`node:os`](https://nodejs.org/api/os.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:path`](https://nodejs.org/api/path.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:path/posix`](https://nodejs.org/api/path.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:path/win32`](https://nodejs.org/api/path.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:perf_hooks`](https://nodejs.org/api/perf_hooks.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `perf_hooks.eventLoopUtilization`, `perf_hooks.timerify`,
 `perf_hooks.monitorEventLoopDelay`.
 
 ### [`node:process`](https://nodejs.org/api/process.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `disconnect`, `message`, `multipleResolves`, `rejectionHandled` and
 `worker` events.
 
 ### [`node:punycode`](https://nodejs.org/api/punycode.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:querystring`](https://nodejs.org/api/querystring.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:readline`](https://nodejs.org/api/readline.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:repl`](https://nodejs.org/api/repl.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `builtinModules` and `_builtinLibs` are supported.
 
@@ -176,37 +176,37 @@ Missing `REPLServer.prototype.constructor` and `start()`.
 
 ### [`node:stream`](https://nodejs.org/api/stream.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:stream/promises`](https://nodejs.org/api/stream.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:stream/web`](https://nodejs.org/api/stream.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 ### [`node:string_decoder`](https://nodejs.org/api/string_decoder.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing decoding of `ascii`, `latin1` and `utf16le` decoding options
 
 ### [`node:sys`](https://nodejs.org/api/util.html)
 
-✅ Fully polyfilled, see `node:util`
+✅ Fully supported, see `node:util`
 
 ### [`node:timers`](https://nodejs.org/api/timers.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:timers/promises`](https://nodejs.org/api/timers.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:tls`](https://nodejs.org/api/tls.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `createSecurePair`
 
@@ -216,37 +216,37 @@ Missing `createSecurePair`
 
 ### [`node:tty`](https://nodejs.org/api/tty.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `ReadStream` and `WriteStream` implementation.
 
 ### [`node:url`](https://nodejs.org/api/url.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:util`](https://nodejs.org/api/util.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:util/types`](https://nodejs.org/api/util.html)
 
-✅ Fully polyfilled
+✅ Fully supported
 
 ### [`node:v8`](https://nodejs.org/api/v8.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `cachedDataVersionTag` and `getHeapStatistics` are supported.
 
 `setFlagsFromStrings` is a noop.
 
-Other APIs are not polyfilled and will throw and error. The other APIs _could_
+Other APIs are not supported and will throw and error. The other APIs _could_
 be polyfilled, but due inherent lack of format stability between the V8
 versions, the Deno team is considering requiring a special flag to use them.
 
 ### [`node:vm`](https://nodejs.org/api/vm.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 `runInThisContext` is supported.
 
@@ -262,7 +262,7 @@ Other APIs are not polyfilled and will throw and error.
 
 ### [`node:worker_threads`](https://nodejs.org/api/worker_threads.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `parentPort.emit`, `parentPort.removeAllListeners`,
 `markAsUntransferable`, `moveMessagePortToContext`, `receiveMessageOnPort`,
@@ -270,7 +270,7 @@ Missing `parentPort.emit`, `parentPort.removeAllListeners`,
 
 ### [`node:zlib`](https://nodejs.org/api/zlib.html)
 
-ℹ️ Partially polyfilled
+ℹ️ Partially supported
 
 Missing `Options.prototype.constructor`, `BrotliOptions.prototype.constructor`,
 `BrotliDecompress.prototype.constructor`, `ZlibBase.prototype.constructor`
