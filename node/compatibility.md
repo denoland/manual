@@ -143,7 +143,7 @@ which modules you need by
     </a>
   </td>
   <td>
-    ℹ️ Partial
+    ℹ️ Full
   </td>
   <td>
   </td>
@@ -528,7 +528,7 @@ which modules you need by
     </a>
   </td>
   <td>
-    ℹ️ Partial
+    ✅ Full
   </td>
   <td>
   </td>
