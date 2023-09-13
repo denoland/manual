@@ -240,9 +240,9 @@ Missing `ReadStream` and `WriteStream` implementation.
 
 `setFlagsFromStrings` is a noop.
 
-Other APIs are not supported and will throw and error. The other APIs _could_
-be polyfilled, but due inherent lack of format stability between the V8
-versions, the Deno team is considering requiring a special flag to use them.
+Other APIs are not supported and will throw and error. The other APIs _could_ be
+polyfilled, but due inherent lack of format stability between the V8 versions,
+the Deno team is considering requiring a special flag to use them.
 
 ### [`node:vm`](https://nodejs.org/api/vm.html)
 
