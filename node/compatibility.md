@@ -210,7 +210,7 @@ Missing decoding of `ascii`, `latin1` and `utf16le` decoding options
 
 Missing `createSecurePair`
 
-### [`node:trace_events`](https://nodejs.org/api/trace_events.html)
+### [`node:trace_events`](https://nodejs.org/api/tracing.html)
 
 ❌ Missing
 
