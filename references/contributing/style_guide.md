@@ -57,12 +57,6 @@ The TypeScript portion of the code base is the standard library `std`.
 
 ### Use TypeScript instead of JavaScript.
 
-### Use the term "module" instead of "library" or "package".
-
-For clarity and consistency, avoid the terms "library" and "package". Instead
-use "module" to refer to a single JS or TS file and also to refer to a directory
-of TS/JS code.
-
 ### Do not use the filename `index.ts`/`index.js`.
 
 Deno does not treat "index.js" or "index.ts" in a special way. By using these
@@ -319,7 +313,7 @@ test myTestFunction ... ok
 Example of test:
 
 ```ts, ignore
-import { assertEquals } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 import { foo } from "./mod.ts";
 
 Deno.test("myTestFunction", function () {

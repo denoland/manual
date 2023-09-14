@@ -189,7 +189,7 @@ default which provides the ability to run a test from within the editor.
 When you have a block of code that provides a test, like:
 
 ```ts
-import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assert } from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 
 Deno.test({
   name: "a test case",
