@@ -751,22 +751,6 @@ which modules you need by
 
 <tr>
   <td>
-    <a href="https://nodejs.org/api/webcrypto.html">
-      <code>node:webcrypto</code>
-    </a>
-  </td>
-  <td>
-    ❌ Missing
-  </td>
-  <td>
-    <p>
-      All exports are non-functional stubs.
-    </p>
-  </td>
-</tr>
-
-<tr>
-  <td>
     <a href="https://nodejs.org/api/worker_threads.html">
       <code>node:worker_threads</code>
     </a>
@@ -809,6 +793,9 @@ which modules you need by
 ## Globals
 
 This is the list of Node globals that Deno supports.
+
+These globals are only available in the `npm` package scope. In your own code
+you can use them by importing them from the relevant `node:` module.
 
 | Global name                                                                                                      | Status |
 | ---------------------------------------------------------------------------------------------------------------- | ------ |
