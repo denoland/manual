@@ -16,7 +16,7 @@ memory.
 
 ## Example
 
-**Command:** `deno run --allow-read --allow-net file_server.ts`
+**Command:** `deno run --allow-read=. --allow-net file_server.ts`
 
 ```ts
 // Start listening on port 8080 of localhost.

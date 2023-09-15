@@ -2,14 +2,11 @@
 
 Deno currently has three HTTP Server APIs:
 
-- [`serve` in the `std/http` module](https://deno.land/std@$STD_VERSION/http/server.ts):
-  part of the standard library, high-level.
-- [`Deno.serve`](https://deno.land/api@$CLI_VERSION?unstable&s=Deno.serve):
-  native, _higher-level_, supports only http/1.1, but is fast, unstable.
+- [`Deno.serve`](https://deno.land/api@$CLI_VERSION?s=Deno.serve): native,
+  _higher-level_, supports HTTP/1.1 and HTTP2, this is the preferred API to
+  write HTTP servers in Deno.
 - [`Deno.serveHttp`](https://deno.land/api@$CLI_VERSION?s=Deno.serveHttp):
-  native, _low-level_, supports http/2, stable.
-
-## `serve` from `std/http`
+  native, _low-level_, supports HTTP/1.1 and HTTP2.
 
 - [A "Hello World" server](#a-hello-world-server)
 - [Inspecting the incoming request](#inspecting-the-incoming-request)
@@ -20,45 +17,33 @@ Deno currently has three HTTP Server APIs:
 
 ### A "Hello World" server
 
-To start a HTTP server on a given port, you can use the `serve` function from
-[`std/http`](https://deno.land/std@$STD_VERSION/http). This function takes a
-handler function that will be called for each incoming request, and is expected
-to return a response (or a promise resolving to a response).
+To start a HTTP server on a given port, you can use the `Deno.serve` function.
+This function takes a handler function that will be called for each incoming
+request, and is expected to return a response (or a promise resolving to a
+response).
 
-Here is an example of a handler function that returns a "Hello, World!" response
-for each request:
+Here is an example of a server that returns a "Hello, World!" response for each
+request:
 
 ```ts
-function handler(req: Request): Response {
+Deno.serve((_req) => {
   return new Response("Hello, World!");
-}
+});
 ```
 
 > ℹ️ The handler can also return a `Promise<Response>`, which means it can be an
 > `async` function.
 
-To then listen on a port and handle requests you need to call the `serve`
-function from the `https://deno.land/std@$STD_VERSION/http/server.ts` module,
-passing in the handler as the first argument:
+By default `Deno.serve` will listen on port `8000`, but this can be changed by
+passing in a port number in options bag as the first or second argument:
 
 ```js
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
-
-serve(handler);
-```
-
-By default `serve` will listen on port `8000`, but this can be changed by
-passing in a port number in the second argument options bag:
-
-```js
-import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
-
 // To listen on port 4242.
-serve(handler, { port: 4242 });
-```
+Deno.serve({ port: 4242 }, handler);
 
-This same options bag can also be used to configure some other options, such as
-the hostname to listen on.
+// To listen on port 4500 and bind to 0.0.0.0.
+Deno.serve({ port: 4242, hostname: "0.0.0.0", handler });
+```
 
 ### Inspecting the incoming request
 
@@ -70,7 +55,7 @@ The request is passed in as the first argument to the handler function. Here is
 an example showing how to extract various parts of the request:
 
 ```ts
-async function handler(req: Request): Promise<Response> {
+Deno.serve(async (req) => {
   console.log("Method:", req.method);
 
   const url = new URL(req.url);
@@ -85,7 +70,7 @@ async function handler(req: Request): Promise<Response> {
   }
 
   return new Response("Hello, World!");
-}
+});
 ```
 
 > ⚠️ Be aware that the `req.text()` call can fail if the user hangs up the
@@ -104,7 +89,7 @@ Here is an example of returning a response with a 404 status code, a JSON body,
 and a custom header:
 
 ```ts
-function handler(req: Request): Response {
+Deno.serve((req) => {
   const body = JSON.stringify({ message: "NOT FOUND" });
   return new Response(body, {
     status: 404,
@@ -112,14 +97,14 @@ function handler(req: Request): Response {
       "content-type": "application/json; charset=utf-8",
     },
   });
-}
+});
 ```
 
 Response bodies can also be streams. Here is an example of a response that
 returns a stream of "Hello, World!" repeated every second:
 
 ```ts
-function handler(req: Request): Response {
+Deno.serve((req) => {
   let timer: number;
   const body = new ReadableStream({
     async start(controller) {
@@ -136,7 +121,7 @@ function handler(req: Request): Response {
       "content-type": "text/plain; charset=utf-8",
     },
   });
-}
+});
 ```
 
 > ℹ️ Note the `cancel` function here. This is called when the client hangs up the
@@ -155,40 +140,80 @@ function handler(req: Request): Response {
 > ℹ️ To use HTTPS, you will need a valid TLS certificate and a private key for
 > your server.
 
-To use HTTPS, use `serveTls` from the
-`https://deno.land/std@$STD_VERSION/http/server.ts` module instead of `serve`.
-This takes two extra arguments in the options bag: `certFile` and `keyFile`.
-These are paths to the certificate and key files, respectively.
+To use HTTPS, pass two extra arguments in the options bag: `cert` and `key`.
+These are contents of the certificate and key files, respectively.
 
 ```js
-import { serveTls } from "https://deno.land/std@$STD_VERSION/http/server.ts";
-
-serveTls(handler, {
+Deno.serve({
   port: 443,
-  certFile: "./cert.pem",
-  keyFile: "./key.pem",
-});
+  cert: Deno.readTextFileSync("./cert.pem"),
+  key: Deno.readTextFileSync("./key.pem"),
+}, handler);
 ```
 
 ### HTTP/2 support
 
-HTTP/2 support is "automatic" when using the _native_ APIs with Deno. You just
-need to create your server, and the server will handle HTTP/1 or HTTP/2 requests
-seamlessly.
+HTTP/2 support is "automatic" when using the HTTP server APIs with Deno. You
+just need to create your server, and the server will handle HTTP/1 or HTTP/2
+requests seamlessly.
+
+HTTP/2 is also supported over cleartext with prior knowledge.
+
+### Automatic body compression
+
+The HTTP server has built in automatic compression of response bodies. When a
+response is sent to a client, Deno determines if the response body can be safely
+compressed. This compression happens within the internals of Deno, so it is fast
+and efficient.
+
+Currently Deno supports gzip and brotli compression. A body is automatically
+compressed if the following conditions are true:
+
+- The request has an
+  [`Accept-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+  header which indicates the requester supports `br` for Brotli or `gzip`. Deno
+  will respect the preference of the
+  [quality value](https://developer.mozilla.org/en-US/docs/Glossary/Quality_values)
+  in the header.
+- The response includes a
+  [`Content-Type`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type)
+  which is considered compressible. (The list is derived from
+  [`jshttp/mime-db`](https://github.com/jshttp/mime-db/blob/master/db.json) with
+  the actual list
+  [in the code](https://github.com/denoland/deno/blob/v1.21.0/ext/http/compressible.rs).)
+- The response body is greater than 64 bytes.
+
+When the response body is compressed, Deno will set the Content-Encoding header
+to reflect the encoding as well as ensure the Vary header is adjusted or added
+to indicate what request headers affected the response.
+
+When is compression skipped? In addition to the logic above, there are a few
+other reasons why a response won’t be compressed automatically:
+
+- The response contains a `Content-Encoding` header. This indicates your server
+  has done some form of encoding already.
+- The response contains a
+  [`Content-Range`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+  header. This indicates that your server is responding to a range request,
+  where the bytes and ranges are negotiated outside of the control of the
+  internals to Deno.
+- The response has a
+  [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+  header which contains a
+  [`no-transform`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#other)
+  value. This indicates that your server doesn’t want Deno or any downstream
+  proxies to modify the response.
 
 ## `Deno.serveHttp`
 
-We generally recommnend that you use the `serve` API described above, as it
+We generally recommend that you use the `Deno.serve` API described above, as it
 handles all of the intricacies of parallel requests on a single connection,
 error handling, and so on. However, if you are interested creating your own
 robust and performant web servers in Deno, lower-level, _native_ HTTP server
 APIs are available as of Deno 1.9 and later.
 
-> ℹ️ These APIs were stabilized in Deno 1.13 and no longer require `--unstable`
-> flag.
-
 > ⚠️ You should probably not be using this API, as it is not easy to get right.
-> Use the `serve` API in the `std/http` library instead.
+> Use the `Deno.serve` API instead.
 
 ### Listening for a connection
 

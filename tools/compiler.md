@@ -4,7 +4,7 @@
 self-contained executable.
 
 ```
-> deno compile https://deno.land/std/examples/welcome.ts
+> deno compile https://examples.deno.land/hello-world.ts
 ```
 
 If you omit the `OUT` parameter, the name of the executable file will be
@@ -26,6 +26,41 @@ can be partially embedded.
 ```
 > deno compile --allow-read --allow-net https://deno.land/std/http/file_server.ts -p 8080
 > ./file_server --help
+```
+
+## Dynamic Imports
+
+By default, statically analyzable dynamic imports (imports that have the string
+literal within the `import("...")` call expression) will be included in the
+output.
+
+```ts, ignore
+// calculator.ts and its dependencies will be included in the binary
+const calculator = await import("./calculator.ts");
+```
+
+But non-statically analyzable dynamic imports won't:
+
+```ts, ignore
+const specifier = condition ? "./calc.ts" : "./better_calc.ts";
+const calculator = await import(specifier);
+```
+
+To include non-statically analyzable dynamic imports, specify an
+`--include <path>` flag.
+
+```shell
+deno compile --include calc.ts --include better_calc.ts main.ts
+```
+
+## Workers
+
+Similarly to non-statically analyzable dynamic imports, code for
+[workers](../runtime/workers.md) is not included in the compiled executable by
+default. You must use the `--include <path>` flag to include the worker code.
+
+```shell
+deno compile --include worker.ts main.ts
 ```
 
 ## Cross Compilation

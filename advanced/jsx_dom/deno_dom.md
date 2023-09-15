@@ -1,7 +1,6 @@
 # Using deno-dom with Deno
 
 [deno-dom](https://deno.land/x/deno_dom) is an implementation of DOM and HTML
-
 parser in Deno. It is implemented in Rust (via Wasm) and TypeScript. There is
 also a "native" implementation, leveraging the FFI interface.
 
@@ -21,7 +20,7 @@ first heading it encounters and print out the text content of that heading:
 
 ```ts
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
-import { assert } from "https://deno.land/std@$STD_VERSION/testing/asserts.ts";
+import { assert } from "https://deno.land/std@$STD_VERSION/assert/mod.ts";
 
 const document = new DOMParser().parseFromString(
   `<!DOCTYPE html>

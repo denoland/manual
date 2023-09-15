@@ -75,7 +75,7 @@ can be limited to only include existing snapshot files, if so desired.
 
 ## Version Control
 
-Snapshot testing works best when changes to snapshot files are comitted
+Snapshot testing works best when changes to snapshot files are committed
 alongside other code changes. This allows for changes to reference snapshots to
 be reviewed along side the code changes that caused them, and ensures that when
 others pull your changes, their tests will pass without needing to update
@@ -116,7 +116,10 @@ snapshot file.
 
 ```ts, ignore
 // example_test.ts
-import { assertSnapshot, serialize } from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
+import {
+  assertSnapshot,
+  serialize,
+} from "https://deno.land/std@$STD_VERSION/testing/snapshot.ts";
 import { stripColor } from "https://deno.land/std@$STD_VERSION/fmt/colors.ts";
 
 /**
@@ -211,7 +214,7 @@ Deno.test("isSnapshotMatch", async function (t): Promise<void> {
     example: 123,
   };
   await assertSnapshot(t, a, {
-    name: "Test Name"
+    name: "Test Name",
   });
 });
 ```
@@ -253,7 +256,7 @@ const assertSnapshot = createAssertSnapshot({
 When configuring default options like this, the resulting `assertSnapshot`
 function will function the same as the default function exported from the
 snapshot module. If passed an optional options object, this will take precedence
-over the default options, where the value provded for an option differs.
+over the default options, where the value provided for an option differs.
 
 It is possible to "extend" an `assertSnapshot` function which has been
 configured with default options.

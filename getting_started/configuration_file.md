@@ -37,7 +37,7 @@ import maps.
 Then your script can use the bare specifier `std`:
 
 ```js, ignore
-import { assertEquals } from "std/testing/assert.ts";
+import { assertEquals } from "std/assert/mod.ts";
 
 assertEquals(1, 2);
 ```
@@ -89,6 +89,7 @@ Configuration for [`deno fmt`](../tools/formatter.md)
     "useTabs": true,
     "lineWidth": 80,
     "indentWidth": 4,
+    "semiColons": true,
     "singleQuote": true,
     "proseWrap": "preserve",
     "include": ["src/"],

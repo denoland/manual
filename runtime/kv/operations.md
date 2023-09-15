@@ -5,7 +5,7 @@
 > Deno updates. We recommend that you backup your data regularly and consider
 > storing data in a secondary store for the time being.
 
-> 🌐 Deno KV is available in closed beta for Deno Deploy.
+> 🌐 Deno KV is available for Deno Deploy.
 > [Read the Deno Deploy KV docs](https://deno.com/deploy/docs/kv).
 
 The Deno KV API provides a set of operations that can be performed on the key
@@ -63,14 +63,14 @@ parts, but not inclusive of an exact match of the key. The prefix selector may
 optionally be given a `start` OR `end` key to limit the range of keys returned.
 The `start` key is inclusive, and the `end` key is exclusive.
 
-The `range` selector matches all keys that are lexographically between the given
+The range selector matches all keys that are lexicographically between the given
 `start` and `end` keys. The `start` key is inclusive, and the `end` key is
 exclusive.
 
 > Note: In the case of the prefix selector, the `prefix` key must consist only
 > of full (not partial) key parts. For example, if the key `["foo", "bar"]`
 > exists in the store, then the prefix selector `["foo"]` will match it, but the
-> prefix selector `["f"]` will not.
+> prefix selector `["f"]` will not. The range selector can use key parts.
 
 The list operation may optionally be given a `limit` to limit the number of keys
 returned.
@@ -109,7 +109,7 @@ for await (const res of iter) users.push(res);
 console.log(users[0]); // { key: ["users", "alex"], value: "alex", versionstamp: "00a44a3c3e53b9750000" }
 console.log(users[1]); // { key: ["users", "sam"], value: "sam", versionstamp: "00e0a2a0f0178b270000" }
 
-// Return all users starting with characters between "a" and "n"
+// Return all users starting with characters between "a" and "n" (range selector)
 const iter = kv.list<string>({ start: ["users", "a"], end: ["users", "n"] });
 const users = [];
 for await (const res of iter) users.push(res);

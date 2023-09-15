@@ -32,11 +32,11 @@ deno run first_steps.ts
 ```
 
 Deno also has the ability to execute scripts from URLs. Deno
-[hosts a library](https://deno.land/std@$STD_VERSION/examples) of example code,
-one of which is a `Hello World` program. To run that hosted code, do:
+[hosts a library](https://examples.deno.land/) of example code, one of which is
+a `Hello World` program. To run that hosted code, do:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/welcome.ts
+deno run https://examples.deno.land/hello-world.ts
 ```
 
 ## Making an HTTP request
@@ -50,15 +50,15 @@ make HTTP calls.
 In the `first_steps.ts` file you created above, paste the code below:
 
 ```ts
-const res = await fetch("https://deno.land");
+const res = await fetch("https://deno.com");
 const body = await res.text();
 console.log(body);
 ```
 
 Let's walk through what this application does:
 
-1. We make a request to the `https://deno.land`, await the response, and store
-   it in the `res` constant.
+1. We make a request to the `https://deno.com`, await the response, and store it
+   in the `res` constant.
 1. We parse the response body as a text and store in the `body` constant.
 1. We write the contents of the `body` constant to the console.
 
@@ -68,29 +68,36 @@ Try it out:
 deno run first_steps.ts
 ```
 
-Or, try this script hosted at
-`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
+Or, try this script hosted at `https://deno.land/std@0.198.0/examples/curl.ts`:
 
 ```shell
-deno run https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run https://deno.land/std@0.198.0/examples/curl.ts https://deno.com
 ```
 
-You will see this program returns an error regarding network access so what did
-we do wrong? You might remember from the introduction that Deno is a runtime
-that is secure by default. This means you need to explicitly give programs
-permission to do certain 'privileged' actions, such as access the network.
-
-Try it out again with the correct permission flag:
+The program will display a prompt like this:
 
 ```shell
-deno run --allow-net=deno.land first_steps.ts
+┌ ⚠️  Deno requests net access to "deno.com".
+├ Requested by `fetch()` API.
+├ Run again with --allow-net to bypass this prompt.
+└ Allow? [y/n/A] (y = yes, allow; n = no, deny; A = allow all net permissions) >
 ```
 
-Or, try this script hosted at
-`https://deno.land/std@$STD_VERSION/examples/curl.ts`:
+You might remember from the introduction that Deno is a runtime that is secure
+by default. This means you need to explicitly give programs permission to do
+certain 'privileged' actions, such as access the network.
+
+You can answer 'y' to the prompt, or try it out again with the correct
+permission flag:
 
 ```shell
-deno run --allow-net=deno.land https://deno.land/std@$STD_VERSION/examples/curl.ts https://deno.land
+deno run --allow-net=deno.com first_steps.ts
+```
+
+Or, using the curl script:
+
+```shell
+deno run --allow-net=deno.com https://deno.land/std@0.198.0/examples/curl.ts https://deno.com
 ```
 
 ## Reading a file
@@ -124,10 +131,10 @@ Try the program:
 
 ```shell
 # macOS / Linux
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts /etc/hosts
+deno run --allow-read https://deno.land/std@0.198.0/examples/cat.ts /etc/hosts
 
 # Windows
-deno run --allow-read https://deno.land/std@$STD_VERSION/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
+deno run --allow-read https://deno.land/std@0.198.0/examples/cat.ts "C:\Windows\System32\Drivers\etc\hosts"
 ```
 
 ## Putting it all together in an HTTP server
@@ -141,7 +148,7 @@ import { serve } from "https://deno.land/std@$STD_VERSION/http/server.ts";
 
 const handler = async (_request: Request): Promise<Response> => {
   const resp = await fetch("https://api.github.com/users/denoland", {
-    // The init object here has an headers object containing a
+    // The init object here has a headers object containing a
     // header that indicates what type of response we accept.
     // We're not specifying the method field since by default
     // fetch makes a GET request.

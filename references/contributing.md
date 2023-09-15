@@ -13,8 +13,8 @@ Repositories have different scopes, use different programming languages and have
 varying difficulty level when it comes to contributions.
 
 To help you decide which repository might be the best to start contributing
-(and/or falls into your interest), here's a short comparison (**languages in
-bold comprise most of the codebase**):
+(and/or falls into your interest), here's a short comparison (**codebases
+primarily comprise the languages in bold**):
 
 ### [`deno`](https://github.com/denoland/deno)
 
@@ -23,19 +23,50 @@ This is the main repository that provides the `deno` CLI.
 If you want to fix a bug or add a new feature to `deno` this is the repository
 you want to contribute to.
 
-Languages: **Rust**, **JavaScript**
+Some systems, including a large part of the Node.js compatibility layer are
+implemented in JavaScript and TypeScript modules. These are a good place to
+start if you are looking to make your first contribution.
+
+While iterating on such modules it is recommended to include
+`--features __runtime_js_sources` in your `cargo` flags. This is a special
+development mode where the JS/TS sources are not included in the binary but read
+at runtime, meaning the binary will not have to be rebuilt if they are changed.
+
+```sh
+# cargo build
+cargo build --features __runtime_js_sources
+
+# cargo run -- run hello.ts
+cargo run --features __runtime_js_sources -- run hello.ts
+
+# cargo test integration::node_unit_tests::os_test
+cargo test --features __runtime_js_sources integration::node_unit_tests::os_test
+```
+
+Also remember to reference this feature flag in your editor settings. For VSCode
+users, combine the following into your workspace file:
+
+```json
+{
+  "settings": {
+    "rust-analyzer.cargo.features": ["__runtime_js_sources"]
+  }
+}
+```
+
+Languages: **Rust**, **JavaScript**, **TypeScript**
 
 ### [`deno_std`](https://github.com/denoland/deno_std)
 
 The standard library for Deno.
 
-Languages: **TypeScript**, WebAssembly.
+Languages: **TypeScript**, WebAssembly
 
-### [`dotland`](https://github.com/denoland/dotland)
+### [`fresh`](https://github.com/denoland/fresh)
 
-Frontend for official Deno webpage: https://deno.land/
+The next-gen web framework.
 
-Languages: **TypeScript**, TSX, CSS
+Languages: **TypeScript**, TSX
 
 ### [`deno_lint`](https://github.com/denoland/deno_lint)
 
@@ -62,7 +93,7 @@ Rust bindings for the V8 JavaScript engine. Very technical and low-level.
 
 Languages: **Rust**
 
-### [`serde_v8`](https://github.com/denoland/deno/tree/main/serde_v8)
+### [`serde_v8`](https://github.com/denoland/deno_core/tree/main/serde_v8)
 
 Library that provides bijection layer between V8 and Rust objects. Based on
 [`serde`](https://crates.io/crates/serde) library. Very technical and low-level.
@@ -81,13 +112,13 @@ Official Docker images for Deno.
 
 - Ask for help in the [community chat room](https://discord.gg/deno).
 
-- If you are going to work on an issue, mention so in the issue comments
+- If you are going to work on an issue, mention so in the issue's comments
   _before_ you start working on the issue.
 
 - If you are going to work on a new feature, create an issue and discuss with
   other contributors _before_ you start working on the feature; we appreciate
-  all contributions, but not all proposed features are getting accepted. We
-  don't want you to spend hours working on a code that might not be accepted.
+  all contributions but not all proposed features will be accepted. We don't
+  want you to spend hours working on code that might not be accepted.
 
 - Please be professional in the forums. We follow
   [Rust's code of conduct](https://www.rust-lang.org/policies/code-of-conduct)
@@ -112,12 +143,12 @@ Examples of bad PR title:
 - update docs
 - fix bugs
 
-2. Ensure there is a related issue and it is referenced in the PR text.
+2. Ensure there is a related issue and that it is referenced in the PR text.
 3. Ensure there are tests that cover the changes.
 
 ## Submitting a PR to [`deno`](https://github.com/denoland/deno)
 
-Additionally to the above make sure that:
+In addition to the above make sure that:
 
 1. `cargo test` passes - this will run full test suite for `deno` including unit
    tests, integration tests and Web Platform Tests
@@ -130,7 +161,7 @@ Additionally to the above make sure that:
 
 ## Submitting a PR to [`deno_std`](https://github.com/denoland/deno_std)
 
-Additionally to the above make sure that:
+In addition to the above make sure that:
 
 1. All of the code you wrote is in `TypeScript` (ie. don't use `JavaScript`)
 
@@ -148,7 +179,13 @@ Additionally to the above make sure that:
 If you are submitting a PR to this manual, make sure that all imports of the
 standard library have the numeric version replaced with "$STD_VERSION".
 
-For the latest version go [here](https://deno.land/std@0.178.0/version.ts).
+For the latest version go [here](https://deno.land/std/version.ts).
+
+## Submitting a PR to [`fresh`](https://github.com/denoland/fresh)
+
+First, please be sure to
+[install Puppeteer](https://github.com/lucacasonato/deno-puppeteer#installation).
+Then, please ensure `deno task ok` is run and successfully passes.
 
 ## Documenting APIs
 
