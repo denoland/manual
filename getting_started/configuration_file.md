@@ -37,7 +37,7 @@ import maps.
 Then your script can use the bare specifier `std`:
 
 ```js, ignore
-import { assertEquals } from "std/testing/assert.ts";
+import { assertEquals } from "std/assert/mod.ts";
 
 assertEquals(1, 2);
 ```
@@ -107,6 +107,10 @@ Used to specify a different file name for the lockfile. By default deno will use
 
 Used to enable or disable the `node_modules` directory when using npm packages.
 
+## `npmRegistry`
+
+Used to specify a custom npm registry for npm specifiers.
+
 ## `compilerOptions`
 
 `deno.json` can also act as a TypeScript configuration file and supports
@@ -148,6 +152,7 @@ See also
   },
   "lock": false,
   "nodeModulesDir": true,
+  "npmRegistry": "https://mycompany.net/artifactory/api/npm/virtual-npm",
   "test": {
     "include": ["src/"],
     "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]

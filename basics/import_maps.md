@@ -40,7 +40,7 @@ written something similar in our `deno.json` configuration file:
 
 ## Example - Using deno_std's fmt module via `fmt/`
 
-**import_map.json**
+**deno.json**
 
 ```json
 {
@@ -62,7 +62,7 @@ console.log(red("hello world"));
 
 To use your project root for absolute imports:
 
-**import_map.json**
+**deno.json**
 
 ```jsonc
 {
